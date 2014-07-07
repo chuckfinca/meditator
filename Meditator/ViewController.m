@@ -22,16 +22,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    self.minutesPickerViewDelegateAndDataSource = [[MinutesPickerViewDelegateAndDataSource alloc] initWithOneComponentContainingRows:90];
-    self.minutesPickerView.delegate = _minutesPickerViewDelegateAndDataSource;
-    self.minutesPickerView.dataSource = _minutesPickerViewDelegateAndDataSource;
-}
-
--(MinutesPickerViewDelegateAndDataSource *)minutesPickerViewDelegateAndDataSource
-{
-    if(!_minutesPickerViewDelegateAndDataSource){
-    }
-    return _minutesPickerViewDelegateAndDataSource;
+    //[self setupPickerView];
 }
 
 
@@ -43,6 +34,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+
+
 
 
 

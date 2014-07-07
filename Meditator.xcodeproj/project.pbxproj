@@ -23,6 +23,9 @@
 		C9408033196B481900A55343 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9408031196B481900A55343 /* InfoPlist.strings */; };
 		C9408035196B481900A55343 /* MeditatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408034196B481900A55343 /* MeditatorTests.m */; };
 		C9408040196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C940803F196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m */; };
+		C9408043196B622F00A55343 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408042196B622F00A55343 /* SettingsTableViewController.m */; };
+		C9408047196B62D100A55343 /* MinutePickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408045196B62D100A55343 /* MinutePickerViewCell.m */; };
+		C9408048196B62D100A55343 /* MinutePickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9408046196B62D100A55343 /* MinutePickerViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,11 @@
 		C9408034196B481900A55343 /* MeditatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeditatorTests.m; sourceTree = "<group>"; };
 		C940803E196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinutesPickerViewDelegateAndDataSource.h; sourceTree = "<group>"; };
 		C940803F196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinutesPickerViewDelegateAndDataSource.m; sourceTree = "<group>"; };
+		C9408041196B622F00A55343 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
+		C9408042196B622F00A55343 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
+		C9408044196B62D100A55343 /* MinutePickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinutePickerViewCell.h; sourceTree = "<group>"; };
+		C9408045196B62D100A55343 /* MinutePickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinutePickerViewCell.m; sourceTree = "<group>"; };
+		C9408046196B62D100A55343 /* MinutePickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MinutePickerViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +135,11 @@
 				C940800D196B481800A55343 /* Supporting Files */,
 				C940803E196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.h */,
 				C940803F196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m */,
+				C9408041196B622F00A55343 /* SettingsTableViewController.h */,
+				C9408042196B622F00A55343 /* SettingsTableViewController.m */,
+				C9408044196B62D100A55343 /* MinutePickerViewCell.h */,
+				C9408045196B62D100A55343 /* MinutePickerViewCell.m */,
+				C9408046196B62D100A55343 /* MinutePickerViewCell.xib */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -236,6 +249,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9408048196B62D100A55343 /* MinutePickerViewCell.xib in Resources */,
 				C940801D196B481800A55343 /* Main_iPad.storyboard in Resources */,
 				C9408022196B481800A55343 /* Images.xcassets in Resources */,
 				C940801A196B481800A55343 /* Main_iPhone.storyboard in Resources */,
@@ -258,8 +272,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9408047196B62D100A55343 /* MinutePickerViewCell.m in Sources */,
 				C9408040196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m in Sources */,
 				C9408020196B481800A55343 /* ViewController.m in Sources */,
+				C9408043196B622F00A55343 /* SettingsTableViewController.m in Sources */,
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
 				C9408013196B481800A55343 /* main.m in Sources */,
 			);
