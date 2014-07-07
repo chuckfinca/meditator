@@ -24,7 +24,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
-                        <outlet property="timePickerView" destination="6fK-Zb-k5A" id="4QX-hk-FiL"/>
+                        <outlet property="minutesPickerView" destination="6fK-Zb-k5A" id="06W-Gz-Wwl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>

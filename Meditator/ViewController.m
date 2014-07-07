@@ -11,7 +11,8 @@
 
 @interface ViewController ()
 
-@property (weak, nonatomic) IBOutlet UIPickerView *timePickerView;
+@property (weak, nonatomic) IBOutlet UIPickerView *minutesPickerView;
+@property (nonatomic, strong) MinutesPickerViewDelegateAndDataSource *minutesPickerViewDelegateAndDataSource;
 
 @end
 
@@ -21,7 +22,21 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    self.minutesPickerViewDelegateAndDataSource = [[MinutesPickerViewDelegateAndDataSource alloc] initWithOneComponentContainingRows:90];
+    self.minutesPickerView.delegate = _minutesPickerViewDelegateAndDataSource;
+    self.minutesPickerView.dataSource = _minutesPickerViewDelegateAndDataSource;
 }
+
+-(MinutesPickerViewDelegateAndDataSource *)minutesPickerViewDelegateAndDataSource
+{
+    if(!_minutesPickerViewDelegateAndDataSource){
+    }
+    return _minutesPickerViewDelegateAndDataSource;
+}
+
+
+
+
 
 - (void)didReceiveMemoryWarning
 {
