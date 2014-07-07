@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
+#import "MinutesPickerViewDelegateAndDataSource.h"
 
 @interface ViewController ()
+
+@property (weak, nonatomic) IBOutlet UIPickerView *timePickerView;
 
 @end
 
@@ -25,5 +28,7 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
 
 @end

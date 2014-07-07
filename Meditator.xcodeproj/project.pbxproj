@@ -22,6 +22,7 @@
 		C940802B196B481900A55343 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C940800A196B481800A55343 /* UIKit.framework */; };
 		C9408033196B481900A55343 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9408031196B481900A55343 /* InfoPlist.strings */; };
 		C9408035196B481900A55343 /* MeditatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408034196B481900A55343 /* MeditatorTests.m */; };
+		C9408040196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C940803F196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		C9408030196B481900A55343 /* MeditatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeditatorTests-Info.plist"; sourceTree = "<group>"; };
 		C9408032196B481900A55343 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9408034196B481900A55343 /* MeditatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeditatorTests.m; sourceTree = "<group>"; };
+		C940803E196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinutesPickerViewDelegateAndDataSource.h; sourceTree = "<group>"; };
+		C940803F196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinutesPickerViewDelegateAndDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +125,8 @@
 				C940801F196B481800A55343 /* ViewController.m */,
 				C9408021196B481800A55343 /* Images.xcassets */,
 				C940800D196B481800A55343 /* Supporting Files */,
+				C940803E196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.h */,
+				C940803F196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -253,6 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9408040196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m in Sources */,
 				C9408020196B481800A55343 /* ViewController.m in Sources */,
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
 				C9408013196B481800A55343 /* main.m in Sources */,

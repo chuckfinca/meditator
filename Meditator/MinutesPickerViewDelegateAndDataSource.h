@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TimerPickerViewDelegateAndDataSource : NSObject
+@interface MinutesPickerViewDelegateAndDataSource : NSObject <UIPickerViewDataSource, UIPickerViewDelegate>
+
+-(id)initWithOneComponentContainingRows:(NSInteger)numberOfRows;
 
 @end
