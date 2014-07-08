@@ -27,6 +27,7 @@
 		C9408048196B62D100A55343 /* MinutePickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9408046196B62D100A55343 /* MinutePickerViewCell.xib */; };
 		C940804C196B6EE600A55343 /* SoundSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C940804A196B6EE600A55343 /* SoundSelectorCell.m */; };
 		C940804D196B6EE600A55343 /* SoundSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C940804B196B6EE600A55343 /* SoundSelectorCell.xib */; };
+		C9408053196CA31D00A55343 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408052196CA31D00A55343 /* TimerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,8 @@
 		C9408049196B6EE600A55343 /* SoundSelectorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundSelectorCell.h; sourceTree = "<group>"; };
 		C940804A196B6EE600A55343 /* SoundSelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundSelectorCell.m; sourceTree = "<group>"; };
 		C940804B196B6EE600A55343 /* SoundSelectorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoundSelectorCell.xib; sourceTree = "<group>"; };
+		C9408051196CA31D00A55343 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
+		C9408052196CA31D00A55343 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +138,8 @@
 				C940800D196B481800A55343 /* Supporting Files */,
 				C9408041196B622F00A55343 /* SettingsTableViewController.h */,
 				C9408042196B622F00A55343 /* SettingsTableViewController.m */,
+				C9408051196CA31D00A55343 /* TimerViewController.h */,
+				C9408052196CA31D00A55343 /* TimerViewController.m */,
 				C9408050196C99A600A55343 /* Cells */,
 			);
 			path = Meditator;
@@ -302,6 +307,7 @@
 			files = (
 				C9408047196B62D100A55343 /* MinutePickerViewCell.m in Sources */,
 				C9408040196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m in Sources */,
+				C9408053196CA31D00A55343 /* TimerViewController.m in Sources */,
 				C9408043196B622F00A55343 /* SettingsTableViewController.m in Sources */,
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
 				C940804C196B6EE600A55343 /* SoundSelectorCell.m in Sources */,

@@ -10,6 +10,8 @@
 
 @interface TimerViewController ()
 
+@property (nonatomic) NSInteger minutes;
+
 @end
 
 @implementation TimerViewController
@@ -29,12 +31,6 @@
     // Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 /*
 #pragma mark - Navigation
 
@@ -45,5 +41,25 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+-(void)setTimerDuration:(NSInteger)minutes
+{
+    self.minutes = minutes;
+}
+
+
+
+
+
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+    NSLog(@"TimerViewController didReceiveMemoryWarning...");
+}
+
 
 @end

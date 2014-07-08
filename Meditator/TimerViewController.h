@@ -10,4 +10,6 @@
 
 @interface TimerViewController : UIViewController
 
+-(void)setTimerDuration:(NSInteger)minutes;
+
 @end
