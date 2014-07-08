@@ -42,11 +42,17 @@
                             <outlet property="delegate" destination="2LW-A1-fsL" id="Spv-yj-fdy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="jNt-BR-ymA"/>
+                    <navigationItem key="navigationItem" id="jNt-BR-ymA">
+                        <barButtonItem key="rightBarButtonItem" title="START" id="j25-kZ-e4X">
+                            <connections>
+                                <action selector="start:" destination="2LW-A1-fsL" id="3Fp-y5-9Oa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZKS-SR-psD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="563" y="48"/>
+            <point key="canvasLocation" x="387" y="-183"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

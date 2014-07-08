@@ -132,6 +132,10 @@
 
 
 
+- (IBAction)start:(UIBarButtonItem *)sender
+{
+    NSLog(@"start");
+}
 
 
 
