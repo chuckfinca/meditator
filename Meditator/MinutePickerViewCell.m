@@ -45,14 +45,24 @@
     self.minutesPickerViewDelegateAndDataSource = [[MinutesPickerViewDelegateAndDataSource alloc] initWithOneComponentContainingRows:90];
     self.minutesPickerView.delegate = _minutesPickerViewDelegateAndDataSource;
     self.minutesPickerView.dataSource = _minutesPickerViewDelegateAndDataSource;
-    NSLog(@"-height = %f",self.minutesPickerView.bounds.size.height);
-    self.bounds = CGRectMake(0, 0, self.bounds.size.width, self.minutesPickerView.bounds.size.height);
     
     NSInteger previousSelection = [[NSUserDefaults standardUserDefaults] integerForKey:PICKER_VIEW_USER_SELECTION];
     if(!previousSelection){
         previousSelection = 14;
     }
     [self.minutesPickerView selectRow:previousSelection inComponent:0 animated:NO];
+    
+    self.bounds = CGRectMake(0, 0, self.bounds.size.width, self.minutesPickerView.bounds.size.height);
 }
+
+
+
+
+
+
+
+
+
+
 
 @end

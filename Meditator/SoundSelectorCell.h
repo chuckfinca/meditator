@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  SoundSelectorCell.h
 //  Meditator
 //
 //  Created by Charles Feinn on 7/7/14.
@@ -8,6 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+#define SOUND_SELECTOR_CELL_REUSE_IDENTIFIER @"SoundSelectorCell"
+
+@interface SoundSelectorCell : UITableViewCell
 
 @end

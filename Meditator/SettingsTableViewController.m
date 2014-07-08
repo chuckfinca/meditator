@@ -8,6 +8,7 @@
 
 #import "SettingsTableViewController.h"
 #import "MinutePickerViewCell.h"
+#import "SoundSelectorCell.h"
 
 @interface SettingsTableViewController ()
 
@@ -29,42 +30,76 @@
 {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"MinutePickerViewCell" bundle:nil] forCellReuseIdentifier:MINUTE_PICKER_VIEW_CELL_REUSE_IDENTIFIER];
+    
+    [self.tableView registerNib:[UINib nibWithNibName:@"SoundSelectorCell" bundle:nil] forCellReuseIdentifier:SOUND_SELECTOR_CELL_REUSE_IDENTIFIER];
 }
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    // Return the number of sections.
-    return 1;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    // Return the number of rows in the section.
     return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MinutePickerViewCell *minutePickerViewCell = [tableView dequeueReusableCellWithIdentifier:MINUTE_PICKER_VIEW_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
-    NSLog(@"height = %f",minutePickerViewCell.bounds.size.height);
-    // Configure the cell...
+    UITableViewCell *cell;
     
-    return minutePickerViewCell;
+    switch (indexPath.section) {
+        case 0:
+            cell = [tableView dequeueReusableCellWithIdentifier:MINUTE_PICKER_VIEW_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
+            break;
+            
+        case 1:
+            cell = [tableView dequeueReusableCellWithIdentifier:SOUND_SELECTOR_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
+            break;
+            
+        default:
+            break;
+    }
+    
+    return cell;
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    return @"Meditation length";
+    NSString *title;
+    switch (section) {
+        case 0:
+            title = @"Meditation length";
+            break;
+        case 1:
+            title = @"Completion sound";
+            break;
+            
+        default:
+            break;
+    }
+    return title;
 }
 
 #pragma mark - UITableViewDelegate
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    MinutePickerViewCell *minutePickerViewCell = [[[NSBundle mainBundle] loadNibNamed:@"MinutePickerViewCell" owner:self options:nil] firstObject];
-    return minutePickerViewCell.bounds.size.height;
+    UITableViewCell *cell;
+    switch (indexPath.section) {
+        case 0:
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"MinutePickerViewCell" owner:self options:nil] firstObject];
+            break;
+        case 1:
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"SoundSelectorCell" owner:self options:nil] firstObject];
+            break;
+            
+        default:
+            break;
+    }
+    return cell.bounds.size.height;
 }
 
 /*
