@@ -133,16 +133,9 @@
 				C940801B196B481800A55343 /* Main_iPad.storyboard */,
 				C9408021196B481800A55343 /* Images.xcassets */,
 				C940800D196B481800A55343 /* Supporting Files */,
-				C940803E196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.h */,
-				C940803F196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m */,
 				C9408041196B622F00A55343 /* SettingsTableViewController.h */,
 				C9408042196B622F00A55343 /* SettingsTableViewController.m */,
-				C9408044196B62D100A55343 /* MinutePickerViewCell.h */,
-				C9408045196B62D100A55343 /* MinutePickerViewCell.m */,
-				C9408046196B62D100A55343 /* MinutePickerViewCell.xib */,
-				C9408049196B6EE600A55343 /* SoundSelectorCell.h */,
-				C940804A196B6EE600A55343 /* SoundSelectorCell.m */,
-				C940804B196B6EE600A55343 /* SoundSelectorCell.xib */,
+				C9408050196C99A600A55343 /* Cells */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -174,6 +167,37 @@
 				C9408031196B481900A55343 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C940804E196C98F500A55343 /* Sound Selector */ = {
+			isa = PBXGroup;
+			children = (
+				C9408049196B6EE600A55343 /* SoundSelectorCell.h */,
+				C940804A196B6EE600A55343 /* SoundSelectorCell.m */,
+				C940804B196B6EE600A55343 /* SoundSelectorCell.xib */,
+			);
+			name = "Sound Selector";
+			sourceTree = "<group>";
+		};
+		C940804F196C991A00A55343 /* Minute Picker */ = {
+			isa = PBXGroup;
+			children = (
+				C940803E196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.h */,
+				C940803F196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m */,
+				C9408044196B62D100A55343 /* MinutePickerViewCell.h */,
+				C9408045196B62D100A55343 /* MinutePickerViewCell.m */,
+				C9408046196B62D100A55343 /* MinutePickerViewCell.xib */,
+			);
+			name = "Minute Picker";
+			sourceTree = "<group>";
+		};
+		C9408050196C99A600A55343 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				C940804F196C991A00A55343 /* Minute Picker */,
+				C940804E196C98F500A55343 /* Sound Selector */,
+			);
+			name = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

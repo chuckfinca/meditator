@@ -12,6 +12,8 @@
 
 @interface SettingsTableViewController ()
 
+@property (nonatomic, strong) MinutePickerViewCell *minutePickerViewCell;
+@property (nonatomic, strong) SoundSelectorCell *soundSelectorCell;
 
 @end
 
@@ -29,9 +31,24 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.tableView registerNib:[UINib nibWithNibName:@"MinutePickerViewCell" bundle:nil] forCellReuseIdentifier:MINUTE_PICKER_VIEW_CELL_REUSE_IDENTIFIER];
-    
-    [self.tableView registerNib:[UINib nibWithNibName:@"SoundSelectorCell" bundle:nil] forCellReuseIdentifier:SOUND_SELECTOR_CELL_REUSE_IDENTIFIER];
+}
+
+#pragma mark - Getters & Setters
+
+-(MinutePickerViewCell *)minutePickerViewCell
+{
+    if(!_minutePickerViewCell){
+        _minutePickerViewCell = [[[NSBundle mainBundle] loadNibNamed:@"MinutePickerViewCell" owner:self options:nil] firstObject];
+    }
+    return _minutePickerViewCell;
+}
+
+-(SoundSelectorCell *)soundSelectorCell
+{
+    if(!_soundSelectorCell){
+        _soundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"SoundSelectorCell" owner:self options:nil] firstObject];
+    }
+    return _soundSelectorCell;
 }
 
 #pragma mark - UITableViewDataSource
@@ -52,11 +69,11 @@
     
     switch (indexPath.section) {
         case 0:
-            cell = [tableView dequeueReusableCellWithIdentifier:MINUTE_PICKER_VIEW_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
+            cell = self.minutePickerViewCell;
             break;
             
         case 1:
-            cell = [tableView dequeueReusableCellWithIdentifier:SOUND_SELECTOR_CELL_REUSE_IDENTIFIER forIndexPath:indexPath];
+            cell = self.soundSelectorCell;
             break;
             
         default:
@@ -90,10 +107,10 @@
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"MinutePickerViewCell" owner:self options:nil] firstObject];
+            cell = self.minutePickerViewCell;
             break;
         case 1:
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"SoundSelectorCell" owner:self options:nil] firstObject];
+            cell = self.soundSelectorCell;
             break;
             
         default:
