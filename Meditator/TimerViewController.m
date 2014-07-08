@@ -46,6 +46,7 @@
 
 -(void)setTimerDuration:(NSInteger)minutes
 {
+    NSLog(@"timer duration = %ld",(long)minutes);
     self.minutes = minutes;
 }
 

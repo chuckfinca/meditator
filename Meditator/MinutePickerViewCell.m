@@ -11,7 +11,6 @@
 
 @interface MinutePickerViewCell ()
 
-@property (weak, nonatomic) IBOutlet UIPickerView *minutesPickerView;
 @property (nonatomic, strong) MinutesPickerViewDelegateAndDataSource *minutesPickerViewDelegateAndDataSource;
 
 @end

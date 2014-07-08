@@ -9,6 +9,7 @@
 #import "SettingsTableViewController.h"
 #import "MinutePickerViewCell.h"
 #import "SoundSelectorCell.h"
+#import "TimerViewController.h"
 
 @interface SettingsTableViewController ()
 
@@ -125,10 +126,10 @@
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
     if([segue.identifier isEqualToString:@"Timer Segue"]){
-        NSLog(@"Timer Segue");
+        TimerViewController *timerViewController = (TimerViewController *)segue.destinationViewController;
+        NSInteger minutes = [self.minutePickerViewCell.minutesPickerView selectedRowInComponent:0] + 1;
+        [timerViewController setTimerDuration:minutes];
     }
 }
 

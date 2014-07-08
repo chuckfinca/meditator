@@ -12,4 +12,6 @@
 
 @interface MinutePickerViewCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIPickerView *minutesPickerView;
+
 @end
