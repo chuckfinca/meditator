@@ -119,7 +119,7 @@
     return cell.bounds.size.height;
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -127,23 +127,25 @@
 {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([segue.identifier isEqualToString:@"Timer Segue"]){
+        NSLog(@"Timer Segue");
+    }
 }
-*/
 
 
+#pragma mark - Unwind Segue
 
-- (IBAction)start:(UIBarButtonItem *)sender
+-(IBAction)returningFromTimer:(UIStoryboardSegue *)segue
 {
-    NSLog(@"start");
+    NSLog(@"end");
 }
-
 
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
-    NSLog(@"SettingsTableViewController didReceiveMemoryWarning");
+    NSLog(@"SettingsTableViewController didReceiveMemoryWarning...");
 }
 
 
