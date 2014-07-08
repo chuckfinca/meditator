@@ -21,6 +21,11 @@
     
     if(self){
         _numberOfRows = numberOfRows;
+        _previouslySelectedRow = [[NSUserDefaults standardUserDefaults] integerForKey:PICKER_VIEW_USER_SELECTION];
+        
+        if(!_previouslySelectedRow){
+            _previouslySelectedRow = 14;
+        }
     }
     
     return self;
@@ -49,7 +54,7 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    [[NSUserDefaults standardUserDefaults] setInteger:row+1 forKey:PICKER_VIEW_USER_SELECTION];
+    [[NSUserDefaults standardUserDefaults] setInteger:row forKey:PICKER_VIEW_USER_SELECTION];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 

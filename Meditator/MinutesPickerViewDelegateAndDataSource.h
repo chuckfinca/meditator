@@ -12,6 +12,8 @@
 
 @interface MinutesPickerViewDelegateAndDataSource : NSObject <UIPickerViewDataSource, UIPickerViewDelegate>
 
+@property (nonatomic) NSInteger previouslySelectedRow;
+
 -(id)initWithOneComponentContainingRows:(NSInteger)numberOfRows;
 
 @end
