@@ -47,4 +47,15 @@
     return [@(row+1) stringValue];
 }
 
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    [[NSUserDefaults standardUserDefaults] setInteger:row+1 forKey:PICKER_VIEW_USER_SELECTION];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+
+
+
+
+
 @end

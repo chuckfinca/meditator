@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define PICKER_VIEW_USER_SELECTION @"PickerViewUserSelection"
+
 @interface MinutesPickerViewDelegateAndDataSource : NSObject <UIPickerViewDataSource, UIPickerViewDelegate>
 
 -(id)initWithOneComponentContainingRows:(NSInteger)numberOfRows;
