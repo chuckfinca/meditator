@@ -167,7 +167,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5H5-0d-1vW">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXo-oD-0w3" customClass="TimerView">
+                                <rect key="frame" x="110" y="254" width="100" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="2zt-Dp-wGW"/>
+                                    <constraint firstAttribute="width" constant="100" id="64E-xA-Q2Z"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5H5-0d-1vW">
                                 <rect key="frame" x="143" y="269" width="34" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="back">
@@ -177,13 +186,14 @@
                                     <segue destination="Z4Y-Ec-zW9" kind="unwind" unwindAction="returningFromTimer:" id="8DM-V2-FZk"/>
                                 </connections>
                             </button>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WXo-oD-0w3" customClass="TimerView">
-                                <rect key="frame" x="110" y="201" width="100" height="60"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="WXo-oD-0w3" secondAttribute="centerX" id="8hM-eU-Nd9"/>
+                            <constraint firstAttribute="centerY" secondItem="WXo-oD-0w3" secondAttribute="centerY" id="M7J-ro-noX"/>
+                            <constraint firstAttribute="centerX" secondItem="5H5-0d-1vW" secondAttribute="centerX" id="ins-BL-6ch"/>
+                            <constraint firstAttribute="centerY" secondItem="5H5-0d-1vW" secondAttribute="centerY" id="m0X-rd-l03"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="timerView" destination="WXo-oD-0w3" id="Oyv-oT-hKH"/>
