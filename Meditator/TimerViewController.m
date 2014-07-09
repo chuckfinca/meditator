@@ -64,7 +64,7 @@
 {
     self.intervalsRemaining--;
     float percentComplete = (float) self.intervalsRemaining / NUMBER_OF_TIMER_FIRES;
-    [self.timerView setStrokeEnd:1-percentComplete];
+    [self.timerView setStrokeEnd:percentComplete];
     
     if(self.intervalsRemaining == 0){
         [self reset];
