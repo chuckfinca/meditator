@@ -7,10 +7,17 @@
 //
 
 #import "TimerViewController.h"
+#import "TimerView.h"
+
+#define NUMBER_OF_TIMER_FIRES 1000
 
 @interface TimerViewController ()
 
-@property (nonatomic) NSInteger minutes;
+@property (weak, nonatomic) IBOutlet TimerView *timerView;
+
+@property (nonatomic, strong) NSTimer *timer;
+@property (nonatomic) NSInteger intervalsRemaining;
+@property (nonatomic) float timerInterval;
 
 @end
 
@@ -25,34 +32,53 @@
     return self;
 }
 
-- (void)viewDidLoad
+-(void)viewDidLoad
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+#pragma mark - Overwritten Methods
+
+-(BOOL)prefersStatusBarHidden
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    return YES;
 }
-*/
 
 
+#pragma mark - Setup
 
 -(void)setTimerDuration:(NSInteger)minutes
 {
-    NSLog(@"timer duration = %ld",(long)minutes);
-    self.minutes = minutes;
+    self.timerInterval = (float) minutes*60 / NUMBER_OF_TIMER_FIRES;
+    self.intervalsRemaining = NUMBER_OF_TIMER_FIRES;
+    self.timer = [NSTimer timerWithTimeInterval:self.timerInterval target:self selector:@selector(updateTimerView) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
 }
 
 
+#pragma mark - Updating UI
+
+-(void)updateTimerView
+{
+    self.intervalsRemaining--;
+    float percentComplete = (float) self.intervalsRemaining / NUMBER_OF_TIMER_FIRES;
+    [self.timerView setStrokeEnd:1-percentComplete];
+    
+    if(self.intervalsRemaining == 0){
+        [self reset];
+    }
+}
 
 
+#pragma mark - Timer
+
+-(void)reset
+{
+    [self.timer invalidate];
+    self.timer = nil;
+}
 
 
 - (void)didReceiveMemoryWarning

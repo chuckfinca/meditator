@@ -1,5 +1,5 @@
 //
-//  TimerViewController.h
+//  TimerView.h
 //  Meditator
 //
 //  Created by Charles Feinn on 7/8/14.
@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TimerViewController : UIViewController
+@interface TimerView : UIView
 
--(void)setTimerDuration:(NSInteger)minutes;
--(void)reset;
+-(void)setStrokeEnd:(CGFloat)strokeEnd;
 
 @end

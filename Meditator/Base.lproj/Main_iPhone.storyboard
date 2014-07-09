@@ -177,9 +177,17 @@
                                     <segue destination="Z4Y-Ec-zW9" kind="unwind" unwindAction="returningFromTimer:" id="8DM-V2-FZk"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WXo-oD-0w3" customClass="TimerView">
+                                <rect key="frame" x="110" y="201" width="100" height="60"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <connections>
+                        <outlet property="timerView" destination="WXo-oD-0w3" id="Oyv-oT-hKH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Iza-Nk-NGj" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="Z4Y-Ec-zW9" userLabel="Exit" sceneMemberID="exit"/>
