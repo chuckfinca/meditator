@@ -29,6 +29,7 @@
 		C940804D196B6EE600A55343 /* SoundSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C940804B196B6EE600A55343 /* SoundSelectorCell.xib */; };
 		C9408053196CA31D00A55343 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408052196CA31D00A55343 /* TimerViewController.m */; };
 		C940805C196CB0C100A55343 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C940805B196CB0C100A55343 /* TimerView.m */; };
+		C940805F196E0E0400A55343 /* BlurredImageCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = C940805E196E0E0400A55343 /* BlurredImageCreator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +75,8 @@
 		C9408052196CA31D00A55343 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		C940805A196CB0C100A55343 /* TimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
 		C940805B196CB0C100A55343 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
+		C940805D196E0E0400A55343 /* BlurredImageCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlurredImageCreator.h; sourceTree = "<group>"; };
+		C940805E196E0E0400A55343 /* BlurredImageCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlurredImageCreator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +149,8 @@
 				C9408050196C99A600A55343 /* Cells */,
 				C940805A196CB0C100A55343 /* TimerView.h */,
 				C940805B196CB0C100A55343 /* TimerView.m */,
+				C940805D196E0E0400A55343 /* BlurredImageCreator.h */,
+				C940805E196E0E0400A55343 /* BlurredImageCreator.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -316,6 +321,7 @@
 				C940805C196CB0C100A55343 /* TimerView.m in Sources */,
 				C9408043196B622F00A55343 /* SettingsTableViewController.m in Sources */,
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
+				C940805F196E0E0400A55343 /* BlurredImageCreator.m in Sources */,
 				C940804C196B6EE600A55343 /* SoundSelectorCell.m in Sources */,
 				C9408013196B481800A55343 /* main.m in Sources */,
 			);
