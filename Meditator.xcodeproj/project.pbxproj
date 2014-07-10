@@ -30,6 +30,7 @@
 		C9408053196CA31D00A55343 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408052196CA31D00A55343 /* TimerViewController.m */; };
 		C940805C196CB0C100A55343 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C940805B196CB0C100A55343 /* TimerView.m */; };
 		C9408062196E0F5100A55343 /* UIView+BlurredImageCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408061196E0F5100A55343 /* UIView+BlurredImageCreator.m */; };
+		C9408068196E1CF600A55343 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408067196E1CF600A55343 /* Timer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,8 @@
 		C940805B196CB0C100A55343 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
 		C9408060196E0F5100A55343 /* UIView+BlurredImageCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+BlurredImageCreator.h"; sourceTree = "<group>"; };
 		C9408061196E0F5100A55343 /* UIView+BlurredImageCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+BlurredImageCreator.m"; sourceTree = "<group>"; };
+		C9408066196E1CF600A55343 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
+		C9408067196E1CF600A55343 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +154,8 @@
 				C940805B196CB0C100A55343 /* TimerView.m */,
 				C9408060196E0F5100A55343 /* UIView+BlurredImageCreator.h */,
 				C9408061196E0F5100A55343 /* UIView+BlurredImageCreator.m */,
+				C9408066196E1CF600A55343 /* Timer.h */,
+				C9408067196E1CF600A55343 /* Timer.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -317,6 +322,7 @@
 			files = (
 				C9408047196B62D100A55343 /* MinutePickerViewCell.m in Sources */,
 				C9408040196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m in Sources */,
+				C9408068196E1CF600A55343 /* Timer.m in Sources */,
 				C9408053196CA31D00A55343 /* TimerViewController.m in Sources */,
 				C940805C196CB0C100A55343 /* TimerView.m in Sources */,
 				C9408062196E0F5100A55343 /* UIView+BlurredImageCreator.m in Sources */,

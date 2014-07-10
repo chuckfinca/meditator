@@ -10,6 +10,8 @@
 
 @interface TimerViewController : UIViewController
 
+@property (nonatomic) float secondsRemaining; // to be read by AppDelegate when app goes into the background
+
 -(void)setTimerDuration:(NSInteger)minutes;
 -(void)reset;
 

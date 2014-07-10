@@ -9,16 +9,13 @@
 #import "TimerViewController.h"
 #import "TimerView.h"
 #import "UIView+BlurredImageCreator.h"
+#import "Timer.h"
 
 #define NUMBER_OF_TIMER_FIRES 1000
 
-@interface TimerViewController ()
+@interface TimerViewController () <TimerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet TimerView *timerView;
-
-@property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic) NSInteger intervalsRemaining;
-@property (nonatomic) float timerInterval;
 
 @end
 
@@ -53,33 +50,26 @@
 
 -(void)setTimerDuration:(NSInteger)minutes
 {
-    self.timerInterval = (float) minutes*60 / NUMBER_OF_TIMER_FIRES;
-    self.intervalsRemaining = NUMBER_OF_TIMER_FIRES;
-    self.timer = [NSTimer timerWithTimeInterval:self.timerInterval target:self selector:@selector(updateTimerView) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+    Timer *timer = [Timer sharedInstance];
+    timer.delegate = self;
+    [timer startTimerWithDuration:minutes];
 }
 
-
-#pragma mark - Updating UI
-
--(void)updateTimerView
-{
-    self.intervalsRemaining--;
-    float percentComplete = (float) self.intervalsRemaining / NUMBER_OF_TIMER_FIRES;
-    [self.timerView setStrokeEnd:percentComplete];
-    
-    if(self.intervalsRemaining == 0){
-        [self reset];
-    }
-}
 
 
 #pragma mark - Timer
 
 -(void)reset
 {
-    [self.timer invalidate];
-    self.timer = nil;
+    [[Timer sharedInstance] reset];
+}
+
+
+#pragma mark - TimerViewDelegate
+
+-(void)updateTimerViewWithCompletionPercentage:(float)percentComplete
+{
+    [self.timerView setStrokeEnd:percentComplete];
 }
 
 
@@ -89,6 +79,12 @@
     // Dispose of any resources that can be recreated.
     NSLog(@"TimerViewController didReceiveMemoryWarning...");
 }
+
+
+
+
+
+
 
 
 @end
