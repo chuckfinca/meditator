@@ -8,6 +8,7 @@
 
 #import "TimerViewController.h"
 #import "TimerView.h"
+#import "UIView+BlurredImageCreator.h"
 
 #define NUMBER_OF_TIMER_FIRES 1000
 
@@ -36,6 +37,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    UIImage *image = [self.view createImageFromView];
 }
 
 #pragma mark - Overwritten Methods
