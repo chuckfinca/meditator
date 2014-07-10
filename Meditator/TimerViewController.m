@@ -8,14 +8,15 @@
 
 #import "TimerViewController.h"
 #import "TimerView.h"
-#import "UIView+BlurredImageCreator.h"
 #import "Timer.h"
+#import "UIImage+BlurEffects.h"
 
 #define NUMBER_OF_TIMER_FIRES 1000
 
 @interface TimerViewController () <TimerViewDelegate>
 
 @property (weak, nonatomic) IBOutlet TimerView *timerView;
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @end
 
@@ -35,7 +36,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    UIImage *image = [self.view createImageFromView];
+    
+    UIColor *tintColor = [UIColor colorWithWhite:1 alpha:0.3];
+    self.backgroundImageView.image = [[UIImage imageNamed:@"flowers"] applyBlurWithRadius:5 tintColor:tintColor saturationDeltaFactor:0.8 maskImage:nil];
+    
 }
 
 #pragma mark - Overwritten Methods
