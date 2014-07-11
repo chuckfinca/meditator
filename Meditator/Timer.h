@@ -22,10 +22,13 @@
 @property (nonatomic, weak) id <TimerViewDelegate> delegate;
 
 @property (nonatomic, readonly) float secondsRemaining;
+@property (nonatomic) BOOL timerIsRunning;
 
 +(Timer *)sharedInstance;
 
 -(void)startTimerWithDuration:(NSInteger)minutes;
+-(void)pause;
+-(void)resume;
 -(void)reset;
 
 @end

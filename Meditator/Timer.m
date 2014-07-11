@@ -39,10 +39,16 @@ static Timer *sharedInstance;
 {
     self.timerInterval = (float) minutes*60 / NUMBER_OF_TIMER_FIRES;
     self.intervalsRemaining = NUMBER_OF_TIMER_FIRES;
-    self.timer = [NSTimer timerWithTimeInterval:self.timerInterval target:self selector:@selector(updateTimerView) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+    
+    [self startTimer];
 }
 
+-(void)startTimer
+{
+    self.timer = [NSTimer timerWithTimeInterval:self.timerInterval target:self selector:@selector(updateTimerView) userInfo:nil repeats:YES];
+    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+    self.timerIsRunning = YES;
+}
 
 #pragma mark - Updating UI
 
@@ -63,10 +69,21 @@ static Timer *sharedInstance;
 
 #pragma mark - Timer
 
+-(void)pause
+{
+    [self reset];
+}
+
+-(void)resume
+{
+    [self startTimer];
+}
+
 -(void)reset
 {
     [self.timer invalidate];
     self.timer = nil;
+    self.timerIsRunning = NO;
 }
 
 

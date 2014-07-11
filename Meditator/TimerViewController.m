@@ -17,6 +17,8 @@
 
 @property (weak, nonatomic) IBOutlet TimerView *timerView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
+@property (weak, nonatomic) IBOutlet UIButton *pauseButton;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 
 @end
 
@@ -40,6 +42,7 @@
     UIColor *tintColor = [UIColor colorWithWhite:1 alpha:0.3];
     self.backgroundImageView.image = [[UIImage imageNamed:@"flowers"] applyBlurWithRadius:5 tintColor:tintColor saturationDeltaFactor:0.8 maskImage:nil];
     
+    self.statusLabel.textColor = [UIColor whiteColor];
 }
 
 #pragma mark - Overwritten Methods
@@ -76,6 +79,18 @@
     [self.timerView setStrokeEnd:percentComplete];
 }
 
+
+#pragma mark - Target Action
+
+-(IBAction)pause:(id)sender
+{
+    Timer *timer = [Timer sharedInstance];
+    if(timer.timerIsRunning){
+        [timer pause];
+    } else {
+        [timer resume];
+    }
+}
 
 - (void)didReceiveMemoryWarning
 {

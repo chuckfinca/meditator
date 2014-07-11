@@ -181,26 +181,49 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5H5-0d-1vW">
-                                <rect key="frame" x="143" y="269" width="34" height="30"/>
+                                <rect key="frame" x="145" y="518" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="back">
+                                <state key="normal" title="End">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="Z4Y-Ec-zW9" kind="unwind" unwindAction="returningFromTimer:" id="8DM-V2-FZk"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oL-HZ-8L1">
+                                <rect key="frame" x="139" y="269" width="43" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Pause">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pause:" destination="DEm-Dj-T69" eventType="touchUpInside" id="s38-PL-9PV"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZR-DM-UmW">
+                                <rect key="frame" x="136" y="28" width="49" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="centerX" secondItem="TZR-DM-UmW" secondAttribute="centerX" id="1B2-LO-oFD"/>
+                            <constraint firstItem="J2G-Hd-VpK" firstAttribute="top" secondItem="5H5-0d-1vW" secondAttribute="bottom" constant="20" id="2f8-1v-KvQ"/>
                             <constraint firstAttribute="centerX" secondItem="WXo-oD-0w3" secondAttribute="centerX" id="8hM-eU-Nd9"/>
+                            <constraint firstAttribute="centerX" secondItem="5H5-0d-1vW" secondAttribute="centerX" id="J45-KO-0sO"/>
                             <constraint firstAttribute="centerY" secondItem="WXo-oD-0w3" secondAttribute="centerY" id="M7J-ro-noX"/>
-                            <constraint firstAttribute="centerX" secondItem="5H5-0d-1vW" secondAttribute="centerX" id="ins-BL-6ch"/>
-                            <constraint firstAttribute="centerY" secondItem="5H5-0d-1vW" secondAttribute="centerY" id="m0X-rd-l03"/>
+                            <constraint firstAttribute="centerY" secondItem="7oL-HZ-8L1" secondAttribute="centerY" id="SRE-wH-Sxy"/>
+                            <constraint firstItem="TZR-DM-UmW" firstAttribute="top" secondItem="mSj-QL-9hU" secondAttribute="bottom" constant="20" symbolic="YES" id="ctk-HM-T2a"/>
+                            <constraint firstAttribute="centerX" secondItem="7oL-HZ-8L1" secondAttribute="centerX" id="rxp-L4-cz3"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="backgroundImageView" destination="Rsj-sJ-byL" id="4W3-4b-myB"/>
+                        <outlet property="pauseButton" destination="7oL-HZ-8L1" id="SM4-WT-0o3"/>
+                        <outlet property="statusLabel" destination="TZR-DM-UmW" id="0KI-GZ-VIE"/>
                         <outlet property="timerView" destination="WXo-oD-0w3" id="Oyv-oT-hKH"/>
                     </connections>
                 </viewController>
