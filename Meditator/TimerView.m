@@ -37,7 +37,7 @@
     CAShapeLayer *layer = (CAShapeLayer *)self.layer;
     
     [layer setPath:path];
-    [layer setStrokeColor:self.tintColor.CGColor];
+    [layer setStrokeColor:[UIColor colorWithWhite:1.0 alpha:0.4].CGColor];
     [layer setLineWidth:2];
     [layer setStrokeEnd:1];
     [layer setLineCap:kCALineCapRound];

@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet MorphingTimerLabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UIButton *endButton;
 
 @end
 
@@ -45,15 +46,23 @@
     
     self.statusLabel.textColor = [UIColor whiteColor];
     self.statusLabel.alpha = 0;
+    
+    [self.pauseButton setImage:[[UIImage imageNamed:@"pause"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    self.pauseButton.tintColor = [UIColor colorWithWhite:1 alpha:0.9];
+    self.pauseButton.alpha = 0;
+    
+    self.endButton.alpha = 0;
 }
 
 -(void)viewDidAppear:(BOOL)animated
 {
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
-        self.statusLabel.alpha = 1.0;
+        self.statusLabel.alpha = 1;
     } completion:^(BOOL finished) {
-        [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        [UIView animateWithDuration:1 delay:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.statusLabel.alpha = 0;
+            self.pauseButton.alpha = 1;
+            self.endButton.alpha = 1;
         } completion:^(BOOL finished) {
             [[Timer sharedInstance] start];
         }];
@@ -85,7 +94,7 @@
     [self.timerView setStrokeEnd:percentRemaining];
     
     if(percentRemaining < .01){
-        [self.pauseButton setTitle:@"Meditation Complete" forState:UIControlStateNormal];
+        [self.pauseButton setTitle:@"meditation complete" forState:UIControlStateNormal];
     }
 }
 
@@ -116,7 +125,7 @@
         
         [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.statusLabel.alpha = 1.0;
-            [self.pauseButton setTitle:@"Resume" forState:UIControlStateNormal];
+            [self.pauseButton setImage:[[UIImage imageNamed:@"play"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
         } completion:^(BOOL finished) {}];
         
         
@@ -125,7 +134,7 @@
         
         [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.statusLabel.alpha = 0;
-            [self.pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+            [self.pauseButton setImage:[[UIImage imageNamed:@"pause"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
         } completion:^(BOOL finished) {}];
         
     }
