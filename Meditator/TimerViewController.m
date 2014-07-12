@@ -93,9 +93,27 @@
 {
     [self.timerView setStrokeEnd:percentRemaining];
     
-    if(percentRemaining < .01){
-        [self.pauseButton setTitle:@"meditation complete" forState:UIControlStateNormal];
+    if(percentRemaining < .001){
+        [self stopTimer];
     }
+}
+
+-(void)stopTimer
+{
+    [[Timer sharedInstance] reset];
+    
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.endButton.alpha = 0;
+        self.timerView.alpha = 0;
+    } completion:^(BOOL finished) {
+        [self.endButton setTitle:@"meditation complete" forState:UIControlStateNormal];
+        [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.endButton.alpha = 1;
+            self.pauseButton.alpha = 0;
+        } completion:^(BOOL finished) {
+            self.pauseButton.enabled = NO;
+        }];
+    }];
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
