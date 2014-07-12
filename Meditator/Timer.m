@@ -16,6 +16,7 @@
 
 @property (nonatomic) NSInteger totalTimerDuration;
 @property (nonatomic) NSInteger remainingTimerDuration;
+@property (nonatomic, readwrite) UILocalNotification *localNotification;
 
 @end
 
@@ -34,6 +35,21 @@ static Timer *sharedInstance;
     return sharedInstance;
 }
 
+#pragma mark - Getters & Setters
+
+-(UILocalNotification *)localNotification
+{
+    if(!_localNotification){
+        NSInteger secondsSinceLastResume = [[NSDate date] timeIntervalSinceDate:self.lastResumedTime];
+        NSInteger secondsRemaining = self.remainingTimerDuration - secondsSinceLastResume;
+        
+        _localNotification = [[UILocalNotification alloc] init];
+        _localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:secondsRemaining];
+        _localNotification.alertBody = @"Meditation Complete";
+        _localNotification.alertAction = @"Ok";
+    }
+    return _localNotification;
+}
 
 
 #pragma mark - Setup
@@ -87,10 +103,6 @@ static Timer *sharedInstance;
     self.displayLinkTimer = nil;
     self.timerIsRunning = NO;
 }
-
-
-
-
 
 
 

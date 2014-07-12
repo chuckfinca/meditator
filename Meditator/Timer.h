@@ -23,6 +23,7 @@
 
 @property (nonatomic, readonly) NSInteger remainingTimerDuration;
 @property (nonatomic) BOOL timerIsRunning;
+@property (nonatomic, readonly) UILocalNotification *localNotification;
 
 +(Timer *)sharedInstance;
 

@@ -7,8 +7,9 @@
 //
 
 #import "AppDelegate.h"
-#import "TimerViewController.h"
+#import "Timer.h"
 
+#define LOCAL_NOTIFICATIONS_ACTIVE @"LocalNotificationActive"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -21,6 +22,12 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    if([Timer sharedInstance].timerIsRunning){
+        [[UIApplication sharedApplication] scheduleLocalNotification:[Timer sharedInstance].localNotification];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:LOCAL_NOTIFICATIONS_ACTIVE];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -32,6 +39,13 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    BOOL localNotificationActive = [[NSUserDefaults standardUserDefaults] boolForKey:LOCAL_NOTIFICATIONS_ACTIVE];
+    if(localNotificationActive){
+        [[UIApplication sharedApplication] cancelLocalNotification:[Timer sharedInstance].localNotification];
+        
+        [[NSUserDefaults standardUserDefaults] setBool:NO forKey:LOCAL_NOTIFICATIONS_ACTIVE];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
