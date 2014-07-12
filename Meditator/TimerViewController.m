@@ -44,6 +44,20 @@
     self.backgroundImageView.image = [[UIImage imageNamed:@"flowers"] applyBlurWithRadius:5 tintColor:tintColor saturationDeltaFactor:0.8 maskImage:nil];
     
     self.statusLabel.textColor = [UIColor whiteColor];
+    self.statusLabel.alpha = 0;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+        self.statusLabel.alpha = 1.0;
+    } completion:^(BOOL finished) {
+        [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.statusLabel.alpha = 0;
+        } completion:^(BOOL finished) {
+            [[Timer sharedInstance] start];
+        }];
+    }];
 }
 
 #pragma mark - Overwritten Methods
@@ -60,7 +74,7 @@
 {
     Timer *timer = [Timer sharedInstance];
     timer.delegate = self;
-    [timer startTimerWithDuration:minutes*60];
+    [timer setupTimerWithDuration:minutes*60];
 }
 
 
@@ -98,15 +112,22 @@
         
     } else if(timerWasRunning){
         
-        self.statusLabel.hidden = NO;
         [self.statusLabel setupForTime:secondsRemaining];
         
-        [self.pauseButton setTitle:@"Resume" forState:UIControlStateNormal];
+        [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.statusLabel.alpha = 1.0;
+            [self.pauseButton setTitle:@"Resume" forState:UIControlStateNormal];
+        } completion:^(BOOL finished) {}];
+        
         
     } else {
-        [timer resume];
-        self.statusLabel.hidden = YES;
-        [self.pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+        [timer start];
+        
+        [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+            self.statusLabel.alpha = 0;
+            [self.pauseButton setTitle:@"Pause" forState:UIControlStateNormal];
+        } completion:^(BOOL finished) {}];
+        
     }
 }
 

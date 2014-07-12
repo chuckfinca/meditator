@@ -183,7 +183,8 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5H5-0d-1vW">
                                 <rect key="frame" x="145" y="518" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="End">
+                                <state key="normal" title="end">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -191,9 +192,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oL-HZ-8L1">
-                                <rect key="frame" x="139" y="269" width="43" height="30"/>
+                                <rect key="frame" x="20" y="269" width="280" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Pause">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -212,12 +214,13 @@
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="TZR-DM-UmW" secondAttribute="centerX" id="1B2-LO-oFD"/>
                             <constraint firstItem="J2G-Hd-VpK" firstAttribute="top" secondItem="5H5-0d-1vW" secondAttribute="bottom" constant="20" id="2f8-1v-KvQ"/>
+                            <constraint firstAttribute="trailing" secondItem="7oL-HZ-8L1" secondAttribute="trailing" constant="20" symbolic="YES" id="81h-xP-3xX"/>
                             <constraint firstAttribute="centerX" secondItem="WXo-oD-0w3" secondAttribute="centerX" id="8hM-eU-Nd9"/>
                             <constraint firstAttribute="centerX" secondItem="5H5-0d-1vW" secondAttribute="centerX" id="J45-KO-0sO"/>
                             <constraint firstItem="TZR-DM-UmW" firstAttribute="top" secondItem="WXo-oD-0w3" secondAttribute="bottom" constant="40" id="LhZ-AY-JpA"/>
                             <constraint firstAttribute="centerY" secondItem="WXo-oD-0w3" secondAttribute="centerY" id="M7J-ro-noX"/>
                             <constraint firstAttribute="centerY" secondItem="7oL-HZ-8L1" secondAttribute="centerY" id="SRE-wH-Sxy"/>
-                            <constraint firstAttribute="centerX" secondItem="7oL-HZ-8L1" secondAttribute="centerX" id="rxp-L4-cz3"/>
+                            <constraint firstItem="7oL-HZ-8L1" firstAttribute="leading" secondItem="cQx-BL-OXo" secondAttribute="leading" constant="20" symbolic="YES" id="d5Z-JX-dyQ"/>
                         </constraints>
                     </view>
                     <connections>

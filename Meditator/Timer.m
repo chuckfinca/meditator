@@ -38,23 +38,10 @@ static Timer *sharedInstance;
 
 #pragma mark - Setup
 
--(void)startTimerWithDuration:(NSInteger)seconds
+-(void)setupTimerWithDuration:(NSInteger)seconds
 {
     self.totalTimerDuration = seconds;
     self.remainingTimerDuration = seconds;
-    
-    [self startTimer];
-}
-
--(void)startTimer
-{
-    self.displayLinkTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTimerView)];
-    
-    self.displayLinkTimer.frameInterval = self.totalTimerDuration < 300 ? 5 : 20;
-    
-    [self.displayLinkTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
-    self.lastResumedTime = [NSDate date];
-    self.timerIsRunning = YES;
 }
 
 #pragma mark - Updating UI
@@ -70,6 +57,17 @@ static Timer *sharedInstance;
 
 #pragma mark - Timer
 
+-(void)start
+{
+    self.displayLinkTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTimerView)];
+    
+    self.displayLinkTimer.frameInterval = self.totalTimerDuration < 300 ? 5 : 20;
+    
+    [self.displayLinkTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    self.lastResumedTime = [NSDate date];
+    self.timerIsRunning = YES;
+}
+
 -(void)pause
 {
     if(self.timerIsRunning){
@@ -80,13 +78,6 @@ static Timer *sharedInstance;
             self.remainingTimerDuration = 0;
         }
         [self reset];
-    }
-}
-
--(void)resume
-{
-    if(self.remainingTimerDuration > 0){
-        [self startTimer];
     }
 }
 

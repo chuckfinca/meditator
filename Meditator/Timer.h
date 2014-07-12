@@ -26,9 +26,9 @@
 
 +(Timer *)sharedInstance;
 
--(void)startTimerWithDuration:(NSInteger)seconds;
+-(void)setupTimerWithDuration:(NSInteger)seconds;
+-(void)start;
 -(void)pause;
--(void)resume;
 -(void)reset;
 
 @end
