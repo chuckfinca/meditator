@@ -138,8 +138,6 @@
 
 -(IBAction)returningFromTimer:(UIStoryboardSegue *)segue
 {
-    TimerViewController *timerViewController = (TimerViewController *)segue.sourceViewController;
-    [timerViewController reset];
     NSLog(@"end");
 }
 

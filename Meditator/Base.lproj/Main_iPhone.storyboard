@@ -172,12 +172,12 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXo-oD-0w3" customClass="TimerView">
-                                <rect key="frame" x="110" y="254" width="100" height="60"/>
+                                <rect key="frame" x="85" y="239" width="150" height="90"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="2zt-Dp-wGW"/>
-                                    <constraint firstAttribute="width" constant="100" id="64E-xA-Q2Z"/>
+                                    <constraint firstAttribute="height" constant="90" id="2zt-Dp-wGW"/>
+                                    <constraint firstAttribute="width" constant="150" id="64E-xA-Q2Z"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5H5-0d-1vW">
@@ -187,7 +187,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Z4Y-Ec-zW9" kind="unwind" unwindAction="returningFromTimer:" id="8DM-V2-FZk"/>
+                                    <segue destination="Z4Y-Ec-zW9" kind="unwind" identifier="ReturnToSettings" unwindAction="returningFromTimer:" id="8DM-V2-FZk"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7oL-HZ-8L1">
@@ -200,7 +200,7 @@
                                     <action selector="pause:" destination="DEm-Dj-T69" eventType="touchUpInside" id="s38-PL-9PV"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZR-DM-UmW">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Begin!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZR-DM-UmW" customClass="TOMSMorphingLabel">
                                 <rect key="frame" x="136" y="28" width="49" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>

@@ -7,7 +7,8 @@
 //
 
 #import "TimerView.h"
-@interface TimerView ()
+
+@interface TimerView () 
 
 @property (nonatomic) CGFloat strokeEnd;
 

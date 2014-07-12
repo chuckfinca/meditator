@@ -7,12 +7,15 @@
 //
 
 #import "Timer.h"
+
 @interface Timer ()
 
-@property (nonatomic, strong) NSTimer *timer;
-@property (nonatomic) NSInteger intervalsRemaining;
-@property (nonatomic) float timerInterval;
-@property (nonatomic, readwrite) float secondsRemaining;
+@property (nonatomic, strong) NSDate *lastResumedTime;
+
+@property (nonatomic, strong) CADisplayLink *displayLinkTimer;
+
+@property (nonatomic) NSInteger totalTimerDuration;
+@property (nonatomic) NSInteger remainingTimerDuration;
 
 @end
 
@@ -35,18 +38,22 @@ static Timer *sharedInstance;
 
 #pragma mark - Setup
 
--(void)startTimerWithDuration:(NSInteger)minutes
+-(void)startTimerWithDuration:(NSInteger)seconds
 {
-    self.timerInterval = (float) minutes*60 / NUMBER_OF_TIMER_FIRES;
-    self.intervalsRemaining = NUMBER_OF_TIMER_FIRES;
+    self.totalTimerDuration = seconds;
+    self.remainingTimerDuration = seconds;
     
     [self startTimer];
 }
 
 -(void)startTimer
 {
-    self.timer = [NSTimer timerWithTimeInterval:self.timerInterval target:self selector:@selector(updateTimerView) userInfo:nil repeats:YES];
-    [[NSRunLoop mainRunLoop] addTimer:self.timer forMode:NSDefaultRunLoopMode];
+    self.displayLinkTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTimerView)];
+    
+    self.displayLinkTimer.frameInterval = self.totalTimerDuration < 300 ? 5 : 20;
+    
+    [self.displayLinkTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    self.lastResumedTime = [NSDate date];
     self.timerIsRunning = YES;
 }
 
@@ -54,16 +61,10 @@ static Timer *sharedInstance;
 
 -(void)updateTimerView
 {
-    self.intervalsRemaining--;
-    float percentComplete = (float) self.intervalsRemaining / NUMBER_OF_TIMER_FIRES;
+    NSTimeInterval secondsSinceLastResume = [[NSDate date] timeIntervalSinceDate:self.lastResumedTime];
     
-    [self.delegate updateTimerViewWithCompletionPercentage:percentComplete];
-    
-    if(self.intervalsRemaining == 0){
-        [self reset];
-    }
-    
-    self.secondsRemaining = (float) self.timerInterval * self.intervalsRemaining;
+    float percentComplete = (float)(self.remainingTimerDuration - secondsSinceLastResume) / self.totalTimerDuration;
+    [self.delegate updateTimerView:percentComplete];
 }
 
 
@@ -71,20 +72,34 @@ static Timer *sharedInstance;
 
 -(void)pause
 {
-    [self reset];
+    if(self.timerIsRunning){
+        NSInteger secondsSinceLastResume = [[NSDate date] timeIntervalSinceDate:self.lastResumedTime];
+        self.remainingTimerDuration = self.remainingTimerDuration - secondsSinceLastResume;
+        
+        if(self.remainingTimerDuration < 0) {
+            self.remainingTimerDuration = 0;
+        }
+        [self reset];
+    }
 }
 
 -(void)resume
 {
-    [self startTimer];
+    if(self.remainingTimerDuration > 0){
+        [self startTimer];
+    }
 }
 
 -(void)reset
 {
-    [self.timer invalidate];
-    self.timer = nil;
+    [self.displayLinkTimer invalidate];
+    self.displayLinkTimer = nil;
     self.timerIsRunning = NO;
 }
+
+
+
+
 
 
 
