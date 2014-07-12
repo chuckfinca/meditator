@@ -10,7 +10,7 @@
 #import "TimerView.h"
 #import "Timer.h"
 #import "UIImage+BlurEffects.h"
-#import "TOMSMorphingLabel.h"
+#import "MorphingTimerLabel.h"
 
 #define NUMBER_OF_TIMER_FIRES 1000
 
@@ -19,7 +19,7 @@
 @property (weak, nonatomic) IBOutlet TimerView *timerView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
-@property (weak, nonatomic) IBOutlet TOMSMorphingLabel *statusLabel;
+@property (weak, nonatomic) IBOutlet MorphingTimerLabel *statusLabel;
 
 @end
 
@@ -99,8 +99,7 @@
     } else if(timerWasRunning){
         
         self.statusLabel.hidden = NO;
-        
-        [self setupStatusLabelForTime:secondsRemaining];
+        [self.statusLabel setupForTime:secondsRemaining];
         
         [self.pauseButton setTitle:@"Resume" forState:UIControlStateNormal];
         
@@ -111,14 +110,7 @@
     }
 }
 
--(void)setupStatusLabelForTime:(NSInteger)secondsRemaining
-{
-    NSString *seconds = [NSString stringWithFormat:@"%d",secondsRemaining % 60];
-    if([seconds length] == 1){
-        seconds = [NSString stringWithFormat:@"0%@",seconds];
-    }
-    self.statusLabel.text = [NSString stringWithFormat:@"%d:%@ remains",secondsRemaining/60,seconds];
-}
+
 
 - (void)didReceiveMemoryWarning
 {

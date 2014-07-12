@@ -32,6 +32,7 @@
 		C940805C196CB0C100A55343 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C940805B196CB0C100A55343 /* TimerView.m */; };
 		C9408068196E1CF600A55343 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408067196E1CF600A55343 /* Timer.m */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
+		C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +84,8 @@
 		C9408067196E1CF600A55343 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurEffects.h"; sourceTree = "<group>"; };
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
+		C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorphingTimerLabel.h; sourceTree = "<group>"; };
+		C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MorphingTimerLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +165,8 @@
 				C9408067196E1CF600A55343 /* Timer.m */,
 				C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */,
 				C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */,
+				C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */,
+				C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -371,6 +376,7 @@
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,
 				C940804C196B6EE600A55343 /* SoundSelectorCell.m in Sources */,
 				C9408013196B481800A55343 /* main.m in Sources */,
+				C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
