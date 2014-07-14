@@ -62,9 +62,11 @@
         [UIView animateWithDuration:1 delay:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.statusLabel.alpha = 0;
             self.pauseButton.alpha = 1;
-            self.endButton.alpha = 1;
         } completion:^(BOOL finished) {
             [[Timer sharedInstance] start];
+            [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
+                self.endButton.alpha = 1;
+            } completion:^(BOOL finished) {}];
         }];
     }];
 }
@@ -112,6 +114,9 @@
             self.pauseButton.alpha = 0;
         } completion:^(BOOL finished) {
             self.pauseButton.enabled = NO;
+            UIButton *returnButton = [[UIButton alloc] initWithFrame:self.view.frame];
+            [returnButton addTarget:self action:@selector(returnToSettings) forControlEvents:UIControlEventTouchUpInside];
+            [self.view addSubview:returnButton];
         }];
     }];
 }
@@ -156,6 +161,11 @@
         } completion:^(BOOL finished) {}];
         
     }
+}
+
+-(void)returnToSettings
+{
+    [self performSegueWithIdentifier:@"ReturnToSettings" sender:self];
 }
 
 

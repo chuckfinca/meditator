@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface LocalNotificationCreator : NSObject
+@interface LocalNotificationScheduler : NSObject
 
 +(void)createLocalNotificationIfTimerIsRunning;
 +(void)cancelLocalNotificationIfActive;

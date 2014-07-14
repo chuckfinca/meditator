@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "LocalNotificationCreator.h"
+#import "LocalNotificationScheduler.h"
 #import "Timer.h"
 
 #define LOCAL_NOTIFICATIONS_ACTIVE @"LocalNotificationActive"
 
-@implementation LocalNotificationCreator
+@implementation LocalNotificationScheduler
 
 +(void)createLocalNotificationIfTimerIsRunning
 {

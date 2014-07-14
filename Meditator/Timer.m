@@ -47,6 +47,7 @@ static Timer *sharedInstance;
         _localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:secondsRemaining];
         _localNotification.alertBody = @"Meditation Complete";
         _localNotification.alertAction = @"Ok";
+        _localNotification.soundName = UILocalNotificationDefaultSoundName;
     }
     return _localNotification;
 }
