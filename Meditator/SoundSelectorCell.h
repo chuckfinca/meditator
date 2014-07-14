@@ -12,4 +12,6 @@
 
 @interface SoundSelectorCell : UITableViewCell
 
+@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttonArray;
+
 @end

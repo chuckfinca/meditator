@@ -9,8 +9,6 @@
 #import "SoundSelectorCell.h"
 @interface SoundSelectorCell ()
 
-@property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttonArray;
-
 @end
 
 @implementation SoundSelectorCell
@@ -25,12 +23,6 @@
     [super setSelected:selected animated:animated];
 
     // Configure the view for the selected state
-}
-
-
--(IBAction)soundSelected:(UIButton *)sender
-{
-    NSLog(@"tag = %ld",(long)sender.tag);
 }
 
 

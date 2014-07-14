@@ -12,6 +12,7 @@
 		C905B4F11974843A00597899 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C905B4F01974843A00597899 /* InstructionsViewController.m */; };
 		C905B4F319748F9100597899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905B4F219748F9100597899 /* AudioToolbox.framework */; };
 		C905B4F5197491EC00597899 /* bell.aif in Resources */ = {isa = PBXBuildFile; fileRef = C905B4F4197491EC00597899 /* bell.aif */; };
+		C905B4F8197499F300597899 /* SoundEffectPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C905B4F7197499F300597899 /* SoundEffectPlayer.m */; };
 		C9408007196B481800A55343 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9408006196B481800A55343 /* Foundation.framework */; };
 		C9408009196B481800A55343 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9408008196B481800A55343 /* CoreGraphics.framework */; };
 		C940800B196B481800A55343 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C940800A196B481800A55343 /* UIKit.framework */; };
@@ -58,6 +59,8 @@
 		C905B4F01974843A00597899 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsViewController.m; sourceTree = "<group>"; };
 		C905B4F219748F9100597899 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C905B4F4197491EC00597899 /* bell.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = bell.aif; sourceTree = "<group>"; };
+		C905B4F6197499F300597899 /* SoundEffectPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffectPlayer.h; sourceTree = "<group>"; };
+		C905B4F7197499F300597899 /* SoundEffectPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffectPlayer.m; sourceTree = "<group>"; };
 		C9408003196B481800A55343 /* Meditator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meditator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9408006196B481800A55343 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9408008196B481800A55343 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -183,6 +186,8 @@
 				C905B4ED19747CE300597899 /* LocalNotificationScheduler.m */,
 				C905B4EF1974843A00597899 /* InstructionsViewController.h */,
 				C905B4F01974843A00597899 /* InstructionsViewController.m */,
+				C905B4F6197499F300597899 /* SoundEffectPlayer.h */,
+				C905B4F7197499F300597899 /* SoundEffectPlayer.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -389,6 +394,7 @@
 				C9408068196E1CF600A55343 /* Timer.m in Sources */,
 				C905B4EE19747CE300597899 /* LocalNotificationScheduler.m in Sources */,
 				C9408053196CA31D00A55343 /* TimerViewController.m in Sources */,
+				C905B4F8197499F300597899 /* SoundEffectPlayer.m in Sources */,
 				C940805C196CB0C100A55343 /* TimerView.m in Sources */,
 				C9408043196B622F00A55343 /* SettingsTableViewController.m in Sources */,
 				C905B4F11974843A00597899 /* InstructionsViewController.m in Sources */,

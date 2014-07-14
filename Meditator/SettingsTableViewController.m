@@ -16,6 +16,8 @@
 @property (nonatomic, strong) MinutePickerViewCell *minutePickerViewCell;
 @property (nonatomic, strong) SoundSelectorCell *soundSelectorCell;
 
+@property (nonatomic) NSInteger selectedSoundNumber;
+
 @end
 
 @implementation SettingsTableViewController
@@ -75,6 +77,9 @@
             
         case 1:
             cell = self.soundSelectorCell;
+            for(UIButton *button in self.soundSelectorCell.buttonArray){
+                [button addTarget:self action:@selector(soundSelected:) forControlEvents:UIControlEventTouchUpInside];
+            }
             break;
             
         default:
@@ -139,6 +144,15 @@
 -(IBAction)returningFromTimer:(UIStoryboardSegue *)segue
 {
     NSLog(@"end");
+}
+
+
+#pragma mark - Target Action
+
+-(IBAction)soundSelected:(UIButton *)sender
+{
+    self.selectedSoundNumber = sender.tag;
+    NSLog(@"tag = %ld",(long)sender.tag);
 }
 
 

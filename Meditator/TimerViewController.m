@@ -11,7 +11,7 @@
 #import "Timer.h"
 #import "UIImage+BlurEffects.h"
 #import "MorphingTimerLabel.h"
-#import <AudioToolbox/AudioToolbox.h>
+#import "SoundEffectPlayer.h"
 
 #define NUMBER_OF_TIMER_FIRES 1000
 
@@ -103,7 +103,8 @@
 
 -(void)stopTimer
 {
-    [self soundCompletion];
+    SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:[[NSBundle mainBundle] URLForResource:@"bell" withExtension:@"aif"]];
+    [player playSoundOrVibrate];
     
     [[Timer sharedInstance] reset];
     
@@ -124,14 +125,7 @@
     }];
 }
 
--(void)soundCompletion
-{
-    //AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-    NSURL *fileURL = [[NSBundle mainBundle] URLForResource:@"bell" withExtension:@"aif"];
-    SystemSoundID soundID;
-    AudioServicesCreateSystemSoundID((__bridge_retained CFURLRef)fileURL,&soundID);
-    AudioServicesPlaySystemSound(soundID);
-}
+
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
@@ -179,6 +173,9 @@
 {
     [self performSegueWithIdentifier:@"ReturnToSettings" sender:self];
 }
+
+
+
 
 
 
