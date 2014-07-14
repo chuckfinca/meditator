@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		39F7C89C38744A1B94D7C551 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C09B21B298F94070B93753E4 /* libPods.a */; };
 		C905B4EE19747CE300597899 /* LocalNotificationScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = C905B4ED19747CE300597899 /* LocalNotificationScheduler.m */; };
+		C905B4F11974843A00597899 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C905B4F01974843A00597899 /* InstructionsViewController.m */; };
+		C905B4F319748F9100597899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905B4F219748F9100597899 /* AudioToolbox.framework */; };
+		C905B4F5197491EC00597899 /* bell.aif in Resources */ = {isa = PBXBuildFile; fileRef = C905B4F4197491EC00597899 /* bell.aif */; };
 		C9408007196B481800A55343 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9408006196B481800A55343 /* Foundation.framework */; };
 		C9408009196B481800A55343 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9408008196B481800A55343 /* CoreGraphics.framework */; };
 		C940800B196B481800A55343 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C940800A196B481800A55343 /* UIKit.framework */; };
@@ -51,6 +54,10 @@
 		C09B21B298F94070B93753E4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C905B4EC19747CE300597899 /* LocalNotificationScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationScheduler.h; sourceTree = "<group>"; };
 		C905B4ED19747CE300597899 /* LocalNotificationScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationScheduler.m; sourceTree = "<group>"; };
+		C905B4EF1974843A00597899 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
+		C905B4F01974843A00597899 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsViewController.m; sourceTree = "<group>"; };
+		C905B4F219748F9100597899 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		C905B4F4197491EC00597899 /* bell.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = bell.aif; sourceTree = "<group>"; };
 		C9408003196B481800A55343 /* Meditator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meditator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9408006196B481800A55343 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9408008196B481800A55343 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -96,6 +103,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C905B4F319748F9100597899 /* AudioToolbox.framework in Frameworks */,
 				C9408009196B481800A55343 /* CoreGraphics.framework in Frameworks */,
 				C940800B196B481800A55343 /* UIKit.framework in Frameworks */,
 				C9408007196B481800A55343 /* Foundation.framework in Frameworks */,
@@ -139,6 +147,7 @@
 		C9408005196B481800A55343 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C905B4F219748F9100597899 /* AudioToolbox.framework */,
 				C9408006196B481800A55343 /* Foundation.framework */,
 				C9408008196B481800A55343 /* CoreGraphics.framework */,
 				C940800A196B481800A55343 /* UIKit.framework */,
@@ -172,6 +181,8 @@
 				C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */,
 				C905B4EC19747CE300597899 /* LocalNotificationScheduler.h */,
 				C905B4ED19747CE300597899 /* LocalNotificationScheduler.m */,
+				C905B4EF1974843A00597899 /* InstructionsViewController.h */,
+				C905B4F01974843A00597899 /* InstructionsViewController.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -179,6 +190,7 @@
 		C940800D196B481800A55343 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C905B4F4197491EC00597899 /* bell.aif */,
 				C940800E196B481800A55343 /* Meditator-Info.plist */,
 				C940800F196B481800A55343 /* InfoPlist.strings */,
 				C9408012196B481800A55343 /* main.m */,
@@ -318,6 +330,7 @@
 				C940801D196B481800A55343 /* Main_iPad.storyboard in Resources */,
 				C9408022196B481800A55343 /* Images.xcassets in Resources */,
 				C940801A196B481800A55343 /* Main_iPhone.storyboard in Resources */,
+				C905B4F5197491EC00597899 /* bell.aif in Resources */,
 				C940804D196B6EE600A55343 /* SoundSelectorCell.xib in Resources */,
 				C9408011196B481800A55343 /* InfoPlist.strings in Resources */,
 			);
@@ -378,6 +391,7 @@
 				C9408053196CA31D00A55343 /* TimerViewController.m in Sources */,
 				C940805C196CB0C100A55343 /* TimerView.m in Sources */,
 				C9408043196B622F00A55343 /* SettingsTableViewController.m in Sources */,
+				C905B4F11974843A00597899 /* InstructionsViewController.m in Sources */,
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,
 				C940804C196B6EE600A55343 /* SoundSelectorCell.m in Sources */,
