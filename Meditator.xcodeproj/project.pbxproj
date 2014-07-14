@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		39F7C89C38744A1B94D7C551 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C09B21B298F94070B93753E4 /* libPods.a */; };
+		C905B4EE19747CE300597899 /* LocalNotificationCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = C905B4ED19747CE300597899 /* LocalNotificationCreator.m */; };
 		C9408007196B481800A55343 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9408006196B481800A55343 /* Foundation.framework */; };
 		C9408009196B481800A55343 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9408008196B481800A55343 /* CoreGraphics.framework */; };
 		C940800B196B481800A55343 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C940800A196B481800A55343 /* UIKit.framework */; };
@@ -48,6 +49,8 @@
 /* Begin PBXFileReference section */
 		B08891E72853412E87440466 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 		C09B21B298F94070B93753E4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		C905B4EC19747CE300597899 /* LocalNotificationCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationCreator.h; sourceTree = "<group>"; };
+		C905B4ED19747CE300597899 /* LocalNotificationCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationCreator.m; sourceTree = "<group>"; };
 		C9408003196B481800A55343 /* Meditator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meditator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9408006196B481800A55343 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9408008196B481800A55343 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -167,6 +170,8 @@
 				C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */,
 				C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */,
 				C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */,
+				C905B4EC19747CE300597899 /* LocalNotificationCreator.h */,
+				C905B4ED19747CE300597899 /* LocalNotificationCreator.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -369,6 +374,7 @@
 				C9408047196B62D100A55343 /* MinutePickerViewCell.m in Sources */,
 				C9408040196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m in Sources */,
 				C9408068196E1CF600A55343 /* Timer.m in Sources */,
+				C905B4EE19747CE300597899 /* LocalNotificationCreator.m in Sources */,
 				C9408053196CA31D00A55343 /* TimerViewController.m in Sources */,
 				C940805C196CB0C100A55343 /* TimerView.m in Sources */,
 				C9408043196B622F00A55343 /* SettingsTableViewController.m in Sources */,
