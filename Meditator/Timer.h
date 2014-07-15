@@ -32,4 +32,6 @@
 -(void)pause;
 -(void)reset;
 
+-(void)soundEffectName:(NSString *)resourceNameWithExtension;
+
 @end

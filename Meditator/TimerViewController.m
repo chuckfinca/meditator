@@ -23,6 +23,8 @@
 @property (weak, nonatomic) IBOutlet MorphingTimerLabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIButton *endButton;
 
+@property (nonatomic, strong) NSURL *soundEffectURL;
+
 @end
 
 @implementation TimerViewController
@@ -82,11 +84,14 @@
 
 #pragma mark - Setup
 
--(void)setTimerDuration:(NSInteger)minutes
+-(void)setTimerWithSound:(NSString *)soundEffectName extension:(NSString *)soundEffectExtension andDuration:(NSInteger)minutes
 {
     Timer *timer = [Timer sharedInstance];
     timer.delegate = self;
     [timer setupTimerWithDuration:minutes*60];
+    
+    [timer soundEffectName:[NSString stringWithFormat:@"%@.%@",soundEffectName, soundEffectExtension]];
+    self.soundEffectURL = [[NSBundle mainBundle] URLForResource:soundEffectName withExtension:soundEffectExtension];
 }
 
 
@@ -103,7 +108,7 @@
 
 -(void)stopTimer
 {
-    SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:[[NSBundle mainBundle] URLForResource:@"bell" withExtension:@"aif"]];
+    SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:self.soundEffectURL];
     [player playSoundOrVibrate];
     
     [[Timer sharedInstance] reset];

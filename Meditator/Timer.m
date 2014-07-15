@@ -52,6 +52,11 @@ static Timer *sharedInstance;
     return _localNotification;
 }
 
+-(void)soundEffectName:(NSString *)resourceNameWithExtension
+{
+    self.localNotification.soundName = resourceNameWithExtension;
+}
+
 
 #pragma mark - Setup
 

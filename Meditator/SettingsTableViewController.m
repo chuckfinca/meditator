@@ -134,7 +134,8 @@
     if([segue.identifier isEqualToString:@"Timer Segue"]){
         TimerViewController *timerViewController = (TimerViewController *)segue.destinationViewController;
         NSInteger minutes = [self.minutePickerViewCell.minutesPickerView selectedRowInComponent:0] + 1;
-        [timerViewController setTimerDuration:minutes];
+        
+        [timerViewController setTimerWithSound:@"bell" extension:@"aif" andDuration:minutes];
     }
 }
 
