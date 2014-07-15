@@ -229,14 +229,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		C940804E196C98F500A55343 /* Sound Selector */ = {
+		C940804E196C98F500A55343 /* Selector */ = {
 			isa = PBXGroup;
 			children = (
 				C9408049196B6EE600A55343 /* SelectorCell.h */,
 				C940804A196B6EE600A55343 /* SelectorCell.m */,
 				C940804B196B6EE600A55343 /* SelectorCell.xib */,
 			);
-			name = "Sound Selector";
+			name = Selector;
 			sourceTree = "<group>";
 		};
 		C940804F196C991A00A55343 /* Minute Picker */ = {
@@ -255,7 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				C940804F196C991A00A55343 /* Minute Picker */,
-				C940804E196C98F500A55343 /* Sound Selector */,
+				C940804E196C98F500A55343 /* Selector */,
 			);
 			name = Cells;
 			sourceTree = "<group>";

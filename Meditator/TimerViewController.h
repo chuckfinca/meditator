@@ -10,6 +10,6 @@
 
 @interface TimerViewController : UIViewController
 
--(void)setTimerWithSound:(NSString *)soundEffectName andDuration:(NSInteger)minutes;
+-(void)setTimerWithDuration:(NSInteger)minutes completionSound:(NSString *)soundEffectName andBackground:(NSString *)backgroundName;
 
 @end

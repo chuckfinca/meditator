@@ -24,6 +24,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *endButton;
 
 @property (nonatomic, strong) NSURL *soundEffectURL;
+@property (nonatomic, strong) UIImage *backgroundImage;
 
 @end
 
@@ -43,12 +44,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
-    UIColor *tintColor = [UIColor colorWithWhite:1 alpha:0.3];
-    self.backgroundImageView.image = [[UIImage imageNamed:@"flowers"] applyBlurWithRadius:5 tintColor:tintColor saturationDeltaFactor:0.8 maskImage:nil];
-    
     self.statusLabel.textColor = [UIColor whiteColor];
     self.statusLabel.alpha = 0;
+    
+    self.backgroundImageView.image = self.backgroundImage;
     
     [self.pauseButton setImage:[[UIImage imageNamed:@"pause"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     self.pauseButton.tintColor = [UIColor colorWithWhite:1 alpha:0.9];
@@ -84,7 +83,7 @@
 
 #pragma mark - Setup
 
--(void)setTimerWithSound:(NSString *)soundEffectName andDuration:(NSInteger)minutes
+-(void)setTimerWithDuration:(NSInteger)minutes completionSound:(NSString *)soundEffectName andBackground:(NSString *)backgroundName
 {
     Timer *timer = [Timer sharedInstance];
     timer.delegate = self;
@@ -98,6 +97,9 @@
         timer.soundEffectName = [NSString stringWithFormat:@"%@.%@",soundEffectName, @"aif"];
         self.soundEffectURL = [[NSBundle mainBundle] URLForResource:soundEffectName withExtension:@"aif"];
     }
+    
+    UIColor *tintColor = [UIColor colorWithWhite:1 alpha:0.3];
+    self.backgroundImage = [[UIImage imageNamed:backgroundName] applyBlurWithRadius:5 tintColor:tintColor saturationDeltaFactor:0.8 maskImage:nil];
 }
 
 

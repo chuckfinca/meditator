@@ -20,6 +20,9 @@
 @property (nonatomic) NSInteger selectedSoundIndex;
 @property (nonatomic, strong) NSArray *soundNamesArray;
 
+@property (nonatomic) NSInteger selectedBackgroundIndex;
+@property (nonatomic, strong) NSArray *backgroundNamesArray;
+
 @end
 
 @implementation SettingsTableViewController
@@ -56,6 +59,11 @@
     return _soundSelectorCell;
 }
 
+-(NSArray *)soundNamesArray
+{
+    return @[UILocalNotificationDefaultSoundName, @"bell", @"drum", @"bell", @"bell"];
+}
+
 -(SelectorCell *)backgroundSelectorCell
 {
     if(!_backgroundSelectorCell){
@@ -64,9 +72,9 @@
     return _backgroundSelectorCell;
 }
 
--(NSArray *)soundNamesArray
+-(NSArray *)backgroundNamesArray
 {
-    return @[UILocalNotificationDefaultSoundName, @"bell", @"drum", @"bell", @"bell"];
+    return @[@"blue", @"flowers", @"blue", @"bell", @"bell"];
 }
 
 #pragma mark - UITableViewDataSource
@@ -101,6 +109,9 @@
             cell = self.backgroundSelectorCell;
             for(UIButton *button in self.backgroundSelectorCell.buttonArray){
                 [button addTarget:self action:@selector(backgroundSelected:) forControlEvents:UIControlEventTouchUpInside];
+                
+                [button setImage:[UIImage imageNamed:self.backgroundNamesArray[button.tag]] forState:UIControlStateNormal];
+                button.contentMode = UIViewContentModeScaleAspectFill;
             }
             break;
             
@@ -116,13 +127,13 @@
     NSString *title;
     switch (section) {
         case 0:
-            title = @"length";
+            title = @"meditation length";
             break;
         case 1:
-            title = @"sound";
+            title = @"completion sound";
             break;
         case 2:
-            title = @"background";
+            title = @"timer background";
             break;
             
         default:
@@ -163,7 +174,7 @@
         TimerViewController *timerViewController = (TimerViewController *)segue.destinationViewController;
         NSInteger minutes = [self.minutePickerViewCell.minutesPickerView selectedRowInComponent:0] + 1;
         
-        [timerViewController setTimerWithSound:self.soundNamesArray[self.selectedSoundIndex] andDuration:minutes];
+        [timerViewController setTimerWithDuration:minutes completionSound:self.soundNamesArray[self.selectedSoundIndex] andBackground:self.backgroundNamesArray[self.selectedBackgroundIndex]];
     }
 }
 
@@ -186,7 +197,8 @@
 
 -(IBAction)backgroundSelected:(UIButton *)sender
 {
-    NSLog(@"background = %ld",(long)sender.tag);
+    self.selectedBackgroundIndex = sender.tag;
+    NSLog(@"background = %@",self.backgroundNamesArray[sender.tag]);
 }
 
 - (void)didReceiveMemoryWarning
