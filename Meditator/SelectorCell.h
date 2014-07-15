@@ -10,7 +10,7 @@
 
 #define SOUND_SELECTOR_CELL_REUSE_IDENTIFIER @"SoundSelectorCell"
 
-@interface SoundSelectorCell : UITableViewCell
+@interface SelectorCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttonArray;
 

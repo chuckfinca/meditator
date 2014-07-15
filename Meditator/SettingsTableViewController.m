@@ -8,13 +8,14 @@
 
 #import "SettingsTableViewController.h"
 #import "MinutePickerViewCell.h"
-#import "SoundSelectorCell.h"
+#import "SelectorCell.h"
 #import "TimerViewController.h"
 
 @interface SettingsTableViewController ()
 
 @property (nonatomic, strong) MinutePickerViewCell *minutePickerViewCell;
-@property (nonatomic, strong) SoundSelectorCell *soundSelectorCell;
+@property (nonatomic, strong) SelectorCell *soundSelectorCell;
+@property (nonatomic, strong) SelectorCell *backgroundSelectorCell;
 
 @property (nonatomic) NSInteger selectedSoundIndex;
 @property (nonatomic, strong) NSArray *soundNamesArray;
@@ -47,12 +48,20 @@
     return _minutePickerViewCell;
 }
 
--(SoundSelectorCell *)soundSelectorCell
+-(SelectorCell *)soundSelectorCell
 {
     if(!_soundSelectorCell){
-        _soundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"SoundSelectorCell" owner:self options:nil] firstObject];
+        _soundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"SelectorCell" owner:self options:nil] firstObject];
     }
     return _soundSelectorCell;
+}
+
+-(SelectorCell *)backgroundSelectorCell
+{
+    if(!_backgroundSelectorCell){
+        _backgroundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"SelectorCell" owner:self options:nil] firstObject];
+    }
+    return _backgroundSelectorCell;
 }
 
 -(NSArray *)soundNamesArray
@@ -64,7 +73,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -88,6 +97,13 @@
             }
             break;
             
+        case 2:
+            cell = self.backgroundSelectorCell;
+            for(UIButton *button in self.backgroundSelectorCell.buttonArray){
+                [button addTarget:self action:@selector(backgroundSelected:) forControlEvents:UIControlEventTouchUpInside];
+            }
+            break;
+            
         default:
             break;
     }
@@ -100,10 +116,13 @@
     NSString *title;
     switch (section) {
         case 0:
-            title = @"Meditation length";
+            title = @"length";
             break;
         case 1:
-            title = @"Completion sound";
+            title = @"sound";
+            break;
+        case 2:
+            title = @"background";
             break;
             
         default:
@@ -123,6 +142,9 @@
             break;
         case 1:
             cell = self.soundSelectorCell;
+            break;
+        case 2:
+            cell = self.backgroundSelectorCell;
             break;
             
         default:
@@ -162,6 +184,10 @@
     NSLog(@"sound = %@",self.soundNamesArray[sender.tag]);
 }
 
+-(IBAction)backgroundSelected:(UIButton *)sender
+{
+    NSLog(@"background = %ld",(long)sender.tag);
+}
 
 - (void)didReceiveMemoryWarning
 {

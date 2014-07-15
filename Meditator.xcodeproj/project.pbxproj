@@ -32,8 +32,8 @@
 		C9408043196B622F00A55343 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408042196B622F00A55343 /* SettingsTableViewController.m */; };
 		C9408047196B62D100A55343 /* MinutePickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408045196B62D100A55343 /* MinutePickerViewCell.m */; };
 		C9408048196B62D100A55343 /* MinutePickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9408046196B62D100A55343 /* MinutePickerViewCell.xib */; };
-		C940804C196B6EE600A55343 /* SoundSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C940804A196B6EE600A55343 /* SoundSelectorCell.m */; };
-		C940804D196B6EE600A55343 /* SoundSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C940804B196B6EE600A55343 /* SoundSelectorCell.xib */; };
+		C940804C196B6EE600A55343 /* SelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C940804A196B6EE600A55343 /* SelectorCell.m */; };
+		C940804D196B6EE600A55343 /* SelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C940804B196B6EE600A55343 /* SelectorCell.xib */; };
 		C9408053196CA31D00A55343 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408052196CA31D00A55343 /* TimerViewController.m */; };
 		C940805C196CB0C100A55343 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C940805B196CB0C100A55343 /* TimerView.m */; };
 		C9408068196E1CF600A55343 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408067196E1CF600A55343 /* Timer.m */; };
@@ -89,9 +89,9 @@
 		C9408044196B62D100A55343 /* MinutePickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinutePickerViewCell.h; sourceTree = "<group>"; };
 		C9408045196B62D100A55343 /* MinutePickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinutePickerViewCell.m; sourceTree = "<group>"; };
 		C9408046196B62D100A55343 /* MinutePickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MinutePickerViewCell.xib; sourceTree = "<group>"; };
-		C9408049196B6EE600A55343 /* SoundSelectorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundSelectorCell.h; sourceTree = "<group>"; };
-		C940804A196B6EE600A55343 /* SoundSelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundSelectorCell.m; sourceTree = "<group>"; };
-		C940804B196B6EE600A55343 /* SoundSelectorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SoundSelectorCell.xib; sourceTree = "<group>"; };
+		C9408049196B6EE600A55343 /* SelectorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectorCell.h; sourceTree = "<group>"; };
+		C940804A196B6EE600A55343 /* SelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectorCell.m; sourceTree = "<group>"; };
+		C940804B196B6EE600A55343 /* SelectorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectorCell.xib; sourceTree = "<group>"; };
 		C9408051196CA31D00A55343 /* TimerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerViewController.h; sourceTree = "<group>"; };
 		C9408052196CA31D00A55343 /* TimerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerViewController.m; sourceTree = "<group>"; };
 		C940805A196CB0C100A55343 /* TimerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerView.h; sourceTree = "<group>"; };
@@ -232,9 +232,9 @@
 		C940804E196C98F500A55343 /* Sound Selector */ = {
 			isa = PBXGroup;
 			children = (
-				C9408049196B6EE600A55343 /* SoundSelectorCell.h */,
-				C940804A196B6EE600A55343 /* SoundSelectorCell.m */,
-				C940804B196B6EE600A55343 /* SoundSelectorCell.xib */,
+				C9408049196B6EE600A55343 /* SelectorCell.h */,
+				C940804A196B6EE600A55343 /* SelectorCell.m */,
+				C940804B196B6EE600A55343 /* SelectorCell.xib */,
 			);
 			name = "Sound Selector";
 			sourceTree = "<group>";
@@ -343,7 +343,7 @@
 				C9408022196B481800A55343 /* Images.xcassets in Resources */,
 				C940801A196B481800A55343 /* Main_iPhone.storyboard in Resources */,
 				C905B4F5197491EC00597899 /* bell.aif in Resources */,
-				C940804D196B6EE600A55343 /* SoundSelectorCell.xib in Resources */,
+				C940804D196B6EE600A55343 /* SelectorCell.xib in Resources */,
 				C954B9CC1975DF6F00FD4FAB /* drum.aif in Resources */,
 				C9408011196B481800A55343 /* InfoPlist.strings in Resources */,
 			);
@@ -408,7 +408,7 @@
 				C905B4F11974843A00597899 /* InstructionsViewController.m in Sources */,
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,
-				C940804C196B6EE600A55343 /* SoundSelectorCell.m in Sources */,
+				C940804C196B6EE600A55343 /* SelectorCell.m in Sources */,
 				C9408013196B481800A55343 /* main.m in Sources */,
 				C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */,
 			);

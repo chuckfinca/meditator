@@ -6,12 +6,12 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "SoundSelectorCell.h"
-@interface SoundSelectorCell ()
+#import "SelectorCell.h"
+@interface SelectorCell ()
 
 @end
 
-@implementation SoundSelectorCell
+@implementation SelectorCell
 
 -(void)awakeFromNib
 {
