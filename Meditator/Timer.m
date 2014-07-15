@@ -16,7 +16,6 @@
 
 @property (nonatomic) NSInteger totalTimerDuration;
 @property (nonatomic) NSInteger remainingTimerDuration;
-@property (nonatomic, readwrite) UILocalNotification *localNotification;
 
 @end
 
@@ -47,16 +46,18 @@ static Timer *sharedInstance;
         _localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:secondsRemaining];
         _localNotification.alertBody = @"Meditation Complete";
         _localNotification.alertAction = @"Ok";
-        _localNotification.soundName = UILocalNotificationDefaultSoundName;
+        _localNotification.soundName = self.soundEffectName;
     }
     return _localNotification;
 }
 
--(void)soundEffectName:(NSString *)resourceNameWithExtension
+-(NSString *)soundEffectName
 {
-    self.localNotification.soundName = resourceNameWithExtension;
+    if(!_soundEffectName){
+        _soundEffectName = UILocalNotificationDefaultSoundName;
+    }
+    return _soundEffectName;
 }
-
 
 #pragma mark - Setup
 

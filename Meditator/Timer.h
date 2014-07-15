@@ -23,7 +23,8 @@
 
 @property (nonatomic, readonly) NSInteger remainingTimerDuration;
 @property (nonatomic) BOOL timerIsRunning;
-@property (nonatomic, readonly) UILocalNotification *localNotification;
+@property (nonatomic, strong) UILocalNotification *localNotification;
+@property (nonatomic, strong) NSString *soundEffectName;
 
 +(Timer *)sharedInstance;
 
@@ -31,7 +32,5 @@
 -(void)start;
 -(void)pause;
 -(void)reset;
-
--(void)soundEffectName:(NSString *)resourceNameWithExtension;
 
 @end

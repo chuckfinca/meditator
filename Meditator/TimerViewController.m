@@ -90,7 +90,7 @@
     timer.delegate = self;
     [timer setupTimerWithDuration:minutes*60];
     
-    [timer soundEffectName:[NSString stringWithFormat:@"%@.%@",soundEffectName, soundEffectExtension]];
+    timer.soundEffectName = [NSString stringWithFormat:@"%@.%@",soundEffectName, soundEffectExtension];
     self.soundEffectURL = [[NSBundle mainBundle] URLForResource:soundEffectName withExtension:soundEffectExtension];
 }
 

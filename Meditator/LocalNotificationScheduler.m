@@ -24,10 +24,12 @@
 
 +(void)cancelLocalNotificationIfActive
 {
+    NSLog(@"aaa");
     BOOL localNotificationActive = [[NSUserDefaults standardUserDefaults] boolForKey:LOCAL_NOTIFICATIONS_ACTIVE];
     if(localNotificationActive){
+            NSLog(@"bbb");
         [[UIApplication sharedApplication] cancelLocalNotification:[Timer sharedInstance].localNotification];
-        
+        [Timer sharedInstance].localNotification = nil;
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:LOCAL_NOTIFICATIONS_ACTIVE];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
