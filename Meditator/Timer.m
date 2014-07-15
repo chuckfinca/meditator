@@ -63,6 +63,15 @@ static Timer *sharedInstance;
 
 -(void)setupTimerWithDuration:(NSInteger)seconds
 {
+    // FOR TESTING
+    if(seconds == 60) seconds = 10;
+    
+    
+    
+    
+    
+    
+    
     self.totalTimerDuration = seconds;
     self.remainingTimerDuration = seconds;
 }

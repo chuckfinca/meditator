@@ -84,14 +84,20 @@
 
 #pragma mark - Setup
 
--(void)setTimerWithSound:(NSString *)soundEffectName extension:(NSString *)soundEffectExtension andDuration:(NSInteger)minutes
+-(void)setTimerWithSound:(NSString *)soundEffectName andDuration:(NSInteger)minutes
 {
     Timer *timer = [Timer sharedInstance];
     timer.delegate = self;
     [timer setupTimerWithDuration:minutes*60];
     
-    timer.soundEffectName = [NSString stringWithFormat:@"%@.%@",soundEffectName, soundEffectExtension];
-    self.soundEffectURL = [[NSBundle mainBundle] URLForResource:soundEffectName withExtension:soundEffectExtension];
+    if([soundEffectName isEqualToString:UILocalNotificationDefaultSoundName]){
+        timer.soundEffectName = UILocalNotificationDefaultSoundName;
+        self.soundEffectURL = nil;
+        
+    } else {
+        timer.soundEffectName = [NSString stringWithFormat:@"%@.%@",soundEffectName, @"aif"];
+        self.soundEffectURL = [[NSBundle mainBundle] URLForResource:soundEffectName withExtension:@"aif"];
+    }
 }
 
 
@@ -102,18 +108,21 @@
     [self.timerView setStrokeEnd:percentRemaining];
     
     if(percentRemaining < .001){
+        if([Timer sharedInstance].timerIsActive){
+            [self soundTimer];
+        }
         [self stopTimer];
     }
 }
 
+-(void)soundTimer
+{
+    SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:self.soundEffectURL];
+    [player playSoundOrVibrate];
+}
+
 -(void)stopTimer
 {
-    if([Timer sharedInstance].timerIsActive){
-        NSLog(@"bbb");
-        SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:self.soundEffectURL];
-        [player playSoundOrVibrate];
-    }
-    
     [[Timer sharedInstance] reset];
     
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{

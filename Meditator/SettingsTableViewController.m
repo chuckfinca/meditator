@@ -16,7 +16,8 @@
 @property (nonatomic, strong) MinutePickerViewCell *minutePickerViewCell;
 @property (nonatomic, strong) SoundSelectorCell *soundSelectorCell;
 
-@property (nonatomic) NSInteger selectedSoundNumber;
+@property (nonatomic) NSInteger selectedSoundIndex;
+@property (nonatomic, strong) NSArray *soundNamesArray;
 
 @end
 
@@ -52,6 +53,11 @@
         _soundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"SoundSelectorCell" owner:self options:nil] firstObject];
     }
     return _soundSelectorCell;
+}
+
+-(NSArray *)soundNamesArray
+{
+    return @[UILocalNotificationDefaultSoundName, @"bell", @"drum", @"bell", @"bell"];
 }
 
 #pragma mark - UITableViewDataSource
@@ -135,7 +141,7 @@
         TimerViewController *timerViewController = (TimerViewController *)segue.destinationViewController;
         NSInteger minutes = [self.minutePickerViewCell.minutesPickerView selectedRowInComponent:0] + 1;
         
-        [timerViewController setTimerWithSound:@"bell" extension:@"aif" andDuration:minutes];
+        [timerViewController setTimerWithSound:self.soundNamesArray[self.selectedSoundIndex] andDuration:minutes];
     }
 }
 
@@ -152,8 +158,8 @@
 
 -(IBAction)soundSelected:(UIButton *)sender
 {
-    self.selectedSoundNumber = sender.tag;
-    NSLog(@"tag = %ld",(long)sender.tag);
+    self.selectedSoundIndex = sender.tag;
+    NSLog(@"sound = %@",self.soundNamesArray[sender.tag]);
 }
 
 
