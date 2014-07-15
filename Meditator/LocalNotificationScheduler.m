@@ -15,7 +15,7 @@
 
 +(void)createLocalNotificationIfTimerIsRunning
 {
-    if([Timer sharedInstance].timerIsRunning){
+    if([Timer sharedInstance].timerIsActive){
         [[UIApplication sharedApplication] scheduleLocalNotification:[Timer sharedInstance].localNotification];
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:LOCAL_NOTIFICATIONS_ACTIVE];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -24,11 +24,17 @@
 
 +(void)cancelLocalNotificationIfActive
 {
-    NSLog(@"aaa");
     BOOL localNotificationActive = [[NSUserDefaults standardUserDefaults] boolForKey:LOCAL_NOTIFICATIONS_ACTIVE];
     if(localNotificationActive){
-            NSLog(@"bbb");
-        [[UIApplication sharedApplication] cancelLocalNotification:[Timer sharedInstance].localNotification];
+        UILocalNotification *localNotification = [Timer sharedInstance].localNotification;
+        [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
+        
+        NSDate *now = [NSDate date];
+        if([now laterDate:localNotification.fireDate] == now){
+            [Timer sharedInstance].timerIsActive = NO;
+                    NSLog(@"aaa");
+        }
+        
         [Timer sharedInstance].localNotification = nil;
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:LOCAL_NOTIFICATIONS_ACTIVE];
         [[NSUserDefaults standardUserDefaults] synchronize];

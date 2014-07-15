@@ -108,8 +108,11 @@
 
 -(void)stopTimer
 {
-    SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:self.soundEffectURL];
-    [player playSoundOrVibrate];
+    if([Timer sharedInstance].timerIsActive){
+        NSLog(@"bbb");
+        SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:self.soundEffectURL];
+        [player playSoundOrVibrate];
+    }
     
     [[Timer sharedInstance] reset];
     
@@ -144,7 +147,7 @@
 -(IBAction)pause:(id)sender
 {
     Timer *timer = [Timer sharedInstance];
-    BOOL timerWasRunning = timer.timerIsRunning;
+    BOOL timerWasRunning = timer.timerIsActive;
     
     [timer pause];
     

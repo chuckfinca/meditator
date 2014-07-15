@@ -22,7 +22,7 @@
 @property (nonatomic, weak) id <TimerViewDelegate> delegate;
 
 @property (nonatomic, readonly) NSInteger remainingTimerDuration;
-@property (nonatomic) BOOL timerIsRunning;
+@property (nonatomic) BOOL timerIsActive;
 @property (nonatomic, strong) UILocalNotification *localNotification;
 @property (nonatomic, strong) NSString *soundEffectName;
 

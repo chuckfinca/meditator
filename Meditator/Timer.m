@@ -88,12 +88,12 @@ static Timer *sharedInstance;
     
     [self.displayLinkTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     self.lastResumedTime = [NSDate date];
-    self.timerIsRunning = YES;
+    self.timerIsActive = YES;
 }
 
 -(void)pause
 {
-    if(self.timerIsRunning){
+    if(self.timerIsActive){
         NSInteger secondsSinceLastResume = [[NSDate date] timeIntervalSinceDate:self.lastResumedTime];
         self.remainingTimerDuration = self.remainingTimerDuration - secondsSinceLastResume;
         
@@ -108,7 +108,7 @@ static Timer *sharedInstance;
 {
     [self.displayLinkTimer invalidate];
     self.displayLinkTimer = nil;
-    self.timerIsRunning = NO;
+    self.timerIsActive = NO;
 }
 
 
