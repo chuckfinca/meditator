@@ -11,6 +11,9 @@
 #import "SelectorCell.h"
 #import "TimerViewController.h"
 
+#define SELECTED_SOUND_INDEX @"SelectedSoundIndex"
+#define SELECTED_BACKGROUND_INDEX @"SelectedBackgroundIndex"
+
 @interface SettingsTableViewController ()
 
 @property (nonatomic, strong) MinutePickerViewCell *minutePickerViewCell;
@@ -55,6 +58,7 @@
 {
     if(!_soundSelectorCell){
         _soundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"SelectorCell" owner:self options:nil] firstObject];
+        [_soundSelectorCell refreshWithSelectedButtonIndex:[[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_SOUND_INDEX]];
     }
     return _soundSelectorCell;
 }
@@ -68,6 +72,7 @@
 {
     if(!_backgroundSelectorCell){
         _backgroundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"SelectorCell" owner:self options:nil] firstObject];
+        [_backgroundSelectorCell refreshWithSelectedButtonIndex:[[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_BACKGROUND_INDEX]];
     }
     return _backgroundSelectorCell;
 }
@@ -111,7 +116,6 @@
                 [button addTarget:self action:@selector(backgroundSelected:) forControlEvents:UIControlEventTouchUpInside];
                 
                 [button setImage:[UIImage imageNamed:self.backgroundNamesArray[button.tag]] forState:UIControlStateNormal];
-                button.contentMode = UIViewContentModeScaleAspectFill;
             }
             break;
             
@@ -191,14 +195,20 @@
 
 -(IBAction)soundSelected:(UIButton *)sender
 {
+    [self.soundSelectorCell refreshWithSelectedButtonIndex:sender.tag];
     self.selectedSoundIndex = sender.tag;
-    NSLog(@"sound = %@",self.soundNamesArray[sender.tag]);
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:sender.tag forKey:SELECTED_SOUND_INDEX];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 -(IBAction)backgroundSelected:(UIButton *)sender
 {
+    [self.backgroundSelectorCell refreshWithSelectedButtonIndex:sender.tag];
     self.selectedBackgroundIndex = sender.tag;
-    NSLog(@"background = %@",self.backgroundNamesArray[sender.tag]);
+    
+    [[NSUserDefaults standardUserDefaults] setInteger:sender.tag forKey:SELECTED_BACKGROUND_INDEX];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)didReceiveMemoryWarning

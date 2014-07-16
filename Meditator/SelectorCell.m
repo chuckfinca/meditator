@@ -16,15 +16,26 @@
 -(void)awakeFromNib
 {
     // Initialization code
+    for(UIButton *button in self.buttonArray){
+        button.layer.cornerRadius = 4;
+        button.clipsToBounds = YES;
+        button.contentMode = UIViewContentModeScaleAspectFill;
+    }
 }
 
--(void)setSelected:(BOOL)selected animated:(BOOL)animated
+-(void)refreshWithSelectedButtonIndex:(NSInteger)selectedButtonIndex
 {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
+    for(UIButton *button in self.buttonArray){
+        if(selectedButtonIndex == button.tag){
+            button.selected = YES;
+            button.alpha = 1.0;
+            
+        } else {
+            button.selected = NO;
+            button.alpha = 0.5;
+        }
+    }
 }
-
 
 
 

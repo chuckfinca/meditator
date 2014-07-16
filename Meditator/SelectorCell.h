@@ -14,4 +14,6 @@
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttonArray;
 
+-(void)refreshWithSelectedButtonIndex:(NSInteger)selectedButtonIndex;
+
 @end
