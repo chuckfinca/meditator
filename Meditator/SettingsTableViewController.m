@@ -7,18 +7,24 @@
 //
 
 #import "SettingsTableViewController.h"
-#import "MinutePickerViewCell.h"
+#import "IntervalCell.h"
 #import "SelectorCell.h"
 #import "TimerViewController.h"
+#import "IntervalCellDelegateAndDataSource.h"
 
 #define SELECTED_SOUND_INDEX @"SelectedSoundIndex"
 #define SELECTED_BACKGROUND_INDEX @"SelectedBackgroundIndex"
+#define TIMER_INTERVAL_ARRAY @"TimerIntervalArray"
 
-@interface SettingsTableViewController ()
+@interface SettingsTableViewController () <RefreshIntervalCellDelegate>
 
-@property (nonatomic, strong) MinutePickerViewCell *minutePickerViewCell;
+@property (nonatomic, strong) IntervalCell *intervalCell;
 @property (nonatomic, strong) SelectorCell *soundSelectorCell;
 @property (nonatomic, strong) SelectorCell *backgroundSelectorCell;
+
+@property (nonatomic, strong) IntervalCellDelegateAndDataSource *intervalCellDelegateAndDataSource;
+@property (nonatomic, strong) NSArray *intervalArray;
+@property (nonatomic) BOOL displayIntervals;
 
 @property (nonatomic) NSInteger selectedSoundIndex;
 @property (nonatomic, strong) NSArray *soundNamesArray;
@@ -46,12 +52,46 @@
 
 #pragma mark - Getters & Setters
 
--(MinutePickerViewCell *)minutePickerViewCell
+-(IntervalCell *)intervalCell
 {
-    if(!_minutePickerViewCell){
-        _minutePickerViewCell = [[[NSBundle mainBundle] loadNibNamed:@"MinutePickerViewCell" owner:self options:nil] firstObject];
+    if(!_intervalCell){
+        if(self.displayIntervals){
+            _intervalCell = [[[NSBundle mainBundle] loadNibNamed:@"IntervalCell" owner:self options:nil] firstObject];
+        } else {
+            _intervalCell = [[[NSBundle mainBundle] loadNibNamed:@"SingleIntervalCell" owner:self options:nil] firstObject];
+        }
+        _intervalCell.minutePickerView.delegate = self.intervalCellDelegateAndDataSource;
+        _intervalCell.minutePickerView.dataSource = self.intervalCellDelegateAndDataSource;
+        [_intervalCell refreshWithIntervalArray:self.intervalArray andSelectedButtonIndex:0];
+        [_intervalCell.resetButton addTarget:self action:@selector(resetIntervals:) forControlEvents:UIControlEventTouchUpInside];
+        [_intervalCell.toggleIntervalsButton addTarget:self action:@selector(toggleIntervals:) forControlEvents:UIControlEventTouchUpInside];
+        
+        NSNumber *minutes = self.intervalArray[0];
+        [_intervalCell.minutePickerView selectRow:[minutes integerValue] inComponent:0 animated:NO];
     }
-    return _minutePickerViewCell;
+    return _intervalCell;
+}
+
+-(IntervalCellDelegateAndDataSource *)intervalCellDelegateAndDataSource
+{
+    if(!_intervalCellDelegateAndDataSource){
+        _intervalCellDelegateAndDataSource = [[IntervalCellDelegateAndDataSource alloc] initWithIntervalButtonArray:_intervalCell.buttonArray andPickerViewContainingRows:90];
+        _intervalCellDelegateAndDataSource.delegate = self;
+    }
+    return _intervalCellDelegateAndDataSource;
+}
+
+-(NSArray *)intervalArray
+{
+    _intervalArray = [[NSUserDefaults standardUserDefaults] arrayForKey:TIMER_INTERVAL_ARRAY];
+    
+    if(!_intervalArray){
+        _intervalArray = @[@14,@0,@0,@0,@0];
+        [[NSUserDefaults standardUserDefaults] setObject:_intervalArray forKey:TIMER_INTERVAL_ARRAY];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    }
+    
+    return _intervalArray;
 }
 
 -(SelectorCell *)soundSelectorCell
@@ -82,6 +122,8 @@
     return @[@"blue", @"flowers", @"blue", @"bell", @"bell"];
 }
 
+
+
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -100,7 +142,10 @@
     
     switch (indexPath.section) {
         case 0:
-            cell = self.minutePickerViewCell;
+            cell = self.intervalCell;
+            for(UIButton *button in self.intervalCell.buttonArray){
+                [button addTarget:self action:@selector(intervalSelected:) forControlEvents:UIControlEventTouchUpInside];
+            }
             break;
             
         case 1:
@@ -131,7 +176,7 @@
     NSString *title;
     switch (section) {
         case 0:
-            title = @"meditation length";
+            title = @"interval length";
             break;
         case 1:
             title = @"completion sound";
@@ -153,7 +198,7 @@
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:
-            cell = self.minutePickerViewCell;
+            cell = self.intervalCell;
             break;
         case 1:
             cell = self.soundSelectorCell;
@@ -176,22 +221,35 @@
 {
     if([segue.identifier isEqualToString:@"Timer Segue"]){
         TimerViewController *timerViewController = (TimerViewController *)segue.destinationViewController;
-        NSInteger minutes = [self.minutePickerViewCell.minutesPickerView selectedRowInComponent:0] + 1;
+        NSInteger minutes = [self.intervalCell.minutePickerView selectedRowInComponent:0] + 1;
         
         [timerViewController setTimerWithDuration:minutes completionSound:self.soundNamesArray[self.selectedSoundIndex] andBackground:self.backgroundNamesArray[self.selectedBackgroundIndex]];
     }
 }
 
 
-#pragma mark - Unwind Segue
 
--(IBAction)returningFromTimer:(UIStoryboardSegue *)segue
-{
-    NSLog(@"end");
-}
 
 
 #pragma mark - Target Action
+
+-(IBAction)intervalSelected:(UIButton *)sender
+{
+    NSNumber *minutes = (NSNumber *)self.intervalArray[sender.tag];
+    
+    [self.intervalCell refreshWithIntervalArray:self.intervalArray andSelectedButtonIndex:sender.tag];
+    [self.intervalCell.minutePickerView selectRow:[minutes integerValue] inComponent:0 animated:YES];
+}
+
+-(IBAction)resetIntervals:(UIButton *)sender
+{
+    [[NSUserDefaults standardUserDefaults] setObject:@[@14,@0,@0,@0,@0] forKey:TIMER_INTERVAL_ARRAY];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+    
+    NSNumber *minutes = (NSNumber *)self.intervalArray[0];
+    [self.intervalCell refreshWithIntervalArray:self.intervalArray andSelectedButtonIndex:0];
+    [self.intervalCell.minutePickerView selectRow:[minutes integerValue] inComponent:0 animated:YES];
+}
 
 -(IBAction)soundSelected:(UIButton *)sender
 {
@@ -210,6 +268,44 @@
     [[NSUserDefaults standardUserDefaults] setInteger:sender.tag forKey:SELECTED_BACKGROUND_INDEX];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
+
+-(IBAction)toggleIntervals:(UIButton *)sender
+{
+    self.displayIntervals = !self.displayIntervals;
+    self.intervalCell = nil;
+    [self.tableView reloadData];
+}
+
+
+#pragma mark - RefreshIntervalCellDelegate
+
+-(void)refreshIntervalCell
+{
+    [self.intervalCell refreshWithIntervalArray:self.intervalArray andSelectedButtonIndex:[self selectedIntervalIndex]];
+}
+
+-(NSInteger)selectedIntervalIndex
+{
+    NSInteger selectedIntervalIndex = 0;
+    
+    for(UIButton *button in self.intervalCell.buttonArray){
+        if(button.selected == YES){
+            selectedIntervalIndex = button.tag;
+            break;
+        }
+    }
+
+    return selectedIntervalIndex;
+}
+
+#pragma mark - Unwind Segue
+
+-(IBAction)returningFromTimer:(UIStoryboardSegue *)segue
+{
+    NSLog(@"end");
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {

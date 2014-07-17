@@ -28,16 +28,17 @@
 		C940802B196B481900A55343 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C940800A196B481800A55343 /* UIKit.framework */; };
 		C9408033196B481900A55343 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = C9408031196B481900A55343 /* InfoPlist.strings */; };
 		C9408035196B481900A55343 /* MeditatorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408034196B481900A55343 /* MeditatorTests.m */; };
-		C9408040196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C940803F196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m */; };
 		C9408043196B622F00A55343 /* SettingsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408042196B622F00A55343 /* SettingsTableViewController.m */; };
-		C9408047196B62D100A55343 /* MinutePickerViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408045196B62D100A55343 /* MinutePickerViewCell.m */; };
-		C9408048196B62D100A55343 /* MinutePickerViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9408046196B62D100A55343 /* MinutePickerViewCell.xib */; };
 		C940804C196B6EE600A55343 /* SelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C940804A196B6EE600A55343 /* SelectorCell.m */; };
 		C940804D196B6EE600A55343 /* SelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C940804B196B6EE600A55343 /* SelectorCell.xib */; };
 		C9408053196CA31D00A55343 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408052196CA31D00A55343 /* TimerViewController.m */; };
 		C940805C196CB0C100A55343 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C940805B196CB0C100A55343 /* TimerView.m */; };
 		C9408068196E1CF600A55343 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408067196E1CF600A55343 /* Timer.m */; };
 		C954B9CC1975DF6F00FD4FAB /* drum.aif in Resources */ = {isa = PBXBuildFile; fileRef = C954B9CB1975DF6F00FD4FAB /* drum.aif */; };
+		C954B9DB19771E5900FD4FAB /* IntervalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9D919771E5900FD4FAB /* IntervalCell.m */; };
+		C954B9DC19771E5900FD4FAB /* IntervalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9DA19771E5900FD4FAB /* IntervalCell.xib */; };
+		C954B9E01977277000FD4FAB /* IntervalCellDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9DF1977277000FD4FAB /* IntervalCellDelegateAndDataSource.m */; };
+		C954B9E41977510800FD4FAB /* SingleIntervalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9E31977510800FD4FAB /* SingleIntervalCell.xib */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
 		C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */; };
 /* End PBXBuildFile section */
@@ -82,13 +83,8 @@
 		C9408030196B481900A55343 /* MeditatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeditatorTests-Info.plist"; sourceTree = "<group>"; };
 		C9408032196B481900A55343 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9408034196B481900A55343 /* MeditatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeditatorTests.m; sourceTree = "<group>"; };
-		C940803E196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinutesPickerViewDelegateAndDataSource.h; sourceTree = "<group>"; };
-		C940803F196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinutesPickerViewDelegateAndDataSource.m; sourceTree = "<group>"; };
 		C9408041196B622F00A55343 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
 		C9408042196B622F00A55343 /* SettingsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsTableViewController.m; sourceTree = "<group>"; };
-		C9408044196B62D100A55343 /* MinutePickerViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MinutePickerViewCell.h; sourceTree = "<group>"; };
-		C9408045196B62D100A55343 /* MinutePickerViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MinutePickerViewCell.m; sourceTree = "<group>"; };
-		C9408046196B62D100A55343 /* MinutePickerViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MinutePickerViewCell.xib; sourceTree = "<group>"; };
 		C9408049196B6EE600A55343 /* SelectorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SelectorCell.h; sourceTree = "<group>"; };
 		C940804A196B6EE600A55343 /* SelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SelectorCell.m; sourceTree = "<group>"; };
 		C940804B196B6EE600A55343 /* SelectorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SelectorCell.xib; sourceTree = "<group>"; };
@@ -99,6 +95,12 @@
 		C9408066196E1CF600A55343 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		C9408067196E1CF600A55343 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
 		C954B9CB1975DF6F00FD4FAB /* drum.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = drum.aif; sourceTree = "<group>"; };
+		C954B9D819771E5900FD4FAB /* IntervalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalCell.h; sourceTree = "<group>"; };
+		C954B9D919771E5900FD4FAB /* IntervalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalCell.m; sourceTree = "<group>"; };
+		C954B9DA19771E5900FD4FAB /* IntervalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntervalCell.xib; sourceTree = "<group>"; };
+		C954B9DE1977277000FD4FAB /* IntervalCellDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalCellDelegateAndDataSource.h; sourceTree = "<group>"; };
+		C954B9DF1977277000FD4FAB /* IntervalCellDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalCellDelegateAndDataSource.m; sourceTree = "<group>"; };
+		C954B9E31977510800FD4FAB /* SingleIntervalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleIntervalCell.xib; sourceTree = "<group>"; };
 		C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurEffects.h"; sourceTree = "<group>"; };
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
 		C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorphingTimerLabel.h; sourceTree = "<group>"; };
@@ -239,25 +241,26 @@
 			name = Selector;
 			sourceTree = "<group>";
 		};
-		C940804F196C991A00A55343 /* Minute Picker */ = {
-			isa = PBXGroup;
-			children = (
-				C940803E196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.h */,
-				C940803F196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m */,
-				C9408044196B62D100A55343 /* MinutePickerViewCell.h */,
-				C9408045196B62D100A55343 /* MinutePickerViewCell.m */,
-				C9408046196B62D100A55343 /* MinutePickerViewCell.xib */,
-			);
-			name = "Minute Picker";
-			sourceTree = "<group>";
-		};
 		C9408050196C99A600A55343 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				C940804F196C991A00A55343 /* Minute Picker */,
 				C940804E196C98F500A55343 /* Selector */,
+				C954B9DD1977273900FD4FAB /* Interval */,
 			);
 			name = Cells;
+			sourceTree = "<group>";
+		};
+		C954B9DD1977273900FD4FAB /* Interval */ = {
+			isa = PBXGroup;
+			children = (
+				C954B9D819771E5900FD4FAB /* IntervalCell.h */,
+				C954B9D919771E5900FD4FAB /* IntervalCell.m */,
+				C954B9DA19771E5900FD4FAB /* IntervalCell.xib */,
+				C954B9DE1977277000FD4FAB /* IntervalCellDelegateAndDataSource.h */,
+				C954B9DF1977277000FD4FAB /* IntervalCellDelegateAndDataSource.m */,
+				C954B9E31977510800FD4FAB /* SingleIntervalCell.xib */,
+			);
+			name = Interval;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -338,13 +341,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9408048196B62D100A55343 /* MinutePickerViewCell.xib in Resources */,
 				C940801D196B481800A55343 /* Main_iPad.storyboard in Resources */,
 				C9408022196B481800A55343 /* Images.xcassets in Resources */,
 				C940801A196B481800A55343 /* Main_iPhone.storyboard in Resources */,
 				C905B4F5197491EC00597899 /* bell.aif in Resources */,
 				C940804D196B6EE600A55343 /* SelectorCell.xib in Resources */,
+				C954B9E41977510800FD4FAB /* SingleIntervalCell.xib in Resources */,
 				C954B9CC1975DF6F00FD4FAB /* drum.aif in Resources */,
+				C954B9DC19771E5900FD4FAB /* IntervalCell.xib in Resources */,
 				C9408011196B481800A55343 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -397,16 +401,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9408047196B62D100A55343 /* MinutePickerViewCell.m in Sources */,
-				C9408040196B4AA800A55343 /* MinutesPickerViewDelegateAndDataSource.m in Sources */,
 				C9408068196E1CF600A55343 /* Timer.m in Sources */,
 				C905B4EE19747CE300597899 /* LocalNotificationScheduler.m in Sources */,
 				C9408053196CA31D00A55343 /* TimerViewController.m in Sources */,
 				C905B4F8197499F300597899 /* SoundEffectPlayer.m in Sources */,
 				C940805C196CB0C100A55343 /* TimerView.m in Sources */,
 				C9408043196B622F00A55343 /* SettingsTableViewController.m in Sources */,
+				C954B9E01977277000FD4FAB /* IntervalCellDelegateAndDataSource.m in Sources */,
 				C905B4F11974843A00597899 /* InstructionsViewController.m in Sources */,
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
+				C954B9DB19771E5900FD4FAB /* IntervalCell.m in Sources */,
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,
 				C940804C196B6EE600A55343 /* SelectorCell.m in Sources */,
 				C9408013196B481800A55343 /* main.m in Sources */,
