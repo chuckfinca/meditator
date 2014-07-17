@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToMinutePickerViewConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *minutePickerViewToButtonArrayConstraint;
+@property (weak, nonatomic) IBOutlet UILabel *intervalLabel;
 @end
 
 @implementation IntervalCell
@@ -72,19 +73,31 @@
     }
     
     for(UIButton *button in self.buttonArray){
+        
+        NSNumber *minutes = (NSNumber *)intervalsArray[button.tag];
+        NSString *title = [minutes stringValue];
+        
         if(selectedButtonIndex == button.tag){
             button.selected = YES;
             button.alpha = 1.0;
+            title = [title stringByAppendingString:@" min"];
             
         } else {
             button.selected = NO;
             button.alpha = 0.5;
         }
         
-        NSNumber *minutes = (NSNumber *)intervalsArray[button.tag];
-        [button setTitle:[minutes stringValue] forState:UIControlStateNormal];
-        [button setTitle:[minutes stringValue] forState:UIControlStateSelected];
+        if(button.enabled){
+            button.tintColor = self.tintColor;
+        } else {
+            button.tintColor = [UIColor redColor];
+        }
+        
+        [button setTitle:title forState:UIControlStateNormal];
+        [button setTitle:title forState:UIControlStateSelected];
     }
+    
+    self.intervalLabel.text = [NSString stringWithFormat:@"Interval %d",selectedButtonIndex+1];
 }
 
 
