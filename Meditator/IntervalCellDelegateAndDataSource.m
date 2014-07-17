@@ -49,7 +49,7 @@
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    return [@(row+1) stringValue];
+    return [@(row) stringValue];
 }
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
@@ -72,6 +72,9 @@
             [intervalArray removeObjectAtIndex:i];
             [intervalArray addObject:@0];
         }
+    }
+    if([intervalArray[0] isEqual:@0]){
+        [intervalArray replaceObjectAtIndex:0 withObject:@1];
     }
 }
 

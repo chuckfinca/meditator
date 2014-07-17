@@ -12,7 +12,7 @@
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToMinutePickerViewConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonHeightConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *minutePickerViewToButtonArrayConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonArrayToBottomConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *intervalLabel;
 @end
 
@@ -38,7 +38,7 @@
     if(self.buttonArray){
         height += self.topToMinutePickerViewConstraint.constant;
         height += self.buttonHeightConstraint.constant;
-        height += self.minutePickerViewToButtonArrayConstraint.constant;
+        height += self.buttonArrayToBottomConstraint.constant;
         height += self.minutePickerView.bounds.size.height;
         
     } else {
@@ -50,6 +50,7 @@
 
 -(void)refreshWithIntervalArray:(NSArray *)intervalsArray andSelectedButtonIndex:(NSInteger)selectedButtonIndex
 {
+    NSLog(@"refreshWithIntervalArray...");
     NSLog(@"intervalsArray = %@",intervalsArray);
     NSInteger numberOfActiveIntervals = 0;
     for(NSNumber *minutes in intervalsArray){
@@ -79,18 +80,16 @@
         
         if(selectedButtonIndex == button.tag){
             button.selected = YES;
-            button.alpha = 1.0;
             title = [title stringByAppendingString:@" min"];
             
         } else {
             button.selected = NO;
-            button.alpha = 0.5;
         }
         
-        if(button.enabled){
-            button.tintColor = self.tintColor;
+        if(!button.enabled){
+            button.alpha = 0.5;
         } else {
-            button.tintColor = [UIColor redColor];
+            button.alpha = 1.0;
         }
         
         [button setTitle:title forState:UIControlStateNormal];

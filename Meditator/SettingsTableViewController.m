@@ -15,6 +15,7 @@
 #define SELECTED_SOUND_INDEX @"SelectedSoundIndex"
 #define SELECTED_BACKGROUND_INDEX @"SelectedBackgroundIndex"
 #define TIMER_INTERVAL_ARRAY @"TimerIntervalArray"
+#define DEFAULT_INTERVAL_ARRAY @[@15,@0,@0,@0,@0]
 
 @interface SettingsTableViewController () <RefreshIntervalCellDelegate>
 
@@ -86,7 +87,7 @@
     _intervalArray = [[NSUserDefaults standardUserDefaults] arrayForKey:TIMER_INTERVAL_ARRAY];
     
     if(!_intervalArray){
-        _intervalArray = @[@14,@0,@0,@0,@0];
+        _intervalArray = DEFAULT_INTERVAL_ARRAY;
         [[NSUserDefaults standardUserDefaults] setObject:_intervalArray forKey:TIMER_INTERVAL_ARRAY];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
@@ -176,7 +177,11 @@
     NSString *title;
     switch (section) {
         case 0:
-            title = @"interval length";
+            if(self.displayIntervals){
+                title = @"Interval Duration";
+            } else {
+                title = @"Meditation Duration";
+            }
             break;
         case 1:
             title = @"completion sound";
@@ -243,7 +248,7 @@
 
 -(IBAction)resetIntervals:(UIButton *)sender
 {
-    [[NSUserDefaults standardUserDefaults] setObject:@[@14,@0,@0,@0,@0] forKey:TIMER_INTERVAL_ARRAY];
+    [[NSUserDefaults standardUserDefaults] setObject:DEFAULT_INTERVAL_ARRAY forKey:TIMER_INTERVAL_ARRAY];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
     NSNumber *minutes = (NSNumber *)self.intervalArray[0];
@@ -273,7 +278,7 @@
 {
     self.displayIntervals = !self.displayIntervals;
     self.intervalCell = nil;
-    [self.tableView reloadData];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 
@@ -281,7 +286,11 @@
 
 -(void)refreshIntervalCell
 {
-    [self.intervalCell refreshWithIntervalArray:self.intervalArray andSelectedButtonIndex:[self selectedIntervalIndex]];
+    NSInteger intervalIndex = [self selectedIntervalIndex];
+    [self.intervalCell refreshWithIntervalArray:self.intervalArray andSelectedButtonIndex:intervalIndex];
+    
+    NSNumber *minutes = self.intervalArray[intervalIndex];
+    [self.intervalCell.minutePickerView selectRow:[minutes integerValue] inComponent:0 animated:YES];
 }
 
 -(NSInteger)selectedIntervalIndex
