@@ -39,6 +39,8 @@
 		C954B9DC19771E5900FD4FAB /* IntervalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9DA19771E5900FD4FAB /* IntervalCell.xib */; };
 		C954B9E01977277000FD4FAB /* IntervalCellDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9DF1977277000FD4FAB /* IntervalCellDelegateAndDataSource.m */; };
 		C954B9E41977510800FD4FAB /* SingleIntervalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9E31977510800FD4FAB /* SingleIntervalCell.xib */; };
+		C954B9E819787C1700FD4FAB /* StartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9E619787C1700FD4FAB /* StartCell.m */; };
+		C954B9E919787C1700FD4FAB /* StartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9E719787C1700FD4FAB /* StartCell.xib */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
 		C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */; };
 /* End PBXBuildFile section */
@@ -101,6 +103,9 @@
 		C954B9DE1977277000FD4FAB /* IntervalCellDelegateAndDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalCellDelegateAndDataSource.h; sourceTree = "<group>"; };
 		C954B9DF1977277000FD4FAB /* IntervalCellDelegateAndDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalCellDelegateAndDataSource.m; sourceTree = "<group>"; };
 		C954B9E31977510800FD4FAB /* SingleIntervalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SingleIntervalCell.xib; sourceTree = "<group>"; };
+		C954B9E519787C1700FD4FAB /* StartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartCell.h; sourceTree = "<group>"; };
+		C954B9E619787C1700FD4FAB /* StartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartCell.m; sourceTree = "<group>"; };
+		C954B9E719787C1700FD4FAB /* StartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartCell.xib; sourceTree = "<group>"; };
 		C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurEffects.h"; sourceTree = "<group>"; };
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
 		C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorphingTimerLabel.h; sourceTree = "<group>"; };
@@ -246,6 +251,7 @@
 			children = (
 				C940804E196C98F500A55343 /* Selector */,
 				C954B9DD1977273900FD4FAB /* Interval */,
+				C954B9EA19787DCB00FD4FAB /* Start */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -261,6 +267,16 @@
 				C954B9E31977510800FD4FAB /* SingleIntervalCell.xib */,
 			);
 			name = Interval;
+			sourceTree = "<group>";
+		};
+		C954B9EA19787DCB00FD4FAB /* Start */ = {
+			isa = PBXGroup;
+			children = (
+				C954B9E519787C1700FD4FAB /* StartCell.h */,
+				C954B9E619787C1700FD4FAB /* StartCell.m */,
+				C954B9E719787C1700FD4FAB /* StartCell.xib */,
+			);
+			name = Start;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -347,6 +363,7 @@
 				C905B4F5197491EC00597899 /* bell.aif in Resources */,
 				C940804D196B6EE600A55343 /* SelectorCell.xib in Resources */,
 				C954B9E41977510800FD4FAB /* SingleIntervalCell.xib in Resources */,
+				C954B9E919787C1700FD4FAB /* StartCell.xib in Resources */,
 				C954B9CC1975DF6F00FD4FAB /* drum.aif in Resources */,
 				C954B9DC19771E5900FD4FAB /* IntervalCell.xib in Resources */,
 				C9408011196B481800A55343 /* InfoPlist.strings in Resources */,
@@ -405,6 +422,7 @@
 				C905B4EE19747CE300597899 /* LocalNotificationScheduler.m in Sources */,
 				C9408053196CA31D00A55343 /* TimerViewController.m in Sources */,
 				C905B4F8197499F300597899 /* SoundEffectPlayer.m in Sources */,
+				C954B9E819787C1700FD4FAB /* StartCell.m in Sources */,
 				C940805C196CB0C100A55343 /* TimerView.m in Sources */,
 				C9408043196B622F00A55343 /* SettingsTableViewController.m in Sources */,
 				C954B9E01977277000FD4FAB /* IntervalCellDelegateAndDataSource.m in Sources */,

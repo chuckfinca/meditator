@@ -11,6 +11,7 @@
 #import "SelectorCell.h"
 #import "TimerViewController.h"
 #import "IntervalCellDelegateAndDataSource.h"
+#import "StartCell.h"
 
 #define SELECTED_SOUND_INDEX @"SelectedSoundIndex"
 #define SELECTED_BACKGROUND_INDEX @"SelectedBackgroundIndex"
@@ -22,6 +23,7 @@
 @property (nonatomic, strong) IntervalCell *intervalCell;
 @property (nonatomic, strong) SelectorCell *soundSelectorCell;
 @property (nonatomic, strong) SelectorCell *backgroundSelectorCell;
+@property (nonatomic, strong) StartCell *startCell;
 
 @property (nonatomic, strong) IntervalCellDelegateAndDataSource *intervalCellDelegateAndDataSource;
 @property (nonatomic, strong) NSArray *intervalArray;
@@ -123,13 +125,20 @@
     return @[@"blue", @"flowers", @"blue", @"bell", @"bell"];
 }
 
-
+-(StartCell *)startCell
+{
+    if(!_startCell){
+        _startCell = [[[NSBundle mainBundle] loadNibNamed:@"StartCell" owner:self options:nil] firstObject];
+        [_startCell.startButton addTarget:self action:@selector(startTimer) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _startCell;
+}
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 4;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -143,20 +152,23 @@
     
     switch (indexPath.section) {
         case 0:
+            cell = self.startCell;
+            break;
+        case 1:
             cell = self.intervalCell;
             for(UIButton *button in self.intervalCell.buttonArray){
                 [button addTarget:self action:@selector(intervalSelected:) forControlEvents:UIControlEventTouchUpInside];
             }
             break;
             
-        case 1:
+        case 2:
             cell = self.soundSelectorCell;
             for(UIButton *button in self.soundSelectorCell.buttonArray){
                 [button addTarget:self action:@selector(soundSelected:) forControlEvents:UIControlEventTouchUpInside];
             }
             break;
             
-        case 2:
+        case 3:
             cell = self.backgroundSelectorCell;
             for(UIButton *button in self.backgroundSelectorCell.buttonArray){
                 [button addTarget:self action:@selector(backgroundSelected:) forControlEvents:UIControlEventTouchUpInside];
@@ -176,18 +188,18 @@
 {
     NSString *title;
     switch (section) {
-        case 0:
+        case 1:
             if(self.displayIntervals){
                 title = @"Interval Duration";
             } else {
-                title = @"Meditation Duration";
+                title = @"Duration";
             }
             break;
-        case 1:
-            title = @"completion sound";
-            break;
         case 2:
-            title = @"timer background";
+            title = @"sound effect";
+            break;
+        case 3:
+            title = @"background";
             break;
             
         default:
@@ -203,12 +215,15 @@
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:
-            cell = self.intervalCell;
+            cell = self.startCell;
             break;
         case 1:
-            cell = self.soundSelectorCell;
+            cell = self.intervalCell;
             break;
         case 2:
+            cell = self.soundSelectorCell;
+            break;
+        case 3:
             cell = self.backgroundSelectorCell;
             break;
             
@@ -219,9 +234,15 @@
 }
 
 
+
 #pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
+-(void)startTimer
+{
+    [self performSegueWithIdentifier:@"Timer Segue" sender:nil];
+}
+
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if([segue.identifier isEqualToString:@"Timer Segue"]){
@@ -276,9 +297,10 @@
 
 -(IBAction)toggleIntervals:(UIButton *)sender
 {
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:self.intervalCell];
     self.displayIntervals = !self.displayIntervals;
     self.intervalCell = nil;
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 
