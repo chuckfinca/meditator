@@ -13,7 +13,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vf-ZA-nLn">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5vf-ZA-nLn">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="Start timer">
@@ -21,6 +21,12 @@
                         </state>
                     </button>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="5vf-ZA-nLn" secondAttribute="trailing" id="03V-Op-ZAJ"/>
+                    <constraint firstItem="5vf-ZA-nLn" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="9mB-me-HiB"/>
+                    <constraint firstItem="5vf-ZA-nLn" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="Hmq-nR-6cS"/>
+                    <constraint firstAttribute="bottom" secondItem="5vf-ZA-nLn" secondAttribute="bottom" id="zdG-cv-F4f"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="startButton" destination="5vf-ZA-nLn" id="KEn-F3-y9H"/>
