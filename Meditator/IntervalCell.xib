@@ -91,11 +91,18 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msv-yq-MoW">
+                        <rect key="frame" x="182" y="77" width="28" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="JDh-Gr-2TG" secondAttribute="trailing" id="2kr-me-Y1H"/>
                     <constraint firstItem="o34-ap-K9R" firstAttribute="centerY" secondItem="AIg-7Z-ClE" secondAttribute="centerY" id="AGU-t7-5rR"/>
                     <constraint firstItem="2s4-Ck-NSc" firstAttribute="leading" secondItem="o34-ap-K9R" secondAttribute="trailing" constant="8" id="Ajt-Vz-fNP"/>
+                    <constraint firstItem="Msv-yq-MoW" firstAttribute="centerX" secondItem="aOh-b0-dv4" secondAttribute="centerX" constant="36" id="Ayx-QL-eim"/>
                     <constraint firstItem="TNb-3S-Vjk" firstAttribute="leading" secondItem="apk-w7-ofX" secondAttribute="leading" constant="19" id="D8P-wd-LuQ"/>
                     <constraint firstItem="aOh-b0-dv4" firstAttribute="leading" secondItem="apk-w7-ofX" secondAttribute="leading" id="FSC-S7-Anc"/>
                     <constraint firstItem="AIg-7Z-ClE" firstAttribute="leading" secondItem="TNb-3S-Vjk" secondAttribute="trailing" constant="8" id="Kvc-99-vHy"/>
@@ -110,6 +117,7 @@
                     <constraint firstItem="o34-ap-K9R" firstAttribute="centerY" secondItem="2s4-Ck-NSc" secondAttribute="centerY" id="jUw-gr-Fkx"/>
                     <constraint firstItem="ode-MX-LeD" firstAttribute="bottom" secondItem="aOh-b0-dv4" secondAttribute="bottom" id="l8H-RG-uG8"/>
                     <constraint firstItem="odB-nq-vLq" firstAttribute="top" secondItem="apk-w7-ofX" secondAttribute="top" id="mdp-Kk-PJr"/>
+                    <constraint firstItem="Msv-yq-MoW" firstAttribute="centerY" secondItem="aOh-b0-dv4" secondAttribute="centerY" constant="-3" id="oAo-av-ev1"/>
                     <constraint firstAttribute="bottom" secondItem="TNb-3S-Vjk" secondAttribute="bottom" constant="20" id="oWv-aN-vHY"/>
                     <constraint firstItem="o34-ap-K9R" firstAttribute="centerY" secondItem="TNb-3S-Vjk" secondAttribute="centerY" id="qtu-uW-jWD"/>
                     <constraint firstAttribute="trailing" secondItem="aOh-b0-dv4" secondAttribute="trailing" id="xvC-mM-eDl"/>

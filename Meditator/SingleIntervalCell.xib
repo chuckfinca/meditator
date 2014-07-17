@@ -39,14 +39,22 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohk-SZ-OEC">
+                        <rect key="frame" x="182" y="81" width="28" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="Ohk-SZ-OEC" firstAttribute="centerY" secondItem="hiw-Lt-Qyf" secondAttribute="centerY" constant="10" id="7Bs-Ux-qrg"/>
                     <constraint firstAttribute="trailing" secondItem="mb3-b6-mG9" secondAttribute="trailing" id="FJi-d4-Kuu"/>
                     <constraint firstItem="hiw-Lt-Qyf" firstAttribute="top" secondItem="Yrj-js-DDY" secondAttribute="top" id="GyJ-qw-czj"/>
                     <constraint firstItem="mb3-b6-mG9" firstAttribute="top" secondItem="Yrj-js-DDY" secondAttribute="top" id="Mzh-ak-AUK"/>
                     <constraint firstItem="w2b-qp-lxm" firstAttribute="leading" secondItem="Yrj-js-DDY" secondAttribute="leading" id="Qmq-BC-g3s"/>
                     <constraint firstItem="hiw-Lt-Qyf" firstAttribute="leading" secondItem="Yrj-js-DDY" secondAttribute="leading" id="Vos-aX-tL5"/>
                     <constraint firstAttribute="trailing" secondItem="hiw-Lt-Qyf" secondAttribute="trailing" id="eVe-Xz-fcl"/>
+                    <constraint firstItem="Ohk-SZ-OEC" firstAttribute="centerX" secondItem="hiw-Lt-Qyf" secondAttribute="centerX" constant="36" id="qwx-2c-iU0"/>
                     <constraint firstAttribute="bottom" secondItem="hiw-Lt-Qyf" secondAttribute="bottom" constant="17" id="sON-Dt-h5y"/>
                     <constraint firstItem="w2b-qp-lxm" firstAttribute="top" secondItem="Yrj-js-DDY" secondAttribute="top" id="tMd-S3-ONO"/>
                 </constraints>

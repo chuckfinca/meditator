@@ -21,6 +21,14 @@
 - (void)awakeFromNib
 {
     // Initialization code
+    [self.resetButton setImage:[[UIImage imageNamed:@"reset"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    
+    if(self.buttonArray){
+        [self.toggleIntervalsButton setImage:[[UIImage imageNamed:@"remove"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    } else {
+        [self.toggleIntervalsButton setImage:[[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+    }
+    
     [self setCellHeight];
 }
 
@@ -94,6 +102,12 @@
         
         [button setTitle:title forState:UIControlStateNormal];
         [button setTitle:title forState:UIControlStateSelected];
+    }
+    
+    if([intervalsArray  isEqual: @[@15,@0,@0,@0,@0]]){
+        self.resetButton.enabled = NO;
+    } else {
+        self.resetButton.enabled = YES;
     }
     
     self.intervalLabel.text = [NSString stringWithFormat:@"Interval %d",selectedButtonIndex+1];
