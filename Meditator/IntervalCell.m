@@ -58,8 +58,6 @@
 
 -(void)refreshWithIntervalArray:(NSArray *)intervalsArray andSelectedButtonIndex:(NSInteger)selectedButtonIndex
 {
-    NSLog(@"refreshWithIntervalArray...");
-    NSLog(@"intervalsArray = %@",intervalsArray);
     NSInteger numberOfActiveIntervals = 0;
     for(NSNumber *minutes in intervalsArray){
         if([minutes integerValue] > 0){

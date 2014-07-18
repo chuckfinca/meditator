@@ -249,10 +249,14 @@
     if([segue.identifier isEqualToString:@"Timer Segue"]){
         TimerViewController *timerViewController = (TimerViewController *)segue.destinationViewController;
         
-        [timerViewController setTimerIntervalArray:self.intervalArray
+        NSArray *intervalArray = self.intervalArray;
+        if(!self.displayIntervals){
+            intervalArray = @[self.intervalArray[0]];
+        }
+        
+        [timerViewController setTimerIntervalArray:intervalArray
                                    completionSound:self.soundNamesArray[self.selectedSoundIndex]
                                      andBackground:self.backgroundNamesArray[self.selectedBackgroundIndex]];
-        NSLog(@"self.soundNamesArray[self.selectedSoundIndex] = %@",self.soundNamesArray[self.selectedSoundIndex]);
     }
 }
 
