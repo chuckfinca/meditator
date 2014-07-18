@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
 @property (weak, nonatomic) IBOutlet MorphingTimerLabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIButton *endButton;
+@property (nonatomic, strong) NSString *soundEffectName;
 
 @property (nonatomic, strong) NSURL *soundEffectURL;
 @property (nonatomic, strong) UIImage *backgroundImage;
@@ -60,12 +61,15 @@
 {
     [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
         self.statusLabel.alpha = 1;
+        
     } completion:^(BOOL finished) {
         [UIView animateWithDuration:1 delay:1 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.statusLabel.alpha = 0;
             self.pauseButton.alpha = 1;
+            
         } completion:^(BOOL finished) {
             [[Timer sharedInstance] start];
+            
             [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
                 self.endButton.alpha = 1;
             } completion:^(BOOL finished) {}];
@@ -83,20 +87,23 @@
 
 #pragma mark - Setup
 
--(void)setTimerWithDuration:(NSInteger)minutes completionSound:(NSString *)soundEffectName andBackground:(NSString *)backgroundName
+-(void)setTimerIntervalArray:(NSArray *)intervalArray completionSound:(NSString *)soundEffectName andBackground:(NSString *)backgroundName
 {
     Timer *timer = [Timer sharedInstance];
     timer.delegate = self;
-    [timer setupTimerWithDuration:minutes*60];
+    
+    NSString *soundEffectFileName;
     
     if([soundEffectName isEqualToString:UILocalNotificationDefaultSoundName]){
-        timer.soundEffectName = UILocalNotificationDefaultSoundName;
+        soundEffectFileName = soundEffectName;
         self.soundEffectURL = nil;
         
     } else {
-        timer.soundEffectName = [NSString stringWithFormat:@"%@.%@",soundEffectName, @"aif"];
+        soundEffectFileName = [NSString stringWithFormat:@"%@.%@",soundEffectName, @"aif"];
         self.soundEffectURL = [[NSBundle mainBundle] URLForResource:soundEffectName withExtension:@"aif"];
     }
+    
+    [timer setupTimerWithIntervalArray:intervalArray andSoundEffectFileName:soundEffectFileName];
     
     UIColor *tintColor = [UIColor colorWithWhite:1 alpha:0.3];
     self.backgroundImage = [[UIImage imageNamed:backgroundName] applyBlurWithRadius:5 tintColor:tintColor saturationDeltaFactor:0.8 maskImage:nil];
@@ -109,11 +116,14 @@
 {
     [self.timerView setStrokeEnd:percentRemaining];
     
-    if(percentRemaining < .001){
-        if([Timer sharedInstance].timerIsActive){
+    Timer *timer = [Timer sharedInstance];
+    NSTimeInterval elapsedTime = [timer secondsSinceLastStart];
+    
+    for(NSNumber *number in timer.chimeTimesArray){
+        if([number integerValue] - elapsedTime < 0){
+            
             [self soundTimer];
         }
-        [self stopTimer];
     }
 }
 
@@ -162,9 +172,9 @@
     
     [timer pause];
     
-    NSInteger secondsRemaining = timer.remainingTimerDuration;
+    NSInteger secondsRemaining = [[timer.chimeTimesArray lastObject] integerValue];
     
-    if(secondsRemaining == 0){
+    if(secondsRemaining <= 0){
         [self performSegueWithIdentifier:@"ReturnToSettings" sender:self];
         
     } else if(timerWasRunning){

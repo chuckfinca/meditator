@@ -9,14 +9,16 @@
 #import "LocalNotificationScheduler.h"
 #import "Timer.h"
 
-#define LOCAL_NOTIFICATIONS_ACTIVE @"LocalNotificationActive"
+#define LOCAL_NOTIFICATIONS_ACTIVE @"LocalNotificationsActive"
 
 @implementation LocalNotificationScheduler
 
 +(void)createLocalNotificationIfTimerIsRunning
 {
     if([Timer sharedInstance].timerIsActive){
-        [[UIApplication sharedApplication] scheduleLocalNotification:[Timer sharedInstance].localNotification];
+        for(UILocalNotification *localNotification in [Timer sharedInstance].localNotificationsArray){
+            [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
+        }
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:LOCAL_NOTIFICATIONS_ACTIVE];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }
@@ -24,17 +26,20 @@
 
 +(void)cancelLocalNotificationIfActive
 {
-    BOOL localNotificationActive = [[NSUserDefaults standardUserDefaults] boolForKey:LOCAL_NOTIFICATIONS_ACTIVE];
-    if(localNotificationActive){
-        UILocalNotification *localNotification = [Timer sharedInstance].localNotification;
-        
-        NSDate *now = [NSDate date];
-        if([now laterDate:localNotification.fireDate] == now){
-            [Timer sharedInstance].timerIsActive = NO;
+    BOOL localNotificationsActive = [[NSUserDefaults standardUserDefaults] boolForKey:LOCAL_NOTIFICATIONS_ACTIVE];
+    
+    if(localNotificationsActive){
+        for(UILocalNotification *localNotification in [Timer sharedInstance].localNotificationsArray){
+            [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
         }
         
-        [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
-        [Timer sharedInstance].localNotification = nil;
+        NSDate *now = [NSDate date];
+        UILocalNotification *lastLocalNotification = [[Timer sharedInstance].localNotificationsArray lastObject];
+        NSDate *finalFireDate = lastLocalNotification.fireDate;
+        
+        if([now laterDate:finalFireDate] == now){
+            [Timer sharedInstance].timerIsActive = NO;
+        }
         
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:LOCAL_NOTIFICATIONS_ACTIVE];
         [[NSUserDefaults standardUserDefaults] synchronize];

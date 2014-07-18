@@ -11,11 +11,11 @@
 @interface Timer ()
 
 @property (nonatomic, strong) NSDate *lastResumedTime;
-
 @property (nonatomic, strong) CADisplayLink *displayLinkTimer;
+@property (nonatomic, strong) NSString *soundEffectFileName;
+@property (nonatomic, readwrite) NSMutableArray *chimeTimesArray;
 
-@property (nonatomic) NSInteger totalTimerDuration;
-@property (nonatomic) NSInteger remainingTimerDuration;
+@property (nonatomic) NSInteger totalTime;
 
 @end
 
@@ -36,55 +36,91 @@ static Timer *sharedInstance;
 
 #pragma mark - Getters & Setters
 
--(UILocalNotification *)localNotification
+-(NSString *)soundEffectFileName
 {
-    if(!_localNotification){
-        NSInteger secondsSinceLastResume = [[NSDate date] timeIntervalSinceDate:self.lastResumedTime];
-        NSInteger secondsRemaining = self.remainingTimerDuration - secondsSinceLastResume;
-        
-        _localNotification = [[UILocalNotification alloc] init];
-        _localNotification.fireDate = [NSDate dateWithTimeIntervalSinceNow:secondsRemaining];
-        _localNotification.alertBody = @"Meditation Complete";
-        _localNotification.alertAction = @"Ok";
-        _localNotification.soundName = self.soundEffectName;
+    if(!_soundEffectFileName){
+        _soundEffectFileName = UILocalNotificationDefaultSoundName;
     }
-    return _localNotification;
-}
-
--(NSString *)soundEffectName
-{
-    if(!_soundEffectName){
-        _soundEffectName = UILocalNotificationDefaultSoundName;
-    }
-    return _soundEffectName;
+    return _soundEffectFileName;
 }
 
 #pragma mark - Setup
 
--(void)setupTimerWithDuration:(NSInteger)seconds
+-(void)setupTimerWithIntervalArray:(NSArray *)intervalArray andSoundEffectFileName:(NSString *)soundEffectName
 {
-    // FOR TESTING
-    if(seconds == 60) seconds = 10;
+    NSMutableArray *chimeTimesArray = [[NSMutableArray alloc] init];
+    NSInteger totalTime = 0;
     
+    for (NSNumber *minutes in intervalArray) {
+        
+        if([minutes integerValue] == 0){
+            break;
+        }
+        
+        NSInteger intervalDurationInSeconds = [minutes integerValue] * 60;
+        
+        
+        //For testing
+        if(intervalDurationInSeconds == 60) intervalDurationInSeconds = 10;
+        
+        
+        totalTime += intervalDurationInSeconds;
+        [chimeTimesArray addObject:@(totalTime)];
+        NSLog(@"1totalTime = %ld",(long)totalTime);
+    }
     
+    NSLog(@"totalTime = %ld",(long)totalTime);
+    NSLog(@"chimeTimesArray = %@",chimeTimesArray);
     
+    self.totalTime = totalTime;
+    self.chimeTimesArray = chimeTimesArray;
     
+    self.soundEffectFileName = soundEffectName;
+}
+
+-(void)createLocalNotifications
+{
+    self.localNotificationsArray = nil;
     
+    NSMutableArray *localNotificationsArray = [[NSMutableArray alloc] init];
     
+    for(NSNumber *number in self.chimeTimesArray){
+        UILocalNotification *localNotification = [[UILocalNotification alloc] init];
+        localNotification.fireDate = [NSDate dateWithTimeInterval:[number integerValue] sinceDate:self.lastResumedTime];
+        localNotification.soundName = self.soundEffectFileName;
+        
+        NSInteger intervalIndex = [self.chimeTimesArray indexOfObject:number];
+        if(intervalIndex == [self.chimeTimesArray count]-1){
+            localNotification.alertBody = @"Meditation Complete";
+            localNotification.alertAction = @"Ok";
+        } else {
+            localNotification.alertBody = [NSString stringWithFormat:@"Interval %ld Complete",(long)intervalIndex];
+        }
+        [localNotificationsArray addObject:localNotification];
+    }
     
-    self.totalTimerDuration = seconds;
-    self.remainingTimerDuration = seconds;
+    self.localNotificationsArray = localNotificationsArray;
 }
 
 #pragma mark - Updating UI
 
 -(void)updateTimerView
 {
-    NSTimeInterval secondsSinceLastResume = [[NSDate date] timeIntervalSinceDate:self.lastResumedTime];
+    float totalRemainingTime = [[self.chimeTimesArray lastObject] integerValue];
+    NSTimeInterval elapsedTime = [self secondsSinceLastStart];
     
-    float percentComplete = (float)(self.remainingTimerDuration - secondsSinceLastResume) / self.totalTimerDuration;
+    float percentComplete = (float)(totalRemainingTime - elapsedTime) / self.totalTime;
     [self.delegate updateTimerView:percentComplete];
+    
+    if([[self.chimeTimesArray firstObject] integerValue] - elapsedTime <= 0){
+        if([self.chimeTimesArray count] > 0){
+            [self.chimeTimesArray removeObjectAtIndex:0];
+        } else {
+            [self.delegate stopTimer];
+        }
+    }
 }
+
 
 
 #pragma mark - Timer
@@ -92,10 +128,10 @@ static Timer *sharedInstance;
 -(void)start
 {
     self.displayLinkTimer = [CADisplayLink displayLinkWithTarget:self selector:@selector(updateTimerView)];
-    
-    self.displayLinkTimer.frameInterval = self.totalTimerDuration < 300 ? 5 : 20;
+    self.displayLinkTimer.frameInterval = [[self.chimeTimesArray lastObject] integerValue] < 300 ? 5 : 20;
     
     [self.displayLinkTimer addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    
     self.lastResumedTime = [NSDate date];
     self.timerIsActive = YES;
 }
@@ -103,14 +139,24 @@ static Timer *sharedInstance;
 -(void)pause
 {
     if(self.timerIsActive){
-        NSInteger secondsSinceLastResume = [[NSDate date] timeIntervalSinceDate:self.lastResumedTime];
-        self.remainingTimerDuration = self.remainingTimerDuration - secondsSinceLastResume;
-        
-        if(self.remainingTimerDuration < 0) {
-            self.remainingTimerDuration = 0;
+        NSMutableArray *newChimeTimesArray = [[NSMutableArray alloc] init];
+        for(NSNumber *number in self.chimeTimesArray){
+            float newChimeTimeFromNextStart = [number floatValue] - [self secondsSinceLastStart];
+            
+            if(newChimeTimeFromNextStart > 0){
+                [newChimeTimesArray addObject:@(newChimeTimeFromNextStart)];
+            }
         }
+        self.chimeTimesArray = newChimeTimesArray;
+
+        
         [self reset];
     }
+}
+
+-(NSTimeInterval)secondsSinceLastStart
+{
+    return [[NSDate date] timeIntervalSinceDate:self.lastResumedTime];
 }
 
 -(void)reset

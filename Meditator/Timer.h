@@ -13,24 +13,27 @@
 @protocol TimerViewDelegate
 
 -(void)updateTimerView:(float)percentRemaining;
+-(void)stopTimer;
 
 @end
 
 
 @interface Timer : NSObject
 
-@property (nonatomic, weak) id <TimerViewDelegate> delegate;
-
-@property (nonatomic, readonly) NSInteger remainingTimerDuration;
-@property (nonatomic) BOOL timerIsActive;
-@property (nonatomic, strong) UILocalNotification *localNotification;
-@property (nonatomic, strong) NSString *soundEffectName;
-
 +(Timer *)sharedInstance;
 
--(void)setupTimerWithDuration:(NSInteger)seconds;
+@property (nonatomic, weak) id <TimerViewDelegate> delegate;
+
+@property (nonatomic) BOOL timerIsActive;
+@property (nonatomic, readonly) NSMutableArray *chimeTimesArray;
+
+-(void)setupTimerWithIntervalArray:(NSArray *)intervalArray andSoundEffectFileName:(NSString *)soundEffectName;
 -(void)start;
 -(void)pause;
 -(void)reset;
+-(NSTimeInterval)secondsSinceLastStart;
+
+@property (nonatomic, strong) NSArray *localNotificationsArray;
+-(void)createLocalNotifications;
 
 @end

@@ -17,6 +17,7 @@
 #define SELECTED_BACKGROUND_INDEX @"SelectedBackgroundIndex"
 #define TIMER_INTERVAL_ARRAY @"TimerIntervalArray"
 #define DEFAULT_INTERVAL_ARRAY @[@15,@0,@0,@0,@0]
+#define MAX_TIMER_LENGTH 91
 
 @interface SettingsTableViewController () <RefreshIntervalCellDelegate>
 
@@ -78,7 +79,7 @@
 -(IntervalCellDelegateAndDataSource *)intervalCellDelegateAndDataSource
 {
     if(!_intervalCellDelegateAndDataSource){
-        _intervalCellDelegateAndDataSource = [[IntervalCellDelegateAndDataSource alloc] initWithIntervalButtonArray:_intervalCell.buttonArray andPickerViewContainingRows:90];
+        _intervalCellDelegateAndDataSource = [[IntervalCellDelegateAndDataSource alloc] initWithIntervalButtonArray:_intervalCell.buttonArray andPickerViewContainingRows:MAX_TIMER_LENGTH];
         _intervalCellDelegateAndDataSource.delegate = self;
     }
     return _intervalCellDelegateAndDataSource;
@@ -196,10 +197,10 @@
             }
             break;
         case 2:
-            title = @"sound effect";
+            title = @"Chime";
             break;
         case 3:
-            title = @"background";
+            title = @"Background";
             break;
             
         default:
@@ -247,9 +248,11 @@
 {
     if([segue.identifier isEqualToString:@"Timer Segue"]){
         TimerViewController *timerViewController = (TimerViewController *)segue.destinationViewController;
-        NSInteger minutes = [self.intervalCell.minutePickerView selectedRowInComponent:0] + 1;
         
-        [timerViewController setTimerWithDuration:minutes completionSound:self.soundNamesArray[self.selectedSoundIndex] andBackground:self.backgroundNamesArray[self.selectedBackgroundIndex]];
+        [timerViewController setTimerIntervalArray:self.intervalArray
+                                   completionSound:self.soundNamesArray[self.selectedSoundIndex]
+                                     andBackground:self.backgroundNamesArray[self.selectedBackgroundIndex]];
+        NSLog(@"self.soundNamesArray[self.selectedSoundIndex] = %@",self.soundNamesArray[self.selectedSoundIndex]);
     }
 }
 
