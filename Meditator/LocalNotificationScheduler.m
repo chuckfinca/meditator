@@ -15,10 +15,14 @@
 
 +(void)createLocalNotificationIfTimerIsRunning
 {
-    if([Timer sharedInstance].timerIsActive){
-        for(UILocalNotification *localNotification in [Timer sharedInstance].localNotificationsArray){
+    Timer *timer = [Timer sharedInstance];
+    if(timer.timerIsActive){
+        [timer createLocalNotifications];
+        
+        for(UILocalNotification *localNotification in timer.localNotificationsArray){
             [[UIApplication sharedApplication] scheduleLocalNotification:localNotification];
         }
+        
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:LOCAL_NOTIFICATIONS_ACTIVE];
         [[NSUserDefaults standardUserDefaults] synchronize];
     }

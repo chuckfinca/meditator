@@ -14,6 +14,7 @@
 @property (nonatomic, strong) CADisplayLink *displayLinkTimer;
 @property (nonatomic, strong) NSString *soundEffectFileName;
 @property (nonatomic, readwrite) NSMutableArray *chimeTimesArray;
+@property (nonatomic) NSInteger intervals;
 
 @property (nonatomic) NSInteger totalTime;
 
@@ -57,23 +58,20 @@ static Timer *sharedInstance;
             break;
         }
         
+        
+        
+        //FOR TESTING
         NSInteger intervalDurationInSeconds = [minutes integerValue] * 60;
-        
-        
-        //For testing
         if(intervalDurationInSeconds == 60) intervalDurationInSeconds = 10;
         
         
         totalTime += intervalDurationInSeconds;
         [chimeTimesArray addObject:@(totalTime)];
-        NSLog(@"1totalTime = %ld",(long)totalTime);
     }
-    
-    NSLog(@"totalTime = %ld",(long)totalTime);
-    NSLog(@"chimeTimesArray = %@",chimeTimesArray);
     
     self.totalTime = totalTime;
     self.chimeTimesArray = chimeTimesArray;
+    self.intervals = [chimeTimesArray count];
     
     self.soundEffectFileName = soundEffectName;
 }
@@ -86,7 +84,7 @@ static Timer *sharedInstance;
     
     for(NSNumber *number in self.chimeTimesArray){
         UILocalNotification *localNotification = [[UILocalNotification alloc] init];
-        localNotification.fireDate = [NSDate dateWithTimeInterval:[number integerValue] sinceDate:self.lastResumedTime];
+        localNotification.fireDate = [NSDate dateWithTimeInterval:[number floatValue] sinceDate:self.lastResumedTime];
         localNotification.soundName = self.soundEffectFileName;
         
         NSInteger intervalIndex = [self.chimeTimesArray indexOfObject:number];
@@ -94,7 +92,7 @@ static Timer *sharedInstance;
             localNotification.alertBody = @"Meditation Complete";
             localNotification.alertAction = @"Ok";
         } else {
-            localNotification.alertBody = [NSString stringWithFormat:@"Interval %ld Complete",(long)intervalIndex];
+            localNotification.alertBody = [NSString stringWithFormat:@"Interval %ld Complete",(long)(self.intervals - intervalIndex)];
         }
         [localNotificationsArray addObject:localNotification];
     }
@@ -115,6 +113,7 @@ static Timer *sharedInstance;
     if([[self.chimeTimesArray firstObject] integerValue] - elapsedTime <= 0){
         if([self.chimeTimesArray count] > 0){
             [self.chimeTimesArray removeObjectAtIndex:0];
+            self.intervals--;
         } else {
             [self.delegate stopTimer];
         }
