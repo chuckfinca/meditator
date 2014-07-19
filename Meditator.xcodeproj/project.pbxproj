@@ -41,6 +41,11 @@
 		C954B9E41977510800FD4FAB /* SingleIntervalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9E31977510800FD4FAB /* SingleIntervalCell.xib */; };
 		C954B9E819787C1700FD4FAB /* StartCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9E619787C1700FD4FAB /* StartCell.m */; };
 		C954B9E919787C1700FD4FAB /* StartCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9E719787C1700FD4FAB /* StartCell.xib */; };
+		C954B9F01979EBA500FD4FAB /* CompanyInfoTVController.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9EF1979EBA500FD4FAB /* CompanyInfoTVController.m */; };
+		C954B9F41979EF9000FD4FAB /* AppCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9F21979EF9000FD4FAB /* AppCell.m */; };
+		C954B9F51979EF9000FD4FAB /* AppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9F31979EF9000FD4FAB /* AppCell.xib */; };
+		C954B9FA1979FB7F00FD4FAB /* AppDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9F81979FB7F00FD4FAB /* AppDetailsViewController.m */; };
+		C954B9FB1979FB7F00FD4FAB /* AppDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9F91979FB7F00FD4FAB /* AppDetailsViewController.xib */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
 		C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */; };
 /* End PBXBuildFile section */
@@ -106,6 +111,14 @@
 		C954B9E519787C1700FD4FAB /* StartCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StartCell.h; sourceTree = "<group>"; };
 		C954B9E619787C1700FD4FAB /* StartCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StartCell.m; sourceTree = "<group>"; };
 		C954B9E719787C1700FD4FAB /* StartCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = StartCell.xib; sourceTree = "<group>"; };
+		C954B9EE1979EBA500FD4FAB /* CompanyInfoTVController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyInfoTVController.h; sourceTree = "<group>"; };
+		C954B9EF1979EBA500FD4FAB /* CompanyInfoTVController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompanyInfoTVController.m; sourceTree = "<group>"; };
+		C954B9F11979EF9000FD4FAB /* AppCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppCell.h; sourceTree = "<group>"; };
+		C954B9F21979EF9000FD4FAB /* AppCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppCell.m; sourceTree = "<group>"; };
+		C954B9F31979EF9000FD4FAB /* AppCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppCell.xib; sourceTree = "<group>"; };
+		C954B9F71979FB7F00FD4FAB /* AppDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDetailsViewController.h; sourceTree = "<group>"; };
+		C954B9F81979FB7F00FD4FAB /* AppDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDetailsViewController.m; sourceTree = "<group>"; };
+		C954B9F91979FB7F00FD4FAB /* AppDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppDetailsViewController.xib; sourceTree = "<group>"; };
 		C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurEffects.h"; sourceTree = "<group>"; };
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
 		C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorphingTimerLabel.h; sourceTree = "<group>"; };
@@ -186,6 +199,8 @@
 				C9408042196B622F00A55343 /* SettingsTableViewController.m */,
 				C9408051196CA31D00A55343 /* TimerViewController.h */,
 				C9408052196CA31D00A55343 /* TimerViewController.m */,
+				C954B9EE1979EBA500FD4FAB /* CompanyInfoTVController.h */,
+				C954B9EF1979EBA500FD4FAB /* CompanyInfoTVController.m */,
 				C9408050196C99A600A55343 /* Cells */,
 				C940805A196CB0C100A55343 /* TimerView.h */,
 				C940805B196CB0C100A55343 /* TimerView.m */,
@@ -201,6 +216,9 @@
 				C905B4F01974843A00597899 /* InstructionsViewController.m */,
 				C905B4F6197499F300597899 /* SoundEffectPlayer.h */,
 				C905B4F7197499F300597899 /* SoundEffectPlayer.m */,
+				C954B9F71979FB7F00FD4FAB /* AppDetailsViewController.h */,
+				C954B9F81979FB7F00FD4FAB /* AppDetailsViewController.m */,
+				C954B9F91979FB7F00FD4FAB /* AppDetailsViewController.xib */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -252,6 +270,7 @@
 				C940804E196C98F500A55343 /* Selector */,
 				C954B9DD1977273900FD4FAB /* Interval */,
 				C954B9EA19787DCB00FD4FAB /* Start */,
+				C954B9F61979F36900FD4FAB /* App */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -277,6 +296,16 @@
 				C954B9E719787C1700FD4FAB /* StartCell.xib */,
 			);
 			name = Start;
+			sourceTree = "<group>";
+		};
+		C954B9F61979F36900FD4FAB /* App */ = {
+			isa = PBXGroup;
+			children = (
+				C954B9F11979EF9000FD4FAB /* AppCell.h */,
+				C954B9F21979EF9000FD4FAB /* AppCell.m */,
+				C954B9F31979EF9000FD4FAB /* AppCell.xib */,
+			);
+			name = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,11 +391,13 @@
 				C940801A196B481800A55343 /* Main_iPhone.storyboard in Resources */,
 				C905B4F5197491EC00597899 /* bell.aif in Resources */,
 				C940804D196B6EE600A55343 /* SelectorCell.xib in Resources */,
+				C954B9F51979EF9000FD4FAB /* AppCell.xib in Resources */,
 				C954B9E41977510800FD4FAB /* SingleIntervalCell.xib in Resources */,
 				C954B9E919787C1700FD4FAB /* StartCell.xib in Resources */,
 				C954B9CC1975DF6F00FD4FAB /* drum.aif in Resources */,
 				C954B9DC19771E5900FD4FAB /* IntervalCell.xib in Resources */,
 				C9408011196B481800A55343 /* InfoPlist.strings in Resources */,
+				C954B9FB1979FB7F00FD4FAB /* AppDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,6 +450,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9408068196E1CF600A55343 /* Timer.m in Sources */,
+				C954B9FA1979FB7F00FD4FAB /* AppDetailsViewController.m in Sources */,
 				C905B4EE19747CE300597899 /* LocalNotificationScheduler.m in Sources */,
 				C9408053196CA31D00A55343 /* TimerViewController.m in Sources */,
 				C905B4F8197499F300597899 /* SoundEffectPlayer.m in Sources */,
@@ -429,6 +461,8 @@
 				C905B4F11974843A00597899 /* InstructionsViewController.m in Sources */,
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
 				C954B9DB19771E5900FD4FAB /* IntervalCell.m in Sources */,
+				C954B9F41979EF9000FD4FAB /* AppCell.m in Sources */,
+				C954B9F01979EBA500FD4FAB /* CompanyInfoTVController.m in Sources */,
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,
 				C940804C196B6EE600A55343 /* SelectorCell.m in Sources */,
 				C9408013196B481800A55343 /* main.m in Sources */,

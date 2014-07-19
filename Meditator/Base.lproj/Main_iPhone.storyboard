@@ -61,17 +61,17 @@
             </objects>
             <point key="canvasLocation" x="43" y="-1037"/>
         </scene>
-        <!--Table View Controller - Root View Controller-->
+        <!--Company InfoTV Controller-->
         <scene sceneID="HMa-Bz-pZK">
             <objects>
-                <tableViewController id="MfC-Ym-Qr0" sceneMemberID="viewController">
-                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="B8I-QB-wF0">
+                <tableViewController id="MfC-Ym-Qr0" customClass="CompanyInfoTVController" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="B8I-QB-wF0">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0DH-LD-hro">
-                                <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="119" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0DH-LD-hro" id="qr5-hF-qox">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
@@ -84,7 +84,7 @@
                             <outlet property="delegate" destination="MfC-Ym-Qr0" id="IVr-Ix-RpB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="rAS-do-DTs"/>
+                    <navigationItem key="navigationItem" id="rAS-do-DTs"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rp5-rg-sJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
