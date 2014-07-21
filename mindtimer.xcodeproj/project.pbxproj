@@ -47,6 +47,7 @@
 		C954B9FA1979FB7F00FD4FAB /* AppDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9F81979FB7F00FD4FAB /* AppDetailsViewController.m */; };
 		C954B9FB1979FB7F00FD4FAB /* AppDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9F91979FB7F00FD4FAB /* AppDetailsViewController.xib */; };
 		C954B9FE197DCCC000FD4FAB /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9FD197DCCC000FD4FAB /* IAPHelper.m */; };
+		C954BA00197DD97600FD4FAB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C954B9FF197DD97600FD4FAB /* StoreKit.framework */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
 		C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */; };
 /* End PBXBuildFile section */
@@ -122,6 +123,7 @@
 		C954B9F91979FB7F00FD4FAB /* AppDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppDetailsViewController.xib; sourceTree = "<group>"; };
 		C954B9FC197DCCC000FD4FAB /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		C954B9FD197DCCC000FD4FAB /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
+		C954B9FF197DD97600FD4FAB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurEffects.h"; sourceTree = "<group>"; };
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
 		C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorphingTimerLabel.h; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C954BA00197DD97600FD4FAB /* StoreKit.framework in Frameworks */,
 				C905B4FA1974AFD200597899 /* AVFoundation.framework in Frameworks */,
 				C905B4F319748F9100597899 /* AudioToolbox.framework in Frameworks */,
 				C9408009196B481800A55343 /* CoreGraphics.framework in Frameworks */,
@@ -178,6 +181,7 @@
 		C9408005196B481800A55343 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C954B9FF197DD97600FD4FAB /* StoreKit.framework */,
 				C905B4F91974AFD200597899 /* AVFoundation.framework */,
 				C905B4F219748F9100597899 /* AudioToolbox.framework */,
 				C9408006196B481800A55343 /* Foundation.framework */,
