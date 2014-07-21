@@ -46,6 +46,7 @@
 		C954B9F51979EF9000FD4FAB /* AppCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9F31979EF9000FD4FAB /* AppCell.xib */; };
 		C954B9FA1979FB7F00FD4FAB /* AppDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9F81979FB7F00FD4FAB /* AppDetailsViewController.m */; };
 		C954B9FB1979FB7F00FD4FAB /* AppDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9F91979FB7F00FD4FAB /* AppDetailsViewController.xib */; };
+		C954B9FE197DCCC000FD4FAB /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9FD197DCCC000FD4FAB /* IAPHelper.m */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
 		C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */; };
 /* End PBXBuildFile section */
@@ -72,22 +73,22 @@
 		C905B4F6197499F300597899 /* SoundEffectPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffectPlayer.h; sourceTree = "<group>"; };
 		C905B4F7197499F300597899 /* SoundEffectPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffectPlayer.m; sourceTree = "<group>"; };
 		C905B4F91974AFD200597899 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
-		C9408003196B481800A55343 /* Meditator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Meditator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9408003196B481800A55343 /* mindtimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mindtimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9408006196B481800A55343 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9408008196B481800A55343 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		C940800A196B481800A55343 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		C940800E196B481800A55343 /* Meditator-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Meditator-Info.plist"; sourceTree = "<group>"; };
+		C940800E196B481800A55343 /* mindtimer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mindtimer-Info.plist"; sourceTree = "<group>"; };
 		C9408010196B481800A55343 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9408012196B481800A55343 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		C9408014196B481800A55343 /* Meditator-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Meditator-Prefix.pch"; sourceTree = "<group>"; };
+		C9408014196B481800A55343 /* mindtimer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "mindtimer-Prefix.pch"; sourceTree = "<group>"; };
 		C9408015196B481800A55343 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C9408016196B481800A55343 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		C9408019196B481800A55343 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		C940801C196B481800A55343 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
 		C9408021196B481800A55343 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		C9408027196B481900A55343 /* MeditatorTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MeditatorTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C9408027196B481900A55343 /* mindtimerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = mindtimerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9408028196B481900A55343 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		C9408030196B481900A55343 /* MeditatorTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MeditatorTests-Info.plist"; sourceTree = "<group>"; };
+		C9408030196B481900A55343 /* mindtimerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "mindtimerTests-Info.plist"; sourceTree = "<group>"; };
 		C9408032196B481900A55343 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		C9408034196B481900A55343 /* MeditatorTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MeditatorTests.m; sourceTree = "<group>"; };
 		C9408041196B622F00A55343 /* SettingsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsTableViewController.h; sourceTree = "<group>"; };
@@ -119,6 +120,8 @@
 		C954B9F71979FB7F00FD4FAB /* AppDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDetailsViewController.h; sourceTree = "<group>"; };
 		C954B9F81979FB7F00FD4FAB /* AppDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDetailsViewController.m; sourceTree = "<group>"; };
 		C954B9F91979FB7F00FD4FAB /* AppDetailsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppDetailsViewController.xib; sourceTree = "<group>"; };
+		C954B9FC197DCCC000FD4FAB /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
+		C954B9FD197DCCC000FD4FAB /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurEffects.h"; sourceTree = "<group>"; };
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
 		C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorphingTimerLabel.h; sourceTree = "<group>"; };
@@ -166,8 +169,8 @@
 		C9408004196B481800A55343 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				C9408003196B481800A55343 /* Meditator.app */,
-				C9408027196B481900A55343 /* MeditatorTests.xctest */,
+				C9408003196B481800A55343 /* mindtimer.app */,
+				C9408027196B481900A55343 /* mindtimerTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -219,6 +222,8 @@
 				C954B9F71979FB7F00FD4FAB /* AppDetailsViewController.h */,
 				C954B9F81979FB7F00FD4FAB /* AppDetailsViewController.m */,
 				C954B9F91979FB7F00FD4FAB /* AppDetailsViewController.xib */,
+				C954B9FC197DCCC000FD4FAB /* IAPHelper.h */,
+				C954B9FD197DCCC000FD4FAB /* IAPHelper.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -228,10 +233,10 @@
 			children = (
 				C905B4F4197491EC00597899 /* bell.aif */,
 				C954B9CB1975DF6F00FD4FAB /* drum.aif */,
-				C940800E196B481800A55343 /* Meditator-Info.plist */,
+				C940800E196B481800A55343 /* mindtimer-Info.plist */,
 				C940800F196B481800A55343 /* InfoPlist.strings */,
 				C9408012196B481800A55343 /* main.m */,
-				C9408014196B481800A55343 /* Meditator-Prefix.pch */,
+				C9408014196B481800A55343 /* mindtimer-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -248,7 +253,7 @@
 		C940802F196B481900A55343 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C9408030196B481900A55343 /* MeditatorTests-Info.plist */,
+				C9408030196B481900A55343 /* mindtimerTests-Info.plist */,
 				C9408031196B481900A55343 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -311,9 +316,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		C9408002196B481800A55343 /* Meditator */ = {
+		C9408002196B481800A55343 /* mindtimer */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C9408038196B481900A55343 /* Build configuration list for PBXNativeTarget "Meditator" */;
+			buildConfigurationList = C9408038196B481900A55343 /* Build configuration list for PBXNativeTarget "mindtimer" */;
 			buildPhases = (
 				1E63EEE7611547CE8702DFD2 /* Check Pods Manifest.lock */,
 				C9407FFF196B481800A55343 /* Sources */,
@@ -325,14 +330,14 @@
 			);
 			dependencies = (
 			);
-			name = Meditator;
+			name = mindtimer;
 			productName = Meditator;
-			productReference = C9408003196B481800A55343 /* Meditator.app */;
+			productReference = C9408003196B481800A55343 /* mindtimer.app */;
 			productType = "com.apple.product-type.application";
 		};
-		C9408026196B481900A55343 /* MeditatorTests */ = {
+		C9408026196B481900A55343 /* mindtimerTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = C940803B196B481900A55343 /* Build configuration list for PBXNativeTarget "MeditatorTests" */;
+			buildConfigurationList = C940803B196B481900A55343 /* Build configuration list for PBXNativeTarget "mindtimerTests" */;
 			buildPhases = (
 				C9408023196B481900A55343 /* Sources */,
 				C9408024196B481900A55343 /* Frameworks */,
@@ -343,9 +348,9 @@
 			dependencies = (
 				C940802D196B481900A55343 /* PBXTargetDependency */,
 			);
-			name = MeditatorTests;
+			name = mindtimerTests;
 			productName = MeditatorTests;
-			productReference = C9408027196B481900A55343 /* MeditatorTests.xctest */;
+			productReference = C9408027196B481900A55343 /* mindtimerTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -362,7 +367,7 @@
 					};
 				};
 			};
-			buildConfigurationList = C9407FFE196B481800A55343 /* Build configuration list for PBXProject "Meditator" */;
+			buildConfigurationList = C9407FFE196B481800A55343 /* Build configuration list for PBXProject "mindtimer" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -375,8 +380,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				C9408002196B481800A55343 /* Meditator */,
-				C9408026196B481900A55343 /* MeditatorTests */,
+				C9408002196B481800A55343 /* mindtimer */,
+				C9408026196B481900A55343 /* mindtimerTests */,
 			);
 		};
 /* End PBXProject section */
@@ -462,6 +467,7 @@
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
 				C954B9DB19771E5900FD4FAB /* IntervalCell.m in Sources */,
 				C954B9F41979EF9000FD4FAB /* AppCell.m in Sources */,
+				C954B9FE197DCCC000FD4FAB /* IAPHelper.m in Sources */,
 				C954B9F01979EBA500FD4FAB /* CompanyInfoTVController.m in Sources */,
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,
 				C940804C196B6EE600A55343 /* SelectorCell.m in Sources */,
@@ -483,7 +489,7 @@
 /* Begin PBXTargetDependency section */
 		C940802D196B481900A55343 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = C9408002196B481800A55343 /* Meditator */;
+			target = C9408002196B481800A55343 /* mindtimer */;
 			targetProxy = C940802C196B481900A55343 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -603,10 +609,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Meditator/Meditator-Prefix.pch";
-				INFOPLIST_FILE = "Meditator/Meditator-Info.plist";
+				GCC_PREFIX_HEADER = "Meditator/mindtimer-Prefix.pch";
+				INFOPLIST_FILE = "Meditator/mindtimer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = mindtimer;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -618,10 +624,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Meditator/Meditator-Prefix.pch";
-				INFOPLIST_FILE = "Meditator/Meditator-Info.plist";
+				GCC_PREFIX_HEADER = "Meditator/mindtimer-Prefix.pch";
+				INFOPLIST_FILE = "Meditator/mindtimer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = mindtimer;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -641,8 +647,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "MeditatorTests/MeditatorTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "MeditatorTests/mindtimerTests-Info.plist";
+				PRODUCT_NAME = mindtimerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -659,8 +665,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Meditator/Meditator-Prefix.pch";
-				INFOPLIST_FILE = "MeditatorTests/MeditatorTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "MeditatorTests/mindtimerTests-Info.plist";
+				PRODUCT_NAME = mindtimerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -669,7 +675,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		C9407FFE196B481800A55343 /* Build configuration list for PBXProject "Meditator" */ = {
+		C9407FFE196B481800A55343 /* Build configuration list for PBXProject "mindtimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9408036196B481900A55343 /* Debug */,
@@ -678,7 +684,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C9408038196B481900A55343 /* Build configuration list for PBXNativeTarget "Meditator" */ = {
+		C9408038196B481900A55343 /* Build configuration list for PBXNativeTarget "mindtimer" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C9408039196B481900A55343 /* Debug */,
@@ -687,7 +693,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		C940803B196B481900A55343 /* Build configuration list for PBXNativeTarget "MeditatorTests" */ = {
+		C940803B196B481900A55343 /* Build configuration list for PBXNativeTarget "mindtimerTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				C940803C196B481900A55343 /* Debug */,
