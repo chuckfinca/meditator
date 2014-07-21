@@ -25,6 +25,7 @@
     
     if(self.buttonArray){
         [self.toggleIntervalsButton setImage:[[UIImage imageNamed:@"remove"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        [self.contentView setTranslatesAutoresizingMaskIntoConstraints:NO];
     } else {
         [self.toggleIntervalsButton setImage:[[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     }
