@@ -15,7 +15,7 @@
     static MindTimerIAPHelper * sharedInstance;
     dispatch_once(&once, ^{
         NSSet * productIdentifiers = [NSSet setWithObjects:
-                                      @"io.appsimple.mindtimer.all",
+                                      ALL_FEATURES_PRODUCT,
                                       nil];
         sharedInstance = [[self alloc] initWithProductIdentifiers:productIdentifiers];
     });

@@ -27,10 +27,12 @@
 @property (nonatomic) BOOL timerIsActive;
 @property (nonatomic, readonly) NSMutableArray *chimeTimesArray;
 
--(void)setupTimerWithIntervalArray:(NSArray *)intervalArray andSoundEffectFileName:(NSString *)soundEffectName;
+-(void)setupTimerWithIntervalArray:(NSArray *)intervalArray andSoundEffectName:(NSString *)soundEffectName;
+
 -(void)start;
 -(void)pause;
 -(void)reset;
+
 -(NSTimeInterval)secondsSinceLastStart;
 
 @property (nonatomic, strong) NSArray *localNotificationsArray;

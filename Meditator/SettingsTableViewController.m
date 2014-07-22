@@ -13,6 +13,7 @@
 #import "IntervalCellDelegateAndDataSource.h"
 #import "StartCell.h"
 #import "MindTimerIAPHelper.h"
+#import "SoundEffectPlayer.h"
 
 #define SELECTED_SOUND_INDEX @"SelectedSoundIndex"
 #define SELECTED_BACKGROUND_INDEX @"SelectedBackgroundIndex"
@@ -295,11 +296,23 @@
 
 -(IBAction)soundSelected:(UIButton *)sender
 {
-    [self.soundSelectorCell refreshWithSelectedButtonIndex:sender.tag];
-    self.selectedSoundIndex = sender.tag;
+    NSURL *soundEffectURL = [[NSBundle mainBundle] URLForResource:self.soundNamesArray[sender.tag] withExtension:@"aif"];
+    SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:soundEffectURL];
+    [player playSoundOrVibrate];
     
-    [[NSUserDefaults standardUserDefaults] setInteger:sender.tag forKey:SELECTED_SOUND_INDEX];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    [self.soundSelectorCell refreshWithSelectedButtonIndex:sender.tag];
+    
+    if([[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]){
+        self.selectedSoundIndex = sender.tag;
+        
+        [[NSUserDefaults standardUserDefaults] setInteger:sender.tag forKey:SELECTED_SOUND_INDEX];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } else {
+        NSLog(@"not purchased yet");
+        // sound chime
+        // display message "purchase all to unlock $1.99 (localized price)
+        // option to cancel
+    }
 }
 
 -(IBAction)backgroundSelected:(UIButton *)sender

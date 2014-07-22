@@ -8,6 +8,8 @@
 
 #import "IAPHelper.h"
 
+#define ALL_FEATURES_PRODUCT @"io.appsimple.mindtimer.all"
+
 @interface MindTimerIAPHelper : IAPHelper
 
 +(MindTimerIAPHelper *)sharedInstance;

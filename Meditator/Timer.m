@@ -7,6 +7,7 @@
 //
 
 #import "Timer.h"
+#import "SoundEffectPlayer.h"
 
 @interface Timer ()
 
@@ -15,6 +16,7 @@
 @property (nonatomic, strong) NSString *soundEffectFileName;
 @property (nonatomic, readwrite) NSMutableArray *chimeTimesArray;
 @property (nonatomic) NSInteger intervals;
+@property (nonatomic, strong) NSURL *soundEffectURL;
 
 @property (nonatomic) NSInteger totalTime;
 
@@ -47,7 +49,7 @@ static Timer *sharedInstance;
 
 #pragma mark - Setup
 
--(void)setupTimerWithIntervalArray:(NSArray *)intervalArray andSoundEffectFileName:(NSString *)soundEffectName
+-(void)setupTimerWithIntervalArray:(NSArray *)intervalArray andSoundEffectName:(NSString *)soundEffectName
 {
     NSMutableArray *chimeTimesArray = [[NSMutableArray alloc] init];
     NSInteger totalTime = 0;
@@ -73,7 +75,19 @@ static Timer *sharedInstance;
     self.chimeTimesArray = chimeTimesArray;
     self.intervals = [chimeTimesArray count];
     
-    self.soundEffectFileName = soundEffectName;
+    [self setupSoundEffect:soundEffectName];
+}
+
+-(void)setupSoundEffect:(NSString *)soundEffectName
+{
+    if([soundEffectName isEqualToString:UILocalNotificationDefaultSoundName]){
+        self.soundEffectFileName = soundEffectName;
+        self.soundEffectURL = nil;
+        
+    } else {
+        self.soundEffectFileName = [NSString stringWithFormat:@"%@.%@",soundEffectName, @"aif"];
+        self.soundEffectURL = [[NSBundle mainBundle] URLForResource:soundEffectName withExtension:@"aif"];
+    }
 }
 
 -(void)createLocalNotifications
@@ -109,6 +123,13 @@ static Timer *sharedInstance;
     
     float percentComplete = (float)(totalRemainingTime - elapsedTime) / self.totalTime;
     [self.delegate updateTimerView:percentComplete];
+    
+    for(NSNumber *number in self.chimeTimesArray){
+        if([number integerValue] - elapsedTime < 0){
+            
+            [self soundTimer];
+        }
+    }
     
     if([[self.chimeTimesArray firstObject] integerValue] - elapsedTime <= 0){
         if([self.chimeTimesArray count] > 0){
@@ -164,6 +185,19 @@ static Timer *sharedInstance;
     self.displayLinkTimer = nil;
     self.timerIsActive = NO;
 }
+
+-(void)soundTimer
+{
+    SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:self.soundEffectURL];
+    [player playSoundOrVibrate];
+}
+
+
+
+
+
+
+
 
 
 

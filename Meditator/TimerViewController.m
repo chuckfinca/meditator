@@ -11,7 +11,6 @@
 #import "Timer.h"
 #import "UIImage+BlurEffects.h"
 #import "MorphingTimerLabel.h"
-#import "SoundEffectPlayer.h"
 
 #define NUMBER_OF_TIMER_FIRES 1000
 
@@ -91,19 +90,7 @@
 {
     Timer *timer = [Timer sharedInstance];
     timer.delegate = self;
-    
-    NSString *soundEffectFileName;
-    
-    if([soundEffectName isEqualToString:UILocalNotificationDefaultSoundName]){
-        soundEffectFileName = soundEffectName;
-        self.soundEffectURL = nil;
-        
-    } else {
-        soundEffectFileName = [NSString stringWithFormat:@"%@.%@",soundEffectName, @"aif"];
-        self.soundEffectURL = [[NSBundle mainBundle] URLForResource:soundEffectName withExtension:@"aif"];
-    }
-    
-    [timer setupTimerWithIntervalArray:intervalArray andSoundEffectFileName:soundEffectFileName];
+    [timer setupTimerWithIntervalArray:intervalArray andSoundEffectName:soundEffectName];
     
     UIColor *tintColor = [UIColor colorWithWhite:1 alpha:0.3];
     self.backgroundImage = [[UIImage imageNamed:backgroundName] applyBlurWithRadius:5 tintColor:tintColor saturationDeltaFactor:0.8 maskImage:nil];
@@ -115,22 +102,6 @@
 -(void)updateTimerView:(float)percentRemaining
 {
     [self.timerView setStrokeEnd:percentRemaining];
-    
-    Timer *timer = [Timer sharedInstance];
-    NSTimeInterval elapsedTime = [timer secondsSinceLastStart];
-    
-    for(NSNumber *number in timer.chimeTimesArray){
-        if([number integerValue] - elapsedTime < 0){
-            
-            [self soundTimer];
-        }
-    }
-}
-
--(void)soundTimer
-{
-    SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:self.soundEffectURL];
-    [player playSoundOrVibrate];
 }
 
 -(void)stopTimer

@@ -8,6 +8,8 @@
 
 #import "IAPHelper.h"
 
+NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurchasedNotification";
+
 @interface IAPHelper () <SKProductsRequestDelegate, SKPaymentTransactionObserver>
 
 @property (nonatomic, strong) NSSet *productIdentifiers;
@@ -133,7 +135,7 @@
 -(void)restoreTransaction:(SKPaymentTransaction *)transaction
 {
     NSLog(@"restoreTransaction...");
-    [self provideContentForProductIdentifier:transaction.payment.productIdentifier];
+    [self provideContentForProductIdentifier:transaction.originalTransaction.payment.productIdentifier];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
@@ -154,13 +156,6 @@
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
 }
 
--(void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error
-{
-    NSLog(@"restoreCompletedTransactionsFailedWithError %@",error.localizedDescription);
-    
-    // could show user a UIAlert view
-}
-
 -(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
     NSLog(@"paymentQueueRestoreCompletedTransactionsFinished...");
@@ -168,6 +163,13 @@
         NSLog(@"restored %@",transaction.payment.productIdentifier);
     }
         // Notify user a UIAlert view
+}
+
+-(void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error
+{
+    NSLog(@"restoreCompletedTransactionsFailedWithError %@",error.localizedDescription);
+    
+    // could show user a UIAlert view
 }
 
 
