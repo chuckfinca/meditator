@@ -12,6 +12,7 @@
 #import "TimerViewController.h"
 #import "IntervalCellDelegateAndDataSource.h"
 #import "StartCell.h"
+#import "MindTimerIAPHelper.h"
 
 #define SELECTED_SOUND_INDEX @"SelectedSoundIndex"
 #define SELECTED_BACKGROUND_INDEX @"SelectedBackgroundIndex"
@@ -52,6 +53,14 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+    [[MindTimerIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+        if (success) {
+            // allow IAPs to proceed
+            NSLog(@"requestProductsWithCompletionHandler says SUCCESS!");
+        } else {
+            // try again when the user tries to make a purchase by clicking on something that requires it.
+        }
+    }];
 }
 
 #pragma mark - Getters & Setters

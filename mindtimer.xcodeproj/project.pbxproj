@@ -48,6 +48,7 @@
 		C954B9FB1979FB7F00FD4FAB /* AppDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9F91979FB7F00FD4FAB /* AppDetailsViewController.xib */; };
 		C954B9FE197DCCC000FD4FAB /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9FD197DCCC000FD4FAB /* IAPHelper.m */; };
 		C954BA00197DD97600FD4FAB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C954B9FF197DD97600FD4FAB /* StoreKit.framework */; };
+		C954BA04197DE61400FD4FAB /* MindTimerIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA03197DE61400FD4FAB /* MindTimerIAPHelper.m */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
 		C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */; };
 /* End PBXBuildFile section */
@@ -124,6 +125,8 @@
 		C954B9FC197DCCC000FD4FAB /* IAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IAPHelper.h; sourceTree = "<group>"; };
 		C954B9FD197DCCC000FD4FAB /* IAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IAPHelper.m; sourceTree = "<group>"; };
 		C954B9FF197DD97600FD4FAB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		C954BA02197DE61400FD4FAB /* MindTimerIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MindTimerIAPHelper.h; sourceTree = "<group>"; };
+		C954BA03197DE61400FD4FAB /* MindTimerIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MindTimerIAPHelper.m; sourceTree = "<group>"; };
 		C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurEffects.h"; sourceTree = "<group>"; };
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
 		C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorphingTimerLabel.h; sourceTree = "<group>"; };
@@ -162,6 +165,7 @@
 			isa = PBXGroup;
 			children = (
 				C940800C196B481800A55343 /* Meditator */,
+				C940800D196B481800A55343 /* Supporting Files */,
 				C940802E196B481900A55343 /* MeditatorTests */,
 				C9408005196B481800A55343 /* Frameworks */,
 				C9408004196B481800A55343 /* Products */,
@@ -201,33 +205,32 @@
 				C9408018196B481800A55343 /* Main_iPhone.storyboard */,
 				C940801B196B481800A55343 /* Main_iPad.storyboard */,
 				C9408021196B481800A55343 /* Images.xcassets */,
-				C940800D196B481800A55343 /* Supporting Files */,
+				C905B4EF1974843A00597899 /* InstructionsViewController.h */,
+				C905B4F01974843A00597899 /* InstructionsViewController.m */,
 				C9408041196B622F00A55343 /* SettingsTableViewController.h */,
 				C9408042196B622F00A55343 /* SettingsTableViewController.m */,
 				C9408051196CA31D00A55343 /* TimerViewController.h */,
 				C9408052196CA31D00A55343 /* TimerViewController.m */,
 				C954B9EE1979EBA500FD4FAB /* CompanyInfoTVController.h */,
 				C954B9EF1979EBA500FD4FAB /* CompanyInfoTVController.m */,
+				C954BA01197DE59F00FD4FAB /* App Details */,
 				C9408050196C99A600A55343 /* Cells */,
 				C940805A196CB0C100A55343 /* TimerView.h */,
 				C940805B196CB0C100A55343 /* TimerView.m */,
-				C9408066196E1CF600A55343 /* Timer.h */,
-				C9408067196E1CF600A55343 /* Timer.m */,
 				C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */,
 				C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */,
 				C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */,
 				C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */,
+				C9408066196E1CF600A55343 /* Timer.h */,
+				C9408067196E1CF600A55343 /* Timer.m */,
 				C905B4EC19747CE300597899 /* LocalNotificationScheduler.h */,
 				C905B4ED19747CE300597899 /* LocalNotificationScheduler.m */,
-				C905B4EF1974843A00597899 /* InstructionsViewController.h */,
-				C905B4F01974843A00597899 /* InstructionsViewController.m */,
 				C905B4F6197499F300597899 /* SoundEffectPlayer.h */,
 				C905B4F7197499F300597899 /* SoundEffectPlayer.m */,
-				C954B9F71979FB7F00FD4FAB /* AppDetailsViewController.h */,
-				C954B9F81979FB7F00FD4FAB /* AppDetailsViewController.m */,
-				C954B9F91979FB7F00FD4FAB /* AppDetailsViewController.xib */,
 				C954B9FC197DCCC000FD4FAB /* IAPHelper.h */,
 				C954B9FD197DCCC000FD4FAB /* IAPHelper.m */,
+				C954BA02197DE61400FD4FAB /* MindTimerIAPHelper.h */,
+				C954BA03197DE61400FD4FAB /* MindTimerIAPHelper.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				C9408014196B481800A55343 /* mindtimer-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			path = Meditator;
 			sourceTree = "<group>";
 		};
 		C940802E196B481900A55343 /* MeditatorTests */ = {
@@ -315,6 +319,16 @@
 				C954B9F31979EF9000FD4FAB /* AppCell.xib */,
 			);
 			name = App;
+			sourceTree = "<group>";
+		};
+		C954BA01197DE59F00FD4FAB /* App Details */ = {
+			isa = PBXGroup;
+			children = (
+				C954B9F71979FB7F00FD4FAB /* AppDetailsViewController.h */,
+				C954B9F81979FB7F00FD4FAB /* AppDetailsViewController.m */,
+				C954B9F91979FB7F00FD4FAB /* AppDetailsViewController.xib */,
+			);
+			name = "App Details";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -468,6 +482,7 @@
 				C9408043196B622F00A55343 /* SettingsTableViewController.m in Sources */,
 				C954B9E01977277000FD4FAB /* IntervalCellDelegateAndDataSource.m in Sources */,
 				C905B4F11974843A00597899 /* InstructionsViewController.m in Sources */,
+				C954BA04197DE61400FD4FAB /* MindTimerIAPHelper.m in Sources */,
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
 				C954B9DB19771E5900FD4FAB /* IntervalCell.m in Sources */,
 				C954B9F41979EF9000FD4FAB /* AppCell.m in Sources */,
