@@ -99,6 +99,10 @@
             button.alpha = 1.0;
         }
         
+        if([title isEqual:@"0"] && button.enabled == YES){
+            title = @"stop";
+        }
+        
         [button setTitle:title forState:UIControlStateNormal];
         [button setTitle:title forState:UIControlStateSelected];
     }

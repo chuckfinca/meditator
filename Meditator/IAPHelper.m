@@ -112,12 +112,11 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 -(void)request:(SKRequest *)request didFailWithError:(NSError *)error
 {
-    NSLog(@"SKRequest didFailWithError %@; code: %ld",error.localizedDescription,(long)error.code);
     self.productsRequest = nil;
     self.completionHandler(NO, nil);
     self.completionHandler = nil;
     
-    [self handleError:error];
+    [self handleError:error forActivity:@"Product Request Failed"];
 }
 
 
@@ -157,12 +156,10 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 -(void)failedTransaction:(SKPaymentTransaction *)transaction
 {
     NSLog(@"failedTransaction...");
-    if(transaction.error.code != SKErrorPaymentCancelled){
-        NSLog(@"Transaction error: %@; code: %ld",transaction.error.localizedDescription,(long)transaction.error.code);
-        [self handleError:transaction.error];
-    }
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
     [self stopActivityIndicator];
+    
+    [self handleError:transaction.error forActivity:@"Failed Transaction"];
 }
 
 -(void)restoreTransaction:(SKPaymentTransaction *)transaction
@@ -202,8 +199,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 -(void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error
 {
-    NSLog(@"restoreCompletedTransactionsFailedWithError %@; code: %ld",error.localizedDescription,(long)error.code);
-    [self handleError:error];
+    [self handleError:error forActivity:@"Restore Transactions"];
     [self stopActivityIndicator];
 }
 
@@ -225,7 +221,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 
 
--(void)handleError:(NSError *)error
+-(void)handleError:(NSError *)error forActivity:(NSString *)activity
 {
     NSString *errorType;
     switch (error.code) {
@@ -250,13 +246,18 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         default:
             break;
     }
-    NSString *errorBody = [NSString stringWithFormat:@"Please try again.\n\n(%@)",errorType];
     
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription message:errorBody
-                                                   delegate:nil
-                                          cancelButtonTitle:@"Ok"
-                                          otherButtonTitles:nil];
-    [alert show];
+    NSString *errorBody = [NSString stringWithFormat:@"Please try again with a strong connection.\n\n(%@)",errorType];
+    
+    if(error.code != 2){
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription message:errorBody
+                                                       delegate:nil
+                                              cancelButtonTitle:@"Ok"
+                                              otherButtonTitles:nil];
+        [alert show];
+    }
+    
+    NSLog(@"%@ Error: %@ - %@",activity,error.localizedDescription,errorType);
 }
 
 
