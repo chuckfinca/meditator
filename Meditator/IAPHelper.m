@@ -227,7 +227,35 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 -(void)handleError:(NSError *)error
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription message:@"Please try again" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    NSString *errorType;
+    switch (error.code) {
+        case 0:
+            errorType = @"SKErrorUnknown";
+            break;
+        case 1:
+            errorType = @"SKErrorClientInvalid";
+            break;
+        case 2:
+            errorType = @"SKErrorPaymentCancelled";
+            break;
+        case 3:
+            errorType = @"SKErrorPaymentInvalid";
+            break;
+        case 4:
+            errorType = @"SKErrorPaymentNotAllowed";
+            break;
+        case 5:
+            errorType = @"SKErrorStoreProductNotAvailable";
+            break;
+        default:
+            break;
+    }
+    NSString *errorBody = [NSString stringWithFormat:@"Please try again.\n\n(%@)",errorType];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription message:errorBody
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Ok"
+                                          otherButtonTitles:nil];
     [alert show];
 }
 
