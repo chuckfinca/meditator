@@ -9,10 +9,12 @@
 #import "CompanyInfoTVController.h"
 #import "AppCell.h"
 #import "AppDetailsViewController.h"
+#import "CenterAlignedTextCell.h"
 
 @interface CompanyInfoTVController ()
 
-@property (nonatomic, strong) AppCell *sizingAppCell;
+@property (nonatomic, strong) AppCell *guidedMindCell;
+@property (nonatomic, strong) CenterAlignedTextCell *sizingCell;
 
 @end
 
@@ -30,7 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self.tableView registerNib:[UINib nibWithNibName:@"AppCell" bundle:nil] forCellReuseIdentifier:@"AppCell"];
+    [self.tableView registerNib:[UINib nibWithNibName:@"CenterAlignedTextCell" bundle:nil] forCellReuseIdentifier:@"CenterAlignedTextCell"];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -41,15 +43,22 @@
 
 #pragma mark - Getters & Setters
 
--(AppCell *)sizingAppCell
+-(AppCell *)guidedMindCell
 {
-    if(!_sizingAppCell){
-        _sizingAppCell = [[[NSBundle mainBundle] loadNibNamed:@"AppCell" owner:self options:nil] firstObject];
+    if(!_guidedMindCell){
+        _guidedMindCell = [[[NSBundle mainBundle] loadNibNamed:@"AppCell" owner:self options:nil] firstObject];
+        [_guidedMindCell setupWithAppImageName:@"flowers" andName:@"Guided Mind"];
     }
-    return _sizingAppCell;
+    return _guidedMindCell;
 }
 
-
+-(CenterAlignedTextCell *)sizingCell
+{
+    if(!_sizingCell){
+        _sizingCell = [[[NSBundle mainBundle] loadNibNamed:@"CenterAlignedTextCell" owner:self options:nil] firstObject];
+    }
+    return _sizingCell;
+}
 
 
 
@@ -57,7 +66,7 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 4;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -68,8 +77,23 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AppCell *cell = [tableView dequeueReusableCellWithIdentifier:@"AppCell" forIndexPath:indexPath];
-    [cell setupWithAppImageName:@"flowers" andName:@"Guided Mind"];
+    UITableViewCell *cell;
+    switch (indexPath.section) {
+        case 0:
+            cell = self.guidedMindCell;
+            break;
+        case 1:
+            cell = [self.tableView dequeueReusableCellWithIdentifier:@"CenterAlignedTextCell" forIndexPath:indexPath];
+            [(CenterAlignedTextCell *)cell setupWithTitle:@"Restore Purchases"];
+            break;
+        case 2:
+            cell = [self.tableView dequeueReusableCellWithIdentifier:@"CenterAlignedTextCell" forIndexPath:indexPath];
+            [(CenterAlignedTextCell *)cell setupWithTitle:@"Review in iTunes"];
+            break;
+            
+        default:
+            break;
+    }
     // Configure the cell...
     
     return cell;
@@ -80,7 +104,23 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return self.sizingAppCell.bounds.size.height;
+    float height = 0;
+    switch (indexPath.section) {
+        case 0:
+            height = self.guidedMindCell.bounds.size.height;
+            break;
+        case 1:
+            height = self.sizingCell.bounds.size.height;
+            break;
+        case 2:
+            height = self.sizingCell.bounds.size.height;
+            break;
+            
+        default:
+            break;
+    }
+    NSLog(@"height = %f",height);
+    return height;
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
