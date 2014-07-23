@@ -9,13 +9,11 @@
 #import "CompanyInfoTVController.h"
 #import "AppCell.h"
 #import "AppDetailsViewController.h"
-#import "CenterAlignedTextCell.h"
 #import "MindTimerIAPHelper.h"
 
 @interface CompanyInfoTVController () <SKStoreProductViewControllerDelegate>
 
 @property (nonatomic, strong) AppCell *guidedMindCell;
-@property (nonatomic, strong) CenterAlignedTextCell *sizingCell;
 @property (nonatomic, strong) SKStoreProductViewController *storeViewController;
 
 @end
@@ -54,32 +52,28 @@
     return _guidedMindCell;
 }
 
--(CenterAlignedTextCell *)sizingCell
-{
-    if(!_sizingCell){
-        _sizingCell = [[[NSBundle mainBundle] loadNibNamed:@"CenterAlignedTextCell" owner:self options:nil] firstObject];
-    }
-    return _sizingCell;
-}
-
 
 
 #pragma mark - UITableViewDataSource
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 3;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    if(section == 0){
+        return 2;
+    } else {
+        return 1;
+    }
 }
 
 -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     NSString *headerTitle;
-    if(section == 2){
+    if(section == 1){
         headerTitle = @"Other apps by AppSimple";
     }
     return headerTitle;
@@ -90,21 +84,23 @@
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:
-            cell = [self.tableView dequeueReusableCellWithIdentifier:@"CenterAlignedTextCell" forIndexPath:indexPath];
-            [(CenterAlignedTextCell *)cell setupWithTitle:@"Review in iTunes"];
+            if(indexPath.row == 0){
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
+                cell.textLabel.text = @"Review in iTunes";
+                cell.detailTextLabel.text = @"Click Here -> Reviews -> Write a Review";
+            } else if(indexPath.row == 1){
+                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+                cell.textLabel.text =  @"Restore Purchases";
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
         case 1:
-            cell = [self.tableView dequeueReusableCellWithIdentifier:@"CenterAlignedTextCell" forIndexPath:indexPath];
-            [(CenterAlignedTextCell *)cell setupWithTitle:@"Restore Purchases"];
-            break;
-        case 2:
             cell = self.guidedMindCell;
             break;
             
         default:
             break;
     }
-    // Configure the cell...
     
     return cell;
 }
@@ -117,12 +113,9 @@
     float height = 0;
     switch (indexPath.section) {
         case 0:
-            height = self.sizingCell.bounds.size.height;
+            height = 60;
             break;
         case 1:
-            height = self.sizingCell.bounds.size.height;
-            break;
-        case 2:
             height = self.guidedMindCell.bounds.size.height;
             break;
             
@@ -136,12 +129,13 @@
 {
     switch (indexPath.section) {
         case 0:
-            [self reviewApp];
+            if(indexPath.row == 0){
+                [self reviewApp];
+            } else if(indexPath.row == 1){
+                [[MindTimerIAPHelper sharedInstance] restoreCompletedTransactions];
+            }
             break;
         case 1:
-            [[MindTimerIAPHelper sharedInstance] restoreCompletedTransactions];
-            break;
-        case 2:
             [self pushAppVC];
             break;
             
