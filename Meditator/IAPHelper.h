@@ -23,4 +23,6 @@ typedef void (^RequestProductsCompletionHandler)(BOOL success, NSArray * product
 -(BOOL)productPurchased:(NSString *)productIdentifier;
 -(void)restoreCompletedTransactions;
 
+-(NSString *)localizedPriceForProductIdentifier:(NSString *)productIdentifier;
+
 @end

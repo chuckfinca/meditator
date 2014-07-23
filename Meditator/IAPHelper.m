@@ -16,6 +16,8 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 @property (nonatomic, strong) NSMutableSet *purchasedProductIdentifiers;
 @property (nonatomic, strong) SKProductsRequest *productsRequest;
 @property (nonatomic, strong) RequestProductsCompletionHandler completionHandler;
+@property (nonatomic, strong) UIActivityIndicatorView *activityIndicator;
+@property (nonatomic, strong) UILabel *activityIndicatorLabel;
 
 @end
 
@@ -45,6 +47,27 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     return self;
 }
 
+#pragma mark - Getters & Setters
+
+-(UIActivityIndicatorView *)activityIndicator
+{
+    if(!_activityIndicator){
+        _activityIndicator = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+    }
+    return _activityIndicator;
+}
+
+-(UILabel *)activityIndicatorLabel
+{
+    if(!_activityIndicatorLabel){
+        _activityIndicatorLabel = [[UILabel alloc] init];
+        _activityIndicatorLabel.layer.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5].CGColor;
+        _activityIndicatorLabel.layer.cornerRadius = 4;
+        _activityIndicatorLabel.textAlignment = NSTextAlignmentCenter;
+    }
+    return _activityIndicatorLabel;
+}
+
 -(void)requestProductsWithCompletionHandler:(RequestProductsCompletionHandler)completionHandler
 {
     self.completionHandler = [completionHandler copy];
@@ -64,6 +87,8 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     NSLog(@"Buying %@",product.productIdentifier);
     SKPayment *payment = [SKPayment paymentWithProduct:product];
     [[SKPaymentQueue defaultQueue] addPayment:payment];
+    
+    [self startActivityIndicatorForAction:@"Purchasing..."];
 }
 
 
@@ -78,16 +103,21 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         NSLog(@"Found product: %@ %@ %0.2f", skProduct.productIdentifier,skProduct.localizedTitle,skProduct.price.floatValue);
     }
     
-    self.completionHandler(YES, skProducts);
-    self.completionHandler = nil;
+    if(self.completionHandler){
+        self.products = skProducts;
+        self.completionHandler(YES, skProducts);
+        self.completionHandler = nil;
+    }
 }
 
 -(void)request:(SKRequest *)request didFailWithError:(NSError *)error
 {
-    NSLog(@"SKRequest didFailWithError %@",error.localizedDescription);
+    NSLog(@"SKRequest didFailWithError %@; code: %ld",error.localizedDescription,(long)error.code);
     self.productsRequest = nil;
     self.completionHandler(NO, nil);
     self.completionHandler = nil;
+    
+    [self handleError:error];
 }
 
 
@@ -121,15 +151,18 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     NSLog(@"completeTransaction...");
     [self provideContentForProductIdentifier:transaction.payment.productIdentifier];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+    [self stopActivityIndicator];
 }
 
 -(void)failedTransaction:(SKPaymentTransaction *)transaction
 {
     NSLog(@"failedTransaction...");
     if(transaction.error.code != SKErrorPaymentCancelled){
-        NSLog(@"Transaction error: %@",transaction.error.localizedDescription);
+        NSLog(@"Transaction error: %@; code: %ld",transaction.error.localizedDescription,(long)transaction.error.code);
+        [self handleError:transaction.error];
     }
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+    [self stopActivityIndicator];
 }
 
 -(void)restoreTransaction:(SKPaymentTransaction *)transaction
@@ -137,6 +170,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     NSLog(@"restoreTransaction...");
     [self provideContentForProductIdentifier:transaction.originalTransaction.payment.productIdentifier];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
+    [self stopActivityIndicator];
 }
 
 -(void)provideContentForProductIdentifier:(NSString *)productIdentifier
@@ -154,6 +188,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 -(void)restoreCompletedTransactions
 {
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
+    [self startActivityIndicatorForAction:@"Restoring purchases..."];
 }
 
 -(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
@@ -162,16 +197,65 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     for(SKPaymentTransaction *transaction in queue.transactions){
         NSLog(@"restored %@",transaction.payment.productIdentifier);
     }
-        // Notify user a UIAlert view
+    // Notify user a UIAlert view
 }
 
 -(void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error
 {
-    NSLog(@"restoreCompletedTransactionsFailedWithError %@",error.localizedDescription);
+    NSLog(@"restoreCompletedTransactionsFailedWithError %@; code: %ld",error.localizedDescription,(long)error.code);
+    [self handleError:error];
+}
+
+-(NSString *)localizedPriceForProductIdentifier:(NSString *)productIdentifier
+{
+    SKProduct *product;
+    for(SKProduct *p in self.products){
+        if([p.productIdentifier isEqualToString:productIdentifier]){
+            product = p;
+        }
+    }
     
-    // could show user a UIAlert view
+    NSNumberFormatter *numberFormatter = [[NSNumberFormatter alloc] init];
+    [numberFormatter setFormatterBehavior:NSNumberFormatterBehavior10_4];
+    [numberFormatter setNumberStyle:NSNumberFormatterCurrencyStyle];
+    [numberFormatter setLocale:product.priceLocale];
+    return [numberFormatter stringFromNumber:product.price];
 }
 
 
+
+-(void)handleError:(NSError *)error
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription message:@"Please try again" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+    [alert show];
+}
+
+
+#pragma mark - UIActivityIndicator
+
+-(void)startActivityIndicatorForAction:(NSString *)action
+{
+    NSDictionary *attributes = @{NSForegroundColorAttributeName : [UIColor colorWithWhite:1 alpha:0.9]};
+    [self.activityIndicatorLabel setAttributedText:[[NSAttributedString alloc] initWithString:action attributes:attributes]];
+    [self.activityIndicatorLabel sizeToFit];
+    self.activityIndicatorLabel.bounds = CGRectMake(0, 0, 2*self.activityIndicatorLabel.bounds.size.width, 2*self.activityIndicatorLabel.bounds.size.height);
+    
+    UIWindow *window = [[UIApplication sharedApplication].windows firstObject];
+    self.activityIndicatorLabel.center = window.center;
+    [window addSubview:self.activityIndicatorLabel];
+    
+    [self.activityIndicatorLabel addSubview:self.activityIndicator];
+    self.activityIndicator.frame = CGRectMake(self.activityIndicatorLabel.bounds.size.width/8-self.activityIndicator.bounds.size.width/2, self.activityIndicatorLabel.bounds.size.height/2-self.activityIndicator.bounds.size.height/2, self.activityIndicator.bounds.size.width, self.activityIndicator.bounds.size.height);
+    
+    [self.activityIndicator startAnimating];
+}
+
+-(void)stopActivityIndicator
+{
+    [self.activityIndicatorLabel removeFromSuperview];
+    [self.activityIndicator stopAnimating];
+    self.activityIndicator = nil;
+    self.activityIndicatorLabel = nil;
+}
 
 @end

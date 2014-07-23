@@ -14,6 +14,7 @@
 #import "StartCell.h"
 #import "MindTimerIAPHelper.h"
 #import "SoundEffectPlayer.h"
+#import "Purchaser.h"
 
 #define SELECTED_SOUND_INDEX @"SelectedSoundIndex"
 #define SELECTED_BACKGROUND_INDEX @"SelectedBackgroundIndex"
@@ -38,6 +39,9 @@
 @property (nonatomic) NSInteger selectedBackgroundIndex;
 @property (nonatomic, strong) NSArray *backgroundNamesArray;
 
+@property (nonatomic) BOOL productsLoaded;
+@property (nonatomic, strong) Purchaser *purchaser;
+
 @end
 
 @implementation SettingsTableViewController
@@ -54,14 +58,7 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    [[MindTimerIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
-        if (success) {
-            // allow IAPs to proceed
-            NSLog(@"requestProductsWithCompletionHandler says SUCCESS!");
-        } else {
-            // try again when the user tries to make a purchase by clicking on something that requires it.
-        }
-    }];
+    [self requestIAPProducts];
 }
 
 #pragma mark - Getters & Setters
@@ -143,6 +140,14 @@
         [_startCell.startButton addTarget:self action:@selector(startTimer) forControlEvents:UIControlEventTouchUpInside];
     }
     return _startCell;
+}
+
+-(Purchaser *)purchaser
+{
+    if(!_purchaser){
+        _purchaser = [[Purchaser alloc] init];
+    }
+    return _purchaser;
 }
 
 #pragma mark - UITableViewDataSource
@@ -296,13 +301,14 @@
 
 -(IBAction)soundSelected:(UIButton *)sender
 {
-    NSURL *soundEffectURL = [[NSBundle mainBundle] URLForResource:self.soundNamesArray[sender.tag] withExtension:@"aif"];
+    NSString *soundEffectName = self.soundNamesArray[sender.tag];
+    NSURL *soundEffectURL = [[NSBundle mainBundle] URLForResource:soundEffectName withExtension:@"aif"];
     SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:soundEffectURL];
     [player playSoundOrVibrate];
     
-    [self.soundSelectorCell refreshWithSelectedButtonIndex:sender.tag];
-    
-    if([[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]){
+    if(sender.tag == 0 || [[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]){
+        
+        [self.soundSelectorCell refreshWithSelectedButtonIndex:sender.tag];
         self.selectedSoundIndex = sender.tag;
         
         [[NSUserDefaults standardUserDefaults] setInteger:sender.tag forKey:SELECTED_SOUND_INDEX];
@@ -312,6 +318,13 @@
         // sound chime
         // display message "purchase all to unlock $1.99 (localized price)
         // option to cancel
+        
+        if(!self.productsLoaded){
+            [self requestIAPProducts];
+        }
+        
+        UIActionSheet *actionSheet = [self.purchaser actionSheetForProduct:soundEffectName withProductsLoaded:self.productsLoaded];
+        [actionSheet showInView:self.view];
     }
 }
 
@@ -364,6 +377,25 @@
 {
     NSLog(@"end");
 }
+
+
+#pragma mark - IAP
+
+-(void)requestIAPProducts
+{
+    [[MindTimerIAPHelper sharedInstance] requestProductsWithCompletionHandler:^(BOOL success, NSArray *products) {
+        if (success) {
+            // allow IAPs to proceed
+            NSLog(@"requestProductsWithCompletionHandler says SUCCESS!");
+            self.productsLoaded = YES;
+        } else {
+            self.productsLoaded = NO;
+            NSLog(@"requestProductsWithCompletionHandler says Failure!");
+        }
+    }];
+}
+
+
 
 
 

@@ -49,6 +49,7 @@
 		C954B9FE197DCCC000FD4FAB /* IAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9FD197DCCC000FD4FAB /* IAPHelper.m */; };
 		C954BA00197DD97600FD4FAB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C954B9FF197DD97600FD4FAB /* StoreKit.framework */; };
 		C954BA04197DE61400FD4FAB /* MindTimerIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA03197DE61400FD4FAB /* MindTimerIAPHelper.m */; };
+		C954BA07197F27A400FD4FAB /* Purchaser.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA06197F27A400FD4FAB /* Purchaser.m */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
 		C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */; };
 /* End PBXBuildFile section */
@@ -127,6 +128,8 @@
 		C954B9FF197DD97600FD4FAB /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C954BA02197DE61400FD4FAB /* MindTimerIAPHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MindTimerIAPHelper.h; sourceTree = "<group>"; };
 		C954BA03197DE61400FD4FAB /* MindTimerIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MindTimerIAPHelper.m; sourceTree = "<group>"; };
+		C954BA05197F27A400FD4FAB /* Purchaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Purchaser.h; sourceTree = "<group>"; };
+		C954BA06197F27A400FD4FAB /* Purchaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Purchaser.m; sourceTree = "<group>"; };
 		C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurEffects.h"; sourceTree = "<group>"; };
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
 		C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorphingTimerLabel.h; sourceTree = "<group>"; };
@@ -231,6 +234,8 @@
 				C954B9FD197DCCC000FD4FAB /* IAPHelper.m */,
 				C954BA02197DE61400FD4FAB /* MindTimerIAPHelper.h */,
 				C954BA03197DE61400FD4FAB /* MindTimerIAPHelper.m */,
+				C954BA05197F27A400FD4FAB /* Purchaser.h */,
+				C954BA06197F27A400FD4FAB /* Purchaser.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -473,6 +478,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9408068196E1CF600A55343 /* Timer.m in Sources */,
+				C954BA07197F27A400FD4FAB /* Purchaser.m in Sources */,
 				C954B9FA1979FB7F00FD4FAB /* AppDetailsViewController.m in Sources */,
 				C905B4EE19747CE300597899 /* LocalNotificationScheduler.m in Sources */,
 				C9408053196CA31D00A55343 /* TimerViewController.m in Sources */,
