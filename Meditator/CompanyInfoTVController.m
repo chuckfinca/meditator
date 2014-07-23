@@ -12,10 +12,11 @@
 #import "CenterAlignedTextCell.h"
 #import "MindTimerIAPHelper.h"
 
-@interface CompanyInfoTVController ()
+@interface CompanyInfoTVController () <SKStoreProductViewControllerDelegate>
 
 @property (nonatomic, strong) AppCell *guidedMindCell;
 @property (nonatomic, strong) CenterAlignedTextCell *sizingCell;
+@property (nonatomic, strong) SKStoreProductViewController *storeViewController;
 
 @end
 
@@ -85,11 +86,11 @@
             break;
         case 1:
             cell = [self.tableView dequeueReusableCellWithIdentifier:@"CenterAlignedTextCell" forIndexPath:indexPath];
-            [(CenterAlignedTextCell *)cell setupWithTitle:@"Restore Purchases"];
+            [(CenterAlignedTextCell *)cell setupWithTitle:@"Review in iTunes"];
             break;
         case 2:
             cell = [self.tableView dequeueReusableCellWithIdentifier:@"CenterAlignedTextCell" forIndexPath:indexPath];
-            [(CenterAlignedTextCell *)cell setupWithTitle:@"Review in iTunes"];
+            [(CenterAlignedTextCell *)cell setupWithTitle:@"Restore Purchases"];
             break;
             
         default:
@@ -131,10 +132,10 @@
             [self pushAppVC];
             break;
         case 1:
-            [[MindTimerIAPHelper sharedInstance] restoreCompletedTransactions];
+            [self reviewApp];
             break;
         case 2:
-            NSLog(@"review in iTunes");
+            [[MindTimerIAPHelper sharedInstance] restoreCompletedTransactions];
             break;
             
         default:
@@ -148,6 +149,13 @@
     [self.navigationController pushViewController:appDetailsVC animated:YES];
 }
 
+-(void)reviewApp
+{
+    NSLog(@"review in iTunes");
+    NSURL *appURL = [NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id901569488?at=1l3vcSo"]; // Guided Mind = id672076838?at=1l3vcSo
+    [[UIApplication sharedApplication] openURL:appURL];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -158,6 +166,11 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+
+
+
+
 
 
 
