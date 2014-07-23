@@ -17,7 +17,6 @@
 - (void)awakeFromNib
 {
     // Initialization code
-    self.backgroundColor = [UIColor clearColor];
     
     NSDictionary *attributes = @{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]};
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Start Timer" attributes:attributes];

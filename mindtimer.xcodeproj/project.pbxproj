@@ -50,6 +50,7 @@
 		C954BA00197DD97600FD4FAB /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C954B9FF197DD97600FD4FAB /* StoreKit.framework */; };
 		C954BA04197DE61400FD4FAB /* MindTimerIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA03197DE61400FD4FAB /* MindTimerIAPHelper.m */; };
 		C954BA07197F27A400FD4FAB /* Purchaser.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA06197F27A400FD4FAB /* Purchaser.m */; };
+		C954BA0D197F405500FD4FAB /* RestrictedTouchPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA0C197F405500FD4FAB /* RestrictedTouchPickerView.m */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
 		C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */; };
 /* End PBXBuildFile section */
@@ -130,6 +131,8 @@
 		C954BA03197DE61400FD4FAB /* MindTimerIAPHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MindTimerIAPHelper.m; sourceTree = "<group>"; };
 		C954BA05197F27A400FD4FAB /* Purchaser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Purchaser.h; sourceTree = "<group>"; };
 		C954BA06197F27A400FD4FAB /* Purchaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Purchaser.m; sourceTree = "<group>"; };
+		C954BA0B197F405500FD4FAB /* RestrictedTouchPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestrictedTouchPickerView.h; sourceTree = "<group>"; };
+		C954BA0C197F405500FD4FAB /* RestrictedTouchPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestrictedTouchPickerView.m; sourceTree = "<group>"; };
 		C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurEffects.h"; sourceTree = "<group>"; };
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
 		C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorphingTimerLabel.h; sourceTree = "<group>"; };
@@ -236,6 +239,8 @@
 				C954BA03197DE61400FD4FAB /* MindTimerIAPHelper.m */,
 				C954BA05197F27A400FD4FAB /* Purchaser.h */,
 				C954BA06197F27A400FD4FAB /* Purchaser.m */,
+				C954BA0B197F405500FD4FAB /* RestrictedTouchPickerView.h */,
+				C954BA0C197F405500FD4FAB /* RestrictedTouchPickerView.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -490,6 +495,7 @@
 				C905B4F11974843A00597899 /* InstructionsViewController.m in Sources */,
 				C954BA04197DE61400FD4FAB /* MindTimerIAPHelper.m in Sources */,
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
+				C954BA0D197F405500FD4FAB /* RestrictedTouchPickerView.m in Sources */,
 				C954B9DB19771E5900FD4FAB /* IntervalCell.m in Sources */,
 				C954B9F41979EF9000FD4FAB /* AppCell.m in Sources */,
 				C954B9FE197DCCC000FD4FAB /* IAPHelper.m in Sources */,

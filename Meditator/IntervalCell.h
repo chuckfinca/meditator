@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RestrictedTouchPickerView.h"
 
 #define INTERVAL_CELL_REUSE_IDENTIFIER @"IntervalCell"
 
 @interface IntervalCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *buttonArray;
-@property (weak, nonatomic) IBOutlet UIPickerView *minutePickerView;
+@property (weak, nonatomic) IBOutlet RestrictedTouchPickerView *minutePickerView;
 @property (weak, nonatomic) IBOutlet UIButton *resetButton;
 @property (weak, nonatomic) IBOutlet UIButton *toggleIntervalsButton;
 
