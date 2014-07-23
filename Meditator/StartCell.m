@@ -23,6 +23,7 @@
     [self.startButton setAttributedTitle:attributedString forState: UIControlStateNormal];
     self.startButton.titleLabel.textColor = [UIColor whiteColor];
     self.startButton.layer.backgroundColor = self.tintColor.CGColor;
+    self.startButton.layer.cornerRadius = 4;
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated

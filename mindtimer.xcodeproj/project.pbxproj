@@ -51,6 +51,8 @@
 		C954BA04197DE61400FD4FAB /* MindTimerIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA03197DE61400FD4FAB /* MindTimerIAPHelper.m */; };
 		C954BA07197F27A400FD4FAB /* Purchaser.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA06197F27A400FD4FAB /* Purchaser.m */; };
 		C954BA0D197F405500FD4FAB /* RestrictedTouchPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA0C197F405500FD4FAB /* RestrictedTouchPickerView.m */; };
+		C954BA11197F445100FD4FAB /* CenterAlignedTextCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA0F197F445100FD4FAB /* CenterAlignedTextCell.m */; };
+		C954BA12197F445100FD4FAB /* CenterAlignedTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954BA10197F445100FD4FAB /* CenterAlignedTextCell.xib */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
 		C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */; };
 /* End PBXBuildFile section */
@@ -133,6 +135,9 @@
 		C954BA06197F27A400FD4FAB /* Purchaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Purchaser.m; sourceTree = "<group>"; };
 		C954BA0B197F405500FD4FAB /* RestrictedTouchPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestrictedTouchPickerView.h; sourceTree = "<group>"; };
 		C954BA0C197F405500FD4FAB /* RestrictedTouchPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestrictedTouchPickerView.m; sourceTree = "<group>"; };
+		C954BA0E197F445100FD4FAB /* CenterAlignedTextCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterAlignedTextCell.h; sourceTree = "<group>"; };
+		C954BA0F197F445100FD4FAB /* CenterAlignedTextCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterAlignedTextCell.m; sourceTree = "<group>"; };
+		C954BA10197F445100FD4FAB /* CenterAlignedTextCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CenterAlignedTextCell.xib; sourceTree = "<group>"; };
 		C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurEffects.h"; sourceTree = "<group>"; };
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
 		C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorphingTimerLabel.h; sourceTree = "<group>"; };
@@ -294,6 +299,9 @@
 				C954B9DD1977273900FD4FAB /* Interval */,
 				C954B9EA19787DCB00FD4FAB /* Start */,
 				C954B9F61979F36900FD4FAB /* App */,
+				C954BA0E197F445100FD4FAB /* CenterAlignedTextCell.h */,
+				C954BA0F197F445100FD4FAB /* CenterAlignedTextCell.m */,
+				C954BA10197F445100FD4FAB /* CenterAlignedTextCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -421,6 +429,7 @@
 			files = (
 				C940801D196B481800A55343 /* Main_iPad.storyboard in Resources */,
 				C9408022196B481800A55343 /* Images.xcassets in Resources */,
+				C954BA12197F445100FD4FAB /* CenterAlignedTextCell.xib in Resources */,
 				C940801A196B481800A55343 /* Main_iPhone.storyboard in Resources */,
 				C905B4F5197491EC00597899 /* bell.aif in Resources */,
 				C940804D196B6EE600A55343 /* SelectorCell.xib in Resources */,
@@ -503,6 +512,7 @@
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,
 				C940804C196B6EE600A55343 /* SelectorCell.m in Sources */,
 				C9408013196B481800A55343 /* main.m in Sources */,
+				C954BA11197F445100FD4FAB /* CenterAlignedTextCell.m in Sources */,
 				C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
