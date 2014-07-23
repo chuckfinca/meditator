@@ -10,6 +10,7 @@
 #import "AppCell.h"
 #import "AppDetailsViewController.h"
 #import "CenterAlignedTextCell.h"
+#import "MindTimerIAPHelper.h"
 
 @interface CompanyInfoTVController ()
 
@@ -124,6 +125,24 @@
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    switch (indexPath.section) {
+        case 0:
+            [self pushAppVC];
+            break;
+        case 1:
+            [[MindTimerIAPHelper sharedInstance] restoreCompletedTransactions];
+            break;
+        case 2:
+            NSLog(@"review in iTunes");
+            break;
+            
+        default:
+            break;
+    }
+}
+
+-(void)pushAppVC
 {
     AppDetailsViewController *appDetailsVC = [[AppDetailsViewController alloc] initWithNibName:@"AppDetailsViewController" bundle:nil];
     [self.navigationController pushViewController:appDetailsVC animated:YES];

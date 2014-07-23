@@ -299,9 +299,7 @@
 				C954B9DD1977273900FD4FAB /* Interval */,
 				C954B9EA19787DCB00FD4FAB /* Start */,
 				C954B9F61979F36900FD4FAB /* App */,
-				C954BA0E197F445100FD4FAB /* CenterAlignedTextCell.h */,
-				C954BA0F197F445100FD4FAB /* CenterAlignedTextCell.m */,
-				C954BA10197F445100FD4FAB /* CenterAlignedTextCell.xib */,
+				C954BA13197F4CA300FD4FAB /* Text */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -347,6 +345,16 @@
 				C954B9F91979FB7F00FD4FAB /* AppDetailsViewController.xib */,
 			);
 			name = "App Details";
+			sourceTree = "<group>";
+		};
+		C954BA13197F4CA300FD4FAB /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				C954BA0E197F445100FD4FAB /* CenterAlignedTextCell.h */,
+				C954BA0F197F445100FD4FAB /* CenterAlignedTextCell.m */,
+				C954BA10197F445100FD4FAB /* CenterAlignedTextCell.xib */,
+			);
+			name = Text;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

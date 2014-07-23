@@ -61,7 +61,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 {
     if(!_activityIndicatorLabel){
         _activityIndicatorLabel = [[UILabel alloc] init];
-        _activityIndicatorLabel.layer.backgroundColor = [UIColor colorWithWhite:0 alpha:0.5].CGColor;
+        _activityIndicatorLabel.layer.backgroundColor = [UIColor colorWithWhite:0 alpha:0.7].CGColor;
         _activityIndicatorLabel.layer.cornerRadius = 4;
         _activityIndicatorLabel.textAlignment = NSTextAlignmentCenter;
     }
@@ -188,7 +188,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 -(void)restoreCompletedTransactions
 {
     [[SKPaymentQueue defaultQueue] restoreCompletedTransactions];
-    [self startActivityIndicatorForAction:@"Restoring purchases..."];
+    [self startActivityIndicatorForAction:@"Restoring..."];
 }
 
 -(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
@@ -204,6 +204,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 {
     NSLog(@"restoreCompletedTransactionsFailedWithError %@; code: %ld",error.localizedDescription,(long)error.code);
     [self handleError:error];
+    [self stopActivityIndicator];
 }
 
 -(NSString *)localizedPriceForProductIdentifier:(NSString *)productIdentifier
