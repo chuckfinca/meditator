@@ -76,21 +76,29 @@
     return 1;
 }
 
+-(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSString *headerTitle;
+    if(section == 2){
+        headerTitle = @"Other apps by AppSimple";
+    }
+    return headerTitle;
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:
-            cell = self.guidedMindCell;
-            break;
-        case 1:
             cell = [self.tableView dequeueReusableCellWithIdentifier:@"CenterAlignedTextCell" forIndexPath:indexPath];
             [(CenterAlignedTextCell *)cell setupWithTitle:@"Review in iTunes"];
             break;
-        case 2:
+        case 1:
             cell = [self.tableView dequeueReusableCellWithIdentifier:@"CenterAlignedTextCell" forIndexPath:indexPath];
             [(CenterAlignedTextCell *)cell setupWithTitle:@"Restore Purchases"];
+            break;
+        case 2:
+            cell = self.guidedMindCell;
             break;
             
         default:
@@ -109,19 +117,18 @@
     float height = 0;
     switch (indexPath.section) {
         case 0:
-            height = self.guidedMindCell.bounds.size.height;
+            height = self.sizingCell.bounds.size.height;
             break;
         case 1:
             height = self.sizingCell.bounds.size.height;
             break;
         case 2:
-            height = self.sizingCell.bounds.size.height;
+            height = self.guidedMindCell.bounds.size.height;
             break;
             
         default:
             break;
     }
-    NSLog(@"height = %f",height);
     return height;
 }
 
@@ -129,13 +136,13 @@
 {
     switch (indexPath.section) {
         case 0:
-            [self pushAppVC];
-            break;
-        case 1:
             [self reviewApp];
             break;
-        case 2:
+        case 1:
             [[MindTimerIAPHelper sharedInstance] restoreCompletedTransactions];
+            break;
+        case 2:
+            [self pushAppVC];
             break;
             
         default:
