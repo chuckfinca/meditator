@@ -10,4 +10,6 @@
 
 @interface AppDetailsViewController : UIViewController
 
+-(void)setupForAppID:(NSInteger)appID;
+
 @end
