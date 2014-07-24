@@ -192,7 +192,9 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     for(SKPaymentTransaction *transaction in queue.transactions){
         NSLog(@"restored %@",transaction.payment.productIdentifier);
     }
-    // Notify user a UIAlert view
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchases Restored" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    [alert show];
 }
 
 -(void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error
