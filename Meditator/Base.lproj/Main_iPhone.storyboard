@@ -138,7 +138,7 @@
             </objects>
             <point key="canvasLocation" x="-493" y="-201"/>
         </scene>
-        <!--Settings Table View Controller-->
+        <!--Settings Table View Controller - Mind Timer-->
         <scene sceneID="410-Xg-Yop">
             <objects>
                 <tableViewController id="2LW-A1-fsL" customClass="SettingsTableViewController" sceneMemberID="viewController">
@@ -161,7 +161,7 @@
                             <outlet property="delegate" destination="2LW-A1-fsL" id="Spv-yj-fdy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="jNt-BR-ymA"/>
+                    <navigationItem key="navigationItem" title="Mind Timer" id="jNt-BR-ymA"/>
                     <connections>
                         <segue destination="DEm-Dj-T69" kind="modal" identifier="Timer Segue" modalTransitionStyle="flipHorizontal" id="u5X-m3-StU"/>
                     </connections>
