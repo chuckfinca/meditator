@@ -26,11 +26,11 @@
     if(productsLoaded){
         self.productsLoaded = YES;
         
-        title = [NSString stringWithFormat:@"\nUNLOCK ALL FEATURES\n\nMeditation Intervals\nBell chime\nDrum chime\nOther chime\nOther chime\nBackground 1\nBackground 2\n\n"];
+        title = [NSString stringWithFormat:@"\nUNLOCK ALL FEATURES\n\nMeditation Intervals\nBell Chime\nDrum Chime\nOther Chime\nOther Chime\nBackground 1\nBackground 2\n\n"];
         purchaseTitle = [[MindTimerIAPHelper sharedInstance] localizedPriceForProductIdentifier:ALL_FEATURES_PRODUCT];
         cancelTitle = @"Cancel";
     } else {
-        title = [NSString stringWithFormat:@"To unlock the %@ chime please make sure you have a strong internet connection and try again.",[productName capitalizedString]];
+        title = [NSString stringWithFormat:@"To unlock %@ please make sure you have a strong internet connection and try again.",productName];
         cancelTitle = @"Ok";
         purchaseTitle = nil;
     }

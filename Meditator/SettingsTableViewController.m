@@ -315,15 +315,13 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
         NSLog(@"not purchased yet");
-        // sound chime
-        // display message "purchase all to unlock $1.99 (localized price)
-        // option to cancel
         
         if(!self.productsLoaded){
             [self requestIAPProducts];
         }
         
-        UIActionSheet *actionSheet = [self.purchaser actionSheetForProduct:soundEffectName withProductsLoaded:self.productsLoaded];
+        NSString *productName = [NSString stringWithFormat:@"the %@ chime",[soundEffectName capitalizedString]];
+        UIActionSheet *actionSheet = [self.purchaser actionSheetForProduct:productName withProductsLoaded:self.productsLoaded];
         [actionSheet showInView:self.view];
     }
 }
@@ -339,10 +337,22 @@
 
 -(IBAction)toggleIntervals:(UIButton *)sender
 {
-    NSIndexPath *indexPath = [self.tableView indexPathForCell:self.intervalCell];
-    self.displayIntervals = !self.displayIntervals;
-    self.intervalCell = nil;
-    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
+    if([[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]){
+        
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:self.intervalCell];
+        self.displayIntervals = !self.displayIntervals;
+        self.intervalCell = nil;
+        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
+    } else {
+        NSLog(@"not purchased yet");
+        
+        if(!self.productsLoaded){
+            [self requestIAPProducts];
+        }
+        
+        UIActionSheet *actionSheet = [self.purchaser actionSheetForProduct:@"Meditation Intervals" withProductsLoaded:self.productsLoaded];
+        [actionSheet showInView:self.view];
+    }
 }
 
 

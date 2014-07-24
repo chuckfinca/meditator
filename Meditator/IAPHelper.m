@@ -155,10 +155,8 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 -(void)failedTransaction:(SKPaymentTransaction *)transaction
 {
-    NSLog(@"failedTransaction...");
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
     [self stopActivityIndicator];
-    
     [self handleError:transaction.error forActivity:@"Failed Transaction"];
 }
 
@@ -257,7 +255,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         [alert show];
     }
     
-    NSLog(@"%@ Error: %@ - %@",activity,error.localizedDescription,errorType);
+    NSLog(@"%@ - Error: %@ - %@",activity,error.localizedDescription,errorType);
 }
 
 
