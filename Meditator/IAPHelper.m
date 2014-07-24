@@ -192,7 +192,6 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     for(SKPaymentTransaction *transaction in queue.transactions){
         NSLog(@"restored %@",transaction.payment.productIdentifier);
     }
-    
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchases Restored" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
 }
