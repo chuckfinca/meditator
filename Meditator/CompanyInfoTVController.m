@@ -47,7 +47,7 @@
 {
     if(!_guidedMindCell){
         _guidedMindCell = [[[NSBundle mainBundle] loadNibNamed:@"AppCell" owner:self options:nil] firstObject];
-        [_guidedMindCell setupWithAppImageName:@"flowers" andName:@"Guided Mind"];
+        [_guidedMindCell setupWithAppImageName:@"flowers" name:@"Guided Mind" andAppID:672076838];
     }
     return _guidedMindCell;
 }
@@ -147,6 +147,7 @@
 -(void)pushAppVC
 {
     AppDetailsViewController *appDetailsVC = [[AppDetailsViewController alloc] initWithNibName:@"AppDetailsViewController" bundle:nil];
+    [appDetailsVC setupForAppID:self.guidedMindCell.appID];
     [self.navigationController pushViewController:appDetailsVC animated:YES];
 }
 
