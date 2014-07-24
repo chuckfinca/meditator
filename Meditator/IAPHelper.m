@@ -124,6 +124,8 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 -(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
 {
+    NSLog(@"queue = %@",queue);
+    NSLog(@"transactions = %@",transactions);
     for(SKPaymentTransaction *transaction in transactions){
         switch (transaction.transactionState) {
             case SKPaymentTransactionStateFailed:
@@ -149,23 +151,23 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 {
     NSLog(@"completeTransaction...");
     [self provideContentForProductIdentifier:transaction.payment.productIdentifier];
-    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
     [self stopActivityIndicator];
+    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
 -(void)failedTransaction:(SKPaymentTransaction *)transaction
 {
-    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
     [self stopActivityIndicator];
     [self handleError:transaction.error forActivity:@"Failed Transaction"];
+    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
 -(void)restoreTransaction:(SKPaymentTransaction *)transaction
 {
     NSLog(@"restoreTransaction...");
     [self provideContentForProductIdentifier:transaction.originalTransaction.payment.productIdentifier];
-    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
     [self stopActivityIndicator];
+    [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
 -(void)provideContentForProductIdentifier:(NSString *)productIdentifier
