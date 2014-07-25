@@ -24,11 +24,11 @@
             </objects>
             <point key="canvasLocation" x="-1098" y="-201"/>
         </scene>
-        <!--Navigation Controller - instructions-->
+        <!--Navigation Controller - Instructions-->
         <scene sceneID="URQ-FJ-HUP">
             <objects>
                 <navigationController definesPresentationContext="YES" id="sTg-Zz-mIA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="instructions" id="ZQ9-uB-5vw"/>
+                    <tabBarItem key="tabBarItem" title="Instructions" id="ZQ9-uB-5vw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bNI-3l-MBO">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -40,7 +40,7 @@
             </objects>
             <point key="canvasLocation" x="-493" y="-1037"/>
         </scene>
-        <!--Instructions View Controller-->
+        <!--Instructions View Controller - Instructions-->
         <scene sceneID="6oX-LH-4nx">
             <objects>
                 <viewController id="Bwz-eK-EW0" customClass="InstructionsViewController" sceneMemberID="viewController">
@@ -85,7 +85,7 @@
                             <constraint firstAttribute="bottom" secondItem="Q7N-qg-M1R" secondAttribute="bottom" id="oqC-5R-UkU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="fYu-Mr-jcv"/>
+                    <navigationItem key="navigationItem" title="Instructions" id="fYu-Mr-jcv"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="instructionsTextView" destination="eYR-B4-SkP" id="ASI-nG-KT9"/>
@@ -96,7 +96,7 @@
             </objects>
             <point key="canvasLocation" x="43" y="-1037"/>
         </scene>
-        <!--Company InfoTV Controller-->
+        <!--Company InfoTV Controller - More-->
         <scene sceneID="HMa-Bz-pZK">
             <objects>
                 <tableViewController id="MfC-Ym-Qr0" customClass="CompanyInfoTVController" sceneMemberID="viewController">
@@ -135,17 +135,17 @@
                             <outlet property="delegate" destination="MfC-Ym-Qr0" id="IVr-Ix-RpB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="rAS-do-DTs"/>
+                    <navigationItem key="navigationItem" title="More" id="rAS-do-DTs"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rp5-rg-sJJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="43" y="630"/>
         </scene>
-        <!--Navigation Controller - more-->
+        <!--Navigation Controller - More-->
         <scene sceneID="NJO-37-Ctr">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Jry-kT-8JL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="more" id="yhE-jG-3Rv"/>
+                    <tabBarItem key="tabBarItem" title="More" id="yhE-jG-3Rv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wFf-10-a2u">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -157,11 +157,11 @@
             </objects>
             <point key="canvasLocation" x="-493" y="630"/>
         </scene>
-        <!--Navigation Controller - timer-->
+        <!--Navigation Controller - Timer-->
         <scene sceneID="Olu-Gr-ojf">
             <objects>
                 <navigationController definesPresentationContext="YES" id="yuN-9I-F5G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="timer" id="qFf-Ss-Qgd"/>
+                    <tabBarItem key="tabBarItem" title="Timer" id="qFf-Ss-Qgd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bcB-xa-Jv4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -173,7 +173,7 @@
             </objects>
             <point key="canvasLocation" x="-493" y="-201"/>
         </scene>
-        <!--Settings Table View Controller - Mind Timer-->
+        <!--Settings Table View Controller - Timer-->
         <scene sceneID="410-Xg-Yop">
             <objects>
                 <tableViewController id="2LW-A1-fsL" customClass="SettingsTableViewController" sceneMemberID="viewController">
@@ -196,7 +196,7 @@
                             <outlet property="delegate" destination="2LW-A1-fsL" id="Spv-yj-fdy"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Mind Timer" id="jNt-BR-ymA"/>
+                    <navigationItem key="navigationItem" title="Timer" id="jNt-BR-ymA"/>
                     <connections>
                         <segue destination="DEm-Dj-T69" kind="modal" identifier="Timer Segue" modalTransitionStyle="flipHorizontal" id="u5X-m3-StU"/>
                     </connections>
