@@ -53,6 +53,8 @@
 		C954BA0D197F405500FD4FAB /* RestrictedTouchPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA0C197F405500FD4FAB /* RestrictedTouchPickerView.m */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
 		C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */; };
+		C9D45D7B1981D4D80059C3C2 /* AppDictionariesList.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */; };
+		C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -137,6 +139,10 @@
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
 		C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorphingTimerLabel.h; sourceTree = "<group>"; };
 		C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MorphingTimerLabel.m; sourceTree = "<group>"; };
+		C9D45D791981D4D80059C3C2 /* AppDictionariesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDictionariesList.h; sourceTree = "<group>"; };
+		C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDictionariesList.m; sourceTree = "<group>"; };
+		C9D45D7C1981DF4A0059C3C2 /* RoundedRectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedRectButton.h; sourceTree = "<group>"; };
+		C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedRectButton.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +247,10 @@
 				C954BA06197F27A400FD4FAB /* Purchaser.m */,
 				C954BA0B197F405500FD4FAB /* RestrictedTouchPickerView.h */,
 				C954BA0C197F405500FD4FAB /* RestrictedTouchPickerView.m */,
+				C9D45D791981D4D80059C3C2 /* AppDictionariesList.h */,
+				C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */,
+				C9D45D7C1981DF4A0059C3C2 /* RoundedRectButton.h */,
+				C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -493,11 +503,13 @@
 				C9408043196B622F00A55343 /* SettingsTableViewController.m in Sources */,
 				C954B9E01977277000FD4FAB /* IntervalCellDelegateAndDataSource.m in Sources */,
 				C905B4F11974843A00597899 /* InstructionsViewController.m in Sources */,
+				C9D45D7B1981D4D80059C3C2 /* AppDictionariesList.m in Sources */,
 				C954BA04197DE61400FD4FAB /* MindTimerIAPHelper.m in Sources */,
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
 				C954BA0D197F405500FD4FAB /* RestrictedTouchPickerView.m in Sources */,
 				C954B9DB19771E5900FD4FAB /* IntervalCell.m in Sources */,
 				C954B9F41979EF9000FD4FAB /* AppCell.m in Sources */,
+				C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */,
 				C954B9FE197DCCC000FD4FAB /* IAPHelper.m in Sources */,
 				C954B9F01979EBA500FD4FAB /* CompanyInfoTVController.m in Sources */,
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,

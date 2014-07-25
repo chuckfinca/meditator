@@ -24,11 +24,10 @@
     // Initialization code
 }
 
--(void)setupWithAppImageName:(NSString *)imageName name:(NSString *)appName andAppID:(NSInteger)appID
+-(void)setupWithAppIconImageName:(NSString *)imageName name:(NSString *)appName
 {
     [self.iconImageView setImage:[UIImage imageNamed:imageName]];
     self.appNameLabel.text = appName;
-    self.appID = appID;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
 }
 

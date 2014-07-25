@@ -7,15 +7,22 @@
 //
 
 #import "AppDetailsViewController.h"
+#import "AppDictionariesList.h"
+#import "RoundedRectButton.h"
 
 @interface AppDetailsViewController ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
 @property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
-@property (weak, nonatomic) IBOutlet UIButton *openStoreButton;
-@property (weak, nonatomic) IBOutlet UIImageView *appScreenShotButton;
+@property (weak, nonatomic) IBOutlet RoundedRectButton *openStoreButton;
+@property (weak, nonatomic) IBOutlet UIImageView *appScreenShotImageView;
+@property (weak, nonatomic) IBOutlet UILabel *appDescriptionLabel;
 
 @property (nonatomic, strong) NSString *appURLString;
+@property (nonatomic, strong) NSString *iconName;
+@property (nonatomic, strong) NSString *appName;
+@property (nonatomic, strong) NSString *appDescription;
+@property (nonatomic, strong) NSString *screenShotName;
 
 @end
 
@@ -35,14 +42,21 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    [self.iconImageView setImage:[UIImage imageNamed:@"flowers"]];
-    self.appNameLabel.text = @"Guided Mind";
-    [self.appScreenShotButton setImage:[UIImage imageNamed:@"blue"]];
+    [self.iconImageView setImage:[UIImage imageNamed:self.iconName]];
+    self.appNameLabel.text = self.appName;
+    [self.appScreenShotImageView setImage:[UIImage imageNamed:self.screenShotName]];
+    self.appDescriptionLabel.text = self.appDescription;
 }
 
 -(void)setupForAppID:(NSInteger)appID
 {
     self.appURLString = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%ld?at=1l3vcSo",(long)appID];
+    
+    NSDictionary *appDictionary = [AppDictionariesList appDictionaryForID:appID];
+    self.iconName = appDictionary[APP_ICON_NAME];
+    self.appName = appDictionary[APP_NAME];
+    self.screenShotName = appDictionary[APP_SCREENSHOT_NAME];
+    self.appDescription = [NSString stringWithFormat:@"DESCRIPTION\n\n%@",appDictionary[APP_DESCRIPTION]];
 }
 
 -(IBAction)openStore:(id)sender

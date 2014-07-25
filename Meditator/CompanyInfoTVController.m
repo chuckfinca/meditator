@@ -10,6 +10,7 @@
 #import "AppCell.h"
 #import "AppDetailsViewController.h"
 #import "MindTimerIAPHelper.h"
+#import "AppDictionariesList.h"
 
 @interface CompanyInfoTVController () <SKStoreProductViewControllerDelegate>
 
@@ -47,7 +48,8 @@
 {
     if(!_guidedMindCell){
         _guidedMindCell = [[[NSBundle mainBundle] loadNibNamed:@"AppCell" owner:self options:nil] firstObject];
-        [_guidedMindCell setupWithAppImageName:@"flowers" name:@"Guided Mind" andAppID:672076838];
+        NSDictionary *dictionary = [AppDictionariesList appDictionaryForID:672076838];
+        [_guidedMindCell setupWithAppIconImageName:dictionary[APP_ICON_NAME] name:dictionary[APP_NAME]];
     }
     return _guidedMindCell;
 }
@@ -147,7 +149,7 @@
 -(void)pushAppVC
 {
     AppDetailsViewController *appDetailsVC = [[AppDetailsViewController alloc] initWithNibName:@"AppDetailsViewController" bundle:nil];
-    [appDetailsVC setupForAppID:self.guidedMindCell.appID];
+    [appDetailsVC setupForAppID:672076838];
     [self.navigationController pushViewController:appDetailsVC animated:YES];
 }
 

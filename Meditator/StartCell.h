@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "RoundedRectButton.h"
 
 @interface StartCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIButton *startButton;
+@property (weak, nonatomic) IBOutlet RoundedRectButton *startButton;
 
 @end

@@ -124,8 +124,6 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 -(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
 {
-    NSLog(@"queue = %@",queue);
-    NSLog(@"transactions = %@",transactions);
     for(SKPaymentTransaction *transaction in transactions){
         switch (transaction.transactionState) {
             case SKPaymentTransactionStateFailed:
@@ -172,6 +170,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 -(void)provideContentForProductIdentifier:(NSString *)productIdentifier
 {
+    NSLog(@"productIdentifier = %@",productIdentifier);
     [self.purchasedProductIdentifiers addObject:productIdentifier];
     [[NSUserDefaults standardUserDefaults] setBool:YES forKey:productIdentifier];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -190,9 +189,15 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 -(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
+    NSString *alertTitle;
     NSLog(@"paymentQueueRestoreCompletedTransactionsFinished...");
-    for(SKPaymentTransaction *transaction in queue.transactions){
-        NSLog(@"restored %@",transaction.payment.productIdentifier);
+    if([queue.transactions count] > 0){
+        for(SKPaymentTransaction *transaction in queue.transactions){
+            NSLog(@"restored %@",transaction.payment.productIdentifier);
+        }
+        alertTitle = @"Purchases Restored";
+    } else {
+        alertTitle = @"You haven't purchased anything yet";
     }
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchases Restored" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];

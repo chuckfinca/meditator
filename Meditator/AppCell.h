@@ -10,8 +10,6 @@
 
 @interface AppCell : UITableViewCell
 
-@property (nonatomic) NSInteger appID;
-
--(void)setupWithAppImageName:(NSString *)imageName name:(NSString *)appName andAppID:(NSInteger)appID;
+-(void)setupWithAppIconImageName:(NSString *)imageName name:(NSString *)appName;
 
 @end
