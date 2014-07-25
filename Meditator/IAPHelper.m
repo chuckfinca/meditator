@@ -164,7 +164,6 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 {
     NSLog(@"restoreTransaction...");
     [self provideContentForProductIdentifier:transaction.originalTransaction.payment.productIdentifier];
-    [self stopActivityIndicator];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
@@ -189,18 +188,21 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 -(void)paymentQueueRestoreCompletedTransactionsFinished:(SKPaymentQueue *)queue
 {
+    [self stopActivityIndicator];
+    
     NSString *alertTitle;
-    NSLog(@"paymentQueueRestoreCompletedTransactionsFinished...");
-    if([queue.transactions count] > 0){
+    if([queue.transactions count] == 0){
+        alertTitle = @"You haven't purchased anything yet";
+    } else {
         for(SKPaymentTransaction *transaction in queue.transactions){
             NSLog(@"restored %@",transaction.payment.productIdentifier);
         }
         alertTitle = @"Purchases Restored";
-    } else {
-        alertTitle = @"You haven't purchased anything yet";
     }
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Purchases Restored" message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
+    
 }
 
 -(void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error
