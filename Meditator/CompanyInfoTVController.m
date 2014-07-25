@@ -12,10 +12,9 @@
 #import "MindTimerIAPHelper.h"
 #import "AppDictionariesList.h"
 
-@interface CompanyInfoTVController () <SKStoreProductViewControllerDelegate>
+@interface CompanyInfoTVController () <UIAlertViewDelegate>
 
 @property (nonatomic, strong) AppCell *guidedMindCell;
-@property (nonatomic, strong) SKStoreProductViewController *storeViewController;
 
 @end
 
@@ -86,12 +85,10 @@
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
             if(indexPath.row == 0){
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:nil];
                 cell.textLabel.text = @"Review in iTunes";
-                cell.detailTextLabel.text = @"Click Here -> Reviews -> Write a Review";
             } else if(indexPath.row == 1){
-                cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
                 cell.textLabel.text =  @"Restore Purchases";
             }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -132,7 +129,7 @@
     switch (indexPath.section) {
         case 0:
             if(indexPath.row == 0){
-                [self reviewApp];
+                [self showGoingToStoreAlert];
             } else if(indexPath.row == 1){
                 [[MindTimerIAPHelper sharedInstance] restoreCompletedTransactions];
             }
@@ -144,6 +141,12 @@
         default:
             break;
     }
+}
+
+-(void)showGoingToStoreAlert
+{
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You are about to go to iTunes" message:@"Once there click REVIEWS\nthen WRITE A REVIEW\nto review Mind Timer" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    [alert show];
 }
 
 -(void)pushAppVC
@@ -173,7 +176,14 @@
 
 
 
+#pragma mark - UIAlertViewDelegate
 
+-(void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 1){
+        [self reviewApp];
+    }
+}
 
 
 
