@@ -11,6 +11,7 @@
 @interface InstructionsViewController ()
 
 @property (strong, nonatomic) IBOutlet UITextView *instructionsTextView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *textViewHeightConstraint;
 
 @end
 
@@ -31,6 +32,7 @@
     // Do any additional setup after loading the view.
     
     self.instructionsTextView.text = @"Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate.";
+    self.textViewHeightConstraint.constant = [self.instructionsTextView sizeThatFits:CGSizeMake(self.instructionsTextView.bounds.size.width, FLT_MAX)].height;
 }
 
 - (void)didReceiveMemoryWarning
