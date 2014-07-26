@@ -49,7 +49,7 @@
     if(!_guidedMindCell){
         _guidedMindCell = [[[NSBundle mainBundle] loadNibNamed:@"AppCell" owner:self options:nil] firstObject];
         NSDictionary *dictionary = [AppDictionariesList appDictionaryForID:672076838];
-        [_guidedMindCell setupWithAppIconImageName:dictionary[APP_ICON_NAME] name:dictionary[APP_NAME]];
+        [_guidedMindCell setupWithAppIconImageName:dictionary[APP_ICON_NAME] name:dictionary[APP_SHORT_NAME]];
     }
     return _guidedMindCell;
 }

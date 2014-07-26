@@ -21,12 +21,9 @@
                             <constraint firstAttribute="width" constant="60" id="MZm-hl-hRU"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="212" translatesAutoresizingMaskIntoConstraints="NO" id="Mkb-EY-DUC">
-                        <rect key="frame" x="88" y="20" width="212" height="21"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="212" translatesAutoresizingMaskIntoConstraints="NO" id="Mkb-EY-DUC" customClass="VariableHeightLabel">
+                        <rect key="frame" x="88" y="40" width="212" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <constraints>
-                            <constraint firstAttribute="height" relation="lessThanOrEqual" constant="60" id="bYN-XD-2Pl"/>
-                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -34,7 +31,7 @@
                 <constraints>
                     <constraint firstItem="goe-0s-wWo" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" symbolic="YES" id="2Kh-cD-nzW"/>
                     <constraint firstAttribute="trailing" secondItem="Mkb-EY-DUC" secondAttribute="trailing" constant="20" id="85i-nn-4Rx"/>
-                    <constraint firstItem="Mkb-EY-DUC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="X2c-OT-gqX"/>
+                    <constraint firstItem="goe-0s-wWo" firstAttribute="centerY" secondItem="Mkb-EY-DUC" secondAttribute="centerY" id="CvX-6n-BDi"/>
                     <constraint firstItem="Mkb-EY-DUC" firstAttribute="leading" secondItem="goe-0s-wWo" secondAttribute="trailing" constant="8" id="oqW-gY-8dy"/>
                     <constraint firstItem="goe-0s-wWo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="rFD-c7-bz9"/>
                 </constraints>

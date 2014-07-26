@@ -13,7 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *appNameLabel;
 
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *topToImageViewConstraint;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *imageViewToBottomConstraint;
 @end
 
 
