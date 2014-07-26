@@ -12,6 +12,7 @@
 #define APP_ICON_NAME @"iconName"
 #define APP_SCREENSHOT_NAME @"screenShotName"
 #define APP_DESCRIPTION @"appDescription"
+#define APP_SHORT_NAME @"shortName"
 
 @interface AppDictionariesList : NSObject
 

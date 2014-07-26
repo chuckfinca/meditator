@@ -46,6 +46,7 @@
     self.appNameLabel.text = self.appName;
     [self.appScreenShotImageView setImage:[UIImage imageNamed:self.screenShotName]];
     self.appDescriptionLabel.text = self.appDescription;
+    
 }
 
 -(void)setupForAppID:(NSInteger)appID
@@ -57,6 +58,7 @@
     self.appName = appDictionary[APP_NAME];
     self.screenShotName = appDictionary[APP_SCREENSHOT_NAME];
     self.appDescription = [NSString stringWithFormat:@"DESCRIPTION\n\n%@",appDictionary[APP_DESCRIPTION]];
+    self.navigationItem.title = appDictionary[APP_SHORT_NAME];
 }
 
 -(IBAction)openStore:(id)sender

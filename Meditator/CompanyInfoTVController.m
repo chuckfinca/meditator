@@ -156,7 +156,13 @@
 
 -(void)pushAppVC
 {
-    AppDetailsViewController *appDetailsVC = [[AppDetailsViewController alloc] initWithNibName:@"AppDetailsViewController" bundle:nil];
+    AppDetailsViewController *appDetailsVC;
+    if(UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad){
+        appDetailsVC = [[AppDetailsViewController alloc] initWithNibName:@"AppDetailsViewController_iPad" bundle:nil];
+    } else {
+        appDetailsVC = [[AppDetailsViewController alloc] initWithNibName:@"AppDetailsViewController" bundle:nil];
+    }
+    
     [appDetailsVC setupForAppID:672076838];
     [self.navigationController pushViewController:appDetailsVC animated:YES];
 }

@@ -55,6 +55,8 @@
 		C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */; };
 		C9D45D7B1981D4D80059C3C2 /* AppDictionariesList.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */; };
 		C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */; };
+		C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */; };
+		C9D45D8619833E650059C3C2 /* VariableHeightLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D8519833E650059C3C2 /* VariableHeightLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +145,9 @@
 		C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDictionariesList.m; sourceTree = "<group>"; };
 		C9D45D7C1981DF4A0059C3C2 /* RoundedRectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedRectButton.h; sourceTree = "<group>"; };
 		C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RoundedRectButton.m; sourceTree = "<group>"; };
+		C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppDetailsViewController_iPad.xib; sourceTree = "<group>"; };
+		C9D45D8419833E650059C3C2 /* VariableHeightLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableHeightLabel.h; sourceTree = "<group>"; };
+		C9D45D8519833E650059C3C2 /* VariableHeightLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableHeightLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +256,8 @@
 				C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */,
 				C9D45D7C1981DF4A0059C3C2 /* RoundedRectButton.h */,
 				C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */,
+				C9D45D8419833E650059C3C2 /* VariableHeightLabel.h */,
+				C9D45D8519833E650059C3C2 /* VariableHeightLabel.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -347,6 +354,7 @@
 				C954B9F71979FB7F00FD4FAB /* AppDetailsViewController.h */,
 				C954B9F81979FB7F00FD4FAB /* AppDetailsViewController.m */,
 				C954B9F91979FB7F00FD4FAB /* AppDetailsViewController.xib */,
+				C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */,
 			);
 			name = "App Details";
 			sourceTree = "<group>";
@@ -437,6 +445,7 @@
 				C954B9F51979EF9000FD4FAB /* AppCell.xib in Resources */,
 				C954B9E41977510800FD4FAB /* SingleIntervalCell.xib in Resources */,
 				C954B9E919787C1700FD4FAB /* StartCell.xib in Resources */,
+				C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */,
 				C954B9CC1975DF6F00FD4FAB /* drum.aif in Resources */,
 				C954B9DC19771E5900FD4FAB /* IntervalCell.xib in Resources */,
 				C9408011196B481800A55343 /* InfoPlist.strings in Resources */,
@@ -509,6 +518,7 @@
 				C954BA0D197F405500FD4FAB /* RestrictedTouchPickerView.m in Sources */,
 				C954B9DB19771E5900FD4FAB /* IntervalCell.m in Sources */,
 				C954B9F41979EF9000FD4FAB /* AppCell.m in Sources */,
+				C9D45D8619833E650059C3C2 /* VariableHeightLabel.m in Sources */,
 				C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */,
 				C954B9FE197DCCC000FD4FAB /* IAPHelper.m in Sources */,
 				C954B9F01979EBA500FD4FAB /* CompanyInfoTVController.m in Sources */,
