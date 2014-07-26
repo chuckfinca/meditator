@@ -11,8 +11,9 @@
 #import "AppDetailsViewController.h"
 #import "MindTimerIAPHelper.h"
 #import "AppDictionariesList.h"
+#import <MessageUI/MessageUI.h>
 
-@interface CompanyInfoTVController () <UIAlertViewDelegate>
+@interface CompanyInfoTVController () <UIAlertViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) AppCell *guidedMindCell;
 
@@ -65,7 +66,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if(section == 0){
-        return 2;
+        return 3;
     } else {
         return 1;
     }
@@ -90,6 +91,8 @@
                 cell.textLabel.text = @"Review in iTunes";
             } else if(indexPath.row == 1){
                 cell.textLabel.text =  @"Restore Purchases";
+            } else if(indexPath.row == 2){
+                cell.textLabel.text =  @"Contact Support";
             }
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
@@ -132,6 +135,8 @@
                 [self showGoingToStoreAlert];
             } else if(indexPath.row == 1){
                 [[MindTimerIAPHelper sharedInstance] restoreCompletedTransactions];
+            } else if(indexPath.row == 2){
+                [self displayMessageSender];
             }
             break;
         case 1:
@@ -161,6 +166,27 @@
     NSLog(@"review in iTunes");
     NSURL *appURL = [NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id901569488?at=1l3vcSo"]; // Guided Mind = id672076838?at=1l3vcSo
     [[UIApplication sharedApplication] openURL:appURL];
+}
+
+-(void)displayMessageSender
+{
+    if([MFMailComposeViewController canSendMail]){
+        MFMailComposeViewController *mailSender = [[MFMailComposeViewController alloc] init];
+        mailSender.mailComposeDelegate = self;
+        [mailSender setToRecipients:@[@"support@appsimple.io"]];
+        [mailSender setSubject:@"Mind Timer Support"];
+        [self presentViewController:mailSender animated:YES completion:nil];
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unable to send email" message:@"Please try again with a strong internet connection" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+        [alert show];
+    }
+}
+
+#pragma mark - MFMailComposeViewControllerDelegate
+
+-(void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    [controller.presentingViewController dismissViewControllerAnimated:YES completion:nil];
 }
 
 /*
