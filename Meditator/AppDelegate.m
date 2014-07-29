@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "LocalNotificationScheduler.h"
 #import "MindTimerIAPHelper.h"
+#import "ColorSchemer.h"
 
 @implementation AppDelegate
 
@@ -16,6 +17,8 @@
 {
     // Override point for customization after application launch.
     [MindTimerIAPHelper sharedInstance];
+    
+    self.window.tintColor = [ColorSchemer sharedInstance].tintColor;
     return YES;
 }
 							

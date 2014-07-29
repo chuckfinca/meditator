@@ -7,6 +7,7 @@
 //
 
 #import "RoundedRectButton.h"
+#import "ColorSchemer.h"
 
 @implementation RoundedRectButton
 
@@ -22,7 +23,7 @@
 -(void)awakeFromNib
 {
     self.titleLabel.textColor = [UIColor whiteColor];
-    self.layer.backgroundColor = self.tintColor.CGColor;
+    self.layer.backgroundColor = [ColorSchemer sharedInstance].tintColor.CGColor;
     self.layer.cornerRadius = 4;
 }
 

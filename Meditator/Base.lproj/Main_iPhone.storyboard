@@ -161,7 +161,7 @@
         <scene sceneID="Olu-Gr-ojf">
             <objects>
                 <navigationController definesPresentationContext="YES" id="yuN-9I-F5G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Timer" id="qFf-Ss-Qgd"/>
+                    <tabBarItem key="tabBarItem" title="Timer" image="tab_timer" id="qFf-Ss-Qgd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bcB-xa-Jv4">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -292,6 +292,9 @@
             <point key="canvasLocation" x="511" y="-202"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="tab_timer" width="30" height="30"/>
+    </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

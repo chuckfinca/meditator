@@ -7,6 +7,7 @@
 //
 
 #import "StartCell.h"
+#import "ColorSchemer.h"
 
 
 @implementation StartCell
@@ -18,13 +19,9 @@
     NSDictionary *attributes = @{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]};
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Start Timer" attributes:attributes];
     [self.startButton setAttributedTitle:attributedString forState: UIControlStateNormal];
+    
+    self.tintColor = [ColorSchemer sharedInstance].tintColor;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated
-{
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end

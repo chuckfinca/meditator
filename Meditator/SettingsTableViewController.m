@@ -15,6 +15,7 @@
 #import "MindTimerIAPHelper.h"
 #import "SoundEffectPlayer.h"
 #import "Purchaser.h"
+#import "ColorSchemer.h"
 
 #define SELECTED_SOUND_INDEX @"SelectedSoundIndex"
 #define SELECTED_BACKGROUND_INDEX @"SelectedBackgroundIndex"

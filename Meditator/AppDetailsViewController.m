@@ -46,7 +46,6 @@
     self.appNameLabel.text = self.appName;
     [self.appScreenShotImageView setImage:[UIImage imageNamed:self.screenShotName]];
     self.appDescriptionLabel.text = self.appDescription;
-    
 }
 
 -(void)setupForAppID:(NSInteger)appID

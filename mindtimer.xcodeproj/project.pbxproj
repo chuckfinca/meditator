@@ -57,6 +57,7 @@
 		C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */; };
 		C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */; };
 		C9D45D8619833E650059C3C2 /* VariableHeightLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D8519833E650059C3C2 /* VariableHeightLabel.m */; };
+		C9D45D89198721630059C3C2 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D88198721630059C3C2 /* ColorSchemer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -148,6 +149,8 @@
 		C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppDetailsViewController_iPad.xib; sourceTree = "<group>"; };
 		C9D45D8419833E650059C3C2 /* VariableHeightLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableHeightLabel.h; sourceTree = "<group>"; };
 		C9D45D8519833E650059C3C2 /* VariableHeightLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableHeightLabel.m; sourceTree = "<group>"; };
+		C9D45D87198721630059C3C2 /* ColorSchemer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSchemer.h; sourceTree = "<group>"; };
+		C9D45D88198721630059C3C2 /* ColorSchemer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSchemer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -258,6 +261,8 @@
 				C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */,
 				C9D45D8419833E650059C3C2 /* VariableHeightLabel.h */,
 				C9D45D8519833E650059C3C2 /* VariableHeightLabel.m */,
+				C9D45D87198721630059C3C2 /* ColorSchemer.h */,
+				C9D45D88198721630059C3C2 /* ColorSchemer.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -520,6 +525,7 @@
 				C954B9F41979EF9000FD4FAB /* AppCell.m in Sources */,
 				C9D45D8619833E650059C3C2 /* VariableHeightLabel.m in Sources */,
 				C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */,
+				C9D45D89198721630059C3C2 /* ColorSchemer.m in Sources */,
 				C954B9FE197DCCC000FD4FAB /* IAPHelper.m in Sources */,
 				C954B9F01979EBA500FD4FAB /* CompanyInfoTVController.m in Sources */,
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,
