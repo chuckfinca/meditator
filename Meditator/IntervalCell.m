@@ -93,7 +93,7 @@
         }
         
         if([title isEqual:@"0"] && button.enabled == YES){
-            title = @"stop";
+            title = @"end";
         }
         
         [button setTitle:title forState:UIControlStateNormal];

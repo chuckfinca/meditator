@@ -80,6 +80,7 @@ static Timer *sharedInstance;
 
 -(void)setupSoundEffect:(NSString *)soundEffectName
 {
+    NSLog(@"%@",soundEffectName);
     if([soundEffectName isEqualToString:UILocalNotificationDefaultSoundName]){
         self.soundEffectFileName = soundEffectName;
         self.soundEffectURL = nil;
@@ -189,7 +190,7 @@ static Timer *sharedInstance;
 -(void)soundTimer
 {
     SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:self.soundEffectURL];
-    [player playSoundOrVibrate];
+    [player playSoundOrVibrate:YES];
 }
 
 

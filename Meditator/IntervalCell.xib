@@ -6,11 +6,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IntervalCell" rowHeight="171" id="d2x-2u-OWV" customClass="IntervalCell">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="207"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IntervalCell" rowHeight="222" id="d2x-2u-OWV" customClass="IntervalCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d2x-2u-OWV" id="apk-w7-ofX">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="206"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNb-3S-Vjk">
@@ -103,7 +103,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="JDh-Gr-2TG" secondAttribute="trailing" id="2kr-me-Y1H"/>
-                    <constraint firstAttribute="bottom" secondItem="TNb-3S-Vjk" secondAttribute="bottom" id="3Z8-Mc-Um7"/>
+                    <constraint firstAttribute="bottom" secondItem="TNb-3S-Vjk" secondAttribute="bottom" constant="8" id="3Z8-Mc-Um7"/>
                     <constraint firstItem="o34-ap-K9R" firstAttribute="centerY" secondItem="AIg-7Z-ClE" secondAttribute="centerY" id="AGU-t7-5rR"/>
                     <constraint firstItem="2s4-Ck-NSc" firstAttribute="leading" secondItem="o34-ap-K9R" secondAttribute="trailing" constant="8" id="Ajt-Vz-fNP"/>
                     <constraint firstItem="Msv-yq-MoW" firstAttribute="centerX" secondItem="aOh-b0-dv4" secondAttribute="centerX" constant="36" id="Ayx-QL-eim"/>

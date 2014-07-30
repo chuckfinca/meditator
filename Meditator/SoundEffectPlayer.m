@@ -13,6 +13,7 @@
 
 @property (nonatomic, strong) NSURL *soundUrl;
 @property (nonatomic, strong) NSDate *startTime;
+@property (nonatomic) BOOL timerEnded;
 
 @end
 
@@ -31,15 +32,22 @@ void SoundMuteCheckCompletion(SystemSoundID  ssID,void *clientData)
 {
     SoundEffectPlayer *sep = (__bridge SoundEffectPlayer *)clientData;
     NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:sep.startTime];
-    if(elapsedTime < 0.1){
+    if(elapsedTime < 0.4){
         NSLog(@"mute is on");
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Silent Mode Detected" message:@"Unsilence your device to play chimes." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
-        [alert show];
+        if(sep.timerEnded) {
+            for(int i = 1; i < 12; i++){
+                [sep performSelector:@selector(vibrate) withObject:sep afterDelay:i*0.3];
+            }
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Silent Mode Detected" message:@"Unsilence your device to play chimes." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
+            [alert show];
+        }
     }
 }
 
--(void)playSoundOrVibrate
+-(void)playSoundOrVibrate:(BOOL)timerEnded
 {
+    self.timerEnded = timerEnded;
     
     if(self.soundUrl){
         SystemSoundID soundID;
@@ -53,9 +61,10 @@ void SoundMuteCheckCompletion(SystemSoundID  ssID,void *clientData)
 }
 
 
-
-
-
+-(void)vibrate
+{
+    AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+}
 
 
 @end

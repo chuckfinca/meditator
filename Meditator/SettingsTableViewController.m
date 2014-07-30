@@ -62,6 +62,18 @@
     [self requestIAPProducts];
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playSound:) name:@"PlaySound" object:nil];
+}
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 #pragma mark - Getters & Setters
 
 -(IntervalCell *)intervalCell
@@ -163,6 +175,14 @@
         _purchaser = [[Purchaser alloc] init];
     }
     return _purchaser;
+}
+
+-(NSInteger)selectedSoundIndex
+{
+    if(!_selectedSoundIndex){
+        _selectedSoundIndex = [[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_SOUND_INDEX];
+    }
+    return _selectedSoundIndex;
 }
 
 #pragma mark - UITableViewDataSource
@@ -317,14 +337,13 @@
 -(IBAction)soundSelected:(UIButton *)sender
 {
     NSString *soundEffectName = self.soundNamesArray[sender.tag];
-    NSURL *soundEffectURL = [[NSBundle mainBundle] URLForResource:soundEffectName withExtension:@"aif"];
-    SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:soundEffectURL];
-    [player playSoundOrVibrate];
     
     if(sender.tag == 0 || [[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]){
         
         [self.soundSelectorCell refreshWithSelectedButtonIndex:sender.tag];
         self.selectedSoundIndex = sender.tag;
+        
+        [self playSoundNamed:soundEffectName];
         
         [[NSUserDefaults standardUserDefaults] setInteger:sender.tag forKey:SELECTED_SOUND_INDEX];
         [[NSUserDefaults standardUserDefaults] synchronize];
@@ -336,9 +355,22 @@
         }
         
         NSString *productName = [NSString stringWithFormat:@"the %@ chime",[soundEffectName capitalizedString]];
-        UIActionSheet *actionSheet = [self.purchaser actionSheetForProduct:productName withProductsLoaded:self.productsLoaded];
+        UIActionSheet *actionSheet = [self.purchaser actionSheetForProduct:productName withSoundPreview:self.soundNamesArray[sender.tag] andProductsLoaded:self.productsLoaded];
         [actionSheet showInView:self.view];
     }
+}
+
+
+-(void)playSound:(NSNotification *)notification
+{
+    [self playSoundNamed:notification.object];
+}
+
+-(void)playSoundNamed:(NSString *)soundName
+{
+    NSURL *soundEffectURL = [[NSBundle mainBundle] URLForResource:soundName withExtension:@"aif"];
+    SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:soundEffectURL];
+    [player playSoundOrVibrate:NO];
 }
 
 -(IBAction)backgroundSelected:(UIButton *)sender
@@ -365,7 +397,7 @@
             [self requestIAPProducts];
         }
         
-        UIActionSheet *actionSheet = [self.purchaser actionSheetForProduct:@"Meditation Intervals" withProductsLoaded:self.productsLoaded];
+        UIActionSheet *actionSheet = [self.purchaser actionSheetForProduct:@"Meditation Intervals" withSoundPreview:nil andProductsLoaded:self.productsLoaded];
         [actionSheet showInView:self.view];
     }
 }

@@ -11,13 +11,14 @@
 @interface Purchaser ()
 
 @property (nonatomic) BOOL productsLoaded;
+@property (nonatomic, strong) NSString *soundPreviewName;
 
 @end
 
 
 @implementation Purchaser
 
--(UIActionSheet *)actionSheetForProduct:(NSString *)productName withProductsLoaded:(BOOL)productsLoaded
+-(UIActionSheet *)actionSheetForProduct:(NSString *)productName withSoundPreview:(NSString *)soundPreviewName andProductsLoaded:(BOOL)productsLoaded
 {
     NSString *title;
     NSString *cancelTitle;
@@ -35,7 +36,13 @@
         purchaseTitle = nil;
     }
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles:purchaseTitle, nil];
+    NSString *preview;
+    if(soundPreviewName){
+        preview = @"Preview Chime";
+        self.soundPreviewName = soundPreviewName;
+    }
+    
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles:purchaseTitle, preview,nil];
     
     return actionSheet;
 }
@@ -48,6 +55,10 @@
     if(buttonIndex == 0 && self.productsLoaded){
         MindTimerIAPHelper *helper = [MindTimerIAPHelper sharedInstance];
         [helper buyProduct:[helper.products firstObject]];
+        
+    } else if(buttonIndex == 1 && self.soundPreviewName){
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PlaySound" object:self.soundPreviewName];
+        self.soundPreviewName = nil;
     }
 }
 

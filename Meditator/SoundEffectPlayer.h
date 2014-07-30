@@ -12,6 +12,6 @@
 
 -(id)initWithURL:(NSURL *)URL;
 
--(void)playSoundOrVibrate;
+-(void)playSoundOrVibrate:(BOOL)timerEnded;
 
 @end

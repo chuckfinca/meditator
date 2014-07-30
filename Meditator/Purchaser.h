@@ -10,6 +10,6 @@
 
 @interface Purchaser : NSObject <UIActionSheetDelegate>
 
--(UIActionSheet *)actionSheetForProduct:(NSString *)productName withProductsLoaded:(BOOL)productsLoaded;
+-(UIActionSheet *)actionSheetForProduct:(NSString *)productName withSoundPreview:(NSString *)soundPreviewName andProductsLoaded:(BOOL)productsLoaded;
 
 @end

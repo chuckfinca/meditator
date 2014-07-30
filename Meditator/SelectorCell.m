@@ -33,7 +33,7 @@
             
         } else {
             button.selected = NO;
-            button.alpha = 0.5;
+            button.alpha = 0.2;
         }
     }
 }
