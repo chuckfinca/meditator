@@ -28,7 +28,7 @@
         <scene sceneID="URQ-FJ-HUP">
             <objects>
                 <navigationController definesPresentationContext="YES" id="sTg-Zz-mIA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Instructions" id="ZQ9-uB-5vw"/>
+                    <tabBarItem key="tabBarItem" title="Instructions" image="instructions" id="ZQ9-uB-5vw"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="bNI-3l-MBO">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -297,6 +297,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="instructions" width="2000" height="2000"/>
         <image name="tab_timer" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
