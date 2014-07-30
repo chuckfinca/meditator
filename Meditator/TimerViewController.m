@@ -92,8 +92,8 @@
     timer.delegate = self;
     [timer setupTimerWithIntervalArray:intervalArray andSoundEffectName:soundEffectName];
     
-    UIColor *tintColor = [UIColor colorWithWhite:1 alpha:0.3];
-    self.backgroundImage = [[UIImage imageNamed:backgroundName] applyBlurWithRadius:5 tintColor:tintColor saturationDeltaFactor:0.8 maskImage:nil];
+    UIColor *tintColor = [UIColor colorWithWhite:0 alpha:0.3];
+    self.backgroundImage = [[UIImage imageNamed:backgroundName] applyBlurWithRadius:1.5 tintColor:tintColor saturationDeltaFactor:1 maskImage:nil];
 }
 
 
