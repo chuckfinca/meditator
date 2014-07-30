@@ -146,7 +146,7 @@
         <scene sceneID="NJO-37-Ctr">
             <objects>
                 <navigationController definesPresentationContext="YES" id="Jry-kT-8JL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="More" id="yhE-jG-3Rv"/>
+                    <tabBarItem key="tabBarItem" title="More" image="more" id="yhE-jG-3Rv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="wFf-10-a2u">
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -299,6 +299,7 @@
     </scenes>
     <resources>
         <image name="instructions" width="30" height="30"/>
+        <image name="more" width="30" height="30"/>
         <image name="tab_timer" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

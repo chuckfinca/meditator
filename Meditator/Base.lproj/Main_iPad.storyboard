@@ -104,7 +104,7 @@
         <scene sceneID="77d-D9-o65">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Fx-LR-DQ9" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Timer" id="HeJ-8l-5To"/>
+                    <tabBarItem key="tabBarItem" title="Timer" image="tab_timer" id="HeJ-8l-5To"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="084-Aq-lf9">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -272,7 +272,7 @@
         <scene sceneID="EuX-kX-xKT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tp5-0C-WC1" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="More" id="PAP-dF-Eoo"/>
+                    <tabBarItem key="tabBarItem" title="More" image="more" id="PAP-dF-Eoo"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="1pH-iD-Y8Y">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
@@ -290,6 +290,8 @@
     </scenes>
     <resources>
         <image name="instructions" width="30" height="30"/>
+        <image name="more" width="30" height="30"/>
+        <image name="tab_timer" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
