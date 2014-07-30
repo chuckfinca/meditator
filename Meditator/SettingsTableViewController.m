@@ -111,6 +111,20 @@
     if(!_soundSelectorCell){
         _soundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"SelectorCell" owner:self options:nil] firstObject];
         [_soundSelectorCell refreshWithSelectedButtonIndex:[[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_SOUND_INDEX]];
+        
+        for(UIButton *button in _soundSelectorCell.buttonArray){
+            if(button.tag == 0){
+                [button setImage:[[UIImage imageNamed:@"vibrate"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            } else if(button.tag == 1){
+                [button setImage:[[UIImage imageNamed:@"tingshas"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            } else if(button.tag == 2){
+                [button setImage:[[UIImage imageNamed:@"gong"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            } else if(button.tag == 3){
+                [button setImage:[[UIImage imageNamed:@"bell"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            } else {
+                [button setImage:[[UIImage imageNamed:@"drum"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+            }
+        }
     }
     return _soundSelectorCell;
 }
@@ -131,7 +145,7 @@
 
 -(NSArray *)backgroundNamesArray
 {
-    return @[@"blue", @"flowers", @"blue", @"bell", @"bell"];
+    return @[@"flowers_blue", @"flowers_pink", @"flowers_dark", @"trees_one", @"flowers_yellow"];
 }
 
 -(StartCell *)startCell
