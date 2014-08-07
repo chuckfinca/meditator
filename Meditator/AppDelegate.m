@@ -10,12 +10,14 @@
 #import "LocalNotificationScheduler.h"
 #import "MindTimerIAPHelper.h"
 #import "ColorSchemer.h"
+#import <Crashlytics/Crashlytics.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [Crashlytics startWithAPIKey:@"8517fac29e50dbb70b924066e248d14a6044d7d6"];
     [MindTimerIAPHelper sharedInstance];
     
     self.window.tintColor = [ColorSchemer sharedInstance].tintColor;
