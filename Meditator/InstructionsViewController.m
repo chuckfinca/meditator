@@ -7,6 +7,7 @@
 //
 
 #import "InstructionsViewController.h"
+#import "FontThemer.h"
 
 @interface InstructionsViewController ()
 
@@ -31,7 +32,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.instructionsTextView.text = @"Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate.";
+    self.instructionsTextView.attributedText = [[NSAttributedString alloc] initWithString:@"Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate. Meditation Timer is a simple app that allows you to take time for your self to meditate." attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
     self.textViewHeightConstraint.constant = [self.instructionsTextView sizeThatFits:CGSizeMake(self.instructionsTextView.bounds.size.width, FLT_MAX)].height;
 }
 

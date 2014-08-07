@@ -20,7 +20,7 @@
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Start Timer" attributes:attributes];
     [self.startButton setAttributedTitle:attributedString forState: UIControlStateNormal];
     
-    self.tintColor = [ColorSchemer sharedInstance].tintColor;
+    self.tintColor = [ColorSchemer sharedInstance].clickable;
 }
 
 

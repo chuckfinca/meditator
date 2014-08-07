@@ -23,17 +23,8 @@
 -(void)awakeFromNib
 {
     self.titleLabel.textColor = [UIColor whiteColor];
-    self.layer.backgroundColor = [ColorSchemer sharedInstance].tintColor.CGColor;
+    self.layer.backgroundColor = [ColorSchemer sharedInstance].clickable.CGColor;
     self.layer.cornerRadius = 4;
 }
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect
-{
-    // Drawing code
-}
-*/
 
 @end

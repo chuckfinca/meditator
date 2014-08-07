@@ -1,9 +1,9 @@
 //
 //  ColorSchemer.h
-//  mindtimer
+//  wineguide
 //
-//  Created by Charles Feinn on 7/28/14.
-//  Copyright (c) 2014 AppSimple. All rights reserved.
+//  Created by Charles Feinn on 11/22/13.
+//  Copyright (c) 2013 AppSimple. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
@@ -12,6 +12,16 @@
 
 +(ColorSchemer *)sharedInstance;
 
--(UIColor *)tintColor;
+@property (nonatomic, readonly) UIColor *textPrimary;
+@property (nonatomic, readonly) UIColor *textSecondary;
+@property (nonatomic, readonly) UIColor *textPlaceholder;
+@property (nonatomic, readonly) UIColor *clickable;
+
+@property (nonatomic, readonly) UIColor *baseColor;
+@property (nonatomic, readonly) UIColor *baseColorLight;
+
+@property (nonatomic, readonly) UIColor *customWhite;
+
+@property (nonatomic, readonly) UIColor *customBackgroundColor;
 
 @end

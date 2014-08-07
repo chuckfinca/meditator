@@ -57,8 +57,10 @@
 		C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */; };
 		C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */; };
 		C9D45D8619833E650059C3C2 /* VariableHeightLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D8519833E650059C3C2 /* VariableHeightLabel.m */; };
-		C9D45D89198721630059C3C2 /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D88198721630059C3C2 /* ColorSchemer.m */; };
 		C9E81774199426520034339A /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9E81773199426520034339A /* Crashlytics.framework */; };
+		C9E8177719942C130034339A /* FontThemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E8177619942C130034339A /* FontThemer.m */; };
+		C9E8177A19942CE70034339A /* ColorSchemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E8177919942CE70034339A /* ColorSchemer.m */; };
+		C9E8177E199433F30034339A /* AppThemer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9E8177D199433F30034339A /* AppThemer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -150,9 +152,13 @@
 		C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppDetailsViewController_iPad.xib; sourceTree = "<group>"; };
 		C9D45D8419833E650059C3C2 /* VariableHeightLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VariableHeightLabel.h; sourceTree = "<group>"; };
 		C9D45D8519833E650059C3C2 /* VariableHeightLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VariableHeightLabel.m; sourceTree = "<group>"; };
-		C9D45D87198721630059C3C2 /* ColorSchemer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSchemer.h; sourceTree = "<group>"; };
-		C9D45D88198721630059C3C2 /* ColorSchemer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSchemer.m; sourceTree = "<group>"; };
 		C9E81773199426520034339A /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		C9E8177519942C130034339A /* FontThemer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FontThemer.h; sourceTree = "<group>"; };
+		C9E8177619942C130034339A /* FontThemer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FontThemer.m; sourceTree = "<group>"; };
+		C9E8177819942CE70034339A /* ColorSchemer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ColorSchemer.h; sourceTree = "<group>"; };
+		C9E8177919942CE70034339A /* ColorSchemer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ColorSchemer.m; sourceTree = "<group>"; };
+		C9E8177C199433F30034339A /* AppThemer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppThemer.h; sourceTree = "<group>"; };
+		C9E8177D199433F30034339A /* AppThemer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppThemer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -241,6 +247,7 @@
 				C9408050196C99A600A55343 /* Cells */,
 				C940805A196CB0C100A55343 /* TimerView.h */,
 				C940805B196CB0C100A55343 /* TimerView.m */,
+				C9E8177B19942CF10034339A /* Theme */,
 				C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */,
 				C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */,
 				C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */,
@@ -265,8 +272,6 @@
 				C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */,
 				C9D45D8419833E650059C3C2 /* VariableHeightLabel.h */,
 				C9D45D8519833E650059C3C2 /* VariableHeightLabel.m */,
-				C9D45D87198721630059C3C2 /* ColorSchemer.h */,
-				C9D45D88198721630059C3C2 /* ColorSchemer.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -366,6 +371,19 @@
 				C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */,
 			);
 			name = "App Details";
+			sourceTree = "<group>";
+		};
+		C9E8177B19942CF10034339A /* Theme */ = {
+			isa = PBXGroup;
+			children = (
+				C9E8177519942C130034339A /* FontThemer.h */,
+				C9E8177619942C130034339A /* FontThemer.m */,
+				C9E8177819942CE70034339A /* ColorSchemer.h */,
+				C9E8177919942CE70034339A /* ColorSchemer.m */,
+				C9E8177C199433F30034339A /* AppThemer.h */,
+				C9E8177D199433F30034339A /* AppThemer.m */,
+			);
+			name = Theme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -536,14 +554,16 @@
 				C954B9E01977277000FD4FAB /* IntervalCellDelegateAndDataSource.m in Sources */,
 				C905B4F11974843A00597899 /* InstructionsViewController.m in Sources */,
 				C9D45D7B1981D4D80059C3C2 /* AppDictionariesList.m in Sources */,
+				C9E8177A19942CE70034339A /* ColorSchemer.m in Sources */,
+				C9E8177719942C130034339A /* FontThemer.m in Sources */,
 				C954BA04197DE61400FD4FAB /* MindTimerIAPHelper.m in Sources */,
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
 				C954BA0D197F405500FD4FAB /* RestrictedTouchPickerView.m in Sources */,
 				C954B9DB19771E5900FD4FAB /* IntervalCell.m in Sources */,
 				C954B9F41979EF9000FD4FAB /* AppCell.m in Sources */,
 				C9D45D8619833E650059C3C2 /* VariableHeightLabel.m in Sources */,
+				C9E8177E199433F30034339A /* AppThemer.m in Sources */,
 				C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */,
-				C9D45D89198721630059C3C2 /* ColorSchemer.m in Sources */,
 				C954B9FE197DCCC000FD4FAB /* IAPHelper.m in Sources */,
 				C954B9F01979EBA500FD4FAB /* CompanyInfoTVController.m in Sources */,
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,

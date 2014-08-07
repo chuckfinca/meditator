@@ -9,8 +9,8 @@
 #import "AppDelegate.h"
 #import "LocalNotificationScheduler.h"
 #import "MindTimerIAPHelper.h"
-#import "ColorSchemer.h"
 #import <Crashlytics/Crashlytics.h>
+#import "AppThemer.h"
 
 @implementation AppDelegate
 
@@ -20,7 +20,8 @@
     [Crashlytics startWithAPIKey:@"8517fac29e50dbb70b924066e248d14a6044d7d6"];
     [MindTimerIAPHelper sharedInstance];
     
-    self.window.tintColor = [ColorSchemer sharedInstance].tintColor;
+    [AppThemer themeWindow:self.window];
+    
     return YES;
 }
 							
