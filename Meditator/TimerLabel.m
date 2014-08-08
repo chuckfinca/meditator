@@ -6,9 +6,10 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "MorphingTimerLabel.h"
+#import "TimerLabel.h"
+#import "FontThemer.h"
 
-@implementation MorphingTimerLabel
+@implementation TimerLabel
 
 -(void)setupForTime:(NSInteger)secondsRemaining
 {
@@ -16,7 +17,7 @@
     if([seconds length] == 1){
         seconds = [NSString stringWithFormat:@"0%@",seconds];
     }
-    self.text = [NSString stringWithFormat:@"%d:%@ remains",secondsRemaining/60,seconds];
+    self.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d:%@ remains",secondsRemaining/60,seconds] attributes:[FontThemer sharedInstance].whiteSubHeadlineTextAttributes];
 }
 
 

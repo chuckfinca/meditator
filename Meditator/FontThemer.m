@@ -12,6 +12,7 @@
 @interface FontThemer ()
 
 @property (nonatomic, strong) NSString *fontName;
+@property (nonatomic, strong) NSString *boldFontName;
 
 @end
 
@@ -26,43 +27,53 @@ static FontThemer *sharedInstance;
     dispatch_once (&executesOnlyOnce, ^{
         sharedInstance = [[self alloc] init];
         sharedInstance.fontName = @"AmericanTypewriter";
+        sharedInstance.boldFontName = @"AmericanTypewriter-Bold";
     });
     return sharedInstance;
 }
 
 -(UIFont *)headline
 {
-    UIFontDescriptor *font = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleHeadline];
-    return [UIFont fontWithName:self.fontName size:[font pointSize]];
+    UIFontDescriptor *fontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleHeadline];
+    return [UIFont fontWithName:self.boldFontName size:[fontDescriptor pointSize]];
 }
 
 -(UIFont *)subHeadline
 {
-    return [UIFont preferredFontForTextStyle:UIFontTextStyleSubheadline];
+    UIFontDescriptor *fontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleSubheadline];
+    return [UIFont fontWithName:self.fontName size:[fontDescriptor pointSize]];
 }
 
 -(UIFont *)body
 {
-    UIFontDescriptor *font = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
-    return [UIFont fontWithName:self.fontName size:[font pointSize]];
+    UIFontDescriptor *fontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleBody];
+    return [UIFont fontWithName:self.fontName size:[fontDescriptor pointSize]];
 }
 
 -(UIFont *)caption1
 {
-    return [UIFont preferredFontForTextStyle:UIFontTextStyleCaption1];
+    UIFontDescriptor *fontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleCaption1];
+    return [UIFont fontWithName:self.fontName size:[fontDescriptor pointSize]];
 }
 
 -(UIFont *)caption2
 {
-    return [UIFont preferredFontForTextStyle:UIFontTextStyleCaption2];
+    UIFontDescriptor *fontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleCaption2];
+    return [UIFont fontWithName:self.fontName size:[fontDescriptor pointSize]];
 }
 
 -(UIFont *)footnote
 {
-    return [UIFont preferredFontForTextStyle:UIFontTextStyleFootnote];
+    UIFontDescriptor *fontDescriptor = [UIFontDescriptor preferredFontDescriptorWithTextStyle:UIFontTextStyleFootnote];
+    return [UIFont fontWithName:self.fontName size:[fontDescriptor pointSize]];
 }
 
 
+
+-(NSDictionary *)primaryHeadlineTextAttributes
+{
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : self.headline};
+}
 
 -(NSDictionary *)primaryBodyTextAttributes
 {

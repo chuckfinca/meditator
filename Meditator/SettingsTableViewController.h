@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 
 #define DEFAULT_INTERVAL_ARRAY @[@15,@0,@0,@0,@0]
+
 @interface SettingsTableViewController : UITableViewController
 
 @end

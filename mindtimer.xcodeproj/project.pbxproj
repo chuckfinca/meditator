@@ -52,7 +52,7 @@
 		C954BA07197F27A400FD4FAB /* Purchaser.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA06197F27A400FD4FAB /* Purchaser.m */; };
 		C954BA0D197F405500FD4FAB /* RestrictedTouchPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA0C197F405500FD4FAB /* RestrictedTouchPickerView.m */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
-		C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */; };
+		C9901EDF1970B6E6005A8734 /* TimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* TimerLabel.m */; };
 		C9D45D7B1981D4D80059C3C2 /* AppDictionariesList.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */; };
 		C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */; };
 		C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */; };
@@ -143,8 +143,8 @@
 		C954BA0C197F405500FD4FAB /* RestrictedTouchPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestrictedTouchPickerView.m; sourceTree = "<group>"; };
 		C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurEffects.h"; sourceTree = "<group>"; };
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
-		C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MorphingTimerLabel.h; sourceTree = "<group>"; };
-		C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MorphingTimerLabel.m; sourceTree = "<group>"; };
+		C9901EDD1970B6E6005A8734 /* TimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerLabel.h; sourceTree = "<group>"; };
+		C9901EDE1970B6E6005A8734 /* TimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerLabel.m; sourceTree = "<group>"; };
 		C9D45D791981D4D80059C3C2 /* AppDictionariesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDictionariesList.h; sourceTree = "<group>"; };
 		C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDictionariesList.m; sourceTree = "<group>"; };
 		C9D45D7C1981DF4A0059C3C2 /* RoundedRectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedRectButton.h; sourceTree = "<group>"; };
@@ -250,8 +250,8 @@
 				C9E8177B19942CF10034339A /* Theme */,
 				C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */,
 				C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */,
-				C9901EDD1970B6E6005A8734 /* MorphingTimerLabel.h */,
-				C9901EDE1970B6E6005A8734 /* MorphingTimerLabel.m */,
+				C9901EDD1970B6E6005A8734 /* TimerLabel.h */,
+				C9901EDE1970B6E6005A8734 /* TimerLabel.m */,
 				C9408066196E1CF600A55343 /* Timer.h */,
 				C9408067196E1CF600A55343 /* Timer.m */,
 				C905B4EC19747CE300597899 /* LocalNotificationScheduler.h */,
@@ -376,12 +376,12 @@
 		C9E8177B19942CF10034339A /* Theme */ = {
 			isa = PBXGroup;
 			children = (
+				C9E8177C199433F30034339A /* AppThemer.h */,
+				C9E8177D199433F30034339A /* AppThemer.m */,
 				C9E8177519942C130034339A /* FontThemer.h */,
 				C9E8177619942C130034339A /* FontThemer.m */,
 				C9E8177819942CE70034339A /* ColorSchemer.h */,
 				C9E8177919942CE70034339A /* ColorSchemer.m */,
-				C9E8177C199433F30034339A /* AppThemer.h */,
-				C9E8177D199433F30034339A /* AppThemer.m */,
 			);
 			name = Theme;
 			sourceTree = "<group>";
@@ -569,7 +569,7 @@
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,
 				C940804C196B6EE600A55343 /* SelectorCell.m in Sources */,
 				C9408013196B481800A55343 /* main.m in Sources */,
-				C9901EDF1970B6E6005A8734 /* MorphingTimerLabel.m in Sources */,
+				C9901EDF1970B6E6005A8734 /* TimerLabel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

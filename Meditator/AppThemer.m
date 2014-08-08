@@ -14,7 +14,9 @@
 
 +(void)themeWindow:(UIWindow *)window
 {
-    [[UINavigationBar appearance] setTitleTextAttributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
+    [[UINavigationBar appearance] setTitleTextAttributes:[FontThemer sharedInstance].primaryHeadlineTextAttributes];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:[FontThemer sharedInstance].linkBodyTextAttributes forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName : [FontThemer sharedInstance].caption1} forState:UIControlStateNormal];
     window.tintColor = [ColorSchemer sharedInstance].clickable;
 }
 

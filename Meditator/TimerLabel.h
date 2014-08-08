@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "TOMSMorphingLabel.h"
+#import <UIKit/UIKit.h>
 
-@interface MorphingTimerLabel : TOMSMorphingLabel
+@interface TimerLabel : UILabel
 
 -(void)setupForTime:(NSInteger)secondsRemaining;
 

@@ -8,6 +8,7 @@
 
 #import "StartCell.h"
 #import "ColorSchemer.h"
+#import "FontThemer.h"
 
 
 @implementation StartCell
@@ -16,8 +17,7 @@
 {
     // Initialization code
     
-    NSDictionary *attributes = @{NSFontAttributeName : [UIFont preferredFontForTextStyle:UIFontTextStyleHeadline]};
-    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Start Timer" attributes:attributes];
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Start Timer" attributes:[FontThemer sharedInstance].whiteHeadlineTextAttributes];
     [self.startButton setAttributedTitle:attributedString forState: UIControlStateNormal];
     
     self.tintColor = [ColorSchemer sharedInstance].clickable;

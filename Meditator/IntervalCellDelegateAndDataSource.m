@@ -7,6 +7,7 @@
 //
 
 #import "IntervalCellDelegateAndDataSource.h"
+#import "FontThemer.h"
 
 #define TIMER_INTERVAL_ARRAY @"TimerIntervalArray"
 
@@ -47,11 +48,6 @@
 
 #pragma mark - UIPickerViewDelegate
 
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    return [@(row) stringValue];
-}
-
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     NSMutableArray *intervalArray = [[[NSUserDefaults standardUserDefaults] arrayForKey:TIMER_INTERVAL_ARRAY] mutableCopy];
@@ -78,7 +74,14 @@
     }
 }
 
-
+-(UIView *)pickerView:(UIPickerView *)pickerView viewForRow:(NSInteger)row forComponent:(NSInteger)component reusingView:(UIView *)view
+{
+    UILabel *label = [[UILabel alloc] init];
+    label.attributedText = [[NSAttributedString alloc] initWithString:[@(row) stringValue] attributes:[FontThemer sharedInstance].primaryHeadlineTextAttributes];
+    [label sizeToFit];
+    label.frame = CGRectMake(pickerView.bounds.size.width/2-label.bounds.size.width/2,label.frame.size.height,label.frame.size.width,label.frame.size.height);
+    return label;
+}
 
 
 

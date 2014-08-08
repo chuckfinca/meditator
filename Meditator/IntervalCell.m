@@ -7,6 +7,7 @@
 //
 
 #import "IntervalCell.h"
+#import "FontThemer.h"
 
 @interface IntervalCell ()
 
@@ -14,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonHeightConstraint;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonArrayToBottomConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *intervalLabel;
+@property (weak, nonatomic) IBOutlet UILabel *pickerLabel;
 @end
 
 @implementation IntervalCell
@@ -29,6 +31,8 @@
     } else {
         [self.toggleIntervalsButton setImage:[[UIImage imageNamed:@"add"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
     }
+    
+    self.pickerLabel.attributedText = [[NSAttributedString alloc] initWithString:@"min" attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
     
     [self setCellHeight];
 }
@@ -96,8 +100,9 @@
             title = @"end";
         }
         
-        [button setTitle:title forState:UIControlStateNormal];
-        [button setTitle:title forState:UIControlStateSelected];
+        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
+        [button setAttributedTitle:attributedTitle forState:UIControlStateNormal];
+        [button setAttributedTitle:attributedTitle forState:UIControlStateSelected];
     }
     
     if([intervalsArray  isEqual: @[@15,@0,@0,@0,@0]]){
@@ -106,7 +111,7 @@
         self.resetButton.enabled = YES;
     }
     
-    self.intervalLabel.text = [NSString stringWithFormat:@"Interval %d",selectedButtonIndex+1];
+    self.intervalLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Interval %d",selectedButtonIndex+1] attributes:[FontThemer sharedInstance].primaryHeadlineTextAttributes];
 }
 
 

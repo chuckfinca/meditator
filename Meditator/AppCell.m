@@ -7,6 +7,8 @@
 //
 
 #import "AppCell.h"
+#import "FontThemer.h"
+
 @interface AppCell ()
 
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageView;
@@ -28,6 +30,7 @@
     [self.iconImageView setImage:[UIImage imageNamed:imageName]];
     self.appNameLabel.text = appName;
     self.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    self.appNameLabel.attributedText = [[NSAttributedString alloc] initWithString:self.appNameLabel.text attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
 }
 
 

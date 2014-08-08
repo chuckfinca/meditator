@@ -113,8 +113,11 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 -(void)request:(SKRequest *)request didFailWithError:(NSError *)error
 {
     self.productsRequest = nil;
-    self.completionHandler(NO, nil);
-    self.completionHandler = nil;
+    
+    if(self.completionHandler){
+        self.completionHandler(NO, nil);
+        self.completionHandler = nil;
+    }
     
     [self handleError:error forActivity:@"Product Request Failed"];
 }

@@ -9,6 +9,7 @@
 #import "AppDetailsViewController.h"
 #import "AppDictionariesList.h"
 #import "RoundedRectButton.h"
+#import "FontThemer.h"
 
 @interface AppDetailsViewController ()
 
@@ -43,9 +44,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     [self.iconImageView setImage:[UIImage imageNamed:self.iconName]];
-    self.appNameLabel.text = self.appName;
+    
+    
+    self.appNameLabel.attributedText = [[NSAttributedString alloc] initWithString:self.appName attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
     [self.appScreenShotImageView setImage:[UIImage imageNamed:self.screenShotName]];
-    self.appDescriptionLabel.text = self.appDescription;
+    self.appDescriptionLabel.attributedText = [[NSAttributedString alloc] initWithString:self.appDescription attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
+    [self.openStoreButton setAttributedTitle:[[NSAttributedString alloc] initWithString:self.openStoreButton.titleLabel.text attributes:[FontThemer sharedInstance].whiteHeadlineTextAttributes] forState:UIControlStateNormal];
 }
 
 -(void)setupForAppID:(NSInteger)appID

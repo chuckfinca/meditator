@@ -16,6 +16,7 @@
 #import "SoundEffectPlayer.h"
 #import "Purchaser.h"
 #import "ColorSchemer.h"
+#import "FontThemer.h"
 
 #define SELECTED_SOUND_INDEX @"SelectedSoundIndex"
 #define SELECTED_BACKGROUND_INDEX @"SelectedBackgroundIndex"
@@ -60,6 +61,8 @@
 {
     [super viewDidLoad];
     [self requestIAPProducts];
+    [self.tableView registerClass:[UITableViewHeaderFooterView class] forHeaderFooterViewReuseIdentifier:@"Header"];
+    self.tableView.estimatedRowHeight = 80;
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -235,8 +238,9 @@
     return cell;
 }
 
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
+    UITableViewHeaderFooterView *headerView = [self.tableView dequeueReusableHeaderFooterViewWithIdentifier:@"Header"];
     NSString *title;
     switch (section) {
         case 1:
@@ -256,7 +260,10 @@
         default:
             break;
     }
-    return title;
+    if(section > 0){
+        headerView.textLabel.text = [title uppercaseString];
+    }
+    return headerView;
 }
 
 #pragma mark - UITableViewDelegate
@@ -284,6 +291,20 @@
     return cell.bounds.size.height;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if(section > 0){
+        return 50;
+    } else {
+        return 0;
+    }
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    UITableViewHeaderFooterView *headerView = (UITableViewHeaderFooterView *)view;
+    headerView.textLabel.attributedText = [[NSAttributedString alloc] initWithString:headerView.textLabel.text attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];
+}
 
 
 #pragma mark - Navigation

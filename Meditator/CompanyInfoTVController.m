@@ -12,6 +12,7 @@
 #import "MindTimerIAPHelper.h"
 #import "AppDictionariesList.h"
 #import <MessageUI/MessageUI.h>
+#import "FontThemer.h"
 
 @interface CompanyInfoTVController () <UIAlertViewDelegate, MFMailComposeViewControllerDelegate>
 
@@ -81,19 +82,30 @@
     return headerTitle;
 }
 
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UITableViewHeaderFooterView *headerView = [[UITableViewHeaderFooterView alloc] init];
+    if(section == 1){
+        headerView.textLabel.text = @"Other apps by AppSimple";
+    }
+    return headerView;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSString *title;
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
             if(indexPath.row == 0){
-                cell.textLabel.text = @"Review in iTunes";
+                title = @"Review";
             } else if(indexPath.row == 1){
-                cell.textLabel.text =  @"Restore Purchases";
+                title =  @"Restore Purchases";
             } else if(indexPath.row == 2){
-                cell.textLabel.text =  @"Contact Support";
+                title =  @"Contact Support";
             }
+            cell.textLabel.attributedText = [[NSAttributedString alloc] initWithString:title attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             break;
         case 1:
@@ -125,6 +137,21 @@
             break;
     }
     return height;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if(section > 0){
+        return 50;
+    } else {
+        return 0;
+    }
+}
+
+-(void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
+{
+    UITableViewHeaderFooterView *headerView = (UITableViewHeaderFooterView *)view;
+    headerView.textLabel.attributedText = [[NSAttributedString alloc] initWithString:headerView.textLabel.text attributes:[FontThemer sharedInstance].secondaryBodyTextAttributes];
 }
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

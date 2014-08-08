@@ -10,7 +10,8 @@
 #import "TimerView.h"
 #import "Timer.h"
 #import "UIImage+BlurEffects.h"
-#import "MorphingTimerLabel.h"
+#import "TimerLabel.h"
+#import "FontThemer.h"
 
 #define NUMBER_OF_TIMER_FIRES 1000
 
@@ -19,7 +20,7 @@
 @property (weak, nonatomic) IBOutlet TimerView *timerView;
 @property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 @property (weak, nonatomic) IBOutlet UIButton *pauseButton;
-@property (weak, nonatomic) IBOutlet MorphingTimerLabel *statusLabel;
+@property (weak, nonatomic) IBOutlet TimerLabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIButton *endButton;
 @property (nonatomic, strong) NSString *soundEffectName;
 
@@ -44,7 +45,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.statusLabel.textColor = [UIColor whiteColor];
+    self.statusLabel.attributedText = [[NSAttributedString alloc] initWithString:@"begin" attributes:[FontThemer sharedInstance].whiteSubHeadlineTextAttributes];
     self.statusLabel.alpha = 0;
     
     self.backgroundImageView.image = self.backgroundImage;
@@ -53,6 +54,7 @@
     self.pauseButton.tintColor = [UIColor colorWithWhite:1 alpha:0.9];
     self.pauseButton.alpha = 0;
     
+    [self.endButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"end" attributes:[FontThemer sharedInstance].whiteHeadlineTextAttributes] forState:UIControlStateNormal];
     self.endButton.alpha = 0;
 }
 
@@ -112,7 +114,7 @@
         self.endButton.alpha = 0;
         self.timerView.alpha = 0;
     } completion:^(BOOL finished) {
-        [self.endButton setTitle:@"meditation complete" forState:UIControlStateNormal];
+        [self.endButton setAttributedTitle:[[NSAttributedString alloc] initWithString:@"meditation complete" attributes:[FontThemer sharedInstance].whiteHeadlineTextAttributes] forState:UIControlStateNormal];
         [UIView animateWithDuration:1 delay:0 options:UIViewAnimationOptionCurveEaseOut animations:^{
             self.endButton.alpha = 1;
             self.pauseButton.alpha = 0;

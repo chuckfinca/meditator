@@ -63,6 +63,7 @@
             </tableViewCellContentView>
             <connections>
                 <outlet property="minutePickerView" destination="hiw-Lt-Qyf" id="EvT-Mq-9IU"/>
+                <outlet property="pickerLabel" destination="Ohk-SZ-OEC" id="6Gw-Pq-Cvi"/>
                 <outlet property="resetButton" destination="mb3-b6-mG9" id="g7J-Dx-RF8"/>
                 <outlet property="toggleIntervalsButton" destination="w2b-qp-lxm" id="xd5-IO-Vn0"/>
             </connections>

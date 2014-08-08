@@ -131,6 +131,7 @@
                 <outlet property="buttonHeightConstraint" destination="Lv7-lY-yHQ" id="rPc-br-lLU"/>
                 <outlet property="intervalLabel" destination="ode-MX-LeD" id="IhC-Xd-orR"/>
                 <outlet property="minutePickerView" destination="aOh-b0-dv4" id="fKw-kF-LWK"/>
+                <outlet property="pickerLabel" destination="Msv-yq-MoW" id="gaa-aH-KhD"/>
                 <outlet property="resetButton" destination="JDh-Gr-2TG" id="ONc-SO-TRM"/>
                 <outlet property="toggleIntervalsButton" destination="odB-nq-vLq" id="CxF-ES-uAp"/>
                 <outlet property="topToMinutePickerViewConstraint" destination="ScU-87-CK8" id="FOX-HG-3yV"/>
