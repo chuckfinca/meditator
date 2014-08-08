@@ -13,11 +13,11 @@
 
 -(void)setupForTime:(NSInteger)secondsRemaining
 {
-    NSString *seconds = [NSString stringWithFormat:@"%d",secondsRemaining % 60];
+    NSString *seconds = [NSString stringWithFormat:@"%ld",secondsRemaining % 60];
     if([seconds length] == 1){
         seconds = [NSString stringWithFormat:@"0%@",seconds];
     }
-    self.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%d:%@ remains",secondsRemaining/60,seconds] attributes:[FontThemer sharedInstance].whiteSubHeadlineTextAttributes];
+    self.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld:%@ remains",secondsRemaining/60,seconds] attributes:[FontThemer sharedInstance].whiteSubHeadlineTextAttributes];
 }
 
 
