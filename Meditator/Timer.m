@@ -9,7 +9,7 @@
 #import "Timer.h"
 #import "SoundEffectPlayer.h"
 
-#define CHIME_REPEAT_INTERVAL 1
+#define CHIME_REPEAT_INTERVAL 2
 
 @interface Timer ()
 
@@ -107,11 +107,12 @@ static Timer *sharedInstance;
         localNotification.fireDate = [NSDate dateWithTimeInterval:[number floatValue] sinceDate:self.lastResumedTime];
         localNotification.soundName = self.soundEffectFileName;
         
-        if([self.chimeTimesArray count] == 1){
+        NSLog(@"count = %lu",(unsigned long)[self.chimeTimesArray count]);
+        if([self.chimeTimesArray indexOfObject:number] == [self.chimeTimesArray count]-1){
             localNotification.alertBody = @"Meditation Complete";
             localNotification.alertAction = @"Ok";
         } else {
-            localNotification.alertBody = [NSString stringWithFormat:@"Interval %ld Complete",(long)(self.totalIntervals - [self.chimeTimesArray count])];
+            localNotification.alertBody = [NSString stringWithFormat:@"Interval %ld Complete",(long)([self.chimeTimesArray indexOfObject:number]+1)];
         }
         [localNotificationsArray addObject:localNotification];
         
