@@ -137,7 +137,7 @@
             } else if(button.tag == 3){
                 [button setImage:[[UIImage imageNamed:@"bell"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
             } else {
-                [button setImage:[[UIImage imageNamed:@"drum"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+                [button setImage:[[UIImage imageNamed:@"bowl"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
             }
         }
     }
@@ -146,7 +146,7 @@
 
 -(NSArray *)soundNamesArray
 {
-    return @[UILocalNotificationDefaultSoundName, @"bell", @"drum", @"bell", @"bell"];
+    return @[UILocalNotificationDefaultSoundName, @"tingsha", @"gong", @"bell", @"bowl"];
 }
 
 -(SelectorCell *)backgroundSelectorCell
@@ -358,7 +358,6 @@
 -(IBAction)soundSelected:(UIButton *)sender
 {
     NSString *soundEffectName = self.soundNamesArray[sender.tag];
-    
     if(sender.tag == 0 || [[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]){
         
         [self.soundSelectorCell refreshWithSelectedButtonIndex:sender.tag];

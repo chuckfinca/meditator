@@ -92,7 +92,7 @@
 {
     Timer *timer = [Timer sharedInstance];
     timer.delegate = self;
-    [timer setupTimerWithIntervalArray:intervalArray andSoundEffectName:soundEffectName];
+    [timer setupTimerWithIntervalArray:intervalArray soundEffectName:soundEffectName andNumberOfChimes:3];
     
     UIColor *tintColor = [UIColor colorWithWhite:0 alpha:0.3];
     self.backgroundImage = [[UIImage imageNamed:backgroundName] applyBlurWithRadius:1.5 tintColor:tintColor saturationDeltaFactor:1 maskImage:nil];

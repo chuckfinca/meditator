@@ -36,14 +36,7 @@
         for(UILocalNotification *localNotification in [Timer sharedInstance].localNotificationsArray){
             [[UIApplication sharedApplication] cancelLocalNotification:localNotification];
         }
-        
-        NSDate *now = [NSDate date];
-        UILocalNotification *lastLocalNotification = [[Timer sharedInstance].localNotificationsArray lastObject];
-        NSDate *finalFireDate = lastLocalNotification.fireDate;
-        
-        if([now laterDate:finalFireDate] == now){
-            [Timer sharedInstance].timerIsActive = NO;
-        }
+        [[Timer sharedInstance] updateChimesArrayAfterElapsedTime:[Timer sharedInstance].secondsSinceLastStart];
         
         [[NSUserDefaults standardUserDefaults] setBool:NO forKey:LOCAL_NOTIFICATIONS_ACTIVE];
         [[NSUserDefaults standardUserDefaults] synchronize];

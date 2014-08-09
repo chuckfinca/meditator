@@ -9,14 +9,18 @@
 #import "Timer.h"
 #import "SoundEffectPlayer.h"
 
+#define CHIME_REPEAT_INTERVAL 1
+
 @interface Timer ()
 
 @property (nonatomic, strong) NSDate *lastResumedTime;
 @property (nonatomic, strong) CADisplayLink *displayLinkTimer;
 @property (nonatomic, strong) NSString *soundEffectFileName;
 @property (nonatomic, readwrite) NSMutableArray *chimeTimesArray;
-@property (nonatomic) NSInteger intervals;
+@property (nonatomic) NSInteger totalIntervals;
 @property (nonatomic, strong) NSURL *soundEffectURL;
+@property (nonatomic, strong) SoundEffectPlayer *soundEffectPlayer;
+@property (nonatomic) NSInteger numberOfChimes;
 
 @property (nonatomic) NSInteger totalTime;
 
@@ -49,7 +53,7 @@ static Timer *sharedInstance;
 
 #pragma mark - Setup
 
--(void)setupTimerWithIntervalArray:(NSArray *)intervalArray andSoundEffectName:(NSString *)soundEffectName
+-(void)setupTimerWithIntervalArray:(NSArray *)intervalArray soundEffectName:(NSString *)soundEffectName andNumberOfChimes:(NSInteger)numberOfChimes
 {
     NSMutableArray *chimeTimesArray = [[NSMutableArray alloc] init];
     NSInteger totalTime = 0;
@@ -73,7 +77,8 @@ static Timer *sharedInstance;
     
     self.totalTime = totalTime;
     self.chimeTimesArray = chimeTimesArray;
-    self.intervals = [chimeTimesArray count];
+    self.totalIntervals = [chimeTimesArray count];
+    self.numberOfChimes = numberOfChimes;
     
     [self setupSoundEffect:soundEffectName];
 }
@@ -102,14 +107,22 @@ static Timer *sharedInstance;
         localNotification.fireDate = [NSDate dateWithTimeInterval:[number floatValue] sinceDate:self.lastResumedTime];
         localNotification.soundName = self.soundEffectFileName;
         
-        NSInteger intervalIndex = [self.chimeTimesArray indexOfObject:number];
-        if(intervalIndex == [self.chimeTimesArray count]-1){
+        if([self.chimeTimesArray count] == 1){
             localNotification.alertBody = @"Meditation Complete";
             localNotification.alertAction = @"Ok";
         } else {
-            localNotification.alertBody = [NSString stringWithFormat:@"Interval %ld Complete",(long)(self.intervals - intervalIndex)];
+            localNotification.alertBody = [NSString stringWithFormat:@"Interval %ld Complete",(long)(self.totalIntervals - [self.chimeTimesArray count])];
         }
         [localNotificationsArray addObject:localNotification];
+        
+        if(self.numberOfChimes > 1){
+            for (NSInteger chime = 1; chime < self.numberOfChimes; chime++) {
+                UILocalNotification *accompanyingNotification = [[UILocalNotification alloc] init];
+                accompanyingNotification.fireDate = [localNotification.fireDate dateByAddingTimeInterval:CHIME_REPEAT_INTERVAL*chime];
+                accompanyingNotification.soundName = self.soundEffectFileName;
+                [localNotificationsArray addObject:accompanyingNotification];
+            }
+        }
     }
     
     self.localNotificationsArray = localNotificationsArray;
@@ -127,21 +140,23 @@ static Timer *sharedInstance;
     
     for(NSNumber *number in self.chimeTimesArray){
         if([number integerValue] - elapsedTime < 0){
-            
             [self soundTimer];
         }
     }
     
+    [self updateChimesArrayAfterElapsedTime:elapsedTime];
+}
+
+-(void)updateChimesArrayAfterElapsedTime:(NSTimeInterval)elapsedTime
+{
     if([[self.chimeTimesArray firstObject] integerValue] - elapsedTime <= 0){
         if([self.chimeTimesArray count] > 0){
             [self.chimeTimesArray removeObjectAtIndex:0];
-            self.intervals--;
         } else {
             [self.delegate stopTimer];
         }
     }
 }
-
 
 
 #pragma mark - Timer
@@ -169,7 +184,7 @@ static Timer *sharedInstance;
             }
         }
         self.chimeTimesArray = newChimeTimesArray;
-
+        
         
         [self reset];
     }
@@ -189,10 +204,23 @@ static Timer *sharedInstance;
 
 -(void)soundTimer
 {
+    [self playSound];
+    
+    if(self.numberOfChimes > 1){
+        for (NSInteger chime = 1; chime < self.numberOfChimes; chime++) {
+            [NSTimer scheduledTimerWithTimeInterval:CHIME_REPEAT_INTERVAL*chime target:self selector:@selector(playSound) userInfo:nil repeats:NO];
+        }
+    }
+    
+    for(NSInteger chime = 0; chime < self.numberOfChimes; chime++){
+    }
+}
+
+-(void)playSound
+{
     SoundEffectPlayer *player = [[SoundEffectPlayer alloc] initWithURL:self.soundEffectURL];
     [player playSoundOrVibrate:YES];
 }
-
 
 
 

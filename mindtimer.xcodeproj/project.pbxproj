@@ -11,7 +11,6 @@
 		C905B4EE19747CE300597899 /* LocalNotificationScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = C905B4ED19747CE300597899 /* LocalNotificationScheduler.m */; };
 		C905B4F11974843A00597899 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C905B4F01974843A00597899 /* InstructionsViewController.m */; };
 		C905B4F319748F9100597899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905B4F219748F9100597899 /* AudioToolbox.framework */; };
-		C905B4F5197491EC00597899 /* bell.aif in Resources */ = {isa = PBXBuildFile; fileRef = C905B4F4197491EC00597899 /* bell.aif */; };
 		C905B4F8197499F300597899 /* SoundEffectPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C905B4F7197499F300597899 /* SoundEffectPlayer.m */; };
 		C905B4FA1974AFD200597899 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905B4F91974AFD200597899 /* AVFoundation.framework */; };
 		C9408007196B481800A55343 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9408006196B481800A55343 /* Foundation.framework */; };
@@ -34,7 +33,6 @@
 		C9408053196CA31D00A55343 /* TimerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408052196CA31D00A55343 /* TimerViewController.m */; };
 		C940805C196CB0C100A55343 /* TimerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C940805B196CB0C100A55343 /* TimerView.m */; };
 		C9408068196E1CF600A55343 /* Timer.m in Sources */ = {isa = PBXBuildFile; fileRef = C9408067196E1CF600A55343 /* Timer.m */; };
-		C954B9CC1975DF6F00FD4FAB /* drum.aif in Resources */ = {isa = PBXBuildFile; fileRef = C954B9CB1975DF6F00FD4FAB /* drum.aif */; };
 		C954B9DB19771E5900FD4FAB /* IntervalCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9D919771E5900FD4FAB /* IntervalCell.m */; };
 		C954B9DC19771E5900FD4FAB /* IntervalCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C954B9DA19771E5900FD4FAB /* IntervalCell.xib */; };
 		C954B9E01977277000FD4FAB /* IntervalCellDelegateAndDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = C954B9DF1977277000FD4FAB /* IntervalCellDelegateAndDataSource.m */; };
@@ -53,6 +51,10 @@
 		C954BA0D197F405500FD4FAB /* RestrictedTouchPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA0C197F405500FD4FAB /* RestrictedTouchPickerView.m */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
 		C9901EDF1970B6E6005A8734 /* TimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* TimerLabel.m */; };
+		C9ABC3E819957DF00049A893 /* bell.aif in Resources */ = {isa = PBXBuildFile; fileRef = C9ABC3E519957DF00049A893 /* bell.aif */; };
+		C9ABC3E919957DF00049A893 /* tingsha.aif in Resources */ = {isa = PBXBuildFile; fileRef = C9ABC3E619957DF00049A893 /* tingsha.aif */; };
+		C9ABC3EA19957DF00049A893 /* gong.aif in Resources */ = {isa = PBXBuildFile; fileRef = C9ABC3E719957DF00049A893 /* gong.aif */; };
+		C9ABC3ED199580AB0049A893 /* bowl.aif in Resources */ = {isa = PBXBuildFile; fileRef = C9ABC3EC199580AB0049A893 /* bowl.aif */; };
 		C9D45D7B1981D4D80059C3C2 /* AppDictionariesList.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */; };
 		C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */; };
 		C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */; };
@@ -81,7 +83,6 @@
 		C905B4EF1974843A00597899 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
 		C905B4F01974843A00597899 /* InstructionsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InstructionsViewController.m; sourceTree = "<group>"; };
 		C905B4F219748F9100597899 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		C905B4F4197491EC00597899 /* bell.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = bell.aif; sourceTree = "<group>"; };
 		C905B4F6197499F300597899 /* SoundEffectPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffectPlayer.h; sourceTree = "<group>"; };
 		C905B4F7197499F300597899 /* SoundEffectPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffectPlayer.m; sourceTree = "<group>"; };
 		C905B4F91974AFD200597899 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -114,7 +115,6 @@
 		C940805B196CB0C100A55343 /* TimerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerView.m; sourceTree = "<group>"; };
 		C9408066196E1CF600A55343 /* Timer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Timer.h; sourceTree = "<group>"; };
 		C9408067196E1CF600A55343 /* Timer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Timer.m; sourceTree = "<group>"; };
-		C954B9CB1975DF6F00FD4FAB /* drum.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = drum.aif; sourceTree = "<group>"; };
 		C954B9D819771E5900FD4FAB /* IntervalCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IntervalCell.h; sourceTree = "<group>"; };
 		C954B9D919771E5900FD4FAB /* IntervalCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IntervalCell.m; sourceTree = "<group>"; };
 		C954B9DA19771E5900FD4FAB /* IntervalCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IntervalCell.xib; sourceTree = "<group>"; };
@@ -145,6 +145,10 @@
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
 		C9901EDD1970B6E6005A8734 /* TimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerLabel.h; sourceTree = "<group>"; };
 		C9901EDE1970B6E6005A8734 /* TimerLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimerLabel.m; sourceTree = "<group>"; };
+		C9ABC3E519957DF00049A893 /* bell.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = bell.aif; sourceTree = "<group>"; };
+		C9ABC3E619957DF00049A893 /* tingsha.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = tingsha.aif; sourceTree = "<group>"; };
+		C9ABC3E719957DF00049A893 /* gong.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = gong.aif; sourceTree = "<group>"; };
+		C9ABC3EC199580AB0049A893 /* bowl.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = bowl.aif; sourceTree = "<group>"; };
 		C9D45D791981D4D80059C3C2 /* AppDictionariesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDictionariesList.h; sourceTree = "<group>"; };
 		C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDictionariesList.m; sourceTree = "<group>"; };
 		C9D45D7C1981DF4A0059C3C2 /* RoundedRectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedRectButton.h; sourceTree = "<group>"; };
@@ -245,8 +249,6 @@
 				C954B9EF1979EBA500FD4FAB /* CompanyInfoTVController.m */,
 				C954BA01197DE59F00FD4FAB /* App Details */,
 				C9408050196C99A600A55343 /* Cells */,
-				C940805A196CB0C100A55343 /* TimerView.h */,
-				C940805B196CB0C100A55343 /* TimerView.m */,
 				C9E8177B19942CF10034339A /* Theme */,
 				C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */,
 				C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */,
@@ -254,6 +256,8 @@
 				C9901EDE1970B6E6005A8734 /* TimerLabel.m */,
 				C9408066196E1CF600A55343 /* Timer.h */,
 				C9408067196E1CF600A55343 /* Timer.m */,
+				C940805A196CB0C100A55343 /* TimerView.h */,
+				C940805B196CB0C100A55343 /* TimerView.m */,
 				C905B4EC19747CE300597899 /* LocalNotificationScheduler.h */,
 				C905B4ED19747CE300597899 /* LocalNotificationScheduler.m */,
 				C905B4F6197499F300597899 /* SoundEffectPlayer.h */,
@@ -279,8 +283,7 @@
 		C940800D196B481800A55343 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C905B4F4197491EC00597899 /* bell.aif */,
-				C954B9CB1975DF6F00FD4FAB /* drum.aif */,
+				C9ABC3DD19957CFA0049A893 /* Sound Effects */,
 				C940800E196B481800A55343 /* mindtimer-Info.plist */,
 				C940800F196B481800A55343 /* InfoPlist.strings */,
 				C9408012196B481800A55343 /* main.m */,
@@ -371,6 +374,17 @@
 				C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */,
 			);
 			name = "App Details";
+			sourceTree = "<group>";
+		};
+		C9ABC3DD19957CFA0049A893 /* Sound Effects */ = {
+			isa = PBXGroup;
+			children = (
+				C9ABC3E519957DF00049A893 /* bell.aif */,
+				C9ABC3E619957DF00049A893 /* tingsha.aif */,
+				C9ABC3E719957DF00049A893 /* gong.aif */,
+				C9ABC3EC199580AB0049A893 /* bowl.aif */,
+			);
+			name = "Sound Effects";
 			sourceTree = "<group>";
 		};
 		C9E8177B19942CF10034339A /* Theme */ = {
@@ -466,15 +480,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				C940801D196B481800A55343 /* Main_iPad.storyboard in Resources */,
+				C9ABC3E819957DF00049A893 /* bell.aif in Resources */,
 				C9408022196B481800A55343 /* Images.xcassets in Resources */,
+				C9ABC3EA19957DF00049A893 /* gong.aif in Resources */,
+				C9ABC3ED199580AB0049A893 /* bowl.aif in Resources */,
 				C940801A196B481800A55343 /* Main_iPhone.storyboard in Resources */,
-				C905B4F5197491EC00597899 /* bell.aif in Resources */,
 				C940804D196B6EE600A55343 /* SelectorCell.xib in Resources */,
 				C954B9F51979EF9000FD4FAB /* AppCell.xib in Resources */,
+				C9ABC3E919957DF00049A893 /* tingsha.aif in Resources */,
 				C954B9E41977510800FD4FAB /* SingleIntervalCell.xib in Resources */,
 				C954B9E919787C1700FD4FAB /* StartCell.xib in Resources */,
 				C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */,
-				C954B9CC1975DF6F00FD4FAB /* drum.aif in Resources */,
 				C954B9DC19771E5900FD4FAB /* IntervalCell.xib in Resources */,
 				C9408011196B481800A55343 /* InfoPlist.strings in Resources */,
 				C954B9FB1979FB7F00FD4FAB /* AppDetailsViewController.xib in Resources */,
