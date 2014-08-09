@@ -88,11 +88,11 @@
 
 #pragma mark - Setup
 
--(void)setTimerIntervalArray:(NSArray *)intervalArray completionSound:(NSString *)soundEffectName andBackground:(NSString *)backgroundName
+-(void)setTimerIntervalArray:(NSArray *)intervalArray withSoundEffect:(NSString *)soundEffectName numberOfChimes:(NSInteger)numberOfChimes andBackground:(NSString *)backgroundName
 {
     Timer *timer = [Timer sharedInstance];
     timer.delegate = self;
-    [timer setupTimerWithIntervalArray:intervalArray soundEffectName:soundEffectName andNumberOfChimes:3];
+    [timer setupTimerWithIntervalArray:intervalArray soundEffectName:soundEffectName andNumberOfChimes:numberOfChimes];
     
     UIColor *tintColor = [UIColor colorWithWhite:0 alpha:0.3];
     self.backgroundImage = [[UIImage imageNamed:backgroundName] applyBlurWithRadius:1.5 tintColor:tintColor saturationDeltaFactor:1 maskImage:nil];

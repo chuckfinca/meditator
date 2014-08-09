@@ -130,12 +130,12 @@ static FontThemer *sharedInstance;
 
 -(NSDictionary *)whiteSubHeadlineTextAttributes
 {
-    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].customWhite, NSFontAttributeName : self.subHeadline};
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].white, NSFontAttributeName : self.subHeadline};
 }
 
 -(NSDictionary *)whiteHeadlineTextAttributes
 {
-    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].customWhite, NSFontAttributeName : self.headline};
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].white, NSFontAttributeName : self.headline};
 }
 
 @end

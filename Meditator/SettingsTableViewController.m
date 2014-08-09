@@ -8,7 +8,7 @@
 
 #import "SettingsTableViewController.h"
 #import "IntervalCell.h"
-#import "SelectorCell.h"
+#import "ChimeSelectorCell.h"
 #import "TimerViewController.h"
 #import "IntervalCellDelegateAndDataSource.h"
 #import "StartCell.h"
@@ -27,7 +27,7 @@
 @interface SettingsTableViewController () <RefreshIntervalCellDelegate>
 
 @property (nonatomic, strong) IntervalCell *intervalCell;
-@property (nonatomic, strong) SelectorCell *soundSelectorCell;
+@property (nonatomic, strong) ChimeSelectorCell *soundSelectorCell;
 @property (nonatomic, strong) SelectorCell *backgroundSelectorCell;
 @property (nonatomic, strong) StartCell *startCell;
 
@@ -121,10 +121,10 @@
     return _intervalArray;
 }
 
--(SelectorCell *)soundSelectorCell
+-(ChimeSelectorCell *)soundSelectorCell
 {
     if(!_soundSelectorCell){
-        _soundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"SelectorCell" owner:self options:nil] firstObject];
+        _soundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"ChimeSelectorCell" owner:self options:nil] firstObject];
         [_soundSelectorCell refreshWithSelectedButtonIndex:[[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_SOUND_INDEX]];
         
         for(UIButton *button in _soundSelectorCell.buttonArray){
@@ -325,9 +325,7 @@
             intervalArray = @[self.intervalArray[0]];
         }
         
-        [timerViewController setTimerIntervalArray:intervalArray
-                                   completionSound:self.soundNamesArray[self.selectedSoundIndex]
-                                     andBackground:self.backgroundNamesArray[self.selectedBackgroundIndex]];
+        [timerViewController setTimerIntervalArray:intervalArray withSoundEffect:self.soundNamesArray[self.selectedSoundIndex] numberOfChimes:self.soundSelectorCell.numberOfTimesSegmentedControl.selectedSegmentIndex+1 andBackground:self.backgroundNamesArray[self.selectedBackgroundIndex]];
     }
 }
 

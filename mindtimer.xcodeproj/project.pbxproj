@@ -55,6 +55,8 @@
 		C9ABC3E919957DF00049A893 /* tingsha.aif in Resources */ = {isa = PBXBuildFile; fileRef = C9ABC3E619957DF00049A893 /* tingsha.aif */; };
 		C9ABC3EA19957DF00049A893 /* gong.aif in Resources */ = {isa = PBXBuildFile; fileRef = C9ABC3E719957DF00049A893 /* gong.aif */; };
 		C9ABC3ED199580AB0049A893 /* bowl.aif in Resources */ = {isa = PBXBuildFile; fileRef = C9ABC3EC199580AB0049A893 /* bowl.aif */; };
+		C9ABC3F61995AC310049A893 /* ChimeSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ABC3F51995AC310049A893 /* ChimeSelectorCell.m */; };
+		C9ABC3F81995AC730049A893 /* ChimeSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9ABC3F71995AC730049A893 /* ChimeSelectorCell.xib */; };
 		C9D45D7B1981D4D80059C3C2 /* AppDictionariesList.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */; };
 		C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */; };
 		C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */; };
@@ -149,6 +151,9 @@
 		C9ABC3E619957DF00049A893 /* tingsha.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = tingsha.aif; sourceTree = "<group>"; };
 		C9ABC3E719957DF00049A893 /* gong.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = gong.aif; sourceTree = "<group>"; };
 		C9ABC3EC199580AB0049A893 /* bowl.aif */ = {isa = PBXFileReference; lastKnownFileType = file; path = bowl.aif; sourceTree = "<group>"; };
+		C9ABC3F41995AC310049A893 /* ChimeSelectorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChimeSelectorCell.h; sourceTree = "<group>"; };
+		C9ABC3F51995AC310049A893 /* ChimeSelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChimeSelectorCell.m; sourceTree = "<group>"; };
+		C9ABC3F71995AC730049A893 /* ChimeSelectorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChimeSelectorCell.xib; sourceTree = "<group>"; };
 		C9D45D791981D4D80059C3C2 /* AppDictionariesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDictionariesList.h; sourceTree = "<group>"; };
 		C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDictionariesList.m; sourceTree = "<group>"; };
 		C9D45D7C1981DF4A0059C3C2 /* RoundedRectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedRectButton.h; sourceTree = "<group>"; };
@@ -317,6 +322,9 @@
 				C9408049196B6EE600A55343 /* SelectorCell.h */,
 				C940804A196B6EE600A55343 /* SelectorCell.m */,
 				C940804B196B6EE600A55343 /* SelectorCell.xib */,
+				C9ABC3F41995AC310049A893 /* ChimeSelectorCell.h */,
+				C9ABC3F51995AC310049A893 /* ChimeSelectorCell.m */,
+				C9ABC3F71995AC730049A893 /* ChimeSelectorCell.xib */,
 			);
 			name = Selector;
 			sourceTree = "<group>";
@@ -492,6 +500,7 @@
 				C954B9E919787C1700FD4FAB /* StartCell.xib in Resources */,
 				C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */,
 				C954B9DC19771E5900FD4FAB /* IntervalCell.xib in Resources */,
+				C9ABC3F81995AC730049A893 /* ChimeSelectorCell.xib in Resources */,
 				C9408011196B481800A55343 /* InfoPlist.strings in Resources */,
 				C954B9FB1979FB7F00FD4FAB /* AppDetailsViewController.xib in Resources */,
 			);
@@ -575,6 +584,7 @@
 				C954BA04197DE61400FD4FAB /* MindTimerIAPHelper.m in Sources */,
 				C9408017196B481800A55343 /* AppDelegate.m in Sources */,
 				C954BA0D197F405500FD4FAB /* RestrictedTouchPickerView.m in Sources */,
+				C9ABC3F61995AC310049A893 /* ChimeSelectorCell.m in Sources */,
 				C954B9DB19771E5900FD4FAB /* IntervalCell.m in Sources */,
 				C954B9F41979EF9000FD4FAB /* AppCell.m in Sources */,
 				C9D45D8619833E650059C3C2 /* VariableHeightLabel.m in Sources */,

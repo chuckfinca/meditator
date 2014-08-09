@@ -10,6 +10,6 @@
 
 @interface TimerViewController : UIViewController
 
--(void)setTimerIntervalArray:(NSArray *)intervalArray completionSound:(NSString *)soundEffectName andBackground:(NSString *)backgroundName;
+-(void)setTimerIntervalArray:(NSArray *)intervalArray withSoundEffect:(NSString *)soundEffectName numberOfChimes:(NSInteger)numberOfChimes andBackground:(NSString *)backgroundName;
 
 @end

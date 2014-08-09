@@ -20,9 +20,10 @@
 @property (nonatomic, readwrite) UIColor *textPlaceholder;
 @property (nonatomic, readwrite) UIColor *clickable;
 
-@property (nonatomic, readwrite) UIColor *customWhite;
+@property (nonatomic, readwrite) UIColor *white;
 
 @property (nonatomic, readwrite) UIColor *customBackgroundColor;
+@property (nonatomic, readwrite) UIColor *gray;
 
 @end
 
@@ -75,10 +76,10 @@ static ColorSchemer *sharedInstance;
     return _clickable;
 }
 
--(UIColor *)customWhite
+-(UIColor *)white
 {
-    if(!_customWhite) _customWhite = [UIColor whiteColor];
-    return _customWhite;
+    if(!_white) _white = [UIColor whiteColor];
+    return _white;
 }
 
 -(UIColor *)customBackgroundColor
@@ -87,6 +88,12 @@ static ColorSchemer *sharedInstance;
         //[UIColor colorWithRed:1.000000F green:0.956722F blue:0.915948F alpha:1.0F];
         //[UIColor colorWithRed:0.968627F green:0.894118F blue:0.823529F alpha:1.0F];
     return _customBackgroundColor;
+}
+
+-(UIColor *)gray
+{
+    if(!_gray) _gray = [UIColor grayColor];
+    return _gray;
 }
 
 @end

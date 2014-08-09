@@ -7,6 +7,7 @@
 //
 
 #import "SelectorCell.h"
+#import "ColorSchemer.h"
 
 @interface SelectorCell ()
 
@@ -30,10 +31,12 @@
         if(selectedButtonIndex == button.tag){
             button.selected = YES;
             button.alpha = 1.0;
+            button.tintColor = [ColorSchemer sharedInstance].clickable;
             
         } else {
             button.selected = NO;
             button.alpha = 0.2;
+            button.tintColor = [ColorSchemer sharedInstance].gray;
         }
     }
 }
