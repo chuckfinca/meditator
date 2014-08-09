@@ -26,8 +26,8 @@ static FontThemer *sharedInstance;
     static dispatch_once_t executesOnlyOnce;
     dispatch_once (&executesOnlyOnce, ^{
         sharedInstance = [[self alloc] init];
-        sharedInstance.fontName = @"AmericanTypewriter";
-        sharedInstance.boldFontName = @"AmericanTypewriter-Bold";
+        sharedInstance.fontName = @"Avenir-Book"; // Thonburi, SinhalaSangamMN, KannadaSangamMN, IowanOldStyle-Roman, Avenir-Book
+        sharedInstance.boldFontName = @"Avenir-Black";//[sharedInstance.fontName stringByAppendingString:@"-Bold"];
     });
     return sharedInstance;
 }

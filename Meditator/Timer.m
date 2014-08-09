@@ -107,7 +107,6 @@ static Timer *sharedInstance;
         localNotification.fireDate = [NSDate dateWithTimeInterval:[number floatValue] sinceDate:self.lastResumedTime];
         localNotification.soundName = self.soundEffectFileName;
         
-        NSLog(@"count = %lu",(unsigned long)[self.chimeTimesArray count]);
         if([self.chimeTimesArray indexOfObject:number] == [self.chimeTimesArray count]-1){
             localNotification.alertBody = @"Meditation Complete";
             localNotification.alertAction = @"Ok";
