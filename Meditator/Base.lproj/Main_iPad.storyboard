@@ -235,7 +235,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="zEO-f7-vWH" kind="unwind" unwindAction="returningFromTimer:" id="h0p-zK-xdB"/>
+                                    <segue destination="zEO-f7-vWH" kind="unwind" identifier="ReturnToSettings" unwindAction="returningFromTimer:" id="XpO-Wj-r7m"/>
                                 </connections>
                             </button>
                         </subviews>
