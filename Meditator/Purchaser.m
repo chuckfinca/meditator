@@ -42,7 +42,7 @@
         self.soundPreviewName = soundPreviewName;
     }
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles:purchaseTitle, preview,nil];
+    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles:preview, purchaseTitle, nil];
     
     return actionSheet;
 }
@@ -52,11 +52,11 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"index = %ld",(long)buttonIndex);
-    if(buttonIndex == 0 && self.productsLoaded){
+    if(buttonIndex == 1 && self.productsLoaded){
         MindTimerIAPHelper *helper = [MindTimerIAPHelper sharedInstance];
         [helper buyProduct:[helper.products firstObject]];
         
-    } else if(buttonIndex == 1 && self.soundPreviewName){
+    } else if(buttonIndex == 0 && self.soundPreviewName){
         [[NSNotificationCenter defaultCenter] postNotificationName:@"PlaySound" object:self.soundPreviewName];
         self.soundPreviewName = nil;
     }
