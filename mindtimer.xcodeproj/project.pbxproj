@@ -13,6 +13,7 @@
 		C905B4F319748F9100597899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905B4F219748F9100597899 /* AudioToolbox.framework */; };
 		C905B4F8197499F300597899 /* SoundEffectPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C905B4F7197499F300597899 /* SoundEffectPlayer.m */; };
 		C905B4FA1974AFD200597899 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905B4F91974AFD200597899 /* AVFoundation.framework */; };
+		C92714A619999E5F000D4640 /* SavedStateTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92714A519999E5F000D4640 /* SavedStateTabBarController.m */; };
 		C9408007196B481800A55343 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9408006196B481800A55343 /* Foundation.framework */; };
 		C9408009196B481800A55343 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9408008196B481800A55343 /* CoreGraphics.framework */; };
 		C940800B196B481800A55343 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C940800A196B481800A55343 /* UIKit.framework */; };
@@ -88,6 +89,8 @@
 		C905B4F6197499F300597899 /* SoundEffectPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffectPlayer.h; sourceTree = "<group>"; };
 		C905B4F7197499F300597899 /* SoundEffectPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffectPlayer.m; sourceTree = "<group>"; };
 		C905B4F91974AFD200597899 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C92714A419999E5F000D4640 /* SavedStateTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedStateTabBarController.h; sourceTree = "<group>"; };
+		C92714A519999E5F000D4640 /* SavedStateTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedStateTabBarController.m; sourceTree = "<group>"; };
 		C9408003196B481800A55343 /* mindtimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mindtimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9408006196B481800A55343 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C9408008196B481800A55343 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -281,6 +284,8 @@
 				C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */,
 				C9D45D8419833E650059C3C2 /* VariableHeightLabel.h */,
 				C9D45D8519833E650059C3C2 /* VariableHeightLabel.m */,
+				C92714A419999E5F000D4640 /* SavedStateTabBarController.h */,
+				C92714A519999E5F000D4640 /* SavedStateTabBarController.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -568,6 +573,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C9408068196E1CF600A55343 /* Timer.m in Sources */,
+				C92714A619999E5F000D4640 /* SavedStateTabBarController.m in Sources */,
 				C954BA07197F27A400FD4FAB /* Purchaser.m in Sources */,
 				C954B9FA1979FB7F00FD4FAB /* AppDetailsViewController.m in Sources */,
 				C905B4EE19747CE300597899 /* LocalNotificationScheduler.m in Sources */,
