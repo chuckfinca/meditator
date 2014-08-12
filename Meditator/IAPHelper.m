@@ -119,7 +119,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
         self.completionHandler = nil;
     }
     
-    [self handleError:error forActivity:@"Product Request Failed"];
+    [self handleError:error forActivity:@"Product Request Failed" displayAlert:NO];
 }
 
 
@@ -159,7 +159,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 -(void)failedTransaction:(SKPaymentTransaction *)transaction
 {
     [self stopActivityIndicator];
-    [self handleError:transaction.error forActivity:@"Failed Transaction"];
+    [self handleError:transaction.error forActivity:@"Failed Transaction" displayAlert:YES];
     [[SKPaymentQueue defaultQueue] finishTransaction:transaction];
 }
 
@@ -210,7 +210,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 -(void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error
 {
-    [self handleError:error forActivity:@"Restore Transactions"];
+    [self handleError:error forActivity:@"Restore Transactions" displayAlert:YES];
     [self stopActivityIndicator];
 }
 
@@ -232,7 +232,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 
 
--(void)handleError:(NSError *)error forActivity:(NSString *)activity
+-(void)handleError:(NSError *)error forActivity:(NSString *)activity displayAlert:(BOOL)displayAlert
 {
     NSString *errorType;
     switch (error.code) {
@@ -260,7 +260,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     
     NSString *errorBody = [NSString stringWithFormat:@"Please try again with a strong connection.\n\n(%@)",errorType];
     
-    if(error.code != 2){
+    if(error.code != 2 && displayAlert){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:error.localizedDescription message:errorBody
                                                        delegate:nil
                                               cancelButtonTitle:@"Ok"

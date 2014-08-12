@@ -42,7 +42,14 @@
         self.soundPreviewName = soundPreviewName;
     }
     
-    UIActionSheet *actionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles:preview, purchaseTitle, nil];
+    UIActionSheet *actionSheet;
+    
+    if(soundPreviewName){
+        actionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles: preview, purchaseTitle, nil];
+        actionSheet.tag = 1;
+    } else {
+        actionSheet = [[UIActionSheet alloc] initWithTitle:title delegate:self cancelButtonTitle:cancelTitle destructiveButtonTitle:nil otherButtonTitles: purchaseTitle, nil];
+    }
     
     return actionSheet;
 }
@@ -52,14 +59,24 @@
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     NSLog(@"index = %ld",(long)buttonIndex);
-    if(buttonIndex == 1 && self.productsLoaded){
-        MindTimerIAPHelper *helper = [MindTimerIAPHelper sharedInstance];
-        [helper buyProduct:[helper.products firstObject]];
+    if(actionSheet.tag == 1){
+        if(buttonIndex == 1 && self.productsLoaded){
+            MindTimerIAPHelper *helper = [MindTimerIAPHelper sharedInstance];
+            [helper buyProduct:[helper.products firstObject]];
+            
+        } else if(buttonIndex == 0){
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"PlaySound" object:self.soundPreviewName];
+            self.soundPreviewName = nil;
+        }
         
-    } else if(buttonIndex == 0 && self.soundPreviewName){
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PlaySound" object:self.soundPreviewName];
-        self.soundPreviewName = nil;
+    } else {
+        if(buttonIndex == 0 && self.productsLoaded){
+            MindTimerIAPHelper *helper = [MindTimerIAPHelper sharedInstance];
+            [helper buyProduct:[helper.products firstObject]];
+        }
     }
+    
+    
 }
 
 @end
