@@ -20,6 +20,7 @@
 
 #define SELECTED_SOUND_INDEX @"SelectedSoundIndex"
 #define SELECTED_BACKGROUND_INDEX @"SelectedBackgroundIndex"
+#define DISPLAY_INTERVALS @"DisplayIntervals"
 #define TIMER_INTERVAL_ARRAY @"TimerIntervalArray"
 #define DEFAULT_INTERVAL_ARRAY @[@15,@0,@0,@0,@0]
 #define MAX_TIMER_LENGTH 91
@@ -47,6 +48,8 @@
 @end
 
 @implementation SettingsTableViewController
+
+@synthesize displayIntervals = _displayIntervals;
 
 -(id)initWithStyle:(UITableViewStyle)style
 {
@@ -108,6 +111,22 @@
     return _intervalCellDelegateAndDataSource;
 }
 
+-(BOOL)displayIntervals
+{
+    if(!_displayIntervals){
+        _displayIntervals = [[NSUserDefaults standardUserDefaults] boolForKey:DISPLAY_INTERVALS];
+    }
+    return _displayIntervals;
+}
+
+-(void)setDisplayIntervals:(BOOL)displayIntervals
+{
+    _displayIntervals = displayIntervals;
+    
+    [[NSUserDefaults standardUserDefaults] setBool:displayIntervals forKey:DISPLAY_INTERVALS];
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
 -(NSArray *)intervalArray
 {
     _intervalArray = [[NSUserDefaults standardUserDefaults] arrayForKey:TIMER_INTERVAL_ARRAY];
@@ -161,6 +180,14 @@
 -(NSArray *)backgroundNamesArray
 {
     return @[@"flowers_blue", @"flowers_pink", @"flowers_dark", @"trees_one", @"flowers_yellow"];
+}
+
+-(NSInteger)selectedBackgroundIndex
+{
+    if(!_selectedBackgroundIndex){
+        _selectedBackgroundIndex = [[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_BACKGROUND_INDEX];
+    }
+    return _selectedBackgroundIndex;
 }
 
 -(StartCell *)startCell
