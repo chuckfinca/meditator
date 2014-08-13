@@ -17,6 +17,7 @@
 #import "Purchaser.h"
 #import "ColorSchemer.h"
 #import "FontThemer.h"
+#import "GoogleAnalyticsHelper.h"
 
 #define SELECTED_SOUND_INDEX @"SelectedSoundIndex"
 #define SELECTED_BACKGROUND_INDEX @"SelectedBackgroundIndex"
@@ -73,6 +74,14 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playSound:) name:@"PlaySound" object:nil];
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [GoogleAnalyticsHelper logScreenNamed:@"Settings Screen"];
+}
+
+
 
 -(void)viewWillDisappear:(BOOL)animated
 {

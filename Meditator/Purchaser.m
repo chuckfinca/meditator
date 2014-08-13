@@ -8,6 +8,7 @@
 
 #import "Purchaser.h"
 #import "MindTimerIAPHelper.h"
+
 @interface Purchaser ()
 
 @property (nonatomic) BOOL productsLoaded;
@@ -75,8 +76,6 @@
             [helper buyProduct:[helper.products firstObject]];
         }
     }
-    
-    
 }
 
 @end

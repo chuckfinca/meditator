@@ -6,8 +6,8 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "GAITrackedViewController.h"
 
-@interface InstructionsViewController : UIViewController
+@interface InstructionsViewController : GAITrackedViewController
 
 @end

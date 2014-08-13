@@ -7,6 +7,7 @@
 //
 
 #import "IAPHelper.h"
+#import "GoogleAnalyticsHelper.h"
 
 NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurchasedNotification";
 
@@ -127,25 +128,39 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 -(void)paymentQueue:(SKPaymentQueue *)queue updatedTransactions:(NSArray *)transactions
 {
+    NSString *googleAnalyticsCategory = @"Updated Transaction";
+    NSString *googleAnalyticsAction;
+    NSString *googleAnalyticsLabel;
+    NSNumber *googleAnalyticsValue;
+    
     for(SKPaymentTransaction *transaction in transactions){
+        googleAnalyticsLabel = transaction.payment.productIdentifier;
+        
         switch (transaction.transactionState) {
             case SKPaymentTransactionStateFailed:
                 [self failedTransaction:transaction];
+                googleAnalyticsAction = @"Failed";
+                googleAnalyticsValue = @(transaction.error.code);
                 break;
+                
             case SKPaymentTransactionStatePurchased:
                 [self completeTransaction:transaction];
+                googleAnalyticsAction = @"Complete";
                 break;
             case SKPaymentTransactionStatePurchasing:
                 NSLog(@"SKPaymentTransactionStatePurchasing");
                 break;
             case SKPaymentTransactionStateRestored:
                 [self restoreTransaction:transaction];
+                googleAnalyticsAction = @"Restored";
                 break;
                 
             default:
                 break;
         }
     }
+    
+    [GoogleAnalyticsHelper logEventWithCategory:googleAnalyticsCategory action:googleAnalyticsAction label:googleAnalyticsLabel value:googleAnalyticsValue];
 }
 
 -(void)completeTransaction:(SKPaymentTransaction *)transaction

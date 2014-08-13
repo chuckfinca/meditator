@@ -58,6 +58,10 @@
 		C9ABC3ED199580AB0049A893 /* bowl.aif in Resources */ = {isa = PBXBuildFile; fileRef = C9ABC3EC199580AB0049A893 /* bowl.aif */; };
 		C9ABC3F61995AC310049A893 /* ChimeSelectorCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C9ABC3F51995AC310049A893 /* ChimeSelectorCell.m */; };
 		C9ABC3F81995AC730049A893 /* ChimeSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9ABC3F71995AC730049A893 /* ChimeSelectorCell.xib */; };
+		C9CC074D199C116800E10E3C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CC074C199C116800E10E3C /* CoreData.framework */; };
+		C9CC074F199C117A00E10E3C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CC074E199C117A00E10E3C /* SystemConfiguration.framework */; };
+		C9CC0751199C11AD00E10E3C /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CC0750199C11AD00E10E3C /* libGoogleAnalyticsServices.a */; };
+		C9CC0757199C18C800E10E3C /* GoogleAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC0756199C18C800E10E3C /* GoogleAnalyticsHelper.m */; };
 		C9D45D7B1981D4D80059C3C2 /* AppDictionariesList.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */; };
 		C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */; };
 		C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */; };
@@ -157,6 +161,11 @@
 		C9ABC3F41995AC310049A893 /* ChimeSelectorCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChimeSelectorCell.h; sourceTree = "<group>"; };
 		C9ABC3F51995AC310049A893 /* ChimeSelectorCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChimeSelectorCell.m; sourceTree = "<group>"; };
 		C9ABC3F71995AC730049A893 /* ChimeSelectorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChimeSelectorCell.xib; sourceTree = "<group>"; };
+		C9CC074C199C116800E10E3C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		C9CC074E199C117A00E10E3C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		C9CC0750199C11AD00E10E3C /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = "Pods/GoogleAnalytics-iOS-SDK/libGoogleAnalyticsServices.a"; sourceTree = "<group>"; };
+		C9CC0755199C18C800E10E3C /* GoogleAnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleAnalyticsHelper.h; sourceTree = "<group>"; };
+		C9CC0756199C18C800E10E3C /* GoogleAnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleAnalyticsHelper.m; sourceTree = "<group>"; };
 		C9D45D791981D4D80059C3C2 /* AppDictionariesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDictionariesList.h; sourceTree = "<group>"; };
 		C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDictionariesList.m; sourceTree = "<group>"; };
 		C9D45D7C1981DF4A0059C3C2 /* RoundedRectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedRectButton.h; sourceTree = "<group>"; };
@@ -178,6 +187,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9CC0751199C11AD00E10E3C /* libGoogleAnalyticsServices.a in Frameworks */,
+				C9CC074F199C117A00E10E3C /* SystemConfiguration.framework in Frameworks */,
+				C9CC074D199C116800E10E3C /* CoreData.framework in Frameworks */,
 				C9E81774199426520034339A /* Crashlytics.framework in Frameworks */,
 				C954BA00197DD97600FD4FAB /* StoreKit.framework in Frameworks */,
 				C905B4FA1974AFD200597899 /* AVFoundation.framework in Frameworks */,
@@ -226,6 +238,9 @@
 		C9408005196B481800A55343 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				C9CC0750199C11AD00E10E3C /* libGoogleAnalyticsServices.a */,
+				C9CC074E199C117A00E10E3C /* SystemConfiguration.framework */,
+				C9CC074C199C116800E10E3C /* CoreData.framework */,
 				C9E81773199426520034339A /* Crashlytics.framework */,
 				C954B9FF197DD97600FD4FAB /* StoreKit.framework */,
 				C905B4F91974AFD200597899 /* AVFoundation.framework */,
@@ -286,6 +301,8 @@
 				C9D45D8519833E650059C3C2 /* VariableHeightLabel.m */,
 				C92714A419999E5F000D4640 /* SavedStateTabBarController.h */,
 				C92714A519999E5F000D4640 /* SavedStateTabBarController.m */,
+				C9CC0755199C18C800E10E3C /* GoogleAnalyticsHelper.h */,
+				C9CC0756199C18C800E10E3C /* GoogleAnalyticsHelper.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -599,6 +616,7 @@
 				C954B9FE197DCCC000FD4FAB /* IAPHelper.m in Sources */,
 				C954B9F01979EBA500FD4FAB /* CompanyInfoTVController.m in Sources */,
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,
+				C9CC0757199C18C800E10E3C /* GoogleAnalyticsHelper.m in Sources */,
 				C940804C196B6EE600A55343 /* SelectorCell.m in Sources */,
 				C9408013196B481800A55343 /* main.m in Sources */,
 				C9901EDF1970B6E6005A8734 /* TimerLabel.m in Sources */,
@@ -745,6 +763,10 @@
 				GCC_PREFIX_HEADER = "Meditator/mindtimer-Prefix.pch";
 				INFOPLIST_FILE = "Meditator/mindtimer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/GoogleAnalytics-iOS-SDK",
+				);
 				PRODUCT_NAME = mindtimer;
 				WRAPPER_EXTENSION = app;
 			};
@@ -764,6 +786,10 @@
 				GCC_PREFIX_HEADER = "Meditator/mindtimer-Prefix.pch";
 				INFOPLIST_FILE = "Meditator/mindtimer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Pods/GoogleAnalytics-iOS-SDK",
+				);
 				PRODUCT_NAME = mindtimer;
 				WRAPPER_EXTENSION = app;
 			};

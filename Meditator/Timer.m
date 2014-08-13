@@ -8,6 +8,7 @@
 
 #import "Timer.h"
 #import "SoundEffectPlayer.h"
+#import "GoogleAnalyticsHelper.h"
 
 #define CHIME_REPEAT_INTERVAL 2
 
@@ -81,6 +82,8 @@ static Timer *sharedInstance;
     self.numberOfChimes = numberOfChimes;
     
     [self setupSoundEffect:soundEffectName];
+    
+    [GoogleAnalyticsHelper logEventWithCategory:@"Timer" action:@"Started" label:self.soundEffectFileName value:@(self.totalTime)];
 }
 
 -(void)setupSoundEffect:(NSString *)soundEffectName
@@ -140,7 +143,7 @@ static Timer *sharedInstance;
     
     for(NSNumber *number in self.chimeTimesArray){
         if([number integerValue] - elapsedTime < 0){
-            [self soundTimer];
+            [self finished];
         }
     }
     
@@ -202,7 +205,7 @@ static Timer *sharedInstance;
     self.timerIsActive = NO;
 }
 
--(void)soundTimer
+-(void)finished
 {
     [self playSound];
     
@@ -212,8 +215,7 @@ static Timer *sharedInstance;
         }
     }
     
-    for(NSInteger chime = 0; chime < self.numberOfChimes; chime++){
-    }
+    [GoogleAnalyticsHelper logEventWithCategory:@"Timer" action:@"Finished" label:self.soundEffectFileName value:@(self.totalTime)];
 }
 
 -(void)playSound

@@ -10,6 +10,7 @@
 #import "AppDictionariesList.h"
 #import "RoundedRectButton.h"
 #import "FontThemer.h"
+#import "GoogleAnalyticsHelper.h"
 
 @interface AppDetailsViewController ()
 
@@ -45,11 +46,12 @@
     // Do any additional setup after loading the view from its nib.
     [self.iconImageView setImage:[UIImage imageNamed:self.iconName]];
     
-    
     self.appNameLabel.attributedText = [[NSAttributedString alloc] initWithString:self.appName attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
     [self.appScreenShotImageView setImage:[UIImage imageNamed:self.screenShotName]];
     self.appDescriptionLabel.attributedText = [[NSAttributedString alloc] initWithString:self.appDescription attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
     [self.openStoreButton setAttributedTitle:[[NSAttributedString alloc] initWithString:self.openStoreButton.titleLabel.text attributes:[FontThemer sharedInstance].whiteHeadlineTextAttributes] forState:UIControlStateNormal];
+    
+    [GoogleAnalyticsHelper logEventWithCategory:@"Other App" action:@"View" label:self.appName value:nil];
 }
 
 -(void)setupForAppID:(NSInteger)appID
@@ -66,6 +68,7 @@
 
 -(IBAction)openStore:(id)sender
 {
+    [GoogleAnalyticsHelper logEventWithCategory:@"Other App" action:@"Open iTunes" label:self.appName value:nil];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.appURLString]];
 }
 

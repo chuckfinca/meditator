@@ -13,10 +13,13 @@
 #import "AppDictionariesList.h"
 #import <MessageUI/MessageUI.h>
 #import "FontThemer.h"
+#import "GoogleAnalyticsHelper.h"
 
 @interface CompanyInfoTVController () <UIAlertViewDelegate, MFMailComposeViewControllerDelegate>
 
 @property (nonatomic, strong) AppCell *guidedMindCell;
+@property (nonatomic, strong) NSString *appID;
+@property (nonatomic, strong) NSString *affiliateCode;
 
 @end
 
@@ -35,6 +38,14 @@
 {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"CenterAlignedTextCell" bundle:nil] forCellReuseIdentifier:@"CenterAlignedTextCell"];
+    self.appID = @"901569488"; // Guided Mind = 672076838
+    self.affiliateCode = @"1l3vcSo";
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [GoogleAnalyticsHelper logScreenNamed:@"More Screen"];
 }
 
 #pragma mark - Getters & Setters
@@ -191,7 +202,8 @@
 -(void)reviewApp
 {
     NSLog(@"review in iTunes");
-    NSURL *appURL = [NSURL URLWithString:@"itms-apps://itunes.apple.com/app/id901569488?at=1l3vcSo"]; // Guided Mind = id672076838?at=1l3vcSo
+    NSString *urlString = [NSString stringWithFormat:@"itms-apps://itunes.apple.com/app/id%@?at=%@",self.appID,self.affiliateCode];
+    NSURL *appURL = [NSURL URLWithString:urlString];
     [[UIApplication sharedApplication] openURL:appURL];
 }
 
@@ -233,9 +245,16 @@
 
 -(void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:(NSInteger)buttonIndex
 {
+    NSString *googleAnalyticsAction;
+    
     if(buttonIndex == 1){
         [self reviewApp];
+        googleAnalyticsAction = @"Sent to iTunes";
+    } else {
+        googleAnalyticsAction = @"Cancel";
     }
+    
+    [GoogleAnalyticsHelper logEventWithCategory:@"Review" action:googleAnalyticsAction label:nil value:nil];
 }
 
 

@@ -11,6 +11,7 @@
 #import "MindTimerIAPHelper.h"
 #import <Crashlytics/Crashlytics.h>
 #import "AppThemer.h"
+#import <GAI.h>
 
 @implementation AppDelegate
 
@@ -21,6 +22,9 @@
     [MindTimerIAPHelper sharedInstance];
     
     [AppThemer themeWindow:self.window];
+    
+    [GAI sharedInstance].trackUncaughtExceptions = YES; // Optional: automatically send uncaught exceptions to Google Analytics.
+    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-46016126-2"];
     
     return YES;
 }
