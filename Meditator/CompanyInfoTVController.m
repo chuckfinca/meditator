@@ -35,12 +35,6 @@
 {
     [super viewDidLoad];
     [self.tableView registerNib:[UINib nibWithNibName:@"CenterAlignedTextCell" bundle:nil] forCellReuseIdentifier:@"CenterAlignedTextCell"];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
 #pragma mark - Getters & Setters
@@ -177,7 +171,7 @@
 
 -(void)showGoingToStoreAlert
 {
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You are about to go to iTunes" message:@"Once there click REVIEWS\nthen WRITE A REVIEW\nto review Mind Timer" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"You are about to go to iTunes." message:@"Once there, click REVIEWS,\nthen WRITE A REVIEW,\nto review Mind Timer" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Ok", nil];
     [alert show];
 }
 

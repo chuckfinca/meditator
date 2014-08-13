@@ -30,7 +30,6 @@
 
 void SoundMuteCheckCompletion(SystemSoundID  ssID,void *clientData)
 {
-    NSLog(@"ssID = %u", (unsigned int)ssID);
     SoundEffectPlayer *sep = (__bridge SoundEffectPlayer *)clientData;
     NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:sep.startTime];
     if(elapsedTime < 0.4){
@@ -47,7 +46,6 @@ void SoundMuteCheckCompletion(SystemSoundID  ssID,void *clientData)
 -(void)playSoundOrVibrate:(BOOL)timerEnded
 {
     self.timerEnded = timerEnded;
-    NSLog(@"aaa");
     if(self.soundUrl){
         SystemSoundID soundID;
         AudioServicesCreateSystemSoundID((__bridge_retained CFURLRef)self.soundUrl,&soundID);
