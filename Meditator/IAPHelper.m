@@ -79,6 +79,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 -(BOOL)productPurchased:(NSString *)productIdentifier
 {
+    return YES;
     return [self.purchasedProductIdentifiers containsObject:productIdentifier];
 }
 
