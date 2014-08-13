@@ -100,7 +100,7 @@
             title = @"end";
         }
         
-        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
+        NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:title attributes:[FontThemer sharedInstance].primarySubHeadlineTextAttributes];
         [button setAttributedTitle:attributedTitle forState:UIControlStateNormal];
         [button setAttributedTitle:attributedTitle forState:UIControlStateSelected];
     }

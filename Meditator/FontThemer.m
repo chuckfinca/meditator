@@ -80,6 +80,11 @@ static FontThemer *sharedInstance;
     return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : self.body};
 }
 
+-(NSDictionary *)primaryCaption1TextAttributes
+{
+    return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : self.caption1};
+}
+
 -(NSDictionary *)primaryFootnoteTextAttributes
 {
     return @{NSForegroundColorAttributeName : [ColorSchemer sharedInstance].textPrimary, NSFontAttributeName : self.footnote};

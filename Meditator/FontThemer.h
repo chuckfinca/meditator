@@ -24,6 +24,7 @@
 @property (nonatomic, readonly) NSDictionary *primaryBodyTextAttributes;
 @property (nonatomic, readonly) NSDictionary *primaryFootnoteTextAttributes;
 @property (nonatomic, readonly) NSDictionary *primarySubHeadlineTextAttributes;
+@property (nonatomic, readonly) NSDictionary *primaryCaption1TextAttributes;
 
 @property (nonatomic, readonly) NSDictionary *secondaryHeadlineTextAttributes;
 @property (nonatomic, readonly) NSDictionary *secondaryBodyTextAttributes;
