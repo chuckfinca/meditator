@@ -24,7 +24,7 @@
     [AppThemer themeWindow:self.window];
     
     [GAI sharedInstance].trackUncaughtExceptions = YES; // Optional: automatically send uncaught exceptions to Google Analytics.
-    id<GAITracker> tracker = [[GAI sharedInstance] trackerWithTrackingId:@"UA-46016126-2"];
+    [[GAI sharedInstance] trackerWithTrackingId:@"UA-46016126-2"];
     
     return YES;
 }
