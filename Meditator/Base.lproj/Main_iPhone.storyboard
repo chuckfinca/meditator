@@ -57,7 +57,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYR-B4-SkP">
-                                        <rect key="frame" x="20" y="20" width="280" height="168"/>
+                                        <rect key="frame" x="20" y="190" width="280" height="168"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
@@ -68,12 +68,22 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         <dataDetectorType key="dataDetectorTypes" link="YES"/>
                                     </textView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mWg-3o-JJX">
+                                        <rect key="frame" x="110" y="50" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="RCz-DH-CBd"/>
+                                            <constraint firstAttribute="width" constant="100" id="cpt-qP-1C7"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="eYR-B4-SkP" secondAttribute="bottom" constant="20" symbolic="YES" id="1Bi-c5-dYk"/>
+                                    <constraint firstItem="mWg-3o-JJX" firstAttribute="top" secondItem="Q7N-qg-M1R" secondAttribute="top" constant="50" id="8oP-Sh-GC8"/>
                                     <constraint firstItem="eYR-B4-SkP" firstAttribute="leading" secondItem="Q7N-qg-M1R" secondAttribute="leading" constant="20" symbolic="YES" id="HhP-aN-hwN"/>
-                                    <constraint firstItem="eYR-B4-SkP" firstAttribute="top" secondItem="Q7N-qg-M1R" secondAttribute="top" constant="20" symbolic="YES" id="YBD-KY-utg"/>
+                                    <constraint firstItem="eYR-B4-SkP" firstAttribute="top" secondItem="mWg-3o-JJX" secondAttribute="bottom" constant="40" id="cs9-PT-r8c"/>
+                                    <constraint firstAttribute="bottom" secondItem="eYR-B4-SkP" secondAttribute="bottom" constant="179" id="jn6-ry-sJ1"/>
                                     <constraint firstItem="eYR-B4-SkP" firstAttribute="centerX" secondItem="Q7N-qg-M1R" secondAttribute="centerX" id="k3J-sf-u7z"/>
+                                    <constraint firstAttribute="centerX" secondItem="mWg-3o-JJX" secondAttribute="centerX" id="mqW-TL-qkc"/>
                                     <constraint firstAttribute="trailing" secondItem="eYR-B4-SkP" secondAttribute="trailing" constant="20" symbolic="YES" id="r5p-As-IMK"/>
                                 </constraints>
                             </scrollView>
@@ -89,6 +99,7 @@
                     <navigationItem key="navigationItem" title="Instructions" id="fYu-Mr-jcv"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="imageView" destination="mWg-3o-JJX" id="ltj-pj-4jK"/>
                         <outlet property="instructionsTextView" destination="eYR-B4-SkP" id="ASI-nG-KT9"/>
                         <outlet property="textViewHeightConstraint" destination="PZp-Cf-rVf" id="l6O-eI-xhs"/>
                     </connections>
