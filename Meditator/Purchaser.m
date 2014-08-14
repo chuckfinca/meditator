@@ -28,7 +28,7 @@
     if(productsLoaded){
         self.productsLoaded = YES;
         
-        title = [NSString stringWithFormat:@"\nUNLOCK ALL FEATURES\n\nMeditation Intervals\nBell Chime\nDrum Chime\nOther Chime\nOther Chime\nBackground 1\nBackground 2\n\n"];
+        title = [NSString stringWithFormat:@"\nUNLOCK ALL FEATURES\n\nMeditation Intervals\n\nGong Chime\nBell Chime\nBowl Chime\n\nDark Background\nBlue Flower Background\nTrees Background"];
         purchaseTitle = [[MindTimerIAPHelper sharedInstance] localizedPriceForProductIdentifier:ALL_FEATURES_PRODUCT];
         cancelTitle = @"Cancel";
     } else {

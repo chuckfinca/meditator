@@ -188,7 +188,7 @@
 
 -(NSArray *)backgroundNamesArray
 {
-    return @[@"flowers_blue", @"flowers_pink", @"flowers_dark", @"trees_one", @"flowers_yellow"];
+    return @[@"flowers_yellow", @"flowers_pink", @"flowers_dark", @"flowers_blue", @"trees_one"];
 }
 
 -(NSInteger)selectedBackgroundIndex
@@ -392,7 +392,7 @@
 -(IBAction)soundSelected:(UIButton *)sender
 {
     NSString *soundEffectName = self.soundNamesArray[sender.tag];
-    if(sender.tag == 0 || [[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]){
+    if(sender.tag < 2 || [[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]){
         
         [self.soundSelectorCell refreshWithSelectedButtonIndex:sender.tag];
         self.selectedSoundIndex = sender.tag;
@@ -403,17 +403,26 @@
         [[NSUserDefaults standardUserDefaults] synchronize];
     } else {
         NSLog(@"not purchased yet");
-        
-        if(!self.productsLoaded){
-            [self requestIAPProducts];
-        }
-        
-        NSString *productName = [NSString stringWithFormat:@"the %@ chime",[soundEffectName capitalizedString]];
-        UIActionSheet *actionSheet = [self.purchaser actionSheetForProduct:productName withSoundPreview:self.soundNamesArray[sender.tag] andProductsLoaded:self.productsLoaded];
-        [actionSheet showInView:self.view];
+        [self showPurchaseAlertForProduct:soundEffectName withSoundEffect:YES];
     }
 }
 
+-(void)showPurchaseAlertForProduct:(NSString *)productName withSoundEffect:(BOOL)soundEffect
+{
+    if(!self.productsLoaded){
+        [self requestIAPProducts];
+    }
+    
+    NSString *soundEffectName;
+    
+    if(soundEffect){
+        productName = [NSString stringWithFormat:@"the %@ chime",[productName capitalizedString]];
+        soundEffectName = productName;
+    }
+    
+    UIActionSheet *actionSheet = [self.purchaser actionSheetForProduct:productName withSoundPreview:soundEffectName andProductsLoaded:self.productsLoaded];
+    [actionSheet showInView:self.view];
+}
 
 -(void)playSound:(NSNotification *)notification
 {
@@ -429,11 +438,15 @@
 
 -(IBAction)backgroundSelected:(UIButton *)sender
 {
-    [self.backgroundSelectorCell refreshWithSelectedButtonIndex:sender.tag];
-    self.selectedBackgroundIndex = sender.tag;
-    
-    [[NSUserDefaults standardUserDefaults] setInteger:sender.tag forKey:SELECTED_BACKGROUND_INDEX];
-    [[NSUserDefaults standardUserDefaults] synchronize];
+    if(sender.tag < 2 || [[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]){
+        [self.backgroundSelectorCell refreshWithSelectedButtonIndex:sender.tag];
+        self.selectedBackgroundIndex = sender.tag;
+        
+        [[NSUserDefaults standardUserDefaults] setInteger:sender.tag forKey:SELECTED_BACKGROUND_INDEX];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+    } else {
+        [self showPurchaseAlertForProduct:@"this background" withSoundEffect:NO];
+    }
 }
 
 -(IBAction)toggleIntervals:(UIButton *)sender
@@ -446,13 +459,7 @@
         [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
     } else {
         NSLog(@"not purchased yet");
-        
-        if(!self.productsLoaded){
-            [self requestIAPProducts];
-        }
-        
-        UIActionSheet *actionSheet = [self.purchaser actionSheetForProduct:@"Meditation Intervals" withSoundPreview:nil andProductsLoaded:self.productsLoaded];
-        [actionSheet showInView:self.view];
+        [self showPurchaseAlertForProduct:@"Meditation Intervals" withSoundEffect:NO];
     }
 }
 
