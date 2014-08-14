@@ -45,6 +45,7 @@
 
 @property (nonatomic) BOOL productsLoaded;
 @property (nonatomic, strong) Purchaser *purchaser;
+@property (nonatomic) BOOL productsPurchased;
 
 @end
 
@@ -73,6 +74,7 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playSound:) name:@"PlaySound" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unlockFeatures) name:IAPHelperProductPurchasedNotification object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -81,7 +83,12 @@
     [GoogleAnalyticsHelper logScreenNamed:@"Settings Screen"];
 }
 
-
+-(void)unlockFeatures
+{
+    [self.intervalCell refreshWithIntervalArray:self.intervalArray selectedButtonIndex:0 intervalsAllowed:YES];
+    [self.soundSelectorCell refreshWithSelectedButtonIndex:self.selectedSoundIndex itemsPurchased:self.productsPurchased];
+    [self.backgroundSelectorCell refreshWithSelectedButtonIndex:self.selectedBackgroundIndex itemsPurchased:self.productsPurchased];
+}
 
 -(void)viewWillDisappear:(BOOL)animated
 {
@@ -99,14 +106,9 @@
         } else {
             _intervalCell = [[[NSBundle mainBundle] loadNibNamed:@"SingleIntervalCell" owner:self options:nil] firstObject];
         }
-        _intervalCell.minutePickerView.delegate = self.intervalCellDelegateAndDataSource;
-        _intervalCell.minutePickerView.dataSource = self.intervalCellDelegateAndDataSource;
-        [_intervalCell refreshWithIntervalArray:self.intervalArray andSelectedButtonIndex:0];
+        [_intervalCell setupIntervalCellWithDelegate:self.intervalCellDelegateAndDataSource dataSource:self.intervalCellDelegateAndDataSource intervalArray:self.intervalArray intervalsAllowed:self.productsPurchased];
         [_intervalCell.resetButton addTarget:self action:@selector(resetIntervals:) forControlEvents:UIControlEventTouchUpInside];
         [_intervalCell.toggleIntervalsButton addTarget:self action:@selector(toggleIntervals:) forControlEvents:UIControlEventTouchUpInside];
-        
-        NSNumber *minutes = self.intervalArray[0];
-        [_intervalCell.minutePickerView selectRow:[minutes integerValue] inComponent:0 animated:NO];
     }
     return _intervalCell;
 }
@@ -153,7 +155,7 @@
 {
     if(!_soundSelectorCell){
         _soundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"ChimeSelectorCell" owner:self options:nil] firstObject];
-        [_soundSelectorCell setupWithSelectedButtonIndex:[[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_SOUND_INDEX]  numberOfFreeSelections:2 itemsPurchased:[[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]];
+        [_soundSelectorCell setupWithSelectedButtonIndex:[[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_SOUND_INDEX]  numberOfFreeSelections:2 itemsPurchased:self.productsPurchased];
     }
     return _soundSelectorCell;
 }
@@ -167,7 +169,7 @@
 {
     if(!_backgroundSelectorCell){
         _backgroundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"SelectorCell" owner:self options:nil] firstObject];
-        [_backgroundSelectorCell setupWithSelectedButtonIndex:[[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_BACKGROUND_INDEX]  numberOfFreeSelections:2 itemsPurchased:[[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]];
+        [_backgroundSelectorCell setupWithSelectedButtonIndex:[[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_BACKGROUND_INDEX]  numberOfFreeSelections:2 itemsPurchased:self.productsPurchased];
     }
     return _backgroundSelectorCell;
 }
@@ -200,6 +202,11 @@
         _purchaser = [[Purchaser alloc] init];
     }
     return _purchaser;
+}
+
+-(BOOL)productsPurchased
+{
+    return [[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT];
 }
 
 -(NSInteger)selectedSoundIndex
@@ -359,10 +366,7 @@
 
 -(IBAction)intervalSelected:(UIButton *)sender
 {
-    NSNumber *minutes = (NSNumber *)self.intervalArray[sender.tag];
-    
-    [self.intervalCell refreshWithIntervalArray:self.intervalArray andSelectedButtonIndex:sender.tag];
-    [self.intervalCell.minutePickerView selectRow:[minutes integerValue] inComponent:0 animated:YES];
+    [self.intervalCell refreshWithIntervalArray:self.intervalArray selectedButtonIndex:sender.tag intervalsAllowed:self.productsPurchased];
 }
 
 -(IBAction)resetIntervals:(UIButton *)sender
@@ -370,14 +374,12 @@
     [[NSUserDefaults standardUserDefaults] setObject:DEFAULT_INTERVAL_ARRAY forKey:TIMER_INTERVAL_ARRAY];
     [[NSUserDefaults standardUserDefaults] synchronize];
     
-    NSNumber *minutes = (NSNumber *)self.intervalArray[0];
-    [self.intervalCell refreshWithIntervalArray:self.intervalArray andSelectedButtonIndex:0];
-    [self.intervalCell.minutePickerView selectRow:[minutes integerValue] inComponent:0 animated:YES];
+    [self.intervalCell refreshWithIntervalArray:self.intervalArray selectedButtonIndex:0 intervalsAllowed:self.productsPurchased];
 }
 
 -(IBAction)soundSelected:(UIButton *)sender
 {
-    BOOL allFeaturesAvailable = [[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT];
+    BOOL allFeaturesAvailable = self.productsPurchased;
     
     NSString *soundEffectName = self.soundNamesArray[sender.tag];
     if(sender.tag < 2 || allFeaturesAvailable){
@@ -426,7 +428,7 @@
 
 -(IBAction)backgroundSelected:(UIButton *)sender
 {
-    BOOL allFeaturesAvailable = [[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT];
+    BOOL allFeaturesAvailable = self.productsPurchased;
     
     if(sender.tag < 2 || allFeaturesAvailable){
         [self.backgroundSelectorCell refreshWithSelectedButtonIndex:sender.tag itemsPurchased:allFeaturesAvailable];
@@ -441,16 +443,21 @@
 
 -(IBAction)toggleIntervals:(UIButton *)sender
 {
-    if([[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]){
-        
-        NSIndexPath *indexPath = [self.tableView indexPathForCell:self.intervalCell];
+    if(self.productsPurchased){
         self.displayIntervals = !self.displayIntervals;
-        self.intervalCell = nil;
-        [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
+        [self resetIntervalCell];
+        
     } else {
         NSLog(@"not purchased yet");
         [self showPurchaseAlertForProduct:@"Meditation Intervals" withSoundEffect:NO];
     }
+}
+
+-(void)resetIntervalCell
+{
+    NSIndexPath *indexPath = [self.tableView indexPathForCell:self.intervalCell];
+    self.intervalCell = nil;
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
 }
 
 
@@ -459,10 +466,7 @@
 -(void)refreshIntervalCell
 {
     NSInteger intervalIndex = [self selectedIntervalIndex];
-    [self.intervalCell refreshWithIntervalArray:self.intervalArray andSelectedButtonIndex:intervalIndex];
-    
-    NSNumber *minutes = self.intervalArray[intervalIndex];
-    [self.intervalCell.minutePickerView selectRow:[minutes integerValue] inComponent:0 animated:YES];
+    [self.intervalCell refreshWithIntervalArray:self.intervalArray selectedButtonIndex:intervalIndex intervalsAllowed:self.productsPurchased];
 }
 
 -(NSInteger)selectedIntervalIndex

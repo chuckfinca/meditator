@@ -7,7 +7,9 @@
 //
 
 #import "IntervalCell.h"
+#import "RestrictedTouchPickerView.h"
 #import "FontThemer.h"
+#import "ColorSchemer.h"
 
 @interface IntervalCell ()
 
@@ -16,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *buttonArrayToBottomConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *intervalLabel;
 @property (weak, nonatomic) IBOutlet UILabel *pickerLabel;
+@property (weak, nonatomic) IBOutlet RestrictedTouchPickerView *minutePickerView;
+@property (nonatomic, strong) UIImageView *lockImageView;
 @end
 
 @implementation IntervalCell
@@ -37,6 +41,26 @@
     [self setCellHeight];
 }
 
+-(UIImageView *)lockImageView
+{
+    if(!_lockImageView){
+        _lockImageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"lock"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
+        _lockImageView.frame = CGRectMake(self.toggleIntervalsButton.frame.origin.x+self.toggleIntervalsButton.frame.size.width-_lockImageView.bounds.size.width/1.3, self.toggleIntervalsButton.frame.origin.y+self.toggleIntervalsButton.frame.size.height-_lockImageView.bounds.size.height/1.3, _lockImageView.bounds.size.width/1.5, _lockImageView.bounds.size.height/1.5);
+        _lockImageView.tintColor = [UIColor grayColor];
+        [self addSubview:_lockImageView];
+    }
+    return _lockImageView;
+}
+
+-(void)setupIntervalCellWithDelegate:(id)delegate dataSource:(id)dataSource intervalArray:(NSArray *)intervalArray intervalsAllowed:(BOOL)intervalsAllowed
+{
+    self.minutePickerView.delegate = delegate;
+    self.minutePickerView.dataSource = dataSource;
+    [self refreshWithIntervalArray:intervalArray selectedButtonIndex:0 intervalsAllowed:intervalsAllowed];
+    NSNumber *minutes = intervalArray[0];
+    [self.minutePickerView selectRow:[minutes integerValue] inComponent:0 animated:NO];
+}
+
 -(void)setCellHeight
 {
     float height = 0;
@@ -54,13 +78,19 @@
     self.bounds = CGRectMake(0, 0, self.bounds.size.width, height);
 }
 
--(void)refreshWithIntervalArray:(NSArray *)intervalsArray andSelectedButtonIndex:(NSInteger)selectedButtonIndex
+-(void)refreshWithIntervalArray:(NSArray *)intervalArray selectedButtonIndex:(NSInteger)selectedButtonIndex intervalsAllowed:(BOOL)intervalsAllowed
 {
     NSInteger numberOfActiveIntervals = 0;
-    for(NSNumber *minutes in intervalsArray){
+    for(NSNumber *minutes in intervalArray){
         if([minutes integerValue] > 0){
             numberOfActiveIntervals++;
         }
+    }
+    
+    if(!intervalsAllowed){
+        self.lockImageView.hidden = NO;
+    } else {
+        self.lockImageView.hidden = YES;
     }
     
     for(UIButton *button in self.buttonArray){
@@ -79,7 +109,7 @@
     
     for(UIButton *button in self.buttonArray){
         
-        NSNumber *minutes = (NSNumber *)intervalsArray[button.tag];
+        NSNumber *minutes = (NSNumber *)intervalArray[button.tag];
         NSString *title = [minutes stringValue];
         
         if(selectedButtonIndex == button.tag){
@@ -105,13 +135,16 @@
         [button setAttributedTitle:attributedTitle forState:UIControlStateSelected];
     }
     
-    if([intervalsArray  isEqual: @[@15,@0,@0,@0,@0]]){
+    if([intervalArray  isEqual: @[@15,@0,@0,@0,@0]]){
         self.resetButton.enabled = NO;
     } else {
         self.resetButton.enabled = YES;
     }
     
     self.intervalLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Interval %ld",selectedButtonIndex+1] attributes:[FontThemer sharedInstance].primaryHeadlineTextAttributes];
+    
+    NSNumber *minutes = (NSNumber *)intervalArray[selectedButtonIndex];
+    [self.minutePickerView selectRow:[minutes integerValue] inComponent:0 animated:YES];
 }
 
 

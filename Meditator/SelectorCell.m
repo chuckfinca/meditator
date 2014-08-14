@@ -24,7 +24,7 @@
     for(UIButton *button in self.buttonArray){
         button.layer.cornerRadius = 4;
         button.clipsToBounds = YES;
-        button.contentMode = UIViewContentModeScaleAspectFill;
+        button.imageView.contentMode = UIViewContentModeScaleAspectFill;
     }
 }
 
@@ -63,7 +63,7 @@
             
             if(!itemsPurchased && button.tag > self.numberOfFreeSelections - 1){
                 UIImageView *iv = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"lock"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
-                iv.tintColor = [UIColor lightGrayColor];
+                iv.tintColor = [UIColor grayColor];
                 iv.frame = CGRectMake(button.frame.origin.x+button.frame.size.width-iv.bounds.size.width/1.5, button.frame.origin.y+button.frame.size.height-iv.bounds.size.height/1.5, iv.bounds.size.width, iv.bounds.size.height);
                 [self addSubview:iv];
                 [self.lockImageViewArray addObject:iv];
