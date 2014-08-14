@@ -46,7 +46,7 @@
     if(!_lockImageView){
         _lockImageView = [[UIImageView alloc] initWithImage:[[UIImage imageNamed:@"lock"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate]];
         _lockImageView.frame = CGRectMake(self.toggleIntervalsButton.frame.origin.x+self.toggleIntervalsButton.frame.size.width-_lockImageView.bounds.size.width/1.3, self.toggleIntervalsButton.frame.origin.y+self.toggleIntervalsButton.frame.size.height-_lockImageView.bounds.size.height/1.3, _lockImageView.bounds.size.width/1.5, _lockImageView.bounds.size.height/1.5);
-        _lockImageView.tintColor = [UIColor grayColor];
+        _lockImageView.tintColor = [ColorSchemer sharedInstance].gray;
         [self addSubview:_lockImageView];
     }
     return _lockImageView;
