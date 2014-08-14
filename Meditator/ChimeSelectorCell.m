@@ -21,6 +21,20 @@
 {
     [super awakeFromNib];
     
+    for(UIButton *button in self.buttonArray){
+        if(button.tag == 0){
+            [button setImage:[[UIImage imageNamed:@"vibrate"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        } else if(button.tag == 1){
+            [button setImage:[[UIImage imageNamed:@"tingshas"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        } else if(button.tag == 2){
+            [button setImage:[[UIImage imageNamed:@"gong"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        } else if(button.tag == 3){
+            [button setImage:[[UIImage imageNamed:@"bell"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        } else {
+            [button setImage:[[UIImage imageNamed:@"bowl"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
+        }
+    }
+    
     NSAttributedString *attributedTitle = [[NSAttributedString alloc] initWithString:@"times" attributes:[FontThemer sharedInstance].primaryBodyTextAttributes];
     self.timesLabel.attributedText = attributedTitle;
 }

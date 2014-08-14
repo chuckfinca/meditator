@@ -153,21 +153,7 @@
 {
     if(!_soundSelectorCell){
         _soundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"ChimeSelectorCell" owner:self options:nil] firstObject];
-        [_soundSelectorCell refreshWithSelectedButtonIndex:[[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_SOUND_INDEX]];
-        
-        for(UIButton *button in _soundSelectorCell.buttonArray){
-            if(button.tag == 0){
-                [button setImage:[[UIImage imageNamed:@"vibrate"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-            } else if(button.tag == 1){
-                [button setImage:[[UIImage imageNamed:@"tingshas"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-            } else if(button.tag == 2){
-                [button setImage:[[UIImage imageNamed:@"gong"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-            } else if(button.tag == 3){
-                [button setImage:[[UIImage imageNamed:@"bell"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-            } else {
-                [button setImage:[[UIImage imageNamed:@"bowl"] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] forState:UIControlStateNormal];
-            }
-        }
+        [_soundSelectorCell setupWithSelectedButtonIndex:[[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_SOUND_INDEX]  numberOfFreeSelections:2 itemsPurchased:[[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]];
     }
     return _soundSelectorCell;
 }
@@ -181,7 +167,7 @@
 {
     if(!_backgroundSelectorCell){
         _backgroundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"SelectorCell" owner:self options:nil] firstObject];
-        [_backgroundSelectorCell refreshWithSelectedButtonIndex:[[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_BACKGROUND_INDEX]];
+        [_backgroundSelectorCell setupWithSelectedButtonIndex:[[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_BACKGROUND_INDEX]  numberOfFreeSelections:2 itemsPurchased:[[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]];
     }
     return _backgroundSelectorCell;
 }
@@ -391,10 +377,12 @@
 
 -(IBAction)soundSelected:(UIButton *)sender
 {
+    BOOL allFeaturesAvailable = [[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT];
+    
     NSString *soundEffectName = self.soundNamesArray[sender.tag];
-    if(sender.tag < 2 || [[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]){
+    if(sender.tag < 2 || allFeaturesAvailable){
         
-        [self.soundSelectorCell refreshWithSelectedButtonIndex:sender.tag];
+        [self.soundSelectorCell refreshWithSelectedButtonIndex:sender.tag itemsPurchased:allFeaturesAvailable];
         self.selectedSoundIndex = sender.tag;
         
         [self playSoundNamed:soundEffectName];
@@ -416,8 +404,8 @@
     NSString *soundEffectName;
     
     if(soundEffect){
-        productName = [NSString stringWithFormat:@"the %@ chime",[productName capitalizedString]];
         soundEffectName = productName;
+        productName = [NSString stringWithFormat:@"the %@ chime",[productName capitalizedString]];
     }
     
     UIActionSheet *actionSheet = [self.purchaser actionSheetForProduct:productName withSoundPreview:soundEffectName andProductsLoaded:self.productsLoaded];
@@ -438,8 +426,10 @@
 
 -(IBAction)backgroundSelected:(UIButton *)sender
 {
-    if(sender.tag < 2 || [[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT]){
-        [self.backgroundSelectorCell refreshWithSelectedButtonIndex:sender.tag];
+    BOOL allFeaturesAvailable = [[MindTimerIAPHelper sharedInstance] productPurchased:ALL_FEATURES_PRODUCT];
+    
+    if(sender.tag < 2 || allFeaturesAvailable){
+        [self.backgroundSelectorCell refreshWithSelectedButtonIndex:sender.tag itemsPurchased:allFeaturesAvailable];
         self.selectedBackgroundIndex = sender.tag;
         
         [[NSUserDefaults standardUserDefaults] setInteger:sender.tag forKey:SELECTED_BACKGROUND_INDEX];
@@ -485,7 +475,7 @@
             break;
         }
     }
-
+    
     return selectedIntervalIndex;
 }
 
