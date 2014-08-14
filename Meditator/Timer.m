@@ -10,7 +10,7 @@
 #import "SoundEffectPlayer.h"
 #import "GoogleAnalyticsHelper.h"
 
-#define CHIME_REPEAT_INTERVAL 2
+#define CHIME_REPEAT_INTERVAL 3
 
 @interface Timer ()
 

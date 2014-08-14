@@ -25,6 +25,7 @@
 #define TIMER_INTERVAL_ARRAY @"TimerIntervalArray"
 #define DEFAULT_INTERVAL_ARRAY @[@15,@0,@0,@0,@0]
 #define MAX_TIMER_LENGTH 91
+#define NUMBER_OF_CHIMES @"NumberOfChimes"
 
 @interface SettingsTableViewController () <RefreshIntervalCellDelegate>
 
@@ -74,7 +75,8 @@
 {
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playSound:) name:@"PlaySound" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(unlockFeatures) name:IAPHelperProductPurchasedNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshCells) name:IAPHelperProductPurchasedNotification object:nil];
+    [self refreshCells];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -83,9 +85,9 @@
     [GoogleAnalyticsHelper logScreenNamed:@"Settings Screen"];
 }
 
--(void)unlockFeatures
+-(void)refreshCells
 {
-    [self.intervalCell refreshWithIntervalArray:self.intervalArray selectedButtonIndex:0 intervalsAllowed:YES];
+    [self.intervalCell refreshWithIntervalArray:self.intervalArray selectedButtonIndex:0 intervalsAllowed:self.productsPurchased];
     [self.soundSelectorCell refreshWithSelectedButtonIndex:self.selectedSoundIndex itemsPurchased:self.productsPurchased];
     [self.backgroundSelectorCell refreshWithSelectedButtonIndex:self.selectedBackgroundIndex itemsPurchased:self.productsPurchased];
 }
@@ -156,9 +158,12 @@
     if(!_soundSelectorCell){
         _soundSelectorCell = [[[NSBundle mainBundle] loadNibNamed:@"ChimeSelectorCell" owner:self options:nil] firstObject];
         [_soundSelectorCell setupWithSelectedButtonIndex:[[NSUserDefaults standardUserDefaults] integerForKey:SELECTED_SOUND_INDEX]  numberOfFreeSelections:2 itemsPurchased:self.productsPurchased];
+        _soundSelectorCell.numberOfTimesSegmentedControl.selectedSegmentIndex = [[NSUserDefaults standardUserDefaults] integerForKey:NUMBER_OF_CHIMES];
+        [_soundSelectorCell.numberOfTimesSegmentedControl addTarget:self action:@selector(changeNumberOfChimes) forControlEvents:UIControlEventValueChanged];
     }
     return _soundSelectorCell;
 }
+
 
 -(NSArray *)soundNamesArray
 {
@@ -458,6 +463,13 @@
     NSIndexPath *indexPath = [self.tableView indexPathForCell:self.intervalCell];
     self.intervalCell = nil;
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:UITableViewRowAnimationAutomatic];
+}
+
+-(void)changeNumberOfChimes
+{
+    NSLog(@"%ld",(long)self.soundSelectorCell.numberOfTimesSegmentedControl.selectedSegmentIndex);
+    [[NSUserDefaults standardUserDefaults] setInteger:self.soundSelectorCell.numberOfTimesSegmentedControl.selectedSegmentIndex forKey:NUMBER_OF_CHIMES];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 
