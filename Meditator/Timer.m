@@ -65,12 +65,11 @@ static Timer *sharedInstance;
             break;
         }
         
-        
-        
         //FOR TESTING
         NSInteger intervalDurationInSeconds = [minutes integerValue] * 60;
+        /*
         if(intervalDurationInSeconds == 60) intervalDurationInSeconds = 10;
-        
+         */
         
         totalTime += intervalDurationInSeconds;
         [chimeTimesArray addObject:@(totalTime)];
