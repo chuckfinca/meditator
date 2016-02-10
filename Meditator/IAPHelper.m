@@ -85,11 +85,16 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 
 -(void)buyProduct:(SKProduct *)product
 {
-    NSLog(@"Buying %@",product.productIdentifier);
-    SKPayment *payment = [SKPayment paymentWithProduct:product];
-    [[SKPaymentQueue defaultQueue] addPayment:payment];
-    
-    [self startActivityIndicatorForAction:@"Purchasing..."];
+    if(product.productIdentifier){
+        NSLog(@"Buying %@",product.productIdentifier);
+        SKPayment *payment = [SKPayment paymentWithProduct:product];
+        [[SKPaymentQueue defaultQueue] addPayment:payment];
+        
+        [self startActivityIndicatorForAction:@"Purchasing..."];
+        
+    } else {
+        [GoogleAnalyticsHelper logEventWithCategory:@"Buy" action:@"productID = nil" label:product.description value:nil];
+    }
 }
 
 
