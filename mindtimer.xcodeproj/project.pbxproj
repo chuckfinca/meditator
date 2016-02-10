@@ -16,6 +16,7 @@
 		C911780E1C62C286008EF57B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C911780D1C62C286008EF57B /* GoogleService-Info.plist */; };
 		C91178111C63C263008EF57B /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C911780F1C63C099008EF57B /* Fabric.framework */; };
 		C922FAD01C6BFA2100A94196 /* GoogleAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C922FACF1C6BFA2100A94196 /* GoogleAnalyticsHelper.m */; };
+		C922FAD21C6BFE8D00A94196 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C922FAD11C6BFE8D00A94196 /* Launch Screen.storyboard */; };
 		C92714A619999E5F000D4640 /* SavedStateTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92714A519999E5F000D4640 /* SavedStateTabBarController.m */; };
 		C9408007196B481800A55343 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9408006196B481800A55343 /* Foundation.framework */; };
 		C9408009196B481800A55343 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9408008196B481800A55343 /* CoreGraphics.framework */; };
@@ -99,6 +100,7 @@
 		C911780F1C63C099008EF57B /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
 		C922FACE1C6BFA2100A94196 /* GoogleAnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleAnalyticsHelper.h; sourceTree = "<group>"; };
 		C922FACF1C6BFA2100A94196 /* GoogleAnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleAnalyticsHelper.m; sourceTree = "<group>"; };
+		C922FAD11C6BFE8D00A94196 /* Launch Screen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		C92714A419999E5F000D4640 /* SavedStateTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedStateTabBarController.h; sourceTree = "<group>"; };
 		C92714A519999E5F000D4640 /* SavedStateTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedStateTabBarController.m; sourceTree = "<group>"; };
 		C9408003196B481800A55343 /* mindtimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mindtimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -273,6 +275,7 @@
 				C9408016196B481800A55343 /* AppDelegate.m */,
 				C9408018196B481800A55343 /* Main_iPhone.storyboard */,
 				C940801B196B481800A55343 /* Main_iPad.storyboard */,
+				C922FAD11C6BFE8D00A94196 /* Launch Screen.storyboard */,
 				C9408021196B481800A55343 /* Images.xcassets */,
 				C905B4EF1974843A00597899 /* InstructionsViewController.h */,
 				C905B4F01974843A00597899 /* InstructionsViewController.m */,
@@ -538,6 +541,7 @@
 				C954B9E41977510800FD4FAB /* SingleIntervalCell.xib in Resources */,
 				C954B9E919787C1700FD4FAB /* StartCell.xib in Resources */,
 				C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */,
+				C922FAD21C6BFE8D00A94196 /* Launch Screen.storyboard in Resources */,
 				C911780E1C62C286008EF57B /* GoogleService-Info.plist in Resources */,
 				C954B9DC19771E5900FD4FAB /* IntervalCell.xib in Resources */,
 				C9ABC3F81995AC730049A893 /* ChimeSelectorCell.xib in Resources */,
