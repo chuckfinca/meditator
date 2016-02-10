@@ -44,7 +44,6 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.screenName = @"Timer Screen";
     
     self.statusLabel.attributedText = [[NSAttributedString alloc] initWithString:@"begin" attributes:[FontThemer sharedInstance].whiteSubHeadlineTextAttributes];
     self.statusLabel.alpha = 0;

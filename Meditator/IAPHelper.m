@@ -188,11 +188,13 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
 -(void)provideContentForProductIdentifier:(NSString *)productIdentifier
 {
     NSLog(@"productIdentifier = %@",productIdentifier);
-    [self.purchasedProductIdentifiers addObject:productIdentifier];
-    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:productIdentifier];
-    [[NSUserDefaults standardUserDefaults] synchronize];
-    
-    [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification object:productIdentifier];
+    if(productIdentifier){
+        [self.purchasedProductIdentifiers addObject:productIdentifier];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:productIdentifier];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:IAPHelperProductPurchasedNotification object:productIdentifier];
+    }
 }
 
 
@@ -220,7 +222,7 @@ NSString *const IAPHelperProductPurchasedNotification = @"IAPHelperProductPurcha
     
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:alertTitle message:nil delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
     [alert show];
-    
+
 }
 
 -(void)paymentQueue:(SKPaymentQueue *)queue restoreCompletedTransactionsFailedWithError:(NSError *)error

@@ -1,5 +1,4 @@
 platform :ios, '7.1'
 
-
-pod 'GoogleAnalytics-iOS-SDK', '~> 3.0.9'
-pod 'GoogleConversionTracking', '~> 3.0'
+pod 'Google/Analytics'
+pod 'Fabric', '~> 1.6'

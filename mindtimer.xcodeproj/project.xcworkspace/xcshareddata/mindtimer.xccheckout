@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>DF243397-D300-4E7D-94A6-4F66C90F0FF2</string>
+	<key>IDESourceControlProjectName</key>
+	<string>mindtimer</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>2C6B844D2D256760B788D34C677B68CE8D906E3B</key>
+		<string>github.com:chuckfinca/meditator</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>mindtimer.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>2C6B844D2D256760B788D34C677B68CE8D906E3B</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:chuckfinca/meditator</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>2C6B844D2D256760B788D34C677B68CE8D906E3B</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>2C6B844D2D256760B788D34C677B68CE8D906E3B</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Meditator</string>
+		</dict>
+	</array>
+</dict>
+</plist>

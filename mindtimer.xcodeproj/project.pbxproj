@@ -7,12 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		39F7C89C38744A1B94D7C551 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C09B21B298F94070B93753E4 /* libPods.a */; };
+		2F82BCBE111039156C87ABFE /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B555B571661378704D4AEA8A /* libPods.a */; };
 		C905B4EE19747CE300597899 /* LocalNotificationScheduler.m in Sources */ = {isa = PBXBuildFile; fileRef = C905B4ED19747CE300597899 /* LocalNotificationScheduler.m */; };
 		C905B4F11974843A00597899 /* InstructionsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C905B4F01974843A00597899 /* InstructionsViewController.m */; };
 		C905B4F319748F9100597899 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905B4F219748F9100597899 /* AudioToolbox.framework */; };
 		C905B4F8197499F300597899 /* SoundEffectPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C905B4F7197499F300597899 /* SoundEffectPlayer.m */; };
 		C905B4FA1974AFD200597899 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C905B4F91974AFD200597899 /* AVFoundation.framework */; };
+		C911780E1C62C286008EF57B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C911780D1C62C286008EF57B /* GoogleService-Info.plist */; };
+		C91178111C63C263008EF57B /* Fabric.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C911780F1C63C099008EF57B /* Fabric.framework */; };
+		C922FAD01C6BFA2100A94196 /* GoogleAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C922FACF1C6BFA2100A94196 /* GoogleAnalyticsHelper.m */; };
 		C92714A619999E5F000D4640 /* SavedStateTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = C92714A519999E5F000D4640 /* SavedStateTabBarController.m */; };
 		C9408007196B481800A55343 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9408006196B481800A55343 /* Foundation.framework */; };
 		C9408009196B481800A55343 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9408008196B481800A55343 /* CoreGraphics.framework */; };
@@ -60,8 +63,6 @@
 		C9ABC3F81995AC730049A893 /* ChimeSelectorCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9ABC3F71995AC730049A893 /* ChimeSelectorCell.xib */; };
 		C9CC074D199C116800E10E3C /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CC074C199C116800E10E3C /* CoreData.framework */; };
 		C9CC074F199C117A00E10E3C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CC074E199C117A00E10E3C /* SystemConfiguration.framework */; };
-		C9CC0751199C11AD00E10E3C /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C9CC0750199C11AD00E10E3C /* libGoogleAnalyticsServices.a */; };
-		C9CC0757199C18C800E10E3C /* GoogleAnalyticsHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C9CC0756199C18C800E10E3C /* GoogleAnalyticsHelper.m */; };
 		C9D45D7B1981D4D80059C3C2 /* AppDictionariesList.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */; };
 		C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C9D45D7D1981DF4A0059C3C2 /* RoundedRectButton.m */; };
 		C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = C9D45D82198335240059C3C2 /* AppDetailsViewController_iPad.xib */; };
@@ -83,8 +84,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		B08891E72853412E87440466 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
-		C09B21B298F94070B93753E4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FEFEC447BDDA55DD9972CA3 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		B36ABE6053C59FEB71B88CE4 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		B555B571661378704D4AEA8A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C905B4EC19747CE300597899 /* LocalNotificationScheduler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalNotificationScheduler.h; sourceTree = "<group>"; };
 		C905B4ED19747CE300597899 /* LocalNotificationScheduler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalNotificationScheduler.m; sourceTree = "<group>"; };
 		C905B4EF1974843A00597899 /* InstructionsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InstructionsViewController.h; sourceTree = "<group>"; };
@@ -93,6 +95,10 @@
 		C905B4F6197499F300597899 /* SoundEffectPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoundEffectPlayer.h; sourceTree = "<group>"; };
 		C905B4F7197499F300597899 /* SoundEffectPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoundEffectPlayer.m; sourceTree = "<group>"; };
 		C905B4F91974AFD200597899 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		C911780D1C62C286008EF57B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C911780F1C63C099008EF57B /* Fabric.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Fabric.framework; sourceTree = "<group>"; };
+		C922FACE1C6BFA2100A94196 /* GoogleAnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleAnalyticsHelper.h; sourceTree = "<group>"; };
+		C922FACF1C6BFA2100A94196 /* GoogleAnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleAnalyticsHelper.m; sourceTree = "<group>"; };
 		C92714A419999E5F000D4640 /* SavedStateTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SavedStateTabBarController.h; sourceTree = "<group>"; };
 		C92714A519999E5F000D4640 /* SavedStateTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SavedStateTabBarController.m; sourceTree = "<group>"; };
 		C9408003196B481800A55343 /* mindtimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mindtimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -163,9 +169,6 @@
 		C9ABC3F71995AC730049A893 /* ChimeSelectorCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChimeSelectorCell.xib; sourceTree = "<group>"; };
 		C9CC074C199C116800E10E3C /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		C9CC074E199C117A00E10E3C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
-		C9CC0750199C11AD00E10E3C /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = "Pods/GoogleAnalytics-iOS-SDK/libGoogleAnalyticsServices.a"; sourceTree = "<group>"; };
-		C9CC0755199C18C800E10E3C /* GoogleAnalyticsHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleAnalyticsHelper.h; sourceTree = "<group>"; };
-		C9CC0756199C18C800E10E3C /* GoogleAnalyticsHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleAnalyticsHelper.m; sourceTree = "<group>"; };
 		C9D45D791981D4D80059C3C2 /* AppDictionariesList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDictionariesList.h; sourceTree = "<group>"; };
 		C9D45D7A1981D4D80059C3C2 /* AppDictionariesList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDictionariesList.m; sourceTree = "<group>"; };
 		C9D45D7C1981DF4A0059C3C2 /* RoundedRectButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RoundedRectButton.h; sourceTree = "<group>"; };
@@ -187,17 +190,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9CC0751199C11AD00E10E3C /* libGoogleAnalyticsServices.a in Frameworks */,
 				C9CC074F199C117A00E10E3C /* SystemConfiguration.framework in Frameworks */,
 				C9CC074D199C116800E10E3C /* CoreData.framework in Frameworks */,
 				C9E81774199426520034339A /* Crashlytics.framework in Frameworks */,
+				C91178111C63C263008EF57B /* Fabric.framework in Frameworks */,
 				C954BA00197DD97600FD4FAB /* StoreKit.framework in Frameworks */,
 				C905B4FA1974AFD200597899 /* AVFoundation.framework in Frameworks */,
 				C905B4F319748F9100597899 /* AudioToolbox.framework in Frameworks */,
 				C9408009196B481800A55343 /* CoreGraphics.framework in Frameworks */,
 				C940800B196B481800A55343 /* UIKit.framework in Frameworks */,
 				C9408007196B481800A55343 /* Foundation.framework in Frameworks */,
-				39F7C89C38744A1B94D7C551 /* libPods.a in Frameworks */,
+				2F82BCBE111039156C87ABFE /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +217,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		677153C94E0E78BC0F7722C3 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2FEFEC447BDDA55DD9972CA3 /* Pods.debug.xcconfig */,
+				B36ABE6053C59FEB71B88CE4 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		C9407FFA196B481800A55343 = {
 			isa = PBXGroup;
 			children = (
@@ -222,7 +234,7 @@
 				C940802E196B481900A55343 /* MeditatorTests */,
 				C9408005196B481800A55343 /* Frameworks */,
 				C9408004196B481800A55343 /* Products */,
-				B08891E72853412E87440466 /* Pods.xcconfig */,
+				677153C94E0E78BC0F7722C3 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -238,7 +250,7 @@
 		C9408005196B481800A55343 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				C9CC0750199C11AD00E10E3C /* libGoogleAnalyticsServices.a */,
+				C911780F1C63C099008EF57B /* Fabric.framework */,
 				C9CC074E199C117A00E10E3C /* SystemConfiguration.framework */,
 				C9CC074C199C116800E10E3C /* CoreData.framework */,
 				C9E81773199426520034339A /* Crashlytics.framework */,
@@ -249,7 +261,7 @@
 				C9408008196B481800A55343 /* CoreGraphics.framework */,
 				C940800A196B481800A55343 /* UIKit.framework */,
 				C9408028196B481900A55343 /* XCTest.framework */,
-				C09B21B298F94070B93753E4 /* libPods.a */,
+				B555B571661378704D4AEA8A /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -273,6 +285,8 @@
 				C954BA01197DE59F00FD4FAB /* App Details */,
 				C9408050196C99A600A55343 /* Cells */,
 				C9E8177B19942CF10034339A /* Theme */,
+				C922FACE1C6BFA2100A94196 /* GoogleAnalyticsHelper.h */,
+				C922FACF1C6BFA2100A94196 /* GoogleAnalyticsHelper.m */,
 				C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */,
 				C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */,
 				C9901EDD1970B6E6005A8734 /* TimerLabel.h */,
@@ -301,8 +315,6 @@
 				C9D45D8519833E650059C3C2 /* VariableHeightLabel.m */,
 				C92714A419999E5F000D4640 /* SavedStateTabBarController.h */,
 				C92714A519999E5F000D4640 /* SavedStateTabBarController.m */,
-				C9CC0755199C18C800E10E3C /* GoogleAnalyticsHelper.h */,
-				C9CC0756199C18C800E10E3C /* GoogleAnalyticsHelper.m */,
 			);
 			path = Meditator;
 			sourceTree = "<group>";
@@ -315,6 +327,7 @@
 				C940800F196B481800A55343 /* InfoPlist.strings */,
 				C9408012196B481800A55343 /* main.m */,
 				C9408014196B481800A55343 /* mindtimer-Prefix.pch */,
+				C911780D1C62C286008EF57B /* GoogleService-Info.plist */,
 			);
 			name = "Supporting Files";
 			path = Meditator;
@@ -437,12 +450,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9408038196B481900A55343 /* Build configuration list for PBXNativeTarget "mindtimer" */;
 			buildPhases = (
-				1E63EEE7611547CE8702DFD2 /* Check Pods Manifest.lock */,
+				86599FEC8FC1F067CEE449A7 /* Check Pods Manifest.lock */,
 				C9407FFF196B481800A55343 /* Sources */,
 				C9408000196B481800A55343 /* Frameworks */,
 				C9408001196B481800A55343 /* Resources */,
-				F215BF64BBE9486CBBFD8216 /* Copy Pods Resources */,
 				C9E81772199426080034339A /* ShellScript */,
+				1A51D5D567F2FAF788B3F30E /* Embed Pods Frameworks */,
+				CD4EF434E7977921D2B4029B /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -477,9 +491,12 @@
 		C9407FFB196B481800A55343 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0510;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = AppSimple;
 				TargetAttributes = {
+					C9408002196B481800A55343 = {
+						DevelopmentTeam = 3E5665FPU5;
+					};
 					C9408026196B481900A55343 = {
 						TestTargetID = C9408002196B481800A55343;
 					};
@@ -521,6 +538,7 @@
 				C954B9E41977510800FD4FAB /* SingleIntervalCell.xib in Resources */,
 				C954B9E919787C1700FD4FAB /* StartCell.xib in Resources */,
 				C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */,
+				C911780E1C62C286008EF57B /* GoogleService-Info.plist in Resources */,
 				C954B9DC19771E5900FD4FAB /* IntervalCell.xib in Resources */,
 				C9ABC3F81995AC730049A893 /* ChimeSelectorCell.xib in Resources */,
 				C9408011196B481800A55343 /* InfoPlist.strings in Resources */,
@@ -539,7 +557,22 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		1E63EEE7611547CE8702DFD2 /* Check Pods Manifest.lock */ = {
+		1A51D5D567F2FAF788B3F30E /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86599FEC8FC1F067CEE449A7 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -567,7 +600,7 @@
 			shellPath = /bin/sh;
 			shellScript = "./Crashlytics.framework/run 8517fac29e50dbb70b924066e248d14a6044d7d6 9c491b9c053ae7674f6c3c0e26bd509a2ca1e0c4efef748ec98aee5bb4b58a9e   ";
 		};
-		F215BF64BBE9486CBBFD8216 /* Copy Pods Resources */ = {
+		CD4EF434E7977921D2B4029B /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -579,7 +612,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -616,7 +649,7 @@
 				C954B9FE197DCCC000FD4FAB /* IAPHelper.m in Sources */,
 				C954B9F01979EBA500FD4FAB /* CompanyInfoTVController.m in Sources */,
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,
-				C9CC0757199C18C800E10E3C /* GoogleAnalyticsHelper.m in Sources */,
+				C922FAD01C6BFA2100A94196 /* GoogleAnalyticsHelper.m in Sources */,
 				C940804C196B6EE600A55343 /* SelectorCell.m in Sources */,
 				C9408013196B481800A55343 /* main.m in Sources */,
 				C9901EDF1970B6E6005A8734 /* TimerLabel.m in Sources */,
@@ -695,6 +728,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -751,10 +785,13 @@
 		};
 		C9408039196B481900A55343 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B08891E72853412E87440466 /* Pods.xcconfig */;
+			baseConfigurationReference = 2FEFEC447BDDA55DD9972CA3 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -764,20 +801,25 @@
 				INFOPLIST_FILE = "Meditator/mindtimer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/GoogleAnalytics-iOS-SDK",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.appsimple.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = mindtimer;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		C940803A196B481900A55343 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B08891E72853412E87440466 /* Pods.xcconfig */;
+			baseConfigurationReference = B36ABE6053C59FEB71B88CE4 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -787,10 +829,12 @@
 				INFOPLIST_FILE = "Meditator/mindtimer-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LIBRARY_SEARCH_PATHS = (
+					"$(PROJECT_DIR)",
 					"$(inherited)",
-					"$(PROJECT_DIR)/Pods/GoogleAnalytics-iOS-SDK",
 				);
+				PRODUCT_BUNDLE_IDENTIFIER = "io.appsimple.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = mindtimer;
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -811,6 +855,7 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "MeditatorTests/mindtimerTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.appsimple.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = mindtimerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
@@ -829,6 +874,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Meditator/Meditator-Prefix.pch";
 				INFOPLIST_FILE = "MeditatorTests/mindtimerTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.appsimple.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = mindtimerTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;

@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 AppSimple. All rights reserved.
 //
 
-#import "GAITrackedViewController.h"
+#import <Foundation/Foundation.h>
 
-@interface TimerViewController : GAITrackedViewController
+@interface TimerViewController : UIViewController
 
 -(void)setTimerIntervalArray:(NSArray *)intervalArray withSoundEffect:(NSString *)soundEffectName numberOfChimes:(NSInteger)numberOfChimes andBackground:(NSString *)backgroundName;
 

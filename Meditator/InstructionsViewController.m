@@ -49,12 +49,5 @@
     self.textViewHeightConstraint.constant = [self.instructionsTextView sizeThatFits:CGSizeMake(self.instructionsTextView.bounds.size.width, FLT_MAX)].height;
 }
 
--(void)viewDidAppear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-    
-    // Google Analytics
-    self.screenName = @"Instructions Screen";
-}
 
 @end
