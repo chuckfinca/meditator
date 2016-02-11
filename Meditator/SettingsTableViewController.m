@@ -322,7 +322,7 @@
         default:
             break;
     }
-    return cell.bounds.size.height;
+    return [cell.contentView sizeThatFits:UILayoutFittingCompressedSize].height+1;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
