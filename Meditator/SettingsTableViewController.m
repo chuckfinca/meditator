@@ -18,6 +18,7 @@
 #import "ColorSchemer.h"
 #import "FontThemer.h"
 #import "GoogleAnalyticsHelper.h"
+#import "RequestPermissionsCell.h"
 
 #define SELECTED_SOUND_INDEX @"SelectedSoundIndex"
 #define SELECTED_BACKGROUND_INDEX @"SelectedBackgroundIndex"
@@ -33,6 +34,7 @@
 @property (nonatomic, strong) ChimeSelectorCell *soundSelectorCell;
 @property (nonatomic, strong) SelectorCell *backgroundSelectorCell;
 @property (nonatomic, strong) StartCell *startCell;
+@property (nonatomic, strong) RequestPermissionsCell *requestPermissionsCell;
 
 @property (nonatomic, strong) IntervalCellDelegateAndDataSource *intervalCellDelegateAndDataSource;
 @property (nonatomic, strong) NSArray *intervalArray;
@@ -76,7 +78,8 @@
     [super viewWillAppear:animated];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playSound:) name:@"PlaySound" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshCells) name:IAPHelperProductPurchasedNotification object:nil];
-    [self refreshCells];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(notificationSettingsDidChange:) name:@"NOTIFICATION_SETTINGS_DID_CHANGE" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refreshCells) name:UIApplicationWillEnterForegroundNotification object:nil];
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -90,6 +93,7 @@
     [self.intervalCell refreshWithIntervalArray:self.intervalArray selectedButtonIndex:0 intervalsAllowed:self.productsPurchased];
     [self.soundSelectorCell refreshWithSelectedButtonIndex:self.selectedSoundIndex itemsPurchased:self.productsPurchased];
     [self.backgroundSelectorCell refreshWithSelectedButtonIndex:self.selectedBackgroundIndex itemsPurchased:self.productsPurchased];
+    [self.tableView reloadData];
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -201,6 +205,15 @@
     return _startCell;
 }
 
+-(RequestPermissionsCell *)requestPermissionsCell
+{
+    if(!_requestPermissionsCell){
+        _requestPermissionsCell = [[[NSBundle mainBundle] loadNibNamed:@"RequestPermissionsCell" owner:self options:nil] firstObject];
+        [_requestPermissionsCell.action addTarget:self action:@selector(requestNotificationPermissions:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _requestPermissionsCell;
+}
+
 -(Purchaser *)purchaser
 {
     if(!_purchaser){
@@ -240,8 +253,13 @@
     
     switch (indexPath.section) {
         case 0:
-            cell = self.startCell;
+            if([self hasNecessaryNotificationPermissions]){
+                cell = self.startCell;
+            } else {
+                cell = self.requestPermissionsCell;
+            }
             break;
+            
         case 1:
             cell = self.intervalCell;
             for(UIButton *button in self.intervalCell.buttonArray){
@@ -307,7 +325,11 @@
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:
-            cell = self.startCell;
+            if([self hasNecessaryNotificationPermissions]){
+                cell = self.startCell;
+            } else {
+                cell = self.requestPermissionsCell;
+            }
             break;
         case 1:
             cell = self.intervalCell;
@@ -472,7 +494,6 @@
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-
 #pragma mark - RefreshIntervalCellDelegate
 
 -(void)refreshIntervalCell
@@ -521,7 +542,61 @@
 
 
 
+#pragma mark - Notification permissions
 
+-(BOOL)hasNecessaryNotificationPermissions
+{
+    BOOL hasPermissions = NO;
+    BOOL needsPermissions = [[UIApplication sharedApplication] respondsToSelector:@selector(currentUserNotificationSettings)];
+    if (needsPermissions){
+        UIUserNotificationSettings *grantedSettings = [[UIApplication sharedApplication] currentUserNotificationSettings];
+        
+        if (grantedSettings.types & UIUserNotificationTypeSound){
+            hasPermissions = YES;
+        }
+        
+    } else {
+        hasPermissions = YES;
+    }
+    
+    return hasPermissions;
+}
+
+-(IBAction)requestNotificationPermissions:(id)sender
+{
+    BOOL needsPermissions = [[UIApplication sharedApplication] respondsToSelector:@selector(registerUserNotificationSettings:)];
+    
+    if (needsPermissions){
+        UIUserNotificationType types = UIUserNotificationTypeSound|UIUserNotificationTypeAlert;
+        UIUserNotificationSettings *settings = [UIUserNotificationSettings settingsForTypes:types categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
+    }
+}
+
+-(void)notificationSettingsDidChange:(NSNotification *)notification
+{
+    UIUserNotificationSettings *notificationSettings = (UIUserNotificationSettings *)notification.object;
+    
+    if(notificationSettings.types == UIUserNotificationTypeNone){
+        if (floor(NSFoundationVersionNumber) >= NSFoundationVersionNumber_iOS_8_0) {
+            UIAlertController *alertController = [UIAlertController alertControllerWithTitle:@"Notifications Disabled" message:@"In order to use Mind Timer, please open this app's settings and allow sound notifications." preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertAction *defaultAction = [UIAlertAction actionWithTitle:@"Open Settings" style:UIAlertActionStyleDefault handler:^(UIAlertAction * action) {
+                BOOL canOpenSettings = (&UIApplicationOpenSettingsURLString != NULL);
+                if (canOpenSettings) {
+                    NSURL *url = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
+                    [[UIApplication sharedApplication] openURL:url];
+                }
+            }];
+            [alertController addAction:defaultAction];
+            UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * action) {}];
+            [alertController addAction:cancelAction];
+            
+            [self presentViewController:alertController animated:YES completion:^{}];
+        }
+    }
+    
+    [self.tableView reloadData];
+}
 
 - (void)didReceiveMemoryWarning
 {

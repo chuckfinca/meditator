@@ -140,13 +140,33 @@ static Timer *sharedInstance;
     float percentComplete = (float)(totalRemainingTime - elapsedTime) / self.totalTime;
     [self.delegate updateTimerView:percentComplete];
     
-    for(NSNumber *number in self.chimeTimesArray){
-        if([number integerValue] - elapsedTime < 0){
-            [self finished];
+    BOOL timerStillActive = [self timerStillActive];
+    
+    if(timerStillActive){
+        for(NSNumber *number in self.chimeTimesArray){
+            if([number integerValue] - elapsedTime < 0){
+                [self chime];
+            }
         }
     }
     
     [self updateChimesArrayAfterElapsedTime:elapsedTime];
+}
+
+-(BOOL)timerStillActive
+{
+    BOOL timerStillActive = NO;
+    
+    if(self.localNotificationsArray.count > 0){
+        NSDate *now = [NSDate date];
+        for(UILocalNotification *notification in self.localNotificationsArray){
+            if([notification.fireDate laterDate:now] == notification.fireDate){
+                timerStillActive = YES;
+                break;
+            }
+        }
+    }
+    return timerStillActive;
 }
 
 -(void)updateChimesArrayAfterElapsedTime:(NSTimeInterval)elapsedTime
@@ -187,7 +207,6 @@ static Timer *sharedInstance;
         }
         self.chimeTimesArray = newChimeTimesArray;
         
-        
         [self reset];
     }
 }
@@ -204,17 +223,19 @@ static Timer *sharedInstance;
     self.timerIsActive = NO;
 }
 
--(void)finished
+-(void)chime
 {
-    [self playSound];
-    
-    if(self.numberOfChimes > 1){
-        for (NSInteger chime = 1; chime < self.numberOfChimes; chime++) {
-            [NSTimer scheduledTimerWithTimeInterval:CHIME_REPEAT_INTERVAL*chime target:self selector:@selector(playSound) userInfo:nil repeats:NO];
+    if(self.timerIsActive){
+        [self playSound];
+        
+        if(self.numberOfChimes > 1){
+            for (NSInteger chime = 1; chime < self.numberOfChimes; chime++) {
+                [NSTimer scheduledTimerWithTimeInterval:CHIME_REPEAT_INTERVAL*chime target:self selector:@selector(playSound) userInfo:nil repeats:NO];
+            }
         }
+        
+        [GoogleAnalyticsHelper logEventWithCategory:@"Timer" action:@"Finished" label:self.soundEffectFileName value:@(self.totalTime)];
     }
-    
-    [GoogleAnalyticsHelper logEventWithCategory:@"Timer" action:@"Finished" label:self.soundEffectFileName value:@(self.totalTime)];
 }
 
 -(void)playSound

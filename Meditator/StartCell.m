@@ -19,8 +19,6 @@
     
     NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:@"Start Timer" attributes:[FontThemer sharedInstance].whiteHeadlineTextAttributes];
     [self.startButton setAttributedTitle:attributedString forState: UIControlStateNormal];
-    
-    self.tintColor = [ColorSchemer sharedInstance].clickable;
 }
 
 

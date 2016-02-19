@@ -14,6 +14,7 @@
 @property (nonatomic, strong) NSURL *soundUrl;
 @property (nonatomic, strong) NSDate *startTime;
 @property (nonatomic) BOOL timerEnded;
+@property (nonatomic) SystemSoundID soundID;
 
 @end
 
@@ -30,6 +31,7 @@
 
 void SoundMuteCheckCompletion(SystemSoundID  ssID,void *clientData)
 {
+    AudioServicesDisposeSystemSoundID(ssID);
     SoundEffectPlayer *sep = (__bridge SoundEffectPlayer *)clientData;
     NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:sep.startTime];
     if(elapsedTime < 0.4){
@@ -47,10 +49,9 @@ void SoundMuteCheckCompletion(SystemSoundID  ssID,void *clientData)
 {
     self.timerEnded = timerEnded;
     if(self.soundUrl){
-        SystemSoundID soundID;
-        AudioServicesCreateSystemSoundID((__bridge_retained CFURLRef)self.soundUrl,&soundID);
-        AudioServicesAddSystemSoundCompletion(soundID, CFRunLoopGetMain(), kCFRunLoopDefaultMode, SoundMuteCheckCompletion, (__bridge_retained void *)self);
-        AudioServicesPlaySystemSound(soundID);
+        AudioServicesCreateSystemSoundID((__bridge CFURLRef)self.soundUrl,&_soundID);
+        AudioServicesAddSystemSoundCompletion(self.soundID, CFRunLoopGetMain(), kCFRunLoopDefaultMode, SoundMuteCheckCompletion, (__bridge_retained void *)self);
+        AudioServicesPlaySystemSound(self.soundID);
         self.startTime = [NSDate date];
     } else {
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);

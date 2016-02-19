@@ -97,4 +97,9 @@ static ColorSchemer *sharedInstance;
     return _gray;
 }
 
+-(UIColor *)disabled
+{
+    return [UIColor colorWithRed:0.9F green:0.9F blue:0.9F alpha:1.0F];
+}
+
 @end

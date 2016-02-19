@@ -25,4 +25,7 @@
 @property (nonatomic, readonly) UIColor *customBackgroundColor;
 @property (nonatomic, readonly) UIColor *gray;
 
+@property (nonatomic, readonly) UIColor *disabled;
+
+
 @end

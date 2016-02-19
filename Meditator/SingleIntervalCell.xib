@@ -16,9 +16,6 @@
                 <subviews>
                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hiw-Lt-Qyf" customClass="RestrictedTouchPickerView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="161" id="JdC-Ek-tb7"/>
-                        </constraints>
                     </pickerView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mb3-b6-mG9">
                         <rect key="frame" x="276" y="0.0" width="44" height="44"/>

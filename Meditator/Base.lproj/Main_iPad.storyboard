@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="rru-NU-qKI">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="rru-NU-qKI">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
-        <!--Instructions View Controller - Instructions-->
+        <!--Instructions-->
         <scene sceneID="kES-Wz-wgm">
             <objects>
                 <viewController id="6bY-ag-M6w" customClass="InstructionsViewController" sceneMemberID="viewController">
@@ -18,11 +19,9 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zwj-u6-6vH">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="960"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" editable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qHu-5s-2g5">
                                         <rect key="frame" x="20" y="180" width="728" height="201"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="201" id="AOZ-fM-lwO"/>
@@ -34,7 +33,6 @@
                                     </textView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ROB-mF-bov">
                                         <rect key="frame" x="334" y="40" width="100" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="izS-jm-3cD"/>
                                             <constraint firstAttribute="width" constant="100" id="wSF-mz-c1m"/>
@@ -92,7 +90,7 @@
             </objects>
             <point key="canvasLocation" x="-2222" y="815"/>
         </scene>
-        <!--Navigation Controller - Instructions-->
+        <!--Instructions-->
         <scene sceneID="Xwl-OM-cDz">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cYy-CQ-jJ1" sceneMemberID="viewController">
@@ -111,7 +109,7 @@
             </objects>
             <point key="canvasLocation" x="-1246" y="-557"/>
         </scene>
-        <!--Navigation Controller - Timer-->
+        <!--Timer-->
         <scene sceneID="77d-D9-o65">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7Fx-LR-DQ9" sceneMemberID="viewController">
@@ -130,7 +128,7 @@
             </objects>
             <point key="canvasLocation" x="-1246" y="815"/>
         </scene>
-        <!--Company InfoTV Controller - More-->
+        <!--More-->
         <scene sceneID="hUH-UW-m37">
             <objects>
                 <tableViewController id="np1-Zh-An2" customClass="CompanyInfoTVController" sceneMemberID="viewController">
@@ -140,7 +138,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="L9A-hm-EaA">
-                                <rect key="frame" x="0.0" y="119" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="114" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="L9A-hm-EaA" id="3Yj-WF-Dt3">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
@@ -159,7 +157,7 @@
             </objects>
             <point key="canvasLocation" x="-272" y="2183"/>
         </scene>
-        <!--Settings Table View Controller - Timer-->
+        <!--Timer-->
         <scene sceneID="n6E-Qx-c4Q">
             <objects>
                 <tableViewController id="Pgn-Cx-uiQ" customClass="SettingsTableViewController" sceneMemberID="viewController">
@@ -169,7 +167,7 @@
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="cell" id="ERH-Xz-9Cy">
-                                <rect key="frame" x="0.0" y="119" width="768" height="44"/>
+                                <rect key="frame" x="0.0" y="114" width="768" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ERH-Xz-9Cy" id="S4l-b5-Isj">
                                     <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
@@ -205,20 +203,17 @@
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lot-Pz-P9j">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vQP-js-M32" customClass="TimerView">
-                                <rect key="frame" x="309" y="467" width="150" height="90"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <rect key="frame" x="309" y="437" width="150" height="150"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="h42-be-vCZ"/>
-                                    <constraint firstAttribute="height" constant="90" id="i37-xX-Ay5"/>
+                                    <constraint firstAttribute="height" constant="150" id="i37-xX-Ay5"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iST-HH-Kt7">
                                 <rect key="frame" x="362" y="490" width="44" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="44" id="GBq-pT-PEC"/>
                                     <constraint firstAttribute="height" constant="44" id="MQB-0Y-zgz"/>
@@ -232,15 +227,13 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="begin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k2R-jh-OkT" customClass="TimerLabel">
-                                <rect key="frame" x="363" y="597" width="43" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="363" y="627" width="43" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7rK-RR-mun">
                                 <rect key="frame" x="369" y="974" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="end">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -279,7 +272,7 @@
             </objects>
             <point key="canvasLocation" x="699" y="815"/>
         </scene>
-        <!--Navigation Controller - More-->
+        <!--More-->
         <scene sceneID="EuX-kX-xKT">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="tp5-0C-WC1" sceneMemberID="viewController">
@@ -304,9 +297,4 @@
         <image name="more" width="30" height="30"/>
         <image name="tab_timer" width="30" height="30"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination"/>
-    </simulatedMetricsContainer>
 </document>

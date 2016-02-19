@@ -54,6 +54,8 @@
 		C954BA04197DE61400FD4FAB /* MindTimerIAPHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA03197DE61400FD4FAB /* MindTimerIAPHelper.m */; };
 		C954BA07197F27A400FD4FAB /* Purchaser.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA06197F27A400FD4FAB /* Purchaser.m */; };
 		C954BA0D197F405500FD4FAB /* RestrictedTouchPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = C954BA0C197F405500FD4FAB /* RestrictedTouchPickerView.m */; };
+		C97FE1AF1C74D4100029294B /* RequestPermissionsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C97FE1AD1C74D4100029294B /* RequestPermissionsCell.m */; };
+		C97FE1B01C74D4100029294B /* RequestPermissionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C97FE1AE1C74D4100029294B /* RequestPermissionsCell.xib */; };
 		C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */; };
 		C9901EDF1970B6E6005A8734 /* TimerLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = C9901EDE1970B6E6005A8734 /* TimerLabel.m */; };
 		C9ABC3E819957DF00049A893 /* bell.aif in Resources */ = {isa = PBXBuildFile; fileRef = C9ABC3E519957DF00049A893 /* bell.aif */; };
@@ -158,6 +160,9 @@
 		C954BA06197F27A400FD4FAB /* Purchaser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Purchaser.m; sourceTree = "<group>"; };
 		C954BA0B197F405500FD4FAB /* RestrictedTouchPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RestrictedTouchPickerView.h; sourceTree = "<group>"; };
 		C954BA0C197F405500FD4FAB /* RestrictedTouchPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RestrictedTouchPickerView.m; sourceTree = "<group>"; };
+		C97FE1AC1C74D4100029294B /* RequestPermissionsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RequestPermissionsCell.h; sourceTree = "<group>"; };
+		C97FE1AD1C74D4100029294B /* RequestPermissionsCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RequestPermissionsCell.m; sourceTree = "<group>"; };
+		C97FE1AE1C74D4100029294B /* RequestPermissionsCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RequestPermissionsCell.xib; sourceTree = "<group>"; };
 		C9901ED7196F4070005A8734 /* UIImage+BlurEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+BlurEffects.h"; sourceTree = "<group>"; };
 		C9901ED8196F4070005A8734 /* UIImage+BlurEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+BlurEffects.m"; sourceTree = "<group>"; };
 		C9901EDD1970B6E6005A8734 /* TimerLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimerLabel.h; sourceTree = "<group>"; };
@@ -374,6 +379,9 @@
 				C954B9DD1977273900FD4FAB /* Interval */,
 				C954B9EA19787DCB00FD4FAB /* Start */,
 				C954B9F61979F36900FD4FAB /* App */,
+				C97FE1AC1C74D4100029294B /* RequestPermissionsCell.h */,
+				C97FE1AD1C74D4100029294B /* RequestPermissionsCell.m */,
+				C97FE1AE1C74D4100029294B /* RequestPermissionsCell.xib */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -541,6 +549,7 @@
 				C954B9E41977510800FD4FAB /* SingleIntervalCell.xib in Resources */,
 				C954B9E919787C1700FD4FAB /* StartCell.xib in Resources */,
 				C9D45D83198335240059C3C2 /* AppDetailsViewController_iPad.xib in Resources */,
+				C97FE1B01C74D4100029294B /* RequestPermissionsCell.xib in Resources */,
 				C922FAD21C6BFE8D00A94196 /* Launch Screen.storyboard in Resources */,
 				C911780E1C62C286008EF57B /* GoogleService-Info.plist in Resources */,
 				C954B9DC19771E5900FD4FAB /* IntervalCell.xib in Resources */,
@@ -650,6 +659,7 @@
 				C9D45D8619833E650059C3C2 /* VariableHeightLabel.m in Sources */,
 				C9E8177E199433F30034339A /* AppThemer.m in Sources */,
 				C9D45D7E1981DF4A0059C3C2 /* RoundedRectButton.m in Sources */,
+				C97FE1AF1C74D4100029294B /* RequestPermissionsCell.m in Sources */,
 				C954B9FE197DCCC000FD4FAB /* IAPHelper.m in Sources */,
 				C954B9F01979EBA500FD4FAB /* CompanyInfoTVController.m in Sources */,
 				C9901ED9196F4070005A8734 /* UIImage+BlurEffects.m in Sources */,

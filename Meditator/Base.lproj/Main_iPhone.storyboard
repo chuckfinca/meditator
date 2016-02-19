@@ -231,10 +231,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WXo-oD-0w3" customClass="TimerView">
-                                <rect key="frame" x="85" y="219" width="150" height="90"/>
+                                <rect key="frame" x="85" y="189" width="150" height="150"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="2zt-Dp-wGW"/>
+                                    <constraint firstAttribute="height" constant="150" id="2zt-Dp-wGW"/>
                                     <constraint firstAttribute="width" constant="150" id="64E-xA-Q2Z"/>
                                 </constraints>
                             </view>
@@ -263,7 +263,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="begin" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TZR-DM-UmW" customClass="TimerLabel">
-                                <rect key="frame" x="139" y="349" width="43" height="21"/>
+                                <rect key="frame" x="139" y="379" width="43" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>

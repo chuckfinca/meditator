@@ -61,4 +61,9 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
+-(void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"NOTIFICATION_SETTINGS_DID_CHANGE" object:notificationSettings];
+}
+
 @end

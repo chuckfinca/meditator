@@ -141,7 +141,7 @@
         self.resetButton.enabled = YES;
     }
     
-    self.intervalLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Interval %ld",selectedButtonIndex+1] attributes:[FontThemer sharedInstance].primaryHeadlineTextAttributes];
+    self.intervalLabel.attributedText = [[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"Interval %d",selectedButtonIndex+1] attributes:[FontThemer sharedInstance].primaryHeadlineTextAttributes];
     
     NSNumber *minutes = (NSNumber *)intervalArray[selectedButtonIndex];
     [self.minutePickerView selectRow:[minutes integerValue] inComponent:0 animated:YES];

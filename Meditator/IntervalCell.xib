@@ -10,61 +10,58 @@
         <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="IntervalCell" rowHeight="280" id="d2x-2u-OWV" customClass="IntervalCell">
             <rect key="frame" x="0.0" y="0.0" width="320" height="215"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d2x-2u-OWV" id="apk-w7-ofX">
+            <tableViewCellContentView key="contentView" opaque="NO" multipleTouchEnabled="YES" contentMode="center" horizontalCompressionResistancePriority="1000" tableViewCell="d2x-2u-OWV" id="apk-w7-ofX">
                 <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNb-3S-Vjk">
-                        <rect key="frame" x="19" y="162" width="50" height="44"/>
+                        <rect key="frame" x="20" y="162" width="50" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="44" id="Lv7-lY-yHQ"/>
-                            <constraint firstAttribute="width" constant="50" id="vbu-4a-saT"/>
+                            <constraint firstAttribute="height" constant="44" id="Tf2-bB-l8c"/>
+                            <constraint firstAttribute="width" constant="50" id="iQI-l1-Mi7"/>
                         </constraints>
                         <state key="normal" title="0"/>
                     </button>
                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AIg-7Z-ClE">
-                        <rect key="frame" x="77" y="162" width="50" height="44"/>
+                        <rect key="frame" x="78" y="162" width="50" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="N2g-U5-azi"/>
-                            <constraint firstAttribute="height" constant="44" id="X2j-Zq-yXj"/>
+                            <constraint firstAttribute="height" constant="44" id="401-rn-QzH"/>
+                            <constraint firstAttribute="width" constant="50" id="uP5-wH-R9g"/>
                         </constraints>
                         <state key="normal" title="1"/>
                     </button>
                     <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o34-ap-K9R">
-                        <rect key="frame" x="135" y="162" width="50" height="44"/>
+                        <rect key="frame" x="136" y="162" width="50" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="VoP-I7-qa5"/>
-                            <constraint firstAttribute="height" constant="44" id="afH-EE-I6Z"/>
+                            <constraint firstAttribute="width" constant="50" id="Afd-hc-Lpm"/>
+                            <constraint firstAttribute="height" constant="44" id="EHn-qg-AFV"/>
                         </constraints>
                         <state key="normal" title="2"/>
                     </button>
                     <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2s4-Ck-NSc">
-                        <rect key="frame" x="193" y="162" width="50" height="44"/>
+                        <rect key="frame" x="194" y="162" width="50" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="Io4-Ii-ccZ"/>
-                            <constraint firstAttribute="height" constant="44" id="nu3-qJ-kyL"/>
+                            <constraint firstAttribute="height" constant="44" id="8ud-93-qga"/>
+                            <constraint firstAttribute="width" constant="50" id="HEp-p0-ebI"/>
                         </constraints>
                         <state key="normal" title="3"/>
                     </button>
                     <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tiv-Wy-4ZJ">
-                        <rect key="frame" x="251" y="162" width="50" height="44"/>
+                        <rect key="frame" x="252" y="162" width="50" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="50" id="7dd-gc-bJm"/>
-                            <constraint firstAttribute="height" constant="44" id="KaN-Ne-atd"/>
+                            <constraint firstAttribute="height" constant="44" id="Lb7-UP-CAa"/>
+                            <constraint firstAttribute="width" constant="50" id="ooz-y8-7TH"/>
                         </constraints>
                         <state key="normal" title="4"/>
                     </button>
                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOh-b0-dv4" customClass="RestrictedTouchPickerView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="162" id="AAX-PK-CjX"/>
-                        </constraints>
                     </pickerView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDh-Gr-2TG">
                         <rect key="frame" x="276" y="0.0" width="44" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="44" id="2t9-uh-H83"/>
-                            <constraint firstAttribute="width" constant="44" id="ZPM-4J-tgq"/>
+                            <constraint firstAttribute="width" constant="44" id="mKM-dr-aRQ"/>
+                            <constraint firstAttribute="height" constant="44" id="n4O-rS-0vA"/>
                         </constraints>
                         <state key="normal" title="reset">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -73,8 +70,8 @@
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="odB-nq-vLq">
                         <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="44" id="ES7-0B-LKR"/>
-                            <constraint firstAttribute="width" constant="44" id="bXd-ef-VZf"/>
+                            <constraint firstAttribute="width" constant="44" id="25U-bQ-gIR"/>
+                            <constraint firstAttribute="height" constant="44" id="jIl-pM-njh"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="24"/>
                         <state key="normal" title="-">
@@ -86,46 +83,43 @@
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msv-yq-MoW">
-                        <rect key="frame" x="182" y="72" width="28" height="21"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msv-yq-MoW">
+                        <rect key="frame" x="182" y="71" width="28" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="JDh-Gr-2TG" secondAttribute="trailing" id="2kr-me-Y1H"/>
-                    <constraint firstAttribute="bottom" secondItem="TNb-3S-Vjk" secondAttribute="bottom" constant="8" id="3Z8-Mc-Um7"/>
-                    <constraint firstItem="o34-ap-K9R" firstAttribute="centerY" secondItem="AIg-7Z-ClE" secondAttribute="centerY" id="AGU-t7-5rR"/>
-                    <constraint firstItem="2s4-Ck-NSc" firstAttribute="leading" secondItem="o34-ap-K9R" secondAttribute="trailing" constant="8" id="Ajt-Vz-fNP"/>
-                    <constraint firstItem="Msv-yq-MoW" firstAttribute="centerX" secondItem="aOh-b0-dv4" secondAttribute="centerX" constant="36" id="Ayx-QL-eim"/>
-                    <constraint firstItem="TNb-3S-Vjk" firstAttribute="leading" secondItem="apk-w7-ofX" secondAttribute="leading" constant="19" id="D8P-wd-LuQ"/>
-                    <constraint firstItem="aOh-b0-dv4" firstAttribute="leading" secondItem="apk-w7-ofX" secondAttribute="leading" id="FSC-S7-Anc"/>
-                    <constraint firstItem="AIg-7Z-ClE" firstAttribute="leading" secondItem="TNb-3S-Vjk" secondAttribute="trailing" constant="8" id="Kvc-99-vHy"/>
-                    <constraint firstItem="o34-ap-K9R" firstAttribute="centerY" secondItem="tiv-Wy-4ZJ" secondAttribute="centerY" id="QVV-nL-vCE"/>
-                    <constraint firstItem="aOh-b0-dv4" firstAttribute="top" secondItem="apk-w7-ofX" secondAttribute="top" id="ScU-87-CK8"/>
-                    <constraint firstItem="o34-ap-K9R" firstAttribute="leading" secondItem="AIg-7Z-ClE" secondAttribute="trailing" constant="8" id="UYs-2a-RZU"/>
-                    <constraint firstItem="ode-MX-LeD" firstAttribute="leading" secondItem="apk-w7-ofX" secondAttribute="leading" constant="14" id="aw1-gZ-GpN"/>
-                    <constraint firstItem="TNb-3S-Vjk" firstAttribute="top" secondItem="aOh-b0-dv4" secondAttribute="bottom" id="bAq-cm-elG"/>
-                    <constraint firstItem="JDh-Gr-2TG" firstAttribute="top" secondItem="apk-w7-ofX" secondAttribute="top" id="cu8-6f-JvQ"/>
-                    <constraint firstItem="odB-nq-vLq" firstAttribute="leading" secondItem="apk-w7-ofX" secondAttribute="leading" id="hDJ-Pn-ZBc"/>
-                    <constraint firstItem="tiv-Wy-4ZJ" firstAttribute="leading" secondItem="2s4-Ck-NSc" secondAttribute="trailing" constant="8" id="i10-eX-rEP"/>
-                    <constraint firstItem="o34-ap-K9R" firstAttribute="centerY" secondItem="2s4-Ck-NSc" secondAttribute="centerY" id="jUw-gr-Fkx"/>
-                    <constraint firstItem="ode-MX-LeD" firstAttribute="bottom" secondItem="aOh-b0-dv4" secondAttribute="bottom" id="l8H-RG-uG8"/>
-                    <constraint firstItem="odB-nq-vLq" firstAttribute="top" secondItem="apk-w7-ofX" secondAttribute="top" id="mdp-Kk-PJr"/>
-                    <constraint firstItem="Msv-yq-MoW" firstAttribute="centerY" secondItem="aOh-b0-dv4" secondAttribute="centerY" constant="1" id="oAo-av-ev1"/>
-                    <constraint firstItem="o34-ap-K9R" firstAttribute="centerY" secondItem="TNb-3S-Vjk" secondAttribute="centerY" id="qtu-uW-jWD"/>
-                    <constraint firstAttribute="trailing" secondItem="aOh-b0-dv4" secondAttribute="trailing" id="xvC-mM-eDl"/>
+                    <constraint firstItem="AIg-7Z-ClE" firstAttribute="centerY" secondItem="TNb-3S-Vjk" secondAttribute="centerY" id="48a-m8-1jg"/>
+                    <constraint firstItem="o34-ap-K9R" firstAttribute="leading" secondItem="AIg-7Z-ClE" secondAttribute="trailing" constant="8" id="4GI-B8-lt8"/>
+                    <constraint firstAttribute="bottom" secondItem="aOh-b0-dv4" secondAttribute="bottom" constant="52" id="7Gh-RM-aYY"/>
+                    <constraint firstItem="Msv-yq-MoW" firstAttribute="centerX" secondItem="apk-w7-ofX" secondAttribute="centerX" constant="36" id="89W-Fs-6i0"/>
+                    <constraint firstItem="tiv-Wy-4ZJ" firstAttribute="leading" secondItem="2s4-Ck-NSc" secondAttribute="trailing" constant="8" id="9YW-1m-Fa9"/>
+                    <constraint firstItem="o34-ap-K9R" firstAttribute="centerY" secondItem="TNb-3S-Vjk" secondAttribute="centerY" id="A8f-jS-5A1"/>
+                    <constraint firstItem="TNb-3S-Vjk" firstAttribute="top" secondItem="aOh-b0-dv4" secondAttribute="bottom" id="AnN-W3-ngY"/>
+                    <constraint firstItem="JDh-Gr-2TG" firstAttribute="trailing" secondItem="aOh-b0-dv4" secondAttribute="trailing" id="Cp4-Iz-xgr"/>
+                    <constraint firstItem="2s4-Ck-NSc" firstAttribute="centerY" secondItem="TNb-3S-Vjk" secondAttribute="centerY" id="LTK-1z-Uip"/>
+                    <constraint firstItem="aOh-b0-dv4" firstAttribute="top" secondItem="apk-w7-ofX" secondAttribute="top" id="LYa-E4-gal"/>
+                    <constraint firstItem="JDh-Gr-2TG" firstAttribute="top" secondItem="aOh-b0-dv4" secondAttribute="top" id="Pdr-F7-ThX"/>
+                    <constraint firstItem="ode-MX-LeD" firstAttribute="leading" secondItem="aOh-b0-dv4" secondAttribute="leading" constant="14" id="Qdq-NI-Jf6"/>
+                    <constraint firstItem="aOh-b0-dv4" firstAttribute="leading" secondItem="odB-nq-vLq" secondAttribute="leading" id="R67-Cx-lgL"/>
+                    <constraint firstItem="2s4-Ck-NSc" firstAttribute="leading" secondItem="o34-ap-K9R" secondAttribute="trailing" constant="8" id="SqO-Ur-hpt"/>
+                    <constraint firstAttribute="trailing" secondItem="aOh-b0-dv4" secondAttribute="trailing" id="Thw-w1-HZY"/>
+                    <constraint firstItem="aOh-b0-dv4" firstAttribute="leading" secondItem="apk-w7-ofX" secondAttribute="leading" id="fWU-PS-Vsc"/>
+                    <constraint firstItem="AIg-7Z-ClE" firstAttribute="leading" secondItem="TNb-3S-Vjk" secondAttribute="trailing" constant="8" id="jzQ-OU-sAf"/>
+                    <constraint firstItem="TNb-3S-Vjk" firstAttribute="leading" secondItem="aOh-b0-dv4" secondAttribute="leading" constant="20" id="n66-EN-7O0"/>
+                    <constraint firstItem="Msv-yq-MoW" firstAttribute="centerY" secondItem="aOh-b0-dv4" secondAttribute="centerY" id="sSq-uD-wyh"/>
+                    <constraint firstItem="aOh-b0-dv4" firstAttribute="top" secondItem="odB-nq-vLq" secondAttribute="top" id="yRX-8X-5qN"/>
+                    <constraint firstItem="tiv-Wy-4ZJ" firstAttribute="centerY" secondItem="TNb-3S-Vjk" secondAttribute="centerY" id="yeL-Xc-ZKp"/>
+                    <constraint firstItem="ode-MX-LeD" firstAttribute="bottom" secondItem="aOh-b0-dv4" secondAttribute="bottom" id="zhS-nW-efL"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
-                <outlet property="buttonArrayToBottomConstraint" destination="3Z8-Mc-Um7" id="Y7c-PL-cmN"/>
-                <outlet property="buttonHeightConstraint" destination="Lv7-lY-yHQ" id="rPc-br-lLU"/>
                 <outlet property="intervalLabel" destination="ode-MX-LeD" id="IhC-Xd-orR"/>
                 <outlet property="minutePickerView" destination="aOh-b0-dv4" id="fKw-kF-LWK"/>
                 <outlet property="pickerLabel" destination="Msv-yq-MoW" id="gaa-aH-KhD"/>
                 <outlet property="resetButton" destination="JDh-Gr-2TG" id="ONc-SO-TRM"/>
                 <outlet property="toggleIntervalsButton" destination="odB-nq-vLq" id="CxF-ES-uAp"/>
-                <outlet property="topToMinutePickerViewConstraint" destination="ScU-87-CK8" id="FOX-HG-3yV"/>
                 <outletCollection property="buttonArray" destination="TNb-3S-Vjk" id="qq4-Lg-4zh"/>
                 <outletCollection property="buttonArray" destination="AIg-7Z-ClE" id="Jes-l8-gqy"/>
                 <outletCollection property="buttonArray" destination="o34-ap-K9R" id="Uz5-da-ChD"/>
