@@ -56,6 +56,9 @@
                     </button>
                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="aOh-b0-dv4" customClass="RestrictedTouchPickerView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="162"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="162" id="70K-On-0aY"/>
+                        </constraints>
                     </pickerView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JDh-Gr-2TG">
                         <rect key="frame" x="276" y="0.0" width="44" height="44"/>
