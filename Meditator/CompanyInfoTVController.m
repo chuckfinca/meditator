@@ -213,7 +213,8 @@
         MFMailComposeViewController *mailSender = [[MFMailComposeViewController alloc] init];
         mailSender.mailComposeDelegate = self;
         [mailSender setToRecipients:@[@"support@appsimple.io"]];
-        [mailSender setSubject:@"Mind Timer Support"];
+        NSString *subject = [NSString stringWithFormat:@"Mind Timer (%@) Support",[[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleShortVersionString"]];
+        [mailSender setSubject:subject];
         [self presentViewController:mailSender animated:YES completion:nil];
     } else {
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Unable to send email" message:@"Please try again with a strong internet connection" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
