@@ -155,17 +155,20 @@ static Timer *sharedInstance;
 
 -(BOOL)timerStillActive
 {
-    BOOL timerStillActive = NO;
+    BOOL timerStillActive = YES;
     
     if(self.localNotificationsArray.count > 0){
+        BOOL timerDidEndInBackground = YES;
         NSDate *now = [NSDate date];
         for(UILocalNotification *notification in self.localNotificationsArray){
             if([notification.fireDate laterDate:now] == notification.fireDate){
-                timerStillActive = YES;
+                timerDidEndInBackground = NO;
                 break;
             }
         }
+        timerStillActive = !timerDidEndInBackground;
     }
+    
     return timerStillActive;
 }
 
