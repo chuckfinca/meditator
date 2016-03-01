@@ -40,6 +40,7 @@
     [self.tableView registerNib:[UINib nibWithNibName:@"CenterAlignedTextCell" bundle:nil] forCellReuseIdentifier:@"CenterAlignedTextCell"];
     self.appID = @"901569488"; // Guided Mind = 672076838
     self.affiliateCode = @"1l3vcSo";
+    self.tableView.estimatedRowHeight = 60;
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -129,6 +130,10 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_8_4) {
+        return UITableViewAutomaticDimension;
+    }
+    
     float height = 0;
     switch (indexPath.section) {
         case 0:

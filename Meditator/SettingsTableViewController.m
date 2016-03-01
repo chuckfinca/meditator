@@ -322,6 +322,10 @@
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (floor(NSFoundationVersionNumber) > NSFoundationVersionNumber_iOS_8_4) {
+        return UITableViewAutomaticDimension;
+    }
+    
     UITableViewCell *cell;
     switch (indexPath.section) {
         case 0:
@@ -344,6 +348,7 @@
         default:
             break;
     }
+    
     return [cell.contentView sizeThatFits:UILayoutFittingCompressedSize].height+1;
 }
 
