@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,6 +14,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="214"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vbl-Qc-PyX">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="214"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hKu-sj-OuL">
+                        <rect key="frame" x="160" y="0.0" width="160" height="214"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TNb-3S-Vjk">
                         <rect key="frame" x="20" y="162" width="50" height="44"/>
                         <constraints>
@@ -87,7 +95,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Msv-yq-MoW">
-                        <rect key="frame" x="182" y="71" width="28" height="21"/>
+                        <rect key="frame" x="184" y="71" width="28" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -96,24 +104,32 @@
                     <constraint firstItem="AIg-7Z-ClE" firstAttribute="centerY" secondItem="TNb-3S-Vjk" secondAttribute="centerY" id="48a-m8-1jg"/>
                     <constraint firstItem="o34-ap-K9R" firstAttribute="leading" secondItem="AIg-7Z-ClE" secondAttribute="trailing" constant="8" id="4GI-B8-lt8"/>
                     <constraint firstAttribute="bottom" secondItem="aOh-b0-dv4" secondAttribute="bottom" constant="52" id="7Gh-RM-aYY"/>
-                    <constraint firstItem="Msv-yq-MoW" firstAttribute="centerX" secondItem="apk-w7-ofX" secondAttribute="centerX" constant="36" id="89W-Fs-6i0"/>
                     <constraint firstItem="tiv-Wy-4ZJ" firstAttribute="leading" secondItem="2s4-Ck-NSc" secondAttribute="trailing" constant="8" id="9YW-1m-Fa9"/>
                     <constraint firstItem="o34-ap-K9R" firstAttribute="centerY" secondItem="TNb-3S-Vjk" secondAttribute="centerY" id="A8f-jS-5A1"/>
                     <constraint firstItem="TNb-3S-Vjk" firstAttribute="top" secondItem="aOh-b0-dv4" secondAttribute="bottom" id="AnN-W3-ngY"/>
+                    <constraint firstItem="vbl-Qc-PyX" firstAttribute="top" secondItem="apk-w7-ofX" secondAttribute="top" id="BeR-Qg-Qfn"/>
                     <constraint firstItem="JDh-Gr-2TG" firstAttribute="trailing" secondItem="aOh-b0-dv4" secondAttribute="trailing" id="Cp4-Iz-xgr"/>
+                    <constraint firstItem="hKu-sj-OuL" firstAttribute="leading" secondItem="vbl-Qc-PyX" secondAttribute="trailing" id="H3R-tu-2VR"/>
+                    <constraint firstItem="Msv-yq-MoW" firstAttribute="leading" secondItem="vbl-Qc-PyX" secondAttribute="trailing" constant="24" id="HBr-8C-jar"/>
                     <constraint firstItem="2s4-Ck-NSc" firstAttribute="centerY" secondItem="TNb-3S-Vjk" secondAttribute="centerY" id="LTK-1z-Uip"/>
                     <constraint firstItem="aOh-b0-dv4" firstAttribute="top" secondItem="apk-w7-ofX" secondAttribute="top" id="LYa-E4-gal"/>
+                    <constraint firstAttribute="trailing" secondItem="hKu-sj-OuL" secondAttribute="trailing" id="MhL-jN-lmc"/>
                     <constraint firstItem="JDh-Gr-2TG" firstAttribute="top" secondItem="aOh-b0-dv4" secondAttribute="top" id="Pdr-F7-ThX"/>
                     <constraint firstItem="ode-MX-LeD" firstAttribute="leading" secondItem="aOh-b0-dv4" secondAttribute="leading" constant="14" id="Qdq-NI-Jf6"/>
                     <constraint firstItem="aOh-b0-dv4" firstAttribute="leading" secondItem="odB-nq-vLq" secondAttribute="leading" id="R67-Cx-lgL"/>
                     <constraint firstItem="2s4-Ck-NSc" firstAttribute="leading" secondItem="o34-ap-K9R" secondAttribute="trailing" constant="8" id="SqO-Ur-hpt"/>
                     <constraint firstAttribute="trailing" secondItem="aOh-b0-dv4" secondAttribute="trailing" id="Thw-w1-HZY"/>
                     <constraint firstItem="aOh-b0-dv4" firstAttribute="leading" secondItem="apk-w7-ofX" secondAttribute="leading" id="fWU-PS-Vsc"/>
+                    <constraint firstItem="hKu-sj-OuL" firstAttribute="top" secondItem="apk-w7-ofX" secondAttribute="top" id="gas-mi-Fz5"/>
+                    <constraint firstItem="vbl-Qc-PyX" firstAttribute="leading" secondItem="apk-w7-ofX" secondAttribute="leading" id="iKq-wC-Jhs"/>
                     <constraint firstItem="AIg-7Z-ClE" firstAttribute="leading" secondItem="TNb-3S-Vjk" secondAttribute="trailing" constant="8" id="jzQ-OU-sAf"/>
                     <constraint firstItem="TNb-3S-Vjk" firstAttribute="leading" secondItem="aOh-b0-dv4" secondAttribute="leading" constant="20" id="n66-EN-7O0"/>
                     <constraint firstItem="Msv-yq-MoW" firstAttribute="centerY" secondItem="aOh-b0-dv4" secondAttribute="centerY" id="sSq-uD-wyh"/>
+                    <constraint firstItem="hKu-sj-OuL" firstAttribute="width" secondItem="vbl-Qc-PyX" secondAttribute="width" id="sd8-Kh-fSl"/>
+                    <constraint firstAttribute="bottom" secondItem="hKu-sj-OuL" secondAttribute="bottom" id="woZ-aW-UVJ"/>
                     <constraint firstItem="aOh-b0-dv4" firstAttribute="top" secondItem="odB-nq-vLq" secondAttribute="top" id="yRX-8X-5qN"/>
                     <constraint firstItem="tiv-Wy-4ZJ" firstAttribute="centerY" secondItem="TNb-3S-Vjk" secondAttribute="centerY" id="yeL-Xc-ZKp"/>
+                    <constraint firstAttribute="bottom" secondItem="vbl-Qc-PyX" secondAttribute="bottom" id="zKc-OD-hal"/>
                     <constraint firstItem="ode-MX-LeD" firstAttribute="bottom" secondItem="aOh-b0-dv4" secondAttribute="bottom" id="zhS-nW-efL"/>
                 </constraints>
             </tableViewCellContentView>

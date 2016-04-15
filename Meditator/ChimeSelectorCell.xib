@@ -89,7 +89,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="Og9-kl-Qr1" firstAttribute="centerY" secondItem="Zqa-cD-isp" secondAttribute="centerY" id="0jX-jk-HtN"/>
-                    <constraint firstAttribute="bottom" secondItem="cPh-nO-LwM" secondAttribute="bottom" constant="20" symbolic="YES" id="3eX-bV-wpT"/>
+                    <constraint firstAttribute="bottom" secondItem="cPh-nO-LwM" secondAttribute="bottom" priority="999" constant="20" symbolic="YES" id="3eX-bV-wpT"/>
                     <constraint firstItem="uf7-lX-12y" firstAttribute="leading" secondItem="9s0-l0-zUs" secondAttribute="leading" constant="20" id="98e-Zg-g3B"/>
                     <constraint firstItem="Og9-kl-Qr1" firstAttribute="centerY" secondItem="6Kr-DL-4bG" secondAttribute="centerY" id="WIK-V2-Dyr"/>
                     <constraint firstItem="6Kr-DL-4bG" firstAttribute="leading" secondItem="Zqa-cD-isp" secondAttribute="trailing" constant="15" id="Wgf-pX-VL4"/>

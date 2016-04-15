@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,6 +14,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vgf-wu-3sk">
+                        <rect key="frame" x="0.0" y="0.0" width="160" height="161"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pIT-Wz-gLG">
+                        <rect key="frame" x="160" y="0.0" width="160" height="161"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hiw-Lt-Qyf" customClass="RestrictedTouchPickerView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="161"/>
                     </pickerView>
@@ -38,22 +46,32 @@
                         </state>
                     </button>
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ohk-SZ-OEC">
-                        <rect key="frame" x="182" y="70" width="28" height="21"/>
+                        <rect key="frame" x="184" y="70" width="28" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
                 <constraints>
+                    <constraint firstItem="pIT-Wz-gLG" firstAttribute="width" secondItem="Vgf-wu-3sk" secondAttribute="width" id="0aB-NM-e68"/>
                     <constraint firstItem="hiw-Lt-Qyf" firstAttribute="leading" secondItem="Yrj-js-DDY" secondAttribute="leading" id="28Q-xN-vdO"/>
+                    <constraint firstItem="pIT-Wz-gLG" firstAttribute="leading" secondItem="Vgf-wu-3sk" secondAttribute="trailing" id="5R3-Fu-BEw"/>
                     <constraint firstItem="Ohk-SZ-OEC" firstAttribute="centerY" secondItem="hiw-Lt-Qyf" secondAttribute="centerY" id="6kJ-9w-mHD"/>
+                    <constraint firstAttribute="bottom" secondItem="pIT-Wz-gLG" secondAttribute="bottom" id="7Gp-XK-aHZ"/>
                     <constraint firstItem="mb3-b6-mG9" firstAttribute="trailing" secondItem="hiw-Lt-Qyf" secondAttribute="trailing" id="Crc-iX-FcS"/>
                     <constraint firstItem="mb3-b6-mG9" firstAttribute="top" secondItem="hiw-Lt-Qyf" secondAttribute="top" id="Erz-ui-qhX"/>
+                    <constraint firstItem="Vgf-wu-3sk" firstAttribute="leading" secondItem="Yrj-js-DDY" secondAttribute="leading" id="F9l-Hn-2jc"/>
+                    <constraint firstItem="pIT-Wz-gLG" firstAttribute="leading" secondItem="Vgf-wu-3sk" secondAttribute="trailing" id="JxE-Xa-tug"/>
+                    <constraint firstAttribute="trailing" secondItem="pIT-Wz-gLG" secondAttribute="trailing" id="P4I-yd-9zS"/>
                     <constraint firstItem="hiw-Lt-Qyf" firstAttribute="top" secondItem="w2b-qp-lxm" secondAttribute="top" id="UBE-O5-hxV"/>
+                    <constraint firstAttribute="bottom" secondItem="Vgf-wu-3sk" secondAttribute="bottom" id="exK-qm-lmK"/>
+                    <constraint firstItem="Vgf-wu-3sk" firstAttribute="top" secondItem="Yrj-js-DDY" secondAttribute="top" id="ffx-lE-NW3"/>
+                    <constraint firstItem="Ohk-SZ-OEC" firstAttribute="leading" secondItem="Vgf-wu-3sk" secondAttribute="trailing" constant="24" id="gHm-6Q-mDO"/>
                     <constraint firstItem="hiw-Lt-Qyf" firstAttribute="top" secondItem="Yrj-js-DDY" secondAttribute="top" id="h0t-4J-VqU"/>
+                    <constraint firstItem="pIT-Wz-gLG" firstAttribute="top" secondItem="Yrj-js-DDY" secondAttribute="top" id="iqg-D6-UeU"/>
                     <constraint firstAttribute="trailing" secondItem="hiw-Lt-Qyf" secondAttribute="trailing" id="pSi-Zd-spt"/>
                     <constraint firstItem="hiw-Lt-Qyf" firstAttribute="leading" secondItem="w2b-qp-lxm" secondAttribute="leading" id="qsl-nj-6tC"/>
+                    <constraint firstItem="pIT-Wz-gLG" firstAttribute="width" secondItem="Vgf-wu-3sk" secondAttribute="width" id="tfu-lZ-iZA"/>
                     <constraint firstAttribute="bottom" secondItem="hiw-Lt-Qyf" secondAttribute="bottom" id="wpX-4Z-YPD"/>
-                    <constraint firstItem="Ohk-SZ-OEC" firstAttribute="centerX" secondItem="hiw-Lt-Qyf" secondAttribute="centerX" constant="36" id="xr9-tN-bps"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>

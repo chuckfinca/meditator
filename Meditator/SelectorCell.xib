@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="15D21" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -21,17 +21,6 @@
                             <constraint firstAttribute="width" constant="44" id="ofZ-Lh-5qc"/>
                         </constraints>
                         <state key="normal" title="0">
-                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                        </state>
-                    </button>
-                    <button opaque="NO" tag="1" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUa-dh-luZ">
-                        <rect key="frame" x="79" y="20" width="44" height="44"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="44" id="0xn-8q-69Z"/>
-                            <constraint firstAttribute="height" constant="44" id="8ut-LG-1ut"/>
-                        </constraints>
-                        <state key="normal" title="1">
                             <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
@@ -69,11 +58,23 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
+                    <button opaque="NO" tag="1" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pUa-dh-luZ">
+                        <rect key="frame" x="79" y="20" width="44" height="44"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="44" id="0xn-8q-69Z"/>
+                            <constraint firstAttribute="height" constant="44" id="8ut-LG-1ut"/>
+                        </constraints>
+                        <state key="normal" title="1">
+                            <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="eec-Ux-DUa" firstAttribute="leading" secondItem="n6y-KB-Wvk" secondAttribute="trailing" constant="15" id="42g-qA-CGI"/>
                     <constraint firstItem="n6y-KB-Wvk" firstAttribute="leading" secondItem="pUa-dh-luZ" secondAttribute="trailing" constant="15" id="AyT-IN-wyo"/>
                     <constraint firstItem="n6y-KB-Wvk" firstAttribute="centerY" secondItem="tmp-5o-iHY" secondAttribute="centerY" id="R3n-87-sZx"/>
+                    <constraint firstAttribute="bottom" secondItem="gZV-d6-gd9" secondAttribute="bottom" priority="999" constant="20" symbolic="YES" id="TEi-va-uGK"/>
                     <constraint firstItem="n6y-KB-Wvk" firstAttribute="centerY" secondItem="eec-Ux-DUa" secondAttribute="centerY" id="TRI-6v-rRL"/>
                     <constraint firstItem="gZV-d6-gd9" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="20" id="Umz-P5-DsE"/>
                     <constraint firstItem="gZV-d6-gd9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="XMG-yY-E09"/>
