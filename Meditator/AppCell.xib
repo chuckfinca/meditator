@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment defaultVersion="1808" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -32,6 +32,7 @@
                     <constraint firstAttribute="trailing" secondItem="Mkb-EY-DUC" secondAttribute="trailing" constant="20" id="85i-nn-4Rx"/>
                     <constraint firstItem="goe-0s-wWo" firstAttribute="centerY" secondItem="Mkb-EY-DUC" secondAttribute="centerY" id="CvX-6n-BDi"/>
                     <constraint firstItem="Mkb-EY-DUC" firstAttribute="leading" secondItem="goe-0s-wWo" secondAttribute="trailing" constant="8" id="oqW-gY-8dy"/>
+                    <constraint firstAttribute="bottom" secondItem="goe-0s-wWo" secondAttribute="bottom" priority="999" constant="20" symbolic="YES" id="qp2-jR-r3t"/>
                     <constraint firstItem="goe-0s-wWo" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="rFD-c7-bz9"/>
                 </constraints>
             </tableViewCellContentView>
@@ -42,9 +43,4 @@
             </connections>
         </tableViewCell>
     </objects>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>
