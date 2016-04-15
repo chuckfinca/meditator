@@ -36,12 +36,11 @@ void SoundMuteCheckCompletion(SystemSoundID  ssID,void *clientData)
     NSTimeInterval elapsedTime = [[NSDate date] timeIntervalSinceDate:sep.startTime];
     if(elapsedTime < 0.4){
         NSLog(@"mute is on");
-        if(sep.timerEnded){
-            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-        } else {
+        if(!sep.timerEnded){
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Silent Mode Detected" message:@"Unsilence your device to play chimes." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil];
             [alert show];
         }
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
     }
 }
 
